@@ -14,7 +14,7 @@ Description:
 
 
 
-```
+```python
  fn do(arr) {
      
  }
@@ -24,7 +24,7 @@ Description:
 
 
 
-```
+```python
  fn do() {
      
  }
@@ -44,7 +44,7 @@ Description:
 
 
 
-```
+```python
  req https://www.apple.co// MARK: - j
 ```
 
@@ -52,7 +52,7 @@ Description:
 
 
 
-```
+```python
  r = requests.get("https://www.apple.com ")
  
 ```
@@ -71,7 +71,7 @@ Description:
 
 
 
-```
+```python
  re.findall(r'd+', str)
 ```
 
@@ -91,7 +91,7 @@ Description:
 
 
 
-```
+```python
  soup = BeautifulSoup(r.content, 'html.parser')
  
 ```
@@ -112,7 +112,7 @@ Description:
 
 
 
-```
+```python
  class Story:
      def __init__(self):
          
@@ -132,7 +132,7 @@ Description:
 
 
 
-```
+```python
  if any(w for w in ("Apple", "Banana", "Croissant")):
      
 ```
@@ -151,7 +151,7 @@ Description:
 
 
 
-```
+```python
  with open('~/Downloads/example.txt') as f:
      
 ```
@@ -170,7 +170,7 @@ Description:
 
 
 
-```
+```python
  script = subprocess.run("brew list".split(), stdout=subprocess.PIPE)
  
 ```
@@ -187,7 +187,7 @@ Description:
 
 
 
-```
+```python
  fn main() {
      
  }
@@ -197,7 +197,7 @@ Description:
 
 
 
-```
+```python
  if __name__ == "__main__":
      Story().read()
 ```
@@ -216,7 +216,7 @@ Description:
 
 
 
-```
+```python
  results = list(map(int, results))
 ```
 
@@ -234,7 +234,7 @@ Description:
 
 
 
-```
+```python
  !/usr/bin/env python3.6
  #
 ```

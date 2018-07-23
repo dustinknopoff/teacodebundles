@@ -14,7 +14,7 @@ Description:
 
 
 
-```
+```java
  private static final int SIZE = 300;
  
 ```
@@ -33,7 +33,7 @@ Description:
 
 
 
-```
+```java
  if (x > 300) {
      
  }
@@ -53,7 +53,7 @@ Description:
 
 
 
-```
+```java
  for (int i : ArrayList arr) {
      
  }
@@ -73,7 +73,7 @@ Description:
 
 
 
-```
+```java
  for (int i = 0; i <= arr.length(); i++) {
      
  }
@@ -93,7 +93,7 @@ Description:
 
 
 
-```
+```java
  private final List<Shape> shapes;
  
 ```
@@ -102,7 +102,7 @@ Description:
 
 
 
-```
+```java
  private final int maxHeight;
  
 ```
@@ -121,7 +121,7 @@ Description:
 
 
 
-```
+```java
  private final void animatorModel() {
      
  }
@@ -131,7 +131,7 @@ Description:
 
 
 
-```
+```java
  private final boolean addShape(Shape shape) {
      
  }
@@ -151,7 +151,7 @@ Description:
 
 
 
-```
+```java
  throw new UnsupportedOperationException("Cannot do this in non-Hybrid View");
  
 ```
@@ -170,7 +170,7 @@ Description:
 
 
 
-```
+```java
  Oval o = (Oval) s;
  
 ```
@@ -189,7 +189,7 @@ Description:
 
 
 
-```
+```java
  public class Nombre extends Familia {
      
  }
@@ -209,7 +209,7 @@ Description:
 
 
 
-```
+```java
  interface Car implements Base
  {
      
@@ -220,7 +220,7 @@ Description:
 
 
 
-```
+```java
  interface Car extends Base
  {
      
@@ -241,7 +241,7 @@ Description:
 
 
 
-```
+```java
  class Car implements Base
  {
      
@@ -252,7 +252,7 @@ Description:
 
 
 
-```
+```java
  class Car extends Base
  {
      
@@ -273,7 +273,7 @@ Description:
 
 
 
-```
+```java
  +String run()
  {
      
@@ -284,7 +284,7 @@ Description:
 
 
 
-```
+```java
  +int run(String param1, int param2)
  {
      
@@ -303,7 +303,7 @@ Description:
 
 
 
-```
+```java
  public
 ```
 
@@ -311,7 +311,7 @@ Description:
 
 
 
-```
+```java
  - 
 ```
 
@@ -319,7 +319,7 @@ Description:
 
 
 
-```
+```java
  protected
 ```
 

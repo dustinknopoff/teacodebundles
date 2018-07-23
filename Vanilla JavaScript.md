@@ -14,7 +14,7 @@ Description:
 
 
 
-```
+```js
  var btns = document.getElementById("menu-button");
  
 ```
@@ -33,7 +33,7 @@ Description:
 
 
 
-```
+```js
  var btns = document.getElementsByClassName("links");
  
 ```
@@ -52,7 +52,7 @@ Description:
 
 
 
-```
+```js
  var btns = document.getElementsByTagName("button");
  
 ```
@@ -71,7 +71,7 @@ Description:
 
 
 
-```
+```js
  l.className += active;
  
 ```
@@ -90,7 +90,7 @@ Description:
 
 
 
-```
+```js
  Object.keys(query)
      .forEach((key) => {
          
@@ -111,7 +111,7 @@ Description:
 
 
 
-```
+```js
  fetch("https://www.api.github.com")
      .then(res => res.json())
      .then(result => {
@@ -135,7 +135,7 @@ Description:
 
 
 
-```
+```js
  app.get('/api/users', (req, res) => {
      
  }
@@ -155,7 +155,7 @@ Description:
 
 
 
-```
+```js
  console.log(chicken.little());
  
 ```

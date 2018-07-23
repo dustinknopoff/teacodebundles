@@ -14,7 +14,7 @@ Description:
 
 
 
-```
+```any
  fn main() {
      
  }
@@ -24,7 +24,7 @@ Description:
 
 
 
-```
+```any
  fn divide(divisor: i32, dividend: i32) {
      
  }
@@ -44,7 +44,7 @@ Description:
 
 
 
-```
+```any
  impl Rectangle {
      
  }
@@ -78,7 +78,7 @@ Description:
 
 
 
-```
+```any
  let mut integer = 36;
 ```
 
@@ -86,7 +86,7 @@ Description:
 
 
 
-```
+```any
  let mut integer: usize = 36;
 ```
 
@@ -110,7 +110,7 @@ Description:
 
 
 
-```
+```any
  fn main() {
      
  }
@@ -128,7 +128,7 @@ Description:
 
 
 
-```
+```any
  match number {
       => 
  }

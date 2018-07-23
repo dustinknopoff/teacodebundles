@@ -15,7 +15,7 @@ Description:
 
 
 
-```
+```js
  const page = this.props.page;
  
  this.setState({ page });
@@ -35,7 +35,7 @@ Description:
 
 
 
-```
+```js
  setLimit = (max) => {
      
  };
@@ -55,7 +55,7 @@ Description:
 
 
 
-```
+```js
  import React, {Component} from 'react';
  
  class Header extends Component {
