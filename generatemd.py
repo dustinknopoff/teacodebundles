@@ -84,7 +84,7 @@ class Expander:
                     temp = json.loads(stdout)
                     # Format as code and code blocks
                     usable.append(f'`{string}`' + '\n\n')
-                    usable.append(f'```\n{temp["text"]}\n```')
+                    usable.append(f'```{typer}\n{temp["text"]}\n```')
                 else:
                     # If the line is not a expander example, make it a blockquote
                     if string is not '':
