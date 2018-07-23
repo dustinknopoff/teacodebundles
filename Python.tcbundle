@@ -1,0 +1,131 @@
+{
+  "description" : "Commonly Used Python Expansions\n\nMade by [twitter] @dustinknopoff",
+  "name" : "Python",
+  "expanders" : [
+    {
+      "name" : "Function",
+      "is_enabled" : true,
+      "description" : "Creates default function statement.\n> fn do arr\n\n\n> fn do",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "fn ${name:word}| ${params:text?}|",
+      "output_template" : "def ${name.snakecase}(|${params.snakecase}|):\n\t#",
+      "identifier" : "fn"
+    },
+    {
+      "name" : "Request",
+      "is_enabled" : true,
+      "description" : "Creates the default requests statement.\n> req https:\/\/www.apple.com j\n> req https:\/\/www.apple.com ",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "req ${url:text?}| ${out:switch(c:.content,j:.json())}|",
+      "output_template" : "r = requests.get(\"${url}\")|${out}|\n#",
+      "identifier" : "req"
+    },
+    {
+      "name" : "Regex",
+      "is_enabled" : true,
+      "description" : "Default regex implementation:\n> re \\d+ str\n\n**NOTE: Must import `re`**",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "re ${pattern:text=\\w+} ${txt:word}",
+      "output_template" : "re.findall(r'${pattern}', ${txt})",
+      "identifier" : "re"
+    },
+    {
+      "name" : "Beautiful Soup",
+      "is_enabled" : true,
+      "description" : "Creates default Beautiful Soup statement\n> bs4 r.content\n\n**NOTE: Must import `bs4`**",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "bs4 ${content:text?=r}",
+      "output_template" : "soup = BeautifulSoup(${content}, 'html.parser')\n#",
+      "identifier" : "bs4"
+    },
+    {
+      "name" : "Class",
+      "is_enabled" : true,
+      "description" : "Creates a default class.\n> class Story",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "class ${name:word}",
+      "output_template" : "class ${name.capitalize}:\n\tdef __init__(self):\n\t\t#",
+      "identifier" : "class"
+    },
+    {
+      "name" : "In Tuple",
+      "is_enabled" : true,
+      "description" : "Creates an if any statement:\n> ifany (\"Apple\", \"Banana\", \"Croissant\")",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "ifany ${list:text?}",
+      "output_template" : "if any(w for w in ${list}):\n\t#",
+      "identifier" : "ifany"
+    },
+    {
+      "name" : "Open",
+      "is_enabled" : true,
+      "description" : "Creates default open statement.\n> open ~\/Downloads\/example.txt",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "open ${path:text}",
+      "output_template" : "with open('${path}') as f:\n\t#",
+      "identifier" : "open"
+    },
+    {
+      "name" : "Shell in Python",
+      "is_enabled" : true,
+      "description" : "Creates default statement for shell scripts running in python.\n> sh brew list",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "sh ${run:text?}",
+      "output_template" : "script = subprocess.run(\"${run}\".split(), stdout=subprocess.PIPE)\n#",
+      "identifier" : "sh"
+    },
+    {
+      "name" : "Main",
+      "is_enabled" : true,
+      "description" : "> main\n\n> main Story().read()",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "main| ${foo:text?}|",
+      "output_template" : "if __name__ == \"__main__\":\n\t|${foo}|#",
+      "identifier" : ""
+    },
+    {
+      "name" : "List Strings -> List Ints",
+      "is_enabled" : true,
+      "description" : "Convert a list of strings into a list of integers\n> [i] results",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "[i] ${name:word}",
+      "output_template" : "${name} = list(map(int, ${name}))",
+      "identifier" : ""
+    },
+    {
+      "name" : "Global",
+      "is_enabled" : true,
+      "description" : "Creates the Shebang for global python usage\n> gl 3.6",
+      "supported_languages" : [
+        "python"
+      ],
+      "pattern" : "gl ${version:number=3.6}",
+      "output_template" : "#!\/usr\/bin\/env python${version}\n#",
+      "identifier" : "pygl"
+    }
+  ],
+  "supported_languages" : [
+    "any"
+  ],
+  "is_enabled" : true
+}

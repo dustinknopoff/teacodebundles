@@ -1,0 +1,43 @@
+{
+  "description" : "Commonly used React Expansions.\n\nMade by [twitter] @dustinknopoff\n",
+  "name" : "React JavaScript",
+  "expanders" : [
+    {
+      "name" : "setState",
+      "is_enabled" : true,
+      "description" : "React setState where name of variable and element in props\/state have same name.\n> sets page props",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "sets ${var:word} ${type:enum(props,state)}",
+      "output_template" : "const ${var.camelcase} = this.${type}.${var};\n#\nthis.setState({ ${var} });",
+      "identifier" : "sets"
+    },
+    {
+      "name" : "bound Arrow Function",
+      "is_enabled" : true,
+      "description" : "Creates React bound arrow function statement.\n\n> arrow setLimit max",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "arrow ${name:word}| ${args:text?}|",
+      "output_template" : "${name} = (|${args}|) => {\n\t#\n};",
+      "identifier" : "arrow"
+    },
+    {
+      "name" : "Class",
+      "is_enabled" : true,
+      "description" : "Default Class creation.\n> class Header",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "class ${name:word}",
+      "output_template" : "import React, {Component} from 'react';\n\nclass ${name.capitalize.remove_spaces} extends Component {\n\t#\n\trender() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}\n\nexport default ${name};",
+      "identifier" : "class"
+    }
+  ],
+  "supported_languages" : [
+    "any"
+  ],
+  "is_enabled" : true
+}

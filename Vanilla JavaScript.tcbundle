@@ -1,0 +1,98 @@
+{
+  "description" : "Common Vanilla JavaScript Expansions\n\nMade by [twitter] @dustinknopoff",
+  "name" : "Vanilla JavaScript",
+  "expanders" : [
+    {
+      "name" : "Element Id",
+      "is_enabled" : true,
+      "description" : "Creates Element id selector statement.\n> byid btns menu-button",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "byid ${var:word} ${id:text?}",
+      "output_template" : "var ${var.camelcase} = document.getElementById(\"${id}\");\n#",
+      "identifier" : "byid"
+    },
+    {
+      "name" : "Element Class",
+      "is_enabled" : true,
+      "description" : "Creates default statement for element selection by class name.\n> byclass btns links",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "byclass ${var:word} ${class:text?}",
+      "output_template" : "var ${var.camelcase} = document.getElementsByClassName(\"${class}\");\n",
+      "identifier" : "byclass"
+    },
+    {
+      "name" : "Element Tag",
+      "is_enabled" : true,
+      "description" : "Creates default statement for element selection by tag name.\n> bytag btns button",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "bytag ${var:word} ${tag:word}",
+      "output_template" : "var ${var.camelcase} = document.getElementsByTagName(\"${tag}\");\n#",
+      "identifier" : "bytag"
+    },
+    {
+      "name" : "Add Class",
+      "is_enabled" : true,
+      "description" : "Creates statement to add to a variable's class name.\n> addc l active",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "addc ${var:word} ${class:text?}",
+      "output_template" : "${var}.className += ${class};\n#",
+      "identifier" : "addc"
+    },
+    {
+      "name" : "forEach Key",
+      "is_enabled" : true,
+      "description" : "Creates forEach arrow function on dictionary\/html node.\n> forek query",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "forek ${var:word}",
+      "output_template" : "Object.keys(${var})\n\t.forEach((key) => {\n\t\t#\n\t});",
+      "identifier" : "forek"
+    },
+    {
+      "name" : "fetch",
+      "is_enabled" : true,
+      "description" : "Creates default fetch statement.\n> fetch https:\/\/www.api.github.com",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "fetch ${url:text?}",
+      "output_template" : "fetch(\"${url}\")\n\t.then(res => res.json())\n\t.then(result => {\n\t\t#\n\t}, (error) => {\n\t\tconsole.log(error);\n\t});",
+      "identifier" : "fetch"
+    },
+    {
+      "name" : "Express",
+      "is_enabled" : true,
+      "description" : "Express.js syntax for calls.\n> ex app get \/api\/users",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "ex ${var:word=app} ${type:enum(get,post,delete)=get} ${path:text?}",
+      "output_template" : "${var}.${type}('${path}', (req, res) => {\n\t#\n}",
+      "identifier" : "ex"
+    },
+    {
+      "name" : "Log",
+      "is_enabled" : true,
+      "description" : "Creates console.log expression.\n> cl chicken.little()",
+      "supported_languages" : [
+        "js"
+      ],
+      "pattern" : "cl ${txt:text}",
+      "output_template" : "console.log(${txt});\n#",
+      "identifier" : "cl"
+    }
+  ],
+  "supported_languages" : [
+    "any"
+  ],
+  "is_enabled" : true
+}

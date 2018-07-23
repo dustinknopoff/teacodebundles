@@ -1,0 +1,98 @@
+{
+  "description" : "Common Rust Expansions\n\nMade by [twitter] @dustinknopoff",
+  "name" : "Rust",
+  "expanders" : [
+    {
+      "name" : "Fn",
+      "is_enabled" : true,
+      "description" : "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "fn ${name:word}| ${args:text?}|",
+      "output_template" : "fn ${name.snakecase}(|${args}|) {\n\t#\n}",
+      "identifier" : "rfn"
+    },
+    {
+      "name" : "Impl",
+      "is_enabled" : true,
+      "description" : "Default statement for extending a struct.\n> impl rectangle",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "impl ${name:word}",
+      "output_template" : "impl ${name.capitalize} {\n\t#\n}",
+      "identifier" : "rimpl"
+    },
+    {
+      "name" : "Struct",
+      "is_enabled" : true,
+      "description" : "",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "struct ${name:word}| ${type:text?} |",
+      "output_template" : "struct ${name.capitalize}|<${type}>| {\n\t#\n}",
+      "identifier" : "rstruct"
+    },
+    {
+      "name" : "Enum",
+      "is_enabled" : true,
+      "description" : "",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "enum ${Name:word}",
+      "output_template" : "enum ${Name.capitalize} {\n\t#\n}",
+      "identifier" : "renum"
+    },
+    {
+      "name" : "Variables",
+      "is_enabled" : true,
+      "description" : "> var integer 36\n\n> var integer 36 usize m",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "var ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|",
+      "output_template" : "let |${mut}| ${name.camelcase}|: ${type}| = ${value};",
+      "identifier" : "rvar"
+    },
+    {
+      "name" : "Type Conversion",
+      "is_enabled" : true,
+      "description" : "",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "conv ${var:word} ${type:word}",
+      "output_template" : "${var} as ${type}#",
+      "identifier" : "rconv"
+    },
+    {
+      "name" : "main",
+      "is_enabled" : true,
+      "description" : "> main",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "main",
+      "output_template" : "fn main() {\n\t#\n}",
+      "identifier" : "rmain"
+    },
+    {
+      "name" : "Match",
+      "is_enabled" : true,
+      "description" : "> match number",
+      "supported_languages" : [
+        "any"
+      ],
+      "pattern" : "match ${var:word}",
+      "output_template" : "match ${var} {\n\t# => \n}",
+      "identifier" : "rmatch"
+    }
+  ],
+  "supported_languages" : [
+    "any"
+  ],
+  "is_enabled" : true
+}
