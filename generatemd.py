@@ -80,7 +80,7 @@ class Expander:
                     session = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                                universal_newlines=True)
                     stdout, stderr = session.communicate()
-                    print(stdout)
+                    # print(stdout)
                     try:
                         temp = json.loads(stdout)
                     except json.JSONDecodeError:
