@@ -80,8 +80,11 @@ class Expander:
                     session = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                                universal_newlines=True)
                     stdout, stderr = session.communicate()
-                    # print(stdout)
-                    temp = json.loads(stdout)
+                    print(stdout)
+                    try:
+                        temp = json.loads(stdout)
+                    except json.JSONDecodeError:
+                        continue
                     # Format as code and code blocks
                     usable.append(f'`{string}`' + '\n\n')
                     usable.append(f'```{typer}\n{temp["text"]}\n```')

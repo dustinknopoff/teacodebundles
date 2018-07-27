@@ -106,23 +106,23 @@
     {
       "name" : "Interface",
       "is_enabled" : true,
-      "description" : "crea una interface Java.\n\n> i Car im base\n> i Car e base",
+      "description" : "Creates an interface in Java.\n\n> i Car im base\n> i Car e base\n\nCreated by @Gata",
       "supported_languages" : [
         "java"
       ],
       "pattern" : "i ${name:word}| ${inheritance:switch(im:implements,e:extends)} ${base:word}|",
-      "output_template" : "interface ${name.ucfirst}| ${inheritance} ${base.ucfirst}|\n{\n\t#\n}",
+      "output_template" : "interface ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
       "identifier" : ""
     },
     {
       "name" : "Implements",
       "is_enabled" : true,
-      "description" : "crea una interface Java.\n\n> c Car im base\n> c Car e base",
+      "description" : "Creates a Java Interface.\n\n> c Car im base\n> c Car e base\n\nMade by @Gata",
       "supported_languages" : [
         "java"
       ],
       "pattern" : "c ${name:word}| ${inheritance:switch(im:implements,e:extends)} ${base:word}|",
-      "output_template" : "class ${name.ucfirst}| ${inheritance} ${base.ucfirst}|\n{\n\t#\n}",
+      "output_template" : "class ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
       "identifier" : ""
     },
     {
@@ -133,13 +133,13 @@
         "java"
       ],
       "pattern" : "|${access:switch(+:public,-:private,#:protected)}${return:word}|${name:word}|(${type:word} ${params:text})|",
-      "output_template" : "|${access}${return}|${name}(|${type} ${params}|)\n{\n\t#\n}",
+      "output_template" : "|${access}${return}|${name}(|${type} ${params}|) {\n\t#\n}",
       "identifier" : ""
     },
     {
       "name" : "Scope",
       "is_enabled" : true,
-      "description" : "> +\n\n> - \n\n> #",
+      "description" : "> +\n\n> -\n\n> #",
       "supported_languages" : [
         "java"
       ],

@@ -58,6 +58,24 @@ Languages: ['any']
 
 Description:
 
+` struct Rectangle`
+
+
+
+```any
+ struct Rectangle {
+     
+ }
+```
+
+` struct Room String`
+
+
+
+```any
+ struct Roo// MARK: - String
+```
+
 Languages: ['any']
 
 
@@ -65,6 +83,16 @@ Languages: ['any']
 ### Enum
 
 Description:
+
+` enum Coins`
+
+
+
+```any
+ enum Coins {
+     
+ }
+```
 
 Languages: ['any']
 
@@ -97,6 +125,14 @@ Languages: ['any']
 ### Type Conversion
 
 Description:
+
+` conv integer f32`
+
+
+
+```any
+ integer as f32
+```
 
 Languages: ['any']
 

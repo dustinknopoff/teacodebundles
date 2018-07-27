@@ -27,7 +27,7 @@
     {
       "name" : "Struct",
       "is_enabled" : true,
-      "description" : "",
+      "description" : "> struct Rectangle\n\n> struct Room String",
       "supported_languages" : [
         "any"
       ],
@@ -38,7 +38,7 @@
     {
       "name" : "Enum",
       "is_enabled" : true,
-      "description" : "",
+      "description" : "> enum Coins",
       "supported_languages" : [
         "any"
       ],
@@ -60,7 +60,7 @@
     {
       "name" : "Type Conversion",
       "is_enabled" : true,
-      "description" : "",
+      "description" : "> conv integer f32",
       "supported_languages" : [
         "any"
       ],

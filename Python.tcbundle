@@ -20,8 +20,8 @@
       "supported_languages" : [
         "python"
       ],
-      "pattern" : "req ${url:text?}| ${out:switch(c:.content,j:.json())}|",
-      "output_template" : "r = requests.get(\"${url}\")|${out}|\n#",
+      "pattern" : "req ${url:text?}| ${out:switch(c:content,j:json())}|",
+      "output_template" : "r = requests.get(\"${url}\")|.${out}|\n#",
       "identifier" : "req"
     },
     {
@@ -82,7 +82,7 @@
     {
       "name" : "Shell in Python",
       "is_enabled" : true,
-      "description" : "Creates default statement for shell scripts running in python.\n> sh brew list",
+      "description" : "Creates default statement for shell scripts running in python.\n> sh brew list\n\n> sh basename 'git rev-parse --show-toplevel'",
       "supported_languages" : [
         "python"
       ],
@@ -120,7 +120,7 @@
         "python"
       ],
       "pattern" : "gl ${version:number=3.6}",
-      "output_template" : "#!\/usr\/bin\/env python${version}\n#",
+      "output_template" : "\\#!\/usr\/bin\/env python${version}\n#",
       "identifier" : "pygl"
     }
   ],

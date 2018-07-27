@@ -203,15 +203,14 @@ Languages: ['java']
 
 Description:
 
-> crea una interface Java.
+> Creates an interface in Java.
 
 ` i Car im base`
 
 
 
 ```java
- interface Car implements Base
- {
+ interface Car implements Base {
      
  }
 ```
@@ -221,11 +220,12 @@ Description:
 
 
 ```java
- interface Car extends Base
- {
+ interface Car extends Base {
      
  }
 ```
+
+> Created by @Gata
 
 Languages: ['java']
 
@@ -235,15 +235,14 @@ Languages: ['java']
 
 Description:
 
-> crea una interface Java.
+> Creates a Java Interface.
 
 ` c Car im base`
 
 
 
 ```java
- class Car implements Base
- {
+ class Car implements Base {
      
  }
 ```
@@ -253,11 +252,12 @@ Description:
 
 
 ```java
- class Car extends Base
- {
+ class Car extends Base {
      
  }
 ```
+
+> Made by @Gata
 
 Languages: ['java']
 
@@ -274,8 +274,7 @@ Description:
 
 
 ```java
- +String run()
- {
+ +String run() {
      
  }
 ```
@@ -285,8 +284,7 @@ Description:
 
 
 ```java
- +int run(String param1, int param2)
- {
+ +int run(String param1, int param2) {
      
  }
 ```
@@ -307,12 +305,12 @@ Description:
  public
 ```
 
-` - `
+` -`
 
 
 
 ```java
- - 
+ private
 ```
 
 ` #`
