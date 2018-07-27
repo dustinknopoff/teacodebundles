@@ -86,7 +86,7 @@ class Expander:
                     except json.JSONDecodeError:
                         continue
                     # Format as code and code blocks
-                    usable.append(f'`{string}`' + '\n\n')
+                    usable.append(f'`{string}`\n\nwill render:\n\n')
                     usable.append(f'```{typer}\n{temp["text"]}\n```')
                 else:
                     # If the line is not a expander example, make it a blockquote
@@ -103,6 +103,7 @@ class Expander:
         """
         result = ''
         values = self.__render()
+        print(f"Generating markdown preview for {self.name}")
         result += f"### {self.name}\n\nDescription:\n\n"
         for string in values:
             result += string + '\n\n'
@@ -120,3 +121,4 @@ if __name__ == '__main__':
             with open(os.path.basename(file)[:-9] + '.md', 'w+') as out:
                 # Write formatted string to file
                 out.write(bundle.to_md())
+            print("Success!")

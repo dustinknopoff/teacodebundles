@@ -12,6 +12,8 @@ Description:
 
 ` const int size 300`
 
+will render:
+
 
 
 ```java
@@ -30,6 +32,8 @@ Description:
 > Creates if statement.
 
 ` if x > 300`
+
+will render:
 
 
 
@@ -51,6 +55,8 @@ Description:
 
 ` for int ArrayList arr`
 
+will render:
+
 
 
 ```java
@@ -70,6 +76,8 @@ Description:
 > Creates iterative for loop.
 
 ` fori <= arr.length()`
+
+will render:
 
 
 
@@ -91,6 +99,8 @@ Description:
 
 ` var List<Shape> shapes`
 
+will render:
+
 
 
 ```java
@@ -99,6 +109,8 @@ Description:
 ```
 
 ` var int maxHeight`
+
+will render:
 
 
 
@@ -119,6 +131,8 @@ Description:
 
 ` fn void AnimatorModel`
 
+will render:
+
 
 
 ```java
@@ -128,6 +142,8 @@ Description:
 ```
 
 ` fn boolean addShape Shape shape`
+
+will render:
 
 
 
@@ -149,6 +165,8 @@ Description:
 
 ` throw u Cannot do this in non-Hybrid View`
 
+will render:
+
 
 
 ```java
@@ -168,6 +186,8 @@ Description:
 
 ` cast Oval o s`
 
+will render:
+
 
 
 ```java
@@ -186,6 +206,8 @@ Description:
 > Creates a class with a constructor. It’s possible to add inheriting classes after `:` character
 
 ` +c nombre: Familia`
+
+will render:
 
 
 
@@ -207,6 +229,8 @@ Description:
 
 ` i Car im base`
 
+will render:
+
 
 
 ```java
@@ -216,6 +240,8 @@ Description:
 ```
 
 ` i Car e base`
+
+will render:
 
 
 
@@ -239,6 +265,8 @@ Description:
 
 ` c Car im base`
 
+will render:
+
 
 
 ```java
@@ -248,6 +276,8 @@ Description:
 ```
 
 ` c Car e base`
+
+will render:
 
 
 
@@ -271,6 +301,8 @@ Description:
 
 ` +String run`
 
+will render:
+
 
 
 ```java
@@ -280,6 +312,8 @@ Description:
 ```
 
 ` +int run(String param1, int param2)`
+
+will render:
 
 
 
@@ -299,6 +333,8 @@ Description:
 
 ` +`
 
+will render:
+
 
 
 ```java
@@ -307,6 +343,8 @@ Description:
 
 ` -`
 
+will render:
+
 
 
 ```java
@@ -314,6 +352,8 @@ Description:
 ```
 
 ` #`
+
+will render:
 
 
 

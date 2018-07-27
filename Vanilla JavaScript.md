@@ -12,6 +12,8 @@ Description:
 
 ` byid btns menu-button`
 
+will render:
+
 
 
 ```js
@@ -30,6 +32,8 @@ Description:
 > Creates default statement for element selection by class name.
 
 ` byclass btns links`
+
+will render:
 
 
 
@@ -50,6 +54,8 @@ Description:
 
 ` bytag btns button`
 
+will render:
+
 
 
 ```js
@@ -69,6 +75,8 @@ Description:
 
 ` addc l active`
 
+will render:
+
 
 
 ```js
@@ -87,6 +95,8 @@ Description:
 > Creates forEach arrow function on dictionary/html node.
 
 ` forek query`
+
+will render:
 
 
 
@@ -108,6 +118,8 @@ Description:
 > Creates default fetch statement.
 
 ` fetch https://www.api.github.com`
+
+will render:
 
 
 
@@ -133,6 +145,8 @@ Description:
 
 ` ex app get /api/users`
 
+will render:
+
 
 
 ```js
@@ -152,6 +166,8 @@ Description:
 > Creates console.log expression.
 
 ` cl chicken.little()`
+
+will render:
 
 
 

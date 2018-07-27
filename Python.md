@@ -12,6 +12,8 @@ Description:
 
 ` fn do arr`
 
+will render:
+
 
 
 ```python
@@ -21,6 +23,8 @@ Description:
 ```
 
 ` fn do`
+
+will render:
 
 
 
@@ -42,6 +46,8 @@ Description:
 
 ` req https://www.apple.com j`
 
+will render:
+
 
 
 ```python
@@ -49,6 +55,8 @@ Description:
 ```
 
 ` req https://www.apple.com `
+
+will render:
 
 
 
@@ -69,6 +77,8 @@ Description:
 
 ` re \d+ str`
 
+will render:
+
 
 
 ```python
@@ -88,6 +98,8 @@ Description:
 > Creates default Beautiful Soup statement
 
 ` bs4 r.content`
+
+will render:
 
 
 
@@ -110,6 +122,8 @@ Description:
 
 ` class Story`
 
+will render:
+
 
 
 ```python
@@ -130,6 +144,8 @@ Description:
 
 ` ifany ("Apple", "Banana", "Croissant")`
 
+will render:
+
 
 
 ```python
@@ -148,6 +164,8 @@ Description:
 > Creates default open statement.
 
 ` open ~/Downloads/example.txt`
+
+will render:
 
 
 
@@ -168,6 +186,8 @@ Description:
 
 ` sh brew list`
 
+will render:
+
 
 
 ```python
@@ -185,6 +205,8 @@ Description:
 
 ` main`
 
+will render:
+
 
 
 ```python
@@ -194,6 +216,8 @@ Description:
 ```
 
 ` main Story().read()`
+
+will render:
 
 
 
@@ -214,6 +238,8 @@ Description:
 
 ` [i] results`
 
+will render:
+
 
 
 ```python
@@ -231,6 +257,8 @@ Description:
 > Creates the Shebang for global python usage
 
 ` gl 3.6`
+
+will render:
 
 
 

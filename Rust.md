@@ -12,6 +12,8 @@ Description:
 
 ` fn main`
 
+will render:
+
 
 
 ```any
@@ -21,6 +23,8 @@ Description:
 ```
 
 ` fn divide divisor: i32, dividend: i32`
+
+will render:
 
 
 
@@ -42,6 +46,8 @@ Description:
 
 ` impl rectangle`
 
+will render:
+
 
 
 ```any
@@ -60,6 +66,8 @@ Description:
 
 ` struct Rectangle`
 
+will render:
+
 
 
 ```any
@@ -69,6 +77,8 @@ Description:
 ```
 
 ` struct Room String`
+
+will render:
 
 
 
@@ -85,6 +95,8 @@ Languages: ['any']
 Description:
 
 ` enum Coins`
+
+will render:
 
 
 
@@ -104,6 +116,8 @@ Description:
 
 ` var integer 36`
 
+will render:
+
 
 
 ```any
@@ -111,6 +125,8 @@ Description:
 ```
 
 ` var integer 36 usize m`
+
+will render:
 
 
 
@@ -128,6 +144,8 @@ Description:
 
 ` conv integer f32`
 
+will render:
+
 
 
 ```any
@@ -143,6 +161,8 @@ Languages: ['any']
 Description:
 
 ` main`
+
+will render:
 
 
 
@@ -161,6 +181,8 @@ Languages: ['any']
 Description:
 
 ` match number`
+
+will render:
 
 
 

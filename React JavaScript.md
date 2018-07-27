@@ -13,6 +13,8 @@ Description:
 
 ` sets page props`
 
+will render:
+
 
 
 ```js
@@ -33,6 +35,8 @@ Description:
 
 ` arrow setLimit max`
 
+will render:
+
 
 
 ```js
@@ -52,6 +56,8 @@ Description:
 > Default Class creation.
 
 ` class Header`
+
+will render:
 
 
 

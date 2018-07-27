@@ -12,6 +12,8 @@ Description:
 
 ` fullbg ../assets/bg.jpg`
 
+will render:
+
 
 
 ```css
@@ -40,6 +42,8 @@ Description:
 > Creates media query.
 
 ` mq 768`
+
+will render:
 
 
 
