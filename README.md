@@ -2,6 +2,8 @@
 
 This repo includes my bundles and a markdown version of them.
 
+**NOTE: Requires Python 3+**
+
 To create your own:
 
 1. clone this repo and delete all files except `.gitignore` and `generatemd.py`. 
