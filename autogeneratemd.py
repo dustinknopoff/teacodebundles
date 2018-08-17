@@ -113,12 +113,12 @@ class Expander:
 
 
 if __name__ == '__main__':
-    with open('~/Library/Application Support/com.apptorium.TeaCode-dm/bundles.tcbundles', 'r') as f:
+    with open('/Users/Dustin/Library/Application Support/com.apptorium.TeaCode-dm/bundles.tcbundles', 'r') as f:
         stuff = json.load(f)
         for bund in stuff['bundles']:
             bundle = Bundle(bund)
             with open(f'./{bund["name"]}.tcbundle', 'w+') as tcout:
-                json.dump(bund, tcout)
+                json.dump(bund, tcout, indent=4)
             with open(f'./{bund["name"]}.md', 'w+') as mdout:
                 mdout.write(bundle.to_md())
     print("Success!")

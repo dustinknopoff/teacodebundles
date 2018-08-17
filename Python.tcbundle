@@ -1,1 +1,144 @@
-{"expanders": [{"pattern": "fn ${name:word}| ${params:text?}|", "supported_languages": ["python"], "description": "Creates default function statement.\n> fn do arr\n\n\n> fn do", "name": "Function", "identifier": "fn", "is_enabled": true, "output_template": "def ${name.snakecase}(|${params.snakecase}|):\n\t#", "id": "7741C787-8E9E-45E3-91F7-ECF9DCF9D24D"}, {"pattern": "req ${url:text?}| ${out:switch(c:content,j:json())}|", "supported_languages": ["python"], "description": "Creates the default requests statement.\n> req https://www.apple.com j\n> req https://www.apple.com ", "name": "Request", "identifier": "req", "is_enabled": true, "output_template": "r = requests.get(\"${url}\")|.${out}|\n#", "id": "5C7C5F07-EEE3-47A2-89C7-31994134C3CD"}, {"pattern": "re ${pattern:text=\\w+} ${txt:word}", "supported_languages": ["python"], "description": "Default regex implementation:\n> re \\d+ str\n\n**NOTE: Must import `re`**", "name": "Regex", "identifier": "re", "is_enabled": true, "output_template": "re.findall(r'${pattern}', ${txt})", "id": "DFA12555-C863-46B5-A723-D7B076FD8E66"}, {"pattern": "bs4 ${content:text?=r}", "supported_languages": ["python"], "description": "Creates default Beautiful Soup statement\n> bs4 r.content\n\n**NOTE: Must import `bs4`**", "name": "Beautiful Soup", "identifier": "bs4", "is_enabled": true, "output_template": "soup = BeautifulSoup(${content}, 'html.parser')\n#", "id": "746C9DBC-738E-4C86-A861-D85FEE69F78A"}, {"pattern": "class ${name:word}", "supported_languages": ["python"], "description": "Creates a default class.\n> class Story", "name": "Class", "identifier": "class", "is_enabled": true, "output_template": "class ${name.capitalize}:\n\tdef __init__(self):\n\t\t#", "id": "37261157-F800-48A1-B0A2-C1D23F765A26"}, {"pattern": "ifany ${list:text?}", "supported_languages": ["python"], "description": "Creates an if any statement:\n> ifany (\"Apple\", \"Banana\", \"Croissant\")", "name": "In Tuple", "identifier": "ifany", "is_enabled": true, "output_template": "if any(w for w in ${list}):\n\t#", "id": "1FA23E9A-CB14-4186-B9A9-C4350C49F073"}, {"pattern": "open ${path:text}", "supported_languages": ["python"], "description": "Creates default open statement.\n> open ~/Downloads/example.txt", "name": "Open", "identifier": "open", "is_enabled": true, "output_template": "with open('${path}') as f:\n\t#", "id": "000B2DC8-6E4C-41F5-84DA-E9FEDA59827D"}, {"pattern": "sh ${run:text?}", "supported_languages": ["python"], "description": "Creates default statement for shell scripts running in python.\n> sh brew list\n\n> sh basename 'git rev-parse --show-toplevel'", "name": "Shell in Python", "identifier": "sh", "is_enabled": true, "output_template": "script = subprocess.run(\"${run}\".split(), stdout=subprocess.PIPE)\n#", "id": "CF066DE9-675D-4050-BC62-C272B7B9A8B2"}, {"pattern": "main| ${foo:text?}|", "supported_languages": ["python"], "description": "> main\n\n> main Story().read()", "name": "Main", "identifier": "", "is_enabled": true, "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#", "id": "9B4E652B-2653-43B7-85C8-C313BA995968"}, {"pattern": "[i] ${name:word}", "supported_languages": ["python"], "description": "Convert a list of strings into a list of integers\n> [i] results", "name": "List Strings -> List Ints", "identifier": "", "is_enabled": true, "output_template": "${name} = list(map(int, ${name}))", "id": "A5F28216-C032-46EA-BAAB-DAD851990917"}, {"pattern": "gl ${version:number=3.6}", "supported_languages": ["python"], "description": "Creates the Shebang for global python usage\n> gl 3.6", "name": "Global", "identifier": "pygl", "is_enabled": true, "output_template": "\\#!/usr/bin/env python${version}\n#", "id": "5488C00A-A290-4F8F-B45A-A73D66D0B1B4"}], "id": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028", "name": "Python", "supported_languages": ["any", "python"], "is_enabled": true, "description": "Commonly Used Python Expansions\n\nMade by [twitter] @dustinknopoff"}
+{
+    "expanders": [
+        {
+            "pattern": "fn ${name:word}| ${params:text?}|",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates default function statement.\n> fn do arr\n\n\n> fn do",
+            "name": "Function",
+            "identifier": "fn",
+            "is_enabled": true,
+            "output_template": "def ${name.snakecase}(|${params.snakecase}|):\n\t#",
+            "id": "7741C787-8E9E-45E3-91F7-ECF9DCF9D24D"
+        },
+        {
+            "pattern": "req ${url:text?}| ${out:switch(c:content,j:json())}|",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates the default requests statement.\n> req https://www.apple.com j\n> req https://www.apple.com ",
+            "name": "Request",
+            "identifier": "req",
+            "is_enabled": true,
+            "output_template": "r = requests.get(\"${url}\")|.${out}|\n#",
+            "id": "5C7C5F07-EEE3-47A2-89C7-31994134C3CD"
+        },
+        {
+            "pattern": "re ${pattern:text=\\w+} ${txt:word}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Default regex implementation:\n> re \\d+ str\n\n**NOTE: Must import `re`**",
+            "name": "Regex",
+            "identifier": "re",
+            "is_enabled": true,
+            "output_template": "re.findall(r'${pattern}', ${txt})",
+            "id": "DFA12555-C863-46B5-A723-D7B076FD8E66"
+        },
+        {
+            "pattern": "bs4 ${content:text?=r}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates default Beautiful Soup statement\n> bs4 r.content\n\n**NOTE: Must import `bs4`**",
+            "name": "Beautiful Soup",
+            "identifier": "bs4",
+            "is_enabled": true,
+            "output_template": "soup = BeautifulSoup(${content}, 'html.parser')\n#",
+            "id": "746C9DBC-738E-4C86-A861-D85FEE69F78A"
+        },
+        {
+            "pattern": "class ${name:word}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates a default class.\n> class Story",
+            "name": "Class",
+            "identifier": "class",
+            "is_enabled": true,
+            "output_template": "class ${name.capitalize}:\n\tdef __init__(self):\n\t\t#",
+            "id": "37261157-F800-48A1-B0A2-C1D23F765A26"
+        },
+        {
+            "pattern": "ifany ${list:text?}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates an if any statement:\n> ifany (\"Apple\", \"Banana\", \"Croissant\")",
+            "name": "In Tuple",
+            "identifier": "ifany",
+            "is_enabled": true,
+            "output_template": "if any(w for w in ${list}):\n\t#",
+            "id": "1FA23E9A-CB14-4186-B9A9-C4350C49F073"
+        },
+        {
+            "pattern": "open ${path:text}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates default open statement.\n> open ~/Downloads/example.txt",
+            "name": "Open",
+            "identifier": "open",
+            "is_enabled": true,
+            "output_template": "with open('${path}') as f:\n\t#",
+            "id": "000B2DC8-6E4C-41F5-84DA-E9FEDA59827D"
+        },
+        {
+            "pattern": "sh ${run:text?}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates default statement for shell scripts running in python.\n> sh brew list\n\n> sh basename 'git rev-parse --show-toplevel'",
+            "name": "Shell in Python",
+            "identifier": "sh",
+            "is_enabled": true,
+            "output_template": "script = subprocess.run(\"${run}\".split(), stdout=subprocess.PIPE)\n#",
+            "id": "CF066DE9-675D-4050-BC62-C272B7B9A8B2"
+        },
+        {
+            "pattern": "main| ${foo:text?}|",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "> main\n\n> main Story().read()",
+            "name": "Main",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#",
+            "id": "9B4E652B-2653-43B7-85C8-C313BA995968"
+        },
+        {
+            "pattern": "[i] ${name:word}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Convert a list of strings into a list of integers\n> [i] results",
+            "name": "List Strings -> List Ints",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "${name} = list(map(int, ${name}))",
+            "id": "A5F28216-C032-46EA-BAAB-DAD851990917"
+        },
+        {
+            "pattern": "gl ${version:number=3.6}",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "Creates the Shebang for global python usage\n> gl 3.6",
+            "name": "Global",
+            "identifier": "pygl",
+            "is_enabled": true,
+            "output_template": "\\#!/usr/bin/env python${version}\n#",
+            "id": "5488C00A-A290-4F8F-B45A-A73D66D0B1B4"
+        }
+    ],
+    "id": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028",
+    "name": "Python",
+    "supported_languages": [
+        "any",
+        "python"
+    ],
+    "is_enabled": true,
+    "description": "Commonly Used Python Expansions\n\nMade by [twitter] @dustinknopoff"
+}

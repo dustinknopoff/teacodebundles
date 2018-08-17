@@ -1,1 +1,108 @@
-{"expanders": [{"pattern": "byid ${var:word} ${id:text?}", "supported_languages": ["js"], "description": "Creates Element id selector statement.\n> byid btns menu-button", "name": "Element Id", "identifier": "byid", "is_enabled": true, "output_template": "var ${var.camelcase} = document.getElementById(\"${id}\");\n#", "id": "4BB849BB-2B46-4F70-8971-B20AED473514"}, {"pattern": "byclass ${var:word} ${class:text?}", "supported_languages": ["js"], "description": "Creates default statement for element selection by class name.\n> byclass btns links", "name": "Element Class", "identifier": "byclass", "is_enabled": true, "output_template": "var ${var.camelcase} = document.getElementsByClassName(\"${class}\");\n", "id": "95A52662-EB0B-48AE-8AC4-000158D9F12E"}, {"pattern": "bytag ${var:word} ${tag:word}", "supported_languages": ["js"], "description": "Creates default statement for element selection by tag name.\n> bytag btns button", "name": "Element Tag", "identifier": "bytag", "is_enabled": true, "output_template": "var ${var.camelcase} = document.getElementsByTagName(\"${tag}\");\n#", "id": "CB399EC6-4087-4854-8DA6-6FF09480F38A"}, {"pattern": "addc ${var:word} ${class:text?}", "supported_languages": ["js"], "description": "Creates statement to add to a variable's class name.\n> addc l active", "name": "Add Class", "identifier": "addc", "is_enabled": true, "output_template": "${var}.className += ${class};\n#", "id": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8"}, {"pattern": "forek ${var:word}", "supported_languages": ["js"], "description": "Creates forEach arrow function on dictionary/html node.\n> forek query", "name": "forEach Key", "identifier": "forek", "is_enabled": true, "output_template": "Object.keys(${var})\n\t.forEach((key) => {\n\t\t#\n\t});", "id": "AA8C4B31-A779-4066-976C-FD8A6EE031D0"}, {"pattern": "fetch ${url:text?}", "supported_languages": ["js"], "description": "Creates default fetch statement.\n> fetch https://www.api.github.com", "name": "fetch", "identifier": "fetch", "is_enabled": true, "output_template": "fetch(\"${url}\")\n\t.then(res => res.json())\n\t.then(result => {\n\t\t#\n\t}, (error) => {\n\t\tconsole.log(error);\n\t});", "id": "84734CF1-6AB0-4BD4-B955-D886704B261C"}, {"pattern": "ex ${var:word=app} ${type:enum(get,post,delete)=get} ${path:text?}", "supported_languages": ["js"], "description": "Express.js syntax for calls.\n> ex app get /api/users", "name": "Express", "identifier": "ex", "is_enabled": true, "output_template": "${var}.${type}('${path}', (req, res) => {\n\t#\n}", "id": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4"}, {"pattern": "cl ${txt:text}", "supported_languages": ["js"], "description": "Creates console.log expression.\n> cl chicken.little()", "name": "Log", "identifier": "cl", "is_enabled": true, "output_template": "console.log(${txt});\n#", "id": "660C7AF2-A383-4F9D-A04E-8E6090250D4E"}], "id": "07A909A8-43DF-4694-BE0C-7A854185EA97", "name": "Vanilla JavaScript", "supported_languages": ["any", "js"], "is_enabled": true, "description": "Common Vanilla JavaScript Expansions\n\nMade by [twitter] @dustinknopoff"}
+{
+    "expanders": [
+        {
+            "pattern": "byid ${var:word} ${id:text?}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Creates Element id selector statement.\n> byid btns menu-button",
+            "name": "Element Id",
+            "identifier": "byid",
+            "is_enabled": true,
+            "output_template": "var ${var.camelcase} = document.getElementById(\"${id}\");\n#",
+            "id": "4BB849BB-2B46-4F70-8971-B20AED473514"
+        },
+        {
+            "pattern": "byclass ${var:word} ${class:text?}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Creates default statement for element selection by class name.\n> byclass btns links",
+            "name": "Element Class",
+            "identifier": "byclass",
+            "is_enabled": true,
+            "output_template": "var ${var.camelcase} = document.getElementsByClassName(\"${class}\");\n",
+            "id": "95A52662-EB0B-48AE-8AC4-000158D9F12E"
+        },
+        {
+            "pattern": "bytag ${var:word} ${tag:word}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Creates default statement for element selection by tag name.\n> bytag btns button",
+            "name": "Element Tag",
+            "identifier": "bytag",
+            "is_enabled": true,
+            "output_template": "var ${var.camelcase} = document.getElementsByTagName(\"${tag}\");\n#",
+            "id": "CB399EC6-4087-4854-8DA6-6FF09480F38A"
+        },
+        {
+            "pattern": "addc ${var:word} ${class:text?}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Creates statement to add to a variable's class name.\n> addc l active",
+            "name": "Add Class",
+            "identifier": "addc",
+            "is_enabled": true,
+            "output_template": "${var}.className += ${class};\n#",
+            "id": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8"
+        },
+        {
+            "pattern": "forek ${var:word}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Creates forEach arrow function on dictionary/html node.\n> forek query",
+            "name": "forEach Key",
+            "identifier": "forek",
+            "is_enabled": true,
+            "output_template": "Object.keys(${var})\n\t.forEach((key) => {\n\t\t#\n\t});",
+            "id": "AA8C4B31-A779-4066-976C-FD8A6EE031D0"
+        },
+        {
+            "pattern": "fetch ${url:text?}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Creates default fetch statement.\n> fetch https://www.api.github.com",
+            "name": "fetch",
+            "identifier": "fetch",
+            "is_enabled": true,
+            "output_template": "fetch(\"${url}\")\n\t.then(res => res.json())\n\t.then(result => {\n\t\t#\n\t}, (error) => {\n\t\tconsole.log(error);\n\t});",
+            "id": "84734CF1-6AB0-4BD4-B955-D886704B261C"
+        },
+        {
+            "pattern": "ex ${var:word=app} ${type:enum(get,post,delete)=get} ${path:text?}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Express.js syntax for calls.\n> ex app get /api/users",
+            "name": "Express",
+            "identifier": "ex",
+            "is_enabled": true,
+            "output_template": "${var}.${type}('${path}', (req, res) => {\n\t#\n}",
+            "id": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4"
+        },
+        {
+            "pattern": "cl ${txt:text}",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "Creates console.log expression.\n> cl chicken.little()",
+            "name": "Log",
+            "identifier": "cl",
+            "is_enabled": true,
+            "output_template": "console.log(${txt});\n#",
+            "id": "660C7AF2-A383-4F9D-A04E-8E6090250D4E"
+        }
+    ],
+    "id": "07A909A8-43DF-4694-BE0C-7A854185EA97",
+    "name": "Vanilla JavaScript",
+    "supported_languages": [
+        "any",
+        "js"
+    ],
+    "is_enabled": true,
+    "description": "Common Vanilla JavaScript Expansions\n\nMade by [twitter] @dustinknopoff"
+}

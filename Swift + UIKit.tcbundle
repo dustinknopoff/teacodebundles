@@ -1,1 +1,60 @@
-{"expanders": [{"pattern": "|${scope:exp(scope)}|sub ${name:word}: UIView", "supported_languages": ["swift"], "description": "Generates a subclass of a UIView class.\n\n> sub MyView: UIView", "name": "UIView subclass", "identifier": "", "is_enabled": true, "output_template": "@IBDesignable |${scope}|class ${name}: UIView {\n\t\n\toverride init(frame: CGRect) {\n        super.init(frame: frame)\n        self.configure()\n    }\n    \n    required init?(coder aDecoder: NSCoder) {\n        super.init(coder: aDecoder)\n        self.configure()\n    }\n    \n    private func configure() {\n    \t#\n    }\n    \n    override func layoutSubviews() {\n        super.layoutSubviews()\n    }\n}", "id": "F7EB5342-59CA-4EE9-B03F-5C0235CB2749"}, {"pattern": "vdl", "supported_languages": ["swift"], "description": "Creates `viewDidLoad` method.\n\n> vdl", "name": "viewDidLoad", "identifier": "", "is_enabled": true, "output_template": "override func viewDidLoad(_ animated: Bool) {\n\tsuper.viewDidLoad(animated)\n\t\n\t#\n}", "id": "A80F798D-4100-42DE-AFDF-98389FEE3DA8"}, {"pattern": "vda", "supported_languages": ["swift"], "description": "Creates `viewDidAppear` method.\n\n> vda", "name": "viewDidAppear", "identifier": "", "is_enabled": true, "output_template": "override func viewDidAppear(_ animated: Bool) {\n\tsuper.viewDidAppear(animated)\n\t\n\t#\n}", "id": "5CFE8C7B-3201-4AD3-8546-0E5ABB883A81"}, {"pattern": "vwa", "supported_languages": ["swift"], "description": "Creates `viewWillAppear` method.\n\n> vwa", "name": "viewWillAppear", "identifier": "", "is_enabled": true, "output_template": "override func viewWillAppear(_ animated: Bool) {\n\tsuper.viewWillAppear(animated)\n\t\n\t#\n}", "id": "91C3E4C5-369B-4274-A65C-1C82F355BB5B"}], "id": "B4D2EBB0-6E72-46F2-8ECB-08FF3E910024", "name": "Swift + UIKit", "supported_languages": ["any", "swift"], "is_enabled": true, "description": "`Swift` expanders for `UIKIt` framework.\n\nMade by [twitter] @Apptorium."}
+{
+    "expanders": [
+        {
+            "pattern": "|${scope:exp(scope)}|sub ${name:word}: UIView",
+            "supported_languages": [
+                "swift"
+            ],
+            "description": "Generates a subclass of a UIView class.\n\n> sub MyView: UIView",
+            "name": "UIView subclass",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "@IBDesignable |${scope}|class ${name}: UIView {\n\t\n\toverride init(frame: CGRect) {\n        super.init(frame: frame)\n        self.configure()\n    }\n    \n    required init?(coder aDecoder: NSCoder) {\n        super.init(coder: aDecoder)\n        self.configure()\n    }\n    \n    private func configure() {\n    \t#\n    }\n    \n    override func layoutSubviews() {\n        super.layoutSubviews()\n    }\n}",
+            "id": "F7EB5342-59CA-4EE9-B03F-5C0235CB2749"
+        },
+        {
+            "pattern": "vdl",
+            "supported_languages": [
+                "swift"
+            ],
+            "description": "Creates `viewDidLoad` method.\n\n> vdl",
+            "name": "viewDidLoad",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "override func viewDidLoad(_ animated: Bool) {\n\tsuper.viewDidLoad(animated)\n\t\n\t#\n}",
+            "id": "A80F798D-4100-42DE-AFDF-98389FEE3DA8"
+        },
+        {
+            "pattern": "vda",
+            "supported_languages": [
+                "swift"
+            ],
+            "description": "Creates `viewDidAppear` method.\n\n> vda",
+            "name": "viewDidAppear",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "override func viewDidAppear(_ animated: Bool) {\n\tsuper.viewDidAppear(animated)\n\t\n\t#\n}",
+            "id": "5CFE8C7B-3201-4AD3-8546-0E5ABB883A81"
+        },
+        {
+            "pattern": "vwa",
+            "supported_languages": [
+                "swift"
+            ],
+            "description": "Creates `viewWillAppear` method.\n\n> vwa",
+            "name": "viewWillAppear",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "override func viewWillAppear(_ animated: Bool) {\n\tsuper.viewWillAppear(animated)\n\t\n\t#\n}",
+            "id": "91C3E4C5-369B-4274-A65C-1C82F355BB5B"
+        }
+    ],
+    "id": "B4D2EBB0-6E72-46F2-8ECB-08FF3E910024",
+    "name": "Swift + UIKit",
+    "supported_languages": [
+        "any",
+        "swift"
+    ],
+    "is_enabled": true,
+    "description": "`Swift` expanders for `UIKIt` framework.\n\nMade by [twitter] @Apptorium."
+}

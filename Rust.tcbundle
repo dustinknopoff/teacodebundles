@@ -1,1 +1,91 @@
-{"expanders": [{"pattern": "fn ${name:word}| ${args:text?}|", "supported_languages": [], "description": "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32", "name": "Fn", "identifier": "rfn", "is_enabled": true, "output_template": "fn ${name.snakecase}(|${args}|) {\n\t#\n}", "id": "A88CD49F-D947-4932-9236-C244959ACA6A"}, {"pattern": "impl ${name:word}", "supported_languages": [], "description": "Default statement for extending a struct.\n> impl rectangle", "name": "Impl", "identifier": "rimpl", "is_enabled": true, "output_template": "impl ${name.capitalize} {\n\t#\n}", "id": "F86B44C5-855F-408F-BC0A-890FA2AB4F27"}, {"pattern": "struct ${name:word}| ${type:text?} |", "supported_languages": [], "description": "> struct Rectangle\n\n> struct Room String", "name": "Struct", "identifier": "rstruct", "is_enabled": true, "output_template": "struct ${name.capitalize}|<${type}>| {\n\t#\n}", "id": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E"}, {"pattern": "enum ${Name:word}", "supported_languages": [], "description": "> enum Coins", "name": "Enum", "identifier": "renum", "is_enabled": true, "output_template": "enum ${Name.capitalize} {\n\t#\n}", "id": "DAA6F157-386D-4E39-86DC-0350B6A80E0D"}, {"pattern": "var ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|", "supported_languages": [], "description": "> var integer 36\n\n> var integer 36 usize m", "name": "Variables", "identifier": "rvar", "is_enabled": true, "output_template": "let |${mut}| ${name.camelcase}|: ${type}| = ${value};", "id": "0BD29A62-AFF4-4359-A7E3-FD363121720A"}, {"pattern": "conv ${var:word} ${type:word}", "supported_languages": [], "description": "> conv integer f32", "name": "Type Conversion", "identifier": "rconv", "is_enabled": true, "output_template": "${var} as ${type}#", "id": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97"}, {"pattern": "main", "supported_languages": [], "description": "> main", "name": "main", "identifier": "rmain", "is_enabled": true, "output_template": "fn main() {\n\t#\n}", "id": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A"}, {"pattern": "match ${var:word}", "supported_languages": [], "description": "> match number", "name": "Match", "identifier": "rmatch", "is_enabled": true, "output_template": "match ${var} {\n\t# => \n}", "id": "E9CA8616-8829-4F97-B74B-DE0C4DB69085"}], "id": "17BC925B-5A09-4D21-A946-1AAEADBDE010", "name": "Rust", "supported_languages": ["any"], "is_enabled": true, "description": "Common Rust Expansions\n\nMade by [twitter] @dustinknopoff\n\n"}
+{
+    "expanders": [
+        {
+            "pattern": "fn ${name:word}| ${args:text?}|",
+            "supported_languages": [],
+            "description": "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32",
+            "name": "Fn",
+            "identifier": "rfn",
+            "is_enabled": true,
+            "output_template": "fn ${name.snakecase}(|${args}|) {\n\t#\n}",
+            "id": "A88CD49F-D947-4932-9236-C244959ACA6A"
+        },
+        {
+            "pattern": "impl ${name:word}",
+            "supported_languages": [],
+            "description": "Default statement for extending a struct.\n> impl rectangle",
+            "name": "Impl",
+            "identifier": "rimpl",
+            "is_enabled": true,
+            "output_template": "impl ${name.capitalize} {\n\t#\n}",
+            "id": "F86B44C5-855F-408F-BC0A-890FA2AB4F27"
+        },
+        {
+            "pattern": "struct ${name:word}| ${type:text?} |",
+            "supported_languages": [],
+            "description": "> struct Rectangle\n\n> struct Room String",
+            "name": "Struct",
+            "identifier": "rstruct",
+            "is_enabled": true,
+            "output_template": "struct ${name.capitalize}|<${type}>| {\n\t#\n}",
+            "id": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E"
+        },
+        {
+            "pattern": "enum ${Name:word}",
+            "supported_languages": [],
+            "description": "> enum Coins",
+            "name": "Enum",
+            "identifier": "renum",
+            "is_enabled": true,
+            "output_template": "enum ${Name.capitalize} {\n\t#\n}",
+            "id": "DAA6F157-386D-4E39-86DC-0350B6A80E0D"
+        },
+        {
+            "pattern": "var ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|",
+            "supported_languages": [],
+            "description": "> var integer 36\n\n> var integer 36 usize m",
+            "name": "Variables",
+            "identifier": "rvar",
+            "is_enabled": true,
+            "output_template": "let |${mut}| ${name.camelcase}|: ${type}| = ${value};",
+            "id": "0BD29A62-AFF4-4359-A7E3-FD363121720A"
+        },
+        {
+            "pattern": "conv ${var:word} ${type:word}",
+            "supported_languages": [],
+            "description": "> conv integer f32",
+            "name": "Type Conversion",
+            "identifier": "rconv",
+            "is_enabled": true,
+            "output_template": "${var} as ${type}#",
+            "id": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97"
+        },
+        {
+            "pattern": "main",
+            "supported_languages": [],
+            "description": "> main",
+            "name": "main",
+            "identifier": "rmain",
+            "is_enabled": true,
+            "output_template": "fn main() {\n\t#\n}",
+            "id": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A"
+        },
+        {
+            "pattern": "match ${var:word}",
+            "supported_languages": [],
+            "description": "> match number",
+            "name": "Match",
+            "identifier": "rmatch",
+            "is_enabled": true,
+            "output_template": "match ${var} {\n\t# => \n}",
+            "id": "E9CA8616-8829-4F97-B74B-DE0C4DB69085"
+        }
+    ],
+    "id": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
+    "name": "Rust",
+    "supported_languages": [
+        "any"
+    ],
+    "is_enabled": true,
+    "description": "Common Rust Expansions\n\nMade by [twitter] @dustinknopoff\n\n"
+}
