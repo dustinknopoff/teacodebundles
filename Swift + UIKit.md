@@ -15,7 +15,6 @@ Description:
 will render:
 
 
-
 ```swift
  @IBDesignable class MyView: UIView {
      
@@ -36,8 +35,7 @@ will render:
      override func layoutSubviews() {
          super.layoutSubviews()
      }
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -54,14 +52,12 @@ Description:
 will render:
 
 
-
 ```swift
  override func viewDidLoad() {
      super.viewDidLoad()
      
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -78,14 +74,12 @@ Description:
 will render:
 
 
-
 ```swift
  override func viewDidAppear() {
      super.viewDidAppear()
      
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -102,14 +96,12 @@ Description:
 will render:
 
 
-
 ```swift
  override func viewWillAppear() {
      super.viewWillAppear()
      
      
- }
-```
+ }```
 
 Languages: ['swift']
 

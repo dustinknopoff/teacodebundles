@@ -16,12 +16,10 @@ Description:
 will render:
 
 
-
 ```js
  const page = this.props.page;
  
- this.setState({ page });
-```
+ this.setState({ page });```
 
 Languages: ['js']
 
@@ -38,12 +36,10 @@ Description:
 will render:
 
 
-
 ```js
  setLimit = (max) => {
      
- };
-```
+ };```
 
 Languages: ['js']
 
@@ -60,7 +56,6 @@ Description:
 will render:
 
 
-
 ```js
  import React, {Component} from 'react';
  
@@ -73,8 +68,7 @@ will render:
      }
  }
  
- export default Header;
-```
+ export default Header;```
 
 Languages: ['js']
 

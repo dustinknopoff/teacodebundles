@@ -17,22 +17,18 @@ Description:
 will render:
 
 
-
 ```
  def main():
-     
-```
+     ```
 
 ` fn divide divisor: i32, dividend: i32`
 
 will render:
 
 
-
 ```
  def divide(divisor: i32, dividend: i32):
-     
-```
+     ```
 
 
 
@@ -47,12 +43,10 @@ Description:
 will render:
 
 
-
 ```
  impl Rectangle {
      
- }
-```
+ }```
 
 
 
@@ -65,22 +59,18 @@ Description:
 will render:
 
 
-
 ```
  struct Rectangle {
      
- }
-```
+ }```
 
 ` struct Room String`
 
 will render:
 
 
-
 ```
- struct Roo// MARK: - String
-```
+ struct Roo// MARK: - String```
 
 
 
@@ -93,12 +83,10 @@ Description:
 will render:
 
 
-
 ```
  enum Coins {
      
- }
-```
+ }```
 
 
 
@@ -111,22 +99,18 @@ Description:
 will render:
 
 
-
 ```
  private final integer 36;
- 
-```
+ ```
 
 ` var integer 36 usize m`
 
 will render:
 
 
-
 ```
  private final integer 36 usize m;
- 
-```
+ ```
 
 
 
@@ -139,10 +123,8 @@ Description:
 will render:
 
 
-
 ```
- integer as f32
-```
+ integer as f32```
 
 
 
@@ -155,11 +137,9 @@ Description:
 will render:
 
 
-
 ```
  if __name__ == "__main__":
-     
-```
+     ```
 
 
 
@@ -172,12 +152,10 @@ Description:
 will render:
 
 
-
 ```
  match number {
       => 
- }
-```
+ }```
 
 
 

@@ -15,20 +15,16 @@ Description:
 will render:
 
 
-
 ```html
- <div class="hello" id="world"></div>
-```
+ <div class="hello" id="world"></div>```
 
 ` p hello world`
 
 will render:
 
 
-
 ```html
- <p>hello world</p>
-```
+ <p>hello world</p>```
 
 Languages: ['html']
 
@@ -45,10 +41,8 @@ Description:
 will render:
 
 
-
 ```html
- <a>http://www.apptorium.com</a>
-```
+ <a>http://www.apptorium.com</a>```
 
 Languages: ['html']
 
@@ -65,7 +59,6 @@ Description:
 will render:
 
 
-
 ```html
  <!DOCTYPE html>
  <html>
@@ -75,8 +68,7 @@ will render:
      <body>
          
      </body>
- </html>
-```
+ </html>```
 
 Languages: ['html']
 
@@ -91,10 +83,8 @@ Description:
 will render:
 
 
-
 ```html
- <br />
-```
+ <br />```
 
 Languages: ['html']
 

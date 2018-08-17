@@ -17,12 +17,10 @@ Description:
 will render:
 
 
-
 ```php
  for interface 100 {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -39,24 +37,20 @@ Description:
 will render:
 
 
-
 ```php
  public func run() {
      
- }
-```
+ }```
 
 ` +f run($param1, $param2)`
 
 will render:
 
 
-
 ```php
  public func run($param1, $param2) {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -73,10 +67,8 @@ Description:
 will render:
 
 
-
 ```php
- public var name: String
-```
+ public var name: String```
 
 Languages: ['php']
 
@@ -93,13 +85,11 @@ Description:
 will render:
 
 
-
 ```php
  +guard name: String else {
      return
  }
- 
-```
+ ```
 
 Languages: ['php']
 
@@ -116,12 +106,10 @@ Description:
 will render:
 
 
-
 ```php
  public struct FirstName: String {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -140,12 +128,10 @@ Description:
 will render:
 
 
-
 ```php
  exclass VeryBadThing {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -162,12 +148,10 @@ Description:
 will render:
 
 
-
 ```php
  public class ArticleController extends BaseController {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -184,12 +168,10 @@ Description:
 will render:
 
 
-
 ```php
  t propertyName() {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -206,10 +188,8 @@ Description:
 will render:
 
 
-
 ```php
- <map>name</map>
-```
+ <map>name</map>```
 
 Languages: ['php']
 
@@ -226,10 +206,8 @@ Description:
 will render:
 
 
-
 ```php
- for let mut in = vars;
-```
+ for let mut in = vars;```
 
 Languages: ['php']
 
@@ -246,7 +224,6 @@ Description:
 will render:
 
 
-
 ```php
  public var firstName: String {
      get {
@@ -255,8 +232,7 @@ will render:
      set {
          
      }
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -273,12 +249,10 @@ Description:
 will render:
 
 
-
 ```php
  +fd run() {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -295,12 +269,10 @@ Description:
 will render:
 
 
-
 ```php
  php() {
      
- }
-```
+ }```
 
 Languages: ['php']
 
@@ -327,12 +299,10 @@ Description:
 will render:
 
 
-
 ```php
  con() {
      
- }
-```
+ }```
 
 Languages: ['php']
 

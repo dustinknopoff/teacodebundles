@@ -11,12 +11,10 @@ Description:
 will render:
 
 
-
 ```
  uuid() {
      
- }
-```
+ }```
 
 
 
@@ -31,15 +29,13 @@ Description:
 will render:
 
 
-
 ```swift
  //
  //  test.swift
  //
  //  Created by Dustin Knopoff on 17/08/2018.
  //  Copyright © 2018 Dustin Knopoff. All rights reserved.
- //
-```
+ //```
 
 Languages: ['swift']
 
@@ -54,10 +50,8 @@ Description:
 will render:
 
 
-
 ```
- // [2018-08-17 11:54:45] Sample comment
-```
+ // [2018-08-17 05:56:35] Sample comment```
 
 
 
@@ -76,12 +70,10 @@ Description:
 will render:
 
 
-
 ```
  ip() {
      
- }
-```
+ }```
 
 
 
@@ -94,14 +86,12 @@ Description:
 will render:
 
 
-
 ```
  enum hello {
      case aa
      case bb
      case cc
- }
-```
+ }```
 
 
 
@@ -114,10 +104,8 @@ Description:
 will render:
 
 
-
 ```
- <rp>1 7 you are on card {} of 27</rp>
-```
+ <rp>1 7 you are on card {} of 27</rp>```
 
 
 

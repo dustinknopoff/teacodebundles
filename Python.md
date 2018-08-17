@@ -15,22 +15,18 @@ Description:
 will render:
 
 
-
 ```python
  def do(arr):
-     
-```
+     ```
 
 ` fn do`
 
 will render:
 
 
-
 ```python
  def do():
-     
-```
+     ```
 
 Languages: ['python']
 
@@ -47,22 +43,18 @@ Description:
 will render:
 
 
-
 ```python
  r = requests.get("https://www.apple.com").json()
- 
-```
+ ```
 
 ` req https://www.apple.com `
 
 will render:
 
 
-
 ```python
  r = requests.get("https://www.apple.com ")
- 
-```
+ ```
 
 Languages: ['python']
 
@@ -79,10 +71,8 @@ Description:
 will render:
 
 
-
 ```python
- re.findall(r'd+', str)
-```
+ re.findall(r'd+', str)```
 
 > **NOTE: Must import `re`**
 
@@ -101,11 +91,9 @@ Description:
 will render:
 
 
-
 ```python
  soup = BeautifulSoup(r.content, 'html.parser')
- 
-```
+ ```
 
 > **NOTE: Must import `bs4`**
 
@@ -124,12 +112,10 @@ Description:
 will render:
 
 
-
 ```python
  class Story:
      def __init__(self):
-         
-```
+         ```
 
 Languages: ['python']
 
@@ -146,11 +132,9 @@ Description:
 will render:
 
 
-
 ```python
  if any(w for w in ("Apple", "Banana", "Croissant")):
-     
-```
+     ```
 
 Languages: ['python']
 
@@ -167,11 +151,9 @@ Description:
 will render:
 
 
-
 ```python
  with open('~/Downloads/example.txt') as f:
-     
-```
+     ```
 
 Languages: ['python']
 
@@ -188,11 +170,9 @@ Description:
 will render:
 
 
-
 ```python
  script = subprocess.run("brew list".split(), stdout=subprocess.PIPE)
- 
-```
+ ```
 
 Languages: ['python']
 
@@ -207,22 +187,18 @@ Description:
 will render:
 
 
-
 ```python
  if __name__ == "__main__":
-     
-```
+     ```
 
 ` main Story().read()`
 
 will render:
 
 
-
 ```python
  if __name__ == "__main__":
-     Story().read()
-```
+     Story().read()```
 
 Languages: ['python']
 
@@ -239,10 +215,8 @@ Description:
 will render:
 
 
-
 ```python
- results = list(map(int, results))
-```
+ results = list(map(int, results))```
 
 Languages: ['python']
 
@@ -259,11 +233,33 @@ Description:
 will render:
 
 
-
 ```python
  #!/usr/bin/env python3.6
- 
-```
+ ```
+
+Languages: ['python']
+
+
+
+### import
+
+Description:
+
+` @re`
+
+will render:
+
+
+```python
+ import re```
+
+` @BeautifulSoup bs4`
+
+will render:
+
+
+```python
+ from bs4 import BeautifulSoup```
 
 Languages: ['python']
 

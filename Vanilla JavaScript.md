@@ -15,11 +15,9 @@ Description:
 will render:
 
 
-
 ```js
  var btns = document.getElementById("menu-button");
- 
-```
+ ```
 
 Languages: ['js']
 
@@ -36,11 +34,9 @@ Description:
 will render:
 
 
-
 ```js
  var btns = document.getElementsByClassName("links");
- 
-```
+ ```
 
 Languages: ['js']
 
@@ -57,11 +53,9 @@ Description:
 will render:
 
 
-
 ```js
  var btns = document.getElementsByTagName("button");
- 
-```
+ ```
 
 Languages: ['js']
 
@@ -78,11 +72,9 @@ Description:
 will render:
 
 
-
 ```js
  l.className += active;
- 
-```
+ ```
 
 Languages: ['js']
 
@@ -99,13 +91,11 @@ Description:
 will render:
 
 
-
 ```js
  Object.keys(query)
      .forEach((key) => {
          
-     });
-```
+     });```
 
 Languages: ['js']
 
@@ -122,7 +112,6 @@ Description:
 will render:
 
 
-
 ```js
  fetch("https://www.api.github.com")
      .then(res => res.json())
@@ -130,8 +119,7 @@ will render:
          
      }, (error) => {
          console.log(error);
-     });
-```
+     });```
 
 Languages: ['js']
 
@@ -148,12 +136,10 @@ Description:
 will render:
 
 
-
 ```js
  app.get('/api/users', (req, res) => {
      
- }
-```
+ }```
 
 Languages: ['js']
 
@@ -170,11 +156,9 @@ Description:
 will render:
 
 
-
 ```js
  console.log(chicken.little());
- 
-```
+ ```
 
 Languages: ['js']
 

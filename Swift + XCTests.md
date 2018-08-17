@@ -28,7 +28,6 @@ Description:
 will render:
 
 
-
 ```swift
  import XCTest
  @testable import MyApp
@@ -36,8 +35,7 @@ will render:
  class UpdateControllerTests: XCTestCase {
      
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -52,12 +50,10 @@ Description:
 will render:
 
 
-
 ```swift
  func testUpdate() {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -72,10 +68,8 @@ Description:
 will render:
 
 
-
 ```swift
- XCTAssertEqual(, value)
-```
+ XCTAssertEqual(, value)```
 
 Languages: ['swift']
 
@@ -90,10 +84,8 @@ Description:
 will render:
 
 
-
 ```swift
- XCTAssertTrue(value)
-```
+ XCTAssertTrue(value)```
 
 Languages: ['swift']
 
@@ -108,10 +100,8 @@ Description:
 will render:
 
 
-
 ```swift
- XCTAssertFalse(value)
-```
+ XCTAssertFalse(value)```
 
 Languages: ['swift']
 
@@ -126,10 +116,8 @@ Description:
 will render:
 
 
-
 ```swift
- XCTAssertNil(value)
-```
+ XCTAssertNil(value)```
 
 Languages: ['swift']
 
@@ -144,10 +132,8 @@ Description:
 will render:
 
 
-
 ```swift
- XCTAssert(value == "something")
-```
+ XCTAssert(value == "something")```
 
 Languages: ['swift']
 

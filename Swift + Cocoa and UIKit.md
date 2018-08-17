@@ -15,10 +15,8 @@ Description:
 will render:
 
 
-
 ```swift
- @IBOutlet weak var nameTextField: NSTextField!
-```
+ @IBOutlet weak var nameTextField: NSTextField!```
 
 Languages: ['swift']
 
@@ -35,12 +33,10 @@ Description:
 will render:
 
 
-
 ```swift
  @IBAction func done(_ sender: Any) {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -57,10 +53,8 @@ Description:
 will render:
 
 
-
 ```swift
- NSLocalizedString("Hello World", comment: "First message")
-```
+ NSLocalizedString("Hello World", comment: "First message")```
 
 Languages: ['swift']
 
@@ -77,12 +71,10 @@ Description:
 will render:
 
 
-
 ```swift
  if let controller = segue.destinationViewController as? UITableViewController {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -99,12 +91,10 @@ Description:
 will render:
 
 
-
 ```swift
  guard let controller = segue.destinationViewController as? UITableViewController else {
      return
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -121,24 +111,20 @@ Description:
 will render:
 
 
-
 ```
  dga() {
      
- }
-```
+ }```
 
 ` dms`
 
 will render:
 
 
-
 ```
  dms() {
      
- }
-```
+ }```
 
 
 

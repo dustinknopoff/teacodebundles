@@ -131,6 +131,18 @@
             "is_enabled": true,
             "output_template": "\\#!/usr/bin/env python${version}\n#",
             "id": "5488C00A-A290-4F8F-B45A-A73D66D0B1B4"
+        },
+        {
+            "pattern": "@${package:word}| ${from:text?}|",
+            "supported_languages": [
+                "python"
+            ],
+            "description": "> @re\n\n> @BeautifulSoup bs4",
+            "name": "import",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "|from ${from} |import ${package}",
+            "id": "29E599A8-B29C-430E-8763-5BE2D55709EC"
         }
     ],
     "id": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028",

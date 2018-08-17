@@ -13,10 +13,8 @@ Description:
 will render:
 
 
-
 ```swift
- private var name: String
-```
+ private var name: String```
 
 Languages: ['swift']
 
@@ -31,20 +29,16 @@ Description:
 will render:
 
 
-
 ```swift
- private let name = "Joe Doe"
-```
+ private let name = "Joe Doe"```
 
 ` -l name: String = "Joe Doe"`
 
 will render:
 
 
-
 ```swift
- private let name: String = "Joe Doe"
-```
+ private let name: String = "Joe Doe"```
 
 Languages: ['swift']
 
@@ -59,24 +53,20 @@ Description:
 will render:
 
 
-
 ```swift
  private func run() {
      
- }
-```
+ }```
 
 ` -f run(hello: String, world: String) -> Bool`
 
 will render:
 
 
-
 ```swift
  private func run(hello: String, world: String) -> Bool {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -91,24 +81,20 @@ Description:
 will render:
 
 
-
 ```swift
  public class MainViewController {
      
- }
-```
+ }```
 
 ` +c MainViewController: NSViewController`
 
 will render:
 
 
-
 ```swift
  public class MainViewController: NSViewController {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -123,13 +109,11 @@ Description:
 will render:
 
 
-
 ```swift
  guard value == true else {
      return
  }
- 
-```
+ ```
 
 Languages: ['swift']
 
@@ -146,13 +130,11 @@ Description:
 will render:
 
 
-
 ```swift
  guard let variable = variable else {
      return
  }
- 
-```
+ ```
 
 Languages: ['swift']
 
@@ -167,12 +149,10 @@ Description:
 will render:
 
 
-
 ```swift
  if let name = name {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -187,14 +167,12 @@ Description:
 will render:
 
 
-
 ```swift
  do {
      try run()
  } catch {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -209,7 +187,6 @@ Description:
 will render:
 
 
-
 ```swift
  public var name: String {
      get {
@@ -218,8 +195,7 @@ will render:
      set {
          
      }
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -236,12 +212,10 @@ Description:
 will render:
 
 
-
 ```swift
  public var name: String {
      return 
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -256,24 +230,20 @@ Description:
 will render:
 
 
-
 ```swift
  var isValid: Bool {
      return 
- }
-```
+ }```
 
 ` didLoad`
 
 will render:
 
 
-
 ```swift
  var didLoad: Bool {
      return 
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -288,20 +258,16 @@ Description:
 will render:
 
 
-
 ```swift
- var name: String { get }
-```
+ var name: String { get }```
 
 ` pgs name: String`
 
 will render:
 
 
-
 ```swift
- var name: String { get set }
-```
+ var name: String { get set }```
 
 Languages: ['swift']
 
@@ -316,12 +282,10 @@ Description:
 will render:
 
 
-
 ```swift
  public static func ==(lhs: String, rhs: String) -> Bool {
      return 
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -338,12 +302,10 @@ Description:
 will render:
 
 
-
 ```swift
  lazy var variableName: String = {
      
- }()
-```
+ }()```
 
 Languages: ['swift']
 
@@ -360,14 +322,12 @@ Description:
 will render:
 
 
-
 ```swift
  lazy var hello: MyClass = {
      let hello = MyClass()
      hello.
      return hello
- }()
-```
+ }()```
 
 Languages: ['swift']
 
@@ -384,20 +344,16 @@ Description:
 will render:
 
 
-
 ```
- <td>Implement</td>
-```
+ <td>Implement</td>```
 
 ` m View Lifecycle`
 
 will render:
 
 
-
 ```
- // MARK: - View Lifecycle
-```
+ // MARK: - View Lifecycle```
 
 
 
@@ -412,10 +368,8 @@ Description:
 will render:
 
 
-
 ```swift
- import UIKit
-```
+ import UIKit```
 
 Languages: ['swift']
 
@@ -440,12 +394,10 @@ Description:
 will render:
 
 
-
 ```swift
  public protocol MyProtocol {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -470,12 +422,10 @@ Description:
 will render:
 
 
-
 ```swift
  if condition {
      
- }
-```
+ }```
 
 Languages: ['swift']
 

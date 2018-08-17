@@ -15,7 +15,6 @@ Description:
 will render:
 
 
-
 ```css
  html {
      background: url("../assets/bg.jpg") no-repeat center center fixed;
@@ -28,8 +27,7 @@ will render:
  
  }
  
- 
-```
+ ```
 
 Languages: ['css']
 
@@ -46,12 +44,10 @@ Description:
 will render:
 
 
-
 ```css
  @media only screen and (max-width: 768px) {
      
- }
-```
+ }```
 
 Languages: ['css']
 

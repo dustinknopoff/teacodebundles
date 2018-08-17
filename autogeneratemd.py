@@ -1,5 +1,6 @@
 import json
 import subprocess
+import os
 
 
 # Represents a TeaCode Bundle
@@ -87,8 +88,8 @@ class Expander:
                     except json.JSONDecodeError:
                         continue
                     # Format as code and code blocks
-                    usable.append(f'`{string}`\n\nwill render:\n\n')
-                    usable.append(f'```{typer}\n{temp["text"]}\n```')
+                    usable.append(f'`{string}`\n\nwill render:\n')
+                    usable.append(f'```{typer}\n{temp["text"]}```')
                 else:
                     # If the line is not a expander example, make it a blockquote
                     if string is not '':
@@ -114,7 +115,8 @@ class Expander:
 
 
 if __name__ == '__main__':
-    with open('~/Library/Application Support/com.apptorium.TeaCode-dm/bundles.tcbundles', 'r') as f:
+    path = os.path.expanduser('~/Library/Application Support/com.apptorium.TeaCode-dm/bundles.tcbundles')
+    with open(path, 'r') as f:
         stuff = json.load(f)
         for bund in stuff['bundles']:
             bundle = Bundle(bund)

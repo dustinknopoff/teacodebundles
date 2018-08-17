@@ -15,10 +15,8 @@ Description:
 will render:
 
 
-
 ```swift
- self.name = name
-```
+ self.name = name```
 
 Languages: ['swift']
 
@@ -35,10 +33,8 @@ Description:
 will render:
 
 
-
 ```swift
- let someViewController = SomeViewController()
-```
+ let someViewController = SomeViewController()```
 
 Languages: ['swift']
 
@@ -55,10 +51,8 @@ Description:
 will render:
 
 
-
 ```swift
- tableView.delegate = self
-```
+ tableView.delegate = self```
 
 Languages: ['swift']
 
@@ -75,15 +69,13 @@ Description:
 will render:
 
 
-
 ```swift
  public class SingletonClass {
  
      public static let instance = SingletonClass()
  
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -100,12 +92,10 @@ Description:
 will render:
 
 
-
 ```swift
  public protocol MyViewDelegate {
      
- }
-```
+ }```
 
 Languages: ['swift']
 
@@ -122,15 +112,13 @@ Description:
 will render:
 
 
-
 ```swift
  public class MyClass {
  
      func run() {
          
      }
- }
-```
+ }```
 
 Languages: ['swift']
 
