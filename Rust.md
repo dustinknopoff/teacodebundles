@@ -4,6 +4,8 @@
 
 Made by [twitter] @dustinknopoff
 
+
+
 ### Fn
 
 Description:
@@ -16,10 +18,9 @@ will render:
 
 
 
-```any
- fn main() {
+```
+ def main():
      
- }
 ```
 
 ` fn divide divisor: i32, dividend: i32`
@@ -28,13 +29,12 @@ will render:
 
 
 
-```any
- fn divide(divisor: i32, dividend: i32) {
+```
+ def divide(divisor: i32, dividend: i32):
      
- }
 ```
 
-Languages: ['any']
+Languages: []
 
 
 
@@ -50,13 +50,13 @@ will render:
 
 
 
-```any
+```
  impl Rectangle {
      
  }
 ```
 
-Languages: ['any']
+Languages: []
 
 
 
@@ -70,7 +70,7 @@ will render:
 
 
 
-```any
+```
  struct Rectangle {
      
  }
@@ -82,11 +82,11 @@ will render:
 
 
 
-```any
+```
  struct Roo// MARK: - String
 ```
 
-Languages: ['any']
+Languages: []
 
 
 
@@ -100,13 +100,13 @@ will render:
 
 
 
-```any
+```
  enum Coins {
      
  }
 ```
 
-Languages: ['any']
+Languages: []
 
 
 
@@ -120,8 +120,9 @@ will render:
 
 
 
-```any
- let mut integer = 36;
+```
+ private final integer 36;
+ 
 ```
 
 ` var integer 36 usize m`
@@ -130,11 +131,12 @@ will render:
 
 
 
-```any
- let mut integer: usize = 36;
+```
+ private final integer 36 usize m;
+ 
 ```
 
-Languages: ['any']
+Languages: []
 
 
 
@@ -148,11 +150,11 @@ will render:
 
 
 
-```any
+```
  integer as f32
 ```
 
-Languages: ['any']
+Languages: []
 
 
 
@@ -166,13 +168,12 @@ will render:
 
 
 
-```any
- fn main() {
+```
+ if __name__ == "__main__":
      
- }
 ```
 
-Languages: ['any']
+Languages: []
 
 
 
@@ -186,13 +187,13 @@ will render:
 
 
 
-```any
+```
  match number {
       => 
  }
 ```
 
-Languages: ['any']
+Languages: []
 
 
 

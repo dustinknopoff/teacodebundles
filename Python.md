@@ -17,9 +17,8 @@ will render:
 
 
 ```python
- fn do(arr) {
+ def do(arr):
      
- }
 ```
 
 ` fn do`
@@ -29,9 +28,8 @@ will render:
 
 
 ```python
- fn do() {
+ def do():
      
- }
 ```
 
 Languages: ['python']
@@ -51,7 +49,8 @@ will render:
 
 
 ```python
- req https://www.apple.co// MARK: - j
+ r = requests.get("https://www.apple.com").json()
+ 
 ```
 
 ` req https://www.apple.com `
@@ -210,9 +209,8 @@ will render:
 
 
 ```python
- fn main() {
+ if __name__ == "__main__":
      
- }
 ```
 
 ` main Story().read()`
