@@ -108,7 +108,8 @@ class Expander:
         result += f"### {self.name}\n\nDescription:\n\n"
         for string in values:
             result += string + '\n\n'
-        result += f'Languages: {self.langs}\n\n'
+        if len(self.langs) > 0:
+            result += f'Languages: {self.langs}\n\n'
         return result
 
 

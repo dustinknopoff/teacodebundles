@@ -140,7 +140,5 @@ will render:
  }
 ```
 
-Languages: []
-
 
 

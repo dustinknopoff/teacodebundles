@@ -399,8 +399,6 @@ will render:
  // MARK: - View Lifecycle
 ```
 
-Languages: []
-
 
 
 ### Import

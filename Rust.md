@@ -34,8 +34,6 @@ will render:
      
 ```
 
-Languages: []
-
 
 
 ### Impl
@@ -55,8 +53,6 @@ will render:
      
  }
 ```
-
-Languages: []
 
 
 
@@ -86,8 +82,6 @@ will render:
  struct Roo// MARK: - String
 ```
 
-Languages: []
-
 
 
 ### Enum
@@ -105,8 +99,6 @@ will render:
      
  }
 ```
-
-Languages: []
 
 
 
@@ -136,8 +128,6 @@ will render:
  
 ```
 
-Languages: []
-
 
 
 ### Type Conversion
@@ -153,8 +143,6 @@ will render:
 ```
  integer as f32
 ```
-
-Languages: []
 
 
 
@@ -173,8 +161,6 @@ will render:
      
 ```
 
-Languages: []
-
 
 
 ### Match
@@ -192,8 +178,6 @@ will render:
       => 
  }
 ```
-
-Languages: []
 
 
 

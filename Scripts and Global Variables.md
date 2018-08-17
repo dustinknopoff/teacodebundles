@@ -18,8 +18,6 @@ will render:
  }
 ```
 
-Languages: []
-
 
 
 ### Header
@@ -58,18 +56,14 @@ will render:
 
 
 ```
- // [2018-08-17 11:51:33] Sample comment
+ // [2018-08-17 11:54:45] Sample comment
 ```
-
-Languages: []
 
 
 
 ### File list
 
 Description:
-
-Languages: []
 
 
 
@@ -88,8 +82,6 @@ will render:
      
  }
 ```
-
-Languages: []
 
 
 
@@ -111,8 +103,6 @@ will render:
  }
 ```
 
-Languages: []
-
 
 
 ### Repeater
@@ -128,8 +118,6 @@ will render:
 ```
  <rp>1 7 you are on card {} of 27</rp>
 ```
-
-Languages: []
 
 
 

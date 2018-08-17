@@ -22,8 +22,6 @@ will render:
  }
 ```
 
-Languages: []
-
 
 
 ### 2. Variable
@@ -44,8 +42,6 @@ will render:
  }
 ```
 
-Languages: []
-
 
 
 ### 3. Variable with filter
@@ -63,8 +59,6 @@ will render:
 ```
  pas<s>sha1 samplepassword123</s>
 ```
-
-Languages: []
 
 
 
@@ -98,8 +92,6 @@ will render:
  }
 ```
 
-Languages: []
-
 
 
 ### 5. Hash
@@ -120,8 +112,6 @@ will render:
  }
 ```
 
-Languages: []
-
 
 
 ### 6. Exp
@@ -139,8 +129,6 @@ will render:
 ```
  ex<p>h Joe</p>
 ```
-
-Languages: []
 
 
 
@@ -169,8 +157,6 @@ will render:
 ```
  enu// MARK: - b hello world
 ```
-
-Languages: []
 
 
 
@@ -203,8 +189,6 @@ will render:
      
  }
 ```
-
-Languages: []
 
 
 
