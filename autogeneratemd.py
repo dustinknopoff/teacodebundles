@@ -115,7 +115,10 @@ class Expander:
 
 
 if __name__ == '__main__':
-    path = os.path.expanduser('~/Library/Application Support/com.apptorium.TeaCode-dm/bundles.tcbundles')
+    try:
+        path = os.path.expanduser('~/Library/Application Support/com.apptorium.TeaCode-dm/bundles.tcbundles')
+    except FileNotFoundError:
+        path = os.path.expanduser('~/Library/Application Support/com.apptorium.TeaCode-setapp/bundles.tcbundles')
     with open(path, 'r') as f:
         stuff = json.load(f)
         for bund in stuff['bundles']:
