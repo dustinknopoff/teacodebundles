@@ -2,7 +2,7 @@
 
 ## Commonly Used Python Expansions
 
-Made by [twitter] @dustinknopoff
+Made by [@dustinknopoff](https://dustinknopoff.me)
 
 ### Function
 

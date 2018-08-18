@@ -2,7 +2,7 @@
 
 ## Common Vanilla JavaScript Expansions
 
-Made by [twitter] @dustinknopoff
+Made by [@dustinknopoff](https://dustinknopoff.me)
 
 ### Element Id
 

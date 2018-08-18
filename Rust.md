@@ -2,7 +2,7 @@
 
 ## Common Rust Expansions
 
-Made by [twitter] @dustinknopoff
+Made by [@dustinknopoff](https://dustinknopoff.me)
 
 
 
