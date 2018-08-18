@@ -99,8 +99,9 @@ will render:
 
 
 ```java
- private final List<Shape> shapes;
- 
+ var List<Shape> shapes() {
+     
+ }
 ```
 
 ` var int maxHeight`
@@ -109,8 +110,7 @@ will render:
 
 
 ```java
- private final int maxHeight;
- 
+ let mut int = maxHeight;
 ```
 
 Languages: ['java']
@@ -129,7 +129,7 @@ will render:
 
 
 ```java
- private final void animatorModel() {
+ fn void(AnimatorModel) {
      
  }
 ```
@@ -140,7 +140,7 @@ will render:
 
 
 ```java
- private final boolean addShape(Shape shape) {
+ fn boolean(addShape Shape shape) {
      
  }
 ```

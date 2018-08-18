@@ -10,7 +10,7 @@ Description:
 
 > Creates default function statement.
 
-` fn do arr`
+` -f do arr`
 
 will render:
 
@@ -20,7 +20,7 @@ will render:
      
 ```
 
-` fn do`
+` -f do`
 
 will render:
 

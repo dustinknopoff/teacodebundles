@@ -18,8 +18,9 @@ will render:
 
 
 ```
- def main():
+ fn main() {
      
+ }
 ```
 
 ` fn divide divisor: i32, dividend: i32`
@@ -28,8 +29,9 @@ will render:
 
 
 ```
- def divide(divisor: i32, dividend: i32):
+ fn divide(divisor: i32, dividend: i32) {
      
+ }
 ```
 
 
@@ -106,8 +108,7 @@ will render:
 
 
 ```
- private final integer 36;
- 
+ <var>integer 36</var>
 ```
 
 ` var integer 36 usize m`
@@ -116,8 +117,7 @@ will render:
 
 
 ```
- private final integer 36 usize m;
- 
+ <var>integer 36 usize m</var>
 ```
 
 

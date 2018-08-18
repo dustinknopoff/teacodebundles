@@ -51,7 +51,7 @@
             "id": "C1BC6D11-E6DE-4759-99F3-3EF9948B753A"
         },
         {
-            "pattern": "var ${type:text} ${name:word}",
+            "pattern": "-v ${type:text} ${name:word}",
             "supported_languages": [
                 "java"
             ],
@@ -63,7 +63,7 @@
             "id": "F3CFF65F-AE61-4B6C-B23F-101F2B3CAB76"
         },
         {
-            "pattern": "fn ${type:word} ${name:word}| ${args:text?}|",
+            "pattern": "-f ${type:word} ${name:word}| ${args:text?}|",
             "supported_languages": [
                 "java"
             ],

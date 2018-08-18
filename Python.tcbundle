@@ -1,11 +1,11 @@
 {
     "expanders": [
         {
-            "pattern": "fn ${name:word}| ${params:text?}|",
+            "pattern": "-f ${name:word}| ${params:text?}|",
             "supported_languages": [
                 "python"
             ],
-            "description": "Creates default function statement.\n> fn do arr\n\n\n> fn do",
+            "description": "Creates default function statement.\n> -f do arr\n\n\n> -f do",
             "name": "Function",
             "identifier": "fn",
             "is_enabled": true,
