@@ -35,7 +35,8 @@ will render:
      override func layoutSubviews() {
          super.layoutSubviews()
      }
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -57,7 +58,8 @@ will render:
      super.viewDidLoad()
      
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -79,7 +81,8 @@ will render:
      super.viewDidAppear()
      
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -101,7 +104,8 @@ will render:
      super.viewWillAppear()
      
      
- }```
+ }
+```
 
 Languages: ['swift']
 

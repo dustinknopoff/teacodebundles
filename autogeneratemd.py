@@ -90,7 +90,7 @@ class Expander:
                         continue
                     # Format as code and code blocks
                     usable.append(f'`{string}`\n\nwill render:\n')
-                    usable.append(f'```{typer}\n{temp["text"]}```')
+                    usable.append(f'```{typer}\n{temp["text"]}\n```')
                 else:
                     # If the line is not a expander example, make it a blockquote
                     if string is not '':

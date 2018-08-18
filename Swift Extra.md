@@ -16,7 +16,8 @@ will render:
 
 
 ```swift
- self.name = name```
+ self.name = name
+```
 
 Languages: ['swift']
 
@@ -34,7 +35,8 @@ will render:
 
 
 ```swift
- let someViewController = SomeViewController()```
+ let someViewController = SomeViewController()
+```
 
 Languages: ['swift']
 
@@ -52,7 +54,8 @@ will render:
 
 
 ```swift
- tableView.delegate = self```
+ tableView.delegate = self
+```
 
 Languages: ['swift']
 
@@ -75,7 +78,8 @@ will render:
      public static let instance = SingletonClass()
  
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -95,7 +99,8 @@ will render:
 ```swift
  public protocol MyViewDelegate {
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -118,7 +123,8 @@ will render:
      func run() {
          
      }
- }```
+ }
+```
 
 Languages: ['swift']
 

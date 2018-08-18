@@ -20,7 +20,8 @@ will render:
      super.viewDidLoad()
      
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -42,7 +43,8 @@ will render:
      super.viewDidAppear()
      
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -64,7 +66,8 @@ will render:
      super.viewWillAppear()
      
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -89,7 +92,8 @@ will render:
          
          
      }
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -114,7 +118,8 @@ will render:
          
          
      }
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -132,7 +137,8 @@ will render:
 
 
 ```swift
- sourceObject.bind(NSBindingName("variable"), to: destinationObject, withKeyPath: "path", options: nil)```
+ sourceObject.bind(NSBindingName("variable"), to: destinationObject, withKeyPath: "path", options: nil)
+```
 
 Languages: ['swift']
 

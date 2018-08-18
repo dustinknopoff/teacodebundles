@@ -17,7 +17,8 @@ will render:
 
 ```js
  var btns = document.getElementById("menu-button");
- ```
+ 
+```
 
 Languages: ['js']
 
@@ -36,7 +37,8 @@ will render:
 
 ```js
  var btns = document.getElementsByClassName("links");
- ```
+ 
+```
 
 Languages: ['js']
 
@@ -55,7 +57,8 @@ will render:
 
 ```js
  var btns = document.getElementsByTagName("button");
- ```
+ 
+```
 
 Languages: ['js']
 
@@ -74,7 +77,8 @@ will render:
 
 ```js
  l.className += active;
- ```
+ 
+```
 
 Languages: ['js']
 
@@ -95,7 +99,8 @@ will render:
  Object.keys(query)
      .forEach((key) => {
          
-     });```
+     });
+```
 
 Languages: ['js']
 
@@ -119,7 +124,8 @@ will render:
          
      }, (error) => {
          console.log(error);
-     });```
+     });
+```
 
 Languages: ['js']
 
@@ -139,7 +145,8 @@ will render:
 ```js
  app.get('/api/users', (req, res) => {
      
- }```
+ }
+```
 
 Languages: ['js']
 
@@ -158,7 +165,8 @@ will render:
 
 ```js
  console.log(chicken.little());
- ```
+ 
+```
 
 Languages: ['js']
 

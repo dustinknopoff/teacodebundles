@@ -14,7 +14,8 @@ will render:
 ```
  uuid() {
      
- }```
+ }
+```
 
 
 
@@ -35,7 +36,8 @@ will render:
  //
  //  Created by Dustin Knopoff on 17/08/2018.
  //  Copyright © 2018 Dustin Knopoff. All rights reserved.
- //```
+ //
+```
 
 Languages: ['swift']
 
@@ -51,7 +53,8 @@ will render:
 
 
 ```
- // [2018-08-17 11:03:23] Sample comment```
+ // [2018-08-17 11:04:56] Sample comment
+```
 
 
 
@@ -73,7 +76,8 @@ will render:
 ```
  ip() {
      
- }```
+ }
+```
 
 
 
@@ -91,7 +95,8 @@ will render:
      case aa
      case bb
      case cc
- }```
+ }
+```
 
 
 
@@ -105,7 +110,8 @@ will render:
 
 
 ```
- <rp>1 7 you are on card {} of 27</rp>```
+ <rp>1 7 you are on card {} of 27</rp>
+```
 
 
 

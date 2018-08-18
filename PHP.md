@@ -20,7 +20,8 @@ will render:
 ```php
  for interface 100 {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -40,7 +41,8 @@ will render:
 ```php
  public func run() {
      
- }```
+ }
+```
 
 ` +f run($param1, $param2)`
 
@@ -50,7 +52,8 @@ will render:
 ```php
  public func run($param1, $param2) {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -68,7 +71,8 @@ will render:
 
 
 ```php
- public var name: String```
+ public var name: String
+```
 
 Languages: ['php']
 
@@ -89,7 +93,8 @@ will render:
  +guard name: String else {
      return
  }
- ```
+ 
+```
 
 Languages: ['php']
 
@@ -109,7 +114,8 @@ will render:
 ```php
  public struct FirstName: String {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -131,7 +137,8 @@ will render:
 ```php
  exclass VeryBadThing {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -151,7 +158,8 @@ will render:
 ```php
  public class ArticleController extends BaseController {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -171,7 +179,8 @@ will render:
 ```php
  t propertyName() {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -189,7 +198,8 @@ will render:
 
 
 ```php
- <map>name</map>```
+ <map>name</map>
+```
 
 Languages: ['php']
 
@@ -207,7 +217,8 @@ will render:
 
 
 ```php
- for let mut in = vars;```
+ for let mut in = vars;
+```
 
 Languages: ['php']
 
@@ -232,7 +243,8 @@ will render:
      set {
          
      }
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -252,7 +264,8 @@ will render:
 ```php
  +fd run() {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -272,7 +285,8 @@ will render:
 ```php
  php() {
      
- }```
+ }
+```
 
 Languages: ['php']
 
@@ -302,7 +316,8 @@ will render:
 ```php
  con() {
      
- }```
+ }
+```
 
 Languages: ['php']
 

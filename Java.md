@@ -17,7 +17,8 @@ will render:
 
 ```java
  private static final int SIZE = 300;
- ```
+ 
+```
 
 Languages: ['java']
 
@@ -37,7 +38,8 @@ will render:
 ```java
  if (x > 300) {
      
- }```
+ }
+```
 
 Languages: ['java', 'js']
 
@@ -57,7 +59,8 @@ will render:
 ```java
  for (int i : ArrayList arr) {
      
- }```
+ }
+```
 
 Languages: ['java']
 
@@ -77,7 +80,8 @@ will render:
 ```java
  for (int i = 0; i <= arr.length(); i++) {
      
- }```
+ }
+```
 
 Languages: ['java', 'js']
 
@@ -96,7 +100,8 @@ will render:
 
 ```java
  private final List<Shape> shapes;
- ```
+ 
+```
 
 ` var int maxHeight`
 
@@ -105,7 +110,8 @@ will render:
 
 ```java
  private final int maxHeight;
- ```
+ 
+```
 
 Languages: ['java']
 
@@ -125,7 +131,8 @@ will render:
 ```java
  private final void animatorModel() {
      
- }```
+ }
+```
 
 ` fn boolean addShape Shape shape`
 
@@ -135,7 +142,8 @@ will render:
 ```java
  private final boolean addShape(Shape shape) {
      
- }```
+ }
+```
 
 Languages: ['java']
 
@@ -154,7 +162,8 @@ will render:
 
 ```java
  throw new UnsupportedOperationException("Cannot do this in non-Hybrid View");
- ```
+ 
+```
 
 Languages: ['java']
 
@@ -173,7 +182,8 @@ will render:
 
 ```java
  Oval o = (Oval) s;
- ```
+ 
+```
 
 Languages: ['java']
 
@@ -193,7 +203,8 @@ will render:
 ```java
  public class Nombre extends Familia {
      
- }```
+ }
+```
 
 Languages: ['java']
 
@@ -213,7 +224,8 @@ will render:
 ```java
  interface Car implements Base {
      
- }```
+ }
+```
 
 ` i Car e base`
 
@@ -223,7 +235,8 @@ will render:
 ```java
  interface Car extends Base {
      
- }```
+ }
+```
 
 > Created by @Gata
 
@@ -245,7 +258,8 @@ will render:
 ```java
  class Car implements Base {
      
- }```
+ }
+```
 
 ` c Car e base`
 
@@ -255,7 +269,8 @@ will render:
 ```java
  class Car extends Base {
      
- }```
+ }
+```
 
 > Made by @Gata
 
@@ -277,7 +292,8 @@ will render:
 ```java
  +String run() {
      
- }```
+ }
+```
 
 ` +int run(String param1, int param2)`
 
@@ -287,7 +303,8 @@ will render:
 ```java
  +int run(String param1, int param2) {
      
- }```
+ }
+```
 
 Languages: ['java']
 
@@ -303,7 +320,8 @@ will render:
 
 
 ```java
- public```
+ public
+```
 
 ` -`
 
@@ -311,7 +329,8 @@ will render:
 
 
 ```java
- private```
+ private
+```
 
 ` #`
 
@@ -319,7 +338,8 @@ will render:
 
 
 ```java
- protected```
+ protected
+```
 
 Languages: ['java']
 

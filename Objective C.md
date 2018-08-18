@@ -16,7 +16,8 @@ will render:
 ```objc
  privaterun() {
      
- }```
+ }
+```
 
 Languages: ['objc']
 
@@ -36,7 +37,8 @@ will render:
 ```objc
  dga() {
      
- }```
+ }
+```
 
 ` dms`
 
@@ -46,7 +48,8 @@ will render:
 ```objc
  dms() {
      
- }```
+ }
+```
 
 Languages: ['objc']
 
@@ -64,7 +67,8 @@ will render:
 
 
 ```objc
- import ViewController```
+ import ViewController
+```
 
 Languages: ['objc']
 
@@ -84,7 +88,8 @@ will render:
 ```objc
  if (condition) {
      
- }```
+ }
+```
 
 Languages: ['objc']
 
@@ -100,7 +105,8 @@ will render:
 
 
 ```objc
- <p>MyProtocol</p>```
+ <p>MyProtocol</p>
+```
 
 Languages: ['objc']
 
@@ -120,7 +126,8 @@ will render:
 ```objc
  @IBAction func done(_ sender: Any) {
      
- }```
+ }
+```
 
 Languages: ['objc']
 
@@ -138,7 +145,8 @@ will render:
 
 
 ```objc
- @IBOutlet weak var button: NSButton!```
+ @IBOutlet weak var button: NSButton!
+```
 
 Languages: ['objc']
 
@@ -156,7 +164,8 @@ will render:
 
 
 ```objc
- NSLocalizedString("Hello World", comment: "First message")```
+ NSLocalizedString("Hello World", comment: "First message")
+```
 
 Languages: ['objc']
 

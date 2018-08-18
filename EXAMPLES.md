@@ -18,7 +18,8 @@ will render:
 ```
  hw() {
      
- }```
+ }
+```
 
 
 
@@ -36,7 +37,8 @@ will render:
 ```
  h John() {
      
- }```
+ }
+```
 
 
 
@@ -52,7 +54,8 @@ will render:
 
 
 ```
- pas<s>sha1 samplepassword123</s>```
+ pas<s>sha1 samplepassword123</s>
+```
 
 
 
@@ -70,7 +73,8 @@ will render:
 ```
  opt test() {
      
- }```
+ }
+```
 
 ` opt test 123`
 
@@ -80,7 +84,8 @@ will render:
 ```
  opt test 123() {
      
- }```
+ }
+```
 
 
 
@@ -98,7 +103,8 @@ will render:
 ```
  block() {
      
- }```
+ }
+```
 
 
 
@@ -114,7 +120,8 @@ will render:
 
 
 ```
- ex<p>h Joe</p>```
+ ex<p>h Joe</p>
+```
 
 
 
@@ -130,7 +137,8 @@ will render:
 
 
 ```
- enu// MARK: - a hello world```
+ enu// MARK: - a hello world
+```
 
 ` enum b hello world`
 
@@ -138,7 +146,8 @@ will render:
 
 
 ```
- enu// MARK: - b hello world```
+ enu// MARK: - b hello world
+```
 
 
 
@@ -156,7 +165,8 @@ will render:
 ```
  switch a() {
      
- }```
+ }
+```
 
 ` switch other`
 
@@ -166,7 +176,8 @@ will render:
 ```
  switch other() {
      
- }```
+ }
+```
 
 
 

@@ -27,7 +27,8 @@ will render:
  
  }
  
- ```
+ 
+```
 
 Languages: ['css']
 
@@ -47,7 +48,8 @@ will render:
 ```css
  @media only screen and (max-width: 768px) {
      
- }```
+ }
+```
 
 Languages: ['css']
 

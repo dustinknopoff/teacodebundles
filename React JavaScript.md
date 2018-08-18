@@ -19,7 +19,8 @@ will render:
 ```js
  const page = this.props.page;
  
- this.setState({ page });```
+ this.setState({ page });
+```
 
 Languages: ['js']
 
@@ -39,7 +40,8 @@ will render:
 ```js
  setLimit = (max) => {
      
- };```
+ };
+```
 
 Languages: ['js']
 
@@ -66,7 +68,8 @@ will render:
      }
  }
  
- export default Header;```
+ export default Header;
+```
 
 Languages: ['js']
 
@@ -84,7 +87,8 @@ will render:
 ```js
  import React, {Component} from 'react';
  
- ```
+ 
+```
 
 Languages: ['js']
 

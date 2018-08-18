@@ -17,7 +17,8 @@ will render:
 
 ```python
  def do(arr):
-     ```
+     
+```
 
 ` fn do`
 
@@ -26,7 +27,8 @@ will render:
 
 ```python
  def do():
-     ```
+     
+```
 
 Languages: ['python']
 
@@ -45,7 +47,8 @@ will render:
 
 ```python
  r = requests.get("https://www.apple.com").json()
- ```
+ 
+```
 
 ` req https://www.apple.com `
 
@@ -54,7 +57,8 @@ will render:
 
 ```python
  r = requests.get("https://www.apple.com ")
- ```
+ 
+```
 
 Languages: ['python']
 
@@ -72,7 +76,8 @@ will render:
 
 
 ```python
- re.findall(r'd+', str)```
+ re.findall(r'd+', str)
+```
 
 > **NOTE: Must import `re`**
 
@@ -93,7 +98,8 @@ will render:
 
 ```python
  soup = BeautifulSoup(r.content, 'html.parser')
- ```
+ 
+```
 
 > **NOTE: Must import `bs4`**
 
@@ -115,7 +121,8 @@ will render:
 ```python
  class Story:
      def __init__(self):
-         ```
+         
+```
 
 Languages: ['python']
 
@@ -134,7 +141,8 @@ will render:
 
 ```python
  if any(w for w in ("Apple", "Banana", "Croissant")):
-     ```
+     
+```
 
 Languages: ['python']
 
@@ -153,7 +161,8 @@ will render:
 
 ```python
  with open('~/Downloads/example.txt') as f:
-     ```
+     
+```
 
 Languages: ['python']
 
@@ -172,7 +181,8 @@ will render:
 
 ```python
  script = subprocess.run("brew list".split(), stdout=subprocess.PIPE)
- ```
+ 
+```
 
 Languages: ['python']
 
@@ -189,7 +199,8 @@ will render:
 
 ```python
  if __name__ == "__main__":
-     ```
+     
+```
 
 ` main Story().read()`
 
@@ -198,7 +209,8 @@ will render:
 
 ```python
  if __name__ == "__main__":
-     Story().read()```
+     Story().read()
+```
 
 Languages: ['python']
 
@@ -216,7 +228,8 @@ will render:
 
 
 ```python
- results = list(map(int, results))```
+ results = list(map(int, results))
+```
 
 Languages: ['python']
 
@@ -235,7 +248,8 @@ will render:
 
 ```python
  #!/usr/bin/env python3.6
- ```
+ 
+```
 
 Languages: ['python']
 
@@ -251,7 +265,8 @@ will render:
 
 
 ```python
- import re```
+ import re
+```
 
 ` @BeautifulSoup bs4`
 
@@ -259,7 +274,8 @@ will render:
 
 
 ```python
- from bs4 import BeautifulSoup```
+ from bs4 import BeautifulSoup
+```
 
 Languages: ['python']
 

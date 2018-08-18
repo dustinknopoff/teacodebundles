@@ -16,7 +16,8 @@ will render:
 
 
 ```swift
- @IBOutlet weak var nameTextField: NSTextField!```
+ @IBOutlet weak var nameTextField: NSTextField!
+```
 
 Languages: ['swift']
 
@@ -36,7 +37,8 @@ will render:
 ```swift
  @IBAction func done(_ sender: Any) {
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -54,7 +56,8 @@ will render:
 
 
 ```swift
- NSLocalizedString("Hello World", comment: "First message")```
+ NSLocalizedString("Hello World", comment: "First message")
+```
 
 Languages: ['swift']
 
@@ -74,7 +77,8 @@ will render:
 ```swift
  if let controller = segue.destinationViewController as? UITableViewController {
      
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -94,7 +98,8 @@ will render:
 ```swift
  guard let controller = segue.destinationViewController as? UITableViewController else {
      return
- }```
+ }
+```
 
 Languages: ['swift']
 
@@ -114,7 +119,8 @@ will render:
 ```
  dga() {
      
- }```
+ }
+```
 
 ` dms`
 
@@ -124,7 +130,8 @@ will render:
 ```
  dms() {
      
- }```
+ }
+```
 
 
 
