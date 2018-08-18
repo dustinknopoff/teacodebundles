@@ -33,8 +33,20 @@
             "name": "Class",
             "identifier": "class",
             "is_enabled": true,
-            "output_template": "import React, {Component} from 'react';\n\nclass ${name.capitalize.remove_spaces} extends Component {\n\t#\n\trender() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}\n\nexport default ${name};",
+            "output_template": "class ${name.capitalize.remove_spaces} extends Component {\n\t#\n\trender() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}\n\nexport default ${name};",
             "id": "17295AAB-3AE5-4555-8720-F56281161B02"
+        },
+        {
+            "pattern": "@import",
+            "supported_languages": [
+                "js"
+            ],
+            "description": "> @import",
+            "name": "Import React",
+            "identifier": "",
+            "is_enabled": true,
+            "output_template": "import React, {Component} from 'react';\n\n#",
+            "id": "27161837-FFD7-4851-B6A9-D4D4C0D3E559"
         }
     ],
     "id": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A",

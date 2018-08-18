@@ -57,8 +57,6 @@ will render:
 
 
 ```js
- import React, {Component} from 'react';
- 
  class Header extends Component {
      
      render() {
@@ -69,6 +67,24 @@ will render:
  }
  
  export default Header;```
+
+Languages: ['js']
+
+
+
+### Import React
+
+Description:
+
+` @import`
+
+will render:
+
+
+```js
+ import React, {Component} from 'react';
+ 
+ ```
 
 Languages: ['js']
 

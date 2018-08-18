@@ -20,6 +20,7 @@ class Bundle:
         Format this bundle for Markdown.
         :return: a markdown formatted string.
         """
+        print(f"Generating markdown for {self._name} bundle.")
         out = ''
         # H1 Header for Bundle name
         out += f'# {self._name}\n\n'
@@ -105,7 +106,7 @@ class Expander:
         """
         result = ''
         values = self.__render()
-        print(f"Generating markdown preview for {self.name}")
+        print(f"\tGenerating markdown preview for {self.name} expander.")
         result += f"### {self.name}\n\nDescription:\n\n"
         for string in values:
             result += string + '\n\n'
