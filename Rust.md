@@ -18,9 +18,8 @@ will render:
 
 
 ```
- fn main() {
+ fn if __name__ == "__main__":
      
- }
 ```
 
 ` fn divide divisor: i32, dividend: i32`
@@ -29,7 +28,7 @@ will render:
 
 
 ```
- fn divide(divisor: i32, dividend: i32) {
+ fn divide divisor: i32, dividend: i32() {
      
  }
 ```
@@ -48,7 +47,7 @@ will render:
 
 
 ```
- impl Rectangle {
+ impl rectangle() {
      
  }
 ```
@@ -65,7 +64,7 @@ will render:
 
 
 ```
- struct Rectangle {
+ struct Rectangle() {
      
  }
 ```
@@ -91,9 +90,7 @@ will render:
 
 
 ```
- enum Coins {
-     
- }
+ enu// MARK: - Coins
 ```
 
 
@@ -164,7 +161,20 @@ will render:
 
 ```
  match number {
-      => 
+     
+ }
+```
+
+` match number 3,7,22`
+
+will render:
+
+
+```
+ match number {
+     3 => ,
+     7 => ,
+     22 => ,
  }
 ```
 

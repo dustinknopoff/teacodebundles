@@ -57,7 +57,7 @@ will render:
 
 
 ```swift
- private func run() {
+ fn run() {
      
  }
 ```

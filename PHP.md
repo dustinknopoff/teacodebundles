@@ -217,7 +217,9 @@ will render:
 
 
 ```php
- for let mut in = vars;
+ for (var i : in vars) {
+     
+ }
 ```
 
 Languages: ['php']

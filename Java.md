@@ -110,7 +110,9 @@ will render:
 
 
 ```java
- let mut int = maxHeight;
+ var int maxHeight() {
+     
+ }
 ```
 
 Languages: ['java']
@@ -129,7 +131,7 @@ will render:
 
 
 ```java
- fn void(AnimatorModel) {
+ fn void AnimatorModel() {
      
  }
 ```
@@ -140,7 +142,7 @@ will render:
 
 
 ```java
- fn boolean(addShape Shape shape) {
+ fn boolean addShape Shape shape() {
      
  }
 ```
