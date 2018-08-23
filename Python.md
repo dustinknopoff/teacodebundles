@@ -130,9 +130,9 @@ will render:
 
 ```python
  class Story:
- def __init__(title,details):
- 	self.title = title
- 	self.details = details
+     def __init__(title,details):
+         self.title = title
+         self.details = details
  
 ```
 
@@ -155,8 +155,8 @@ will render:
 ```python
  @dataclass
  class Story:
- 	title:str
- 	details:List[str]
+    title:str
+    details:List[str]
  
 ```
 

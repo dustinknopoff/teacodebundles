@@ -58,7 +58,7 @@
                 "python"
             ],
             "is_enabled": true,
-            "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"\\t\\\" + arg)|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"\\tself.{} = {}\\\".format(arg,arg))|\")}\n#",
+            "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"   \\\" + arg)|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"    def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"        self.{} = {}\\\".format(arg,arg))|\")}\n#",
             "id": "37261157-F800-48A1-B0A2-C1D23F765A26",
             "description": "Creates a default class.\n> class n Story\n\n> class n Story title,details\n\n> class d Story\n\n> class d Story title:str,details:List[str]"
         },
