@@ -15,7 +15,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [Open](#open)
 - [Shell in Python](#shell-in-python)
 - [Main](#main)
-- [List Strings -> List Ints](#list-strings----list-ints)
+- [List Strings -> List Ints](#list-strings---list-ints)
 - [Global](#global)
 - [import](#import)
 - [Lambda](#lambda)
@@ -438,6 +438,15 @@ will render:
 
 ```python
  .replace("j","j")
+```
+
+` rep > <`
+
+will render:
+
+
+```python
+ .replace(">","<")
 ```
 
 Languages: ['python']

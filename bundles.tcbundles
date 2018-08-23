@@ -194,7 +194,7 @@
                     "is_enabled": true,
                     "output_template": ".replace(\"${from}\",\"${to}\")",
                     "id": "08462808-3C31-424B-9D7D-0D244450F235",
-                    "description": "String replace method\n> rep \\j j"
+                    "description": "String replace method\n> rep \\j j\n\n> rep > <"
                 }
             ],
             "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",

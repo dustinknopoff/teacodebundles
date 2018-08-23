@@ -29,7 +29,7 @@ class Bundle:
         # For every expander in this bundle
         out += f'### Included Expanders\n\n'
         for expander in self._expanders:
-            out += f'- [{expander["name"]}](#{expander["name"].replace(" ", "-").replace(">", "-").lower()})\n'
+            out += f'- [{expander["name"]}](#{expander["name"].replace(" ", "-").replace(">", "").lower()})\n'
         out += '\n'
         for expander in self.__render_expanders():
             # If the expander is not empty, add formatted too
