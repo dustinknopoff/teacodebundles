@@ -6,38 +6,22 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 
 ### Included Expanders
 
-<<<<<<< HEAD
 - [Function](#function)
 - [Request](#request)
 - [Regex](#regex)
-- [Beautiful Soup](#beautiful soup)
+- [Beautiful Soup](#beautiful-soup)
 - [Class](#class)
-- [In Tuple](#in tuple)
+- [In Tuple](#in-tuple)
 - [Open](#open)
-- [Shell in Python](#shell in python)
+- [Shell in Python](#shell-in-python)
 - [Main](#main)
-- [List Strings -> List Ints](#list strings -> list ints)
+- [List Strings -> List Ints](#list-strings----list-ints)
 - [Global](#global)
 - [import](#import)
 - [Lambda](#lambda)
-- [String Slice](#string slice)
-=======
-- Function
-- Request
-- Regex
-- Beautiful Soup
-- Class
-- In Tuple
-- Open
-- Shell in Python
-- Main
-- List Strings -> List Ints
-- Global
-- import
-- Lambda
-- String Slice
->>>>>>> 99128f7f282bb996a301c1733e0b586875ff63ec
+- [String Slice](#string-slice)
 - [Join](#join)
+- [Replace](#replace)
 
 ### Function
 
@@ -373,7 +357,7 @@ will render:
 
 
 ```python
- lambda x: x*x;
+ lambda x: x*x
 ```
 
 Languages: ['python']
@@ -435,6 +419,25 @@ will render:
 
 ```python
  ', '.join(lines)
+```
+
+Languages: ['python']
+
+
+
+### Replace
+
+Description:
+
+> String replace method
+
+` rep \j j`
+
+will render:
+
+
+```python
+ .replace("j","j")
 ```
 
 Languages: ['python']

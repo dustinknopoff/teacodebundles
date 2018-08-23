@@ -154,7 +154,7 @@
                 "python"
             ],
             "is_enabled": true,
-            "output_template": "lambda ${var}: ${expr};",
+            "output_template": "lambda ${var}: ${expr}",
             "id": "DB03F40C-90E3-41EA-9A94-05C1B6A3758B",
             "description": "> -l x x*x"
         },
@@ -181,6 +181,18 @@
             "output_template": "'${delim}'.join(${var})",
             "id": "22FEED68-A6A4-4D18-9546-E58B07E9CA95",
             "description": "Join a list into a string\n> -j lines , "
+        },
+        {
+            "identifier": "",
+            "name": "Replace",
+            "pattern": "rep ${from:text?} ${to:text?}",
+            "supported_languages": [
+                "python"
+            ],
+            "is_enabled": true,
+            "output_template": ".replace(\"${from}\",\"${to}\")",
+            "id": "08462808-3C31-424B-9D7D-0D244450F235",
+            "description": "String replace method\n> rep \\j j"
         }
     ],
     "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
