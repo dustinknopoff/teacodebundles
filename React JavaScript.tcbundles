@@ -1,0 +1,60 @@
+{
+    "name": "React JavaScript",
+    "id": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A",
+    "expanders": [
+        {
+            "identifier": "sets",
+            "name": "setState",
+            "pattern": "sets ${var:word} ${type:enum(props,state)}",
+            "supported_languages": [
+                "js"
+            ],
+            "is_enabled": true,
+            "output_template": "const ${var.camelcase} = this.${type}.${var};\n#\nthis.setState({ ${var} });",
+            "id": "6DA61A4F-2E60-4CBD-8085-49A0A6B8F401",
+            "description": "React setState where name of variable and element in props/state have same name.\n> sets page props"
+        },
+        {
+            "identifier": "arrow",
+            "name": "bound Arrow Function",
+            "pattern": "arrow ${name:word}| ${args:text?}|",
+            "supported_languages": [
+                "js"
+            ],
+            "is_enabled": true,
+            "output_template": "${name} = (|${args}|) => {\n\t#\n};",
+            "id": "9077B37B-DB27-454E-9E5B-3CD903D7EAF8",
+            "description": "Creates React bound arrow function statement.\n\n> arrow setLimit max"
+        },
+        {
+            "identifier": "class",
+            "name": "Class",
+            "pattern": "class ${name:word}",
+            "supported_languages": [
+                "js"
+            ],
+            "is_enabled": true,
+            "output_template": "class ${name.capitalize.remove_spaces} extends Component {\n\t#\n\trender() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}\n\nexport default ${name};",
+            "id": "17295AAB-3AE5-4555-8720-F56281161B02",
+            "description": "Default Class creation.\n> class Header"
+        },
+        {
+            "identifier": "",
+            "name": "Import React",
+            "pattern": "@import",
+            "supported_languages": [
+                "js"
+            ],
+            "is_enabled": true,
+            "output_template": "import React, {Component} from 'react';\n\n#",
+            "id": "27161837-FFD7-4851-B6A9-D4D4C0D3E559",
+            "description": "> @import"
+        }
+    ],
+    "description": "Commonly used React Expansions.\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n",
+    "supported_languages": [
+        "any",
+        "js"
+    ],
+    "is_enabled": true
+}

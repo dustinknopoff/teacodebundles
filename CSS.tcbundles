@@ -1,0 +1,36 @@
+{
+    "name": "CSS",
+    "id": "026E11C1-A218-4083-9817-47F70E501864",
+    "expanders": [
+        {
+            "identifier": "fullbg",
+            "name": "Full Screen Background",
+            "pattern": "fullbg ${src:text?}",
+            "supported_languages": [
+                "css"
+            ],
+            "is_enabled": true,
+            "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    -o-background-size: cover;\n    background-size: cover;\n    width: 100%;\n    height: 100%;\n\n}\n\n#",
+            "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
+            "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg"
+        },
+        {
+            "identifier": "mq",
+            "name": "Media Query",
+            "pattern": "mq ${size:number}",
+            "supported_languages": [
+                "css"
+            ],
+            "is_enabled": true,
+            "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
+            "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
+            "description": "Creates media query.\n> mq 768"
+        }
+    ],
+    "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
+    "supported_languages": [
+        "any",
+        "css"
+    ],
+    "is_enabled": true
+}

@@ -78,7 +78,9 @@ will render:
 
 
 ```rust
- -<s>Room String</s>
+ struct Room<String> {
+     
+ }
 ```
 
 Languages: ['rust']

@@ -328,3 +328,20 @@ Languages: ['python']
 
 
 
+### Lambda
+
+Description:
+
+` -l x x*x`
+
+will render:
+
+
+```python
+ lambda x: x*x
+```
+
+Languages: ['python']
+
+
+

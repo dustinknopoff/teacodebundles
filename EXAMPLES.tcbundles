@@ -1,0 +1,91 @@
+{
+    "name": "EXAMPLES",
+    "id": "0D5FB579-E5B1-4533-97BA-185DA252FF91",
+    "expanders": [
+        {
+            "identifier": "",
+            "name": "1. Simplest Expander",
+            "pattern": "hw",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "hello world",
+            "id": "35E369C9-5BB2-4A84-A1B1-764676E32519",
+            "description": "Simplest example. Expands a short text.\n\n> hw"
+        },
+        {
+            "identifier": "h",
+            "name": "2. Variable",
+            "pattern": "h ${name:text}",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "Hello ${name}",
+            "id": "B12270F0-5280-4256-90F1-34EAF6394725",
+            "description": "Uses a variable (`name`) to say `Hello` to the given person.\n\n> h John"
+        },
+        {
+            "identifier": "",
+            "name": "3. Variable with filter",
+            "pattern": "pass sha1 ${password:text}",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "SHA1: ${password.sha1}\nMD5: ${password.md5}",
+            "id": "3A7C284D-82D0-4E43-BFF6-075019059B92",
+            "description": "Uses a variable (`password`) as well as `sha1` and `md5` filters.\n\n> pass sha1 samplepassword123"
+        },
+        {
+            "identifier": "",
+            "name": "4. Optional Variable",
+            "pattern": "opt ${v1:word}| ${v2:number}|",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "v1 is ${v1}| and v2 is ${v2}|",
+            "id": "195DAB76-FC3D-4C80-A0FB-EA1AD0AC67BF",
+            "description": "Optional variables is very simple concept of having variables that does not have to be set.\n\n> opt test\n> opt test 123"
+        },
+        {
+            "identifier": "",
+            "name": "5. Hash",
+            "pattern": "block",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "{\n\t#\n}",
+            "id": "952F42E2-D5BD-4943-8FE0-7A48B961949E",
+            "description": "By default cursor goes at the end of the expanded expression. However it is possible to point that place using hash (`#`).\n\n> block"
+        },
+        {
+            "identifier": "",
+            "name": "6. Exp",
+            "pattern": "exp ${external:exp(h)}",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "external exapnder: ${external}",
+            "id": "49CFE74B-9652-45A2-AC72-3FD471B79FB2",
+            "description": "TeaCode allows to use existing expanders using `exp` variable type.\n\n> exp h Joe"
+        },
+        {
+            "identifier": "",
+            "name": "7. Enum",
+            "pattern": "enum ${e:enum(a,b,c)} ${t:text}",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "expanded ${e} with ${t}",
+            "id": "C173D632-8A58-492B-ABA9-BA252AFEBF22",
+            "description": "Enums are helpful when pattern requires one of certain texts.\n\n> enum a hello world\n> enum b hello world"
+        },
+        {
+            "identifier": "",
+            "name": "8. Switch",
+            "pattern": "switch ${s:switch(a:1,b:2,c:3,*:0)}",
+            "supported_languages": [],
+            "is_enabled": true,
+            "output_template": "expanded ${s}",
+            "id": "F617DD35-991B-41C8-8945-205BCCC413E8",
+            "description": "Switch changes value of variable to the given one.\n\n> switch a\n> switch other"
+        }
+    ],
+    "description": "Sample expanders to learn the TeaCode Language.\n\nMade by [twitter] @Apptorium",
+    "supported_languages": [
+        "any"
+    ],
+    "is_enabled": false
+}

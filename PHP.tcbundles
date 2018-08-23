@@ -1,0 +1,192 @@
+{
+    "name": "PHP",
+    "id": "244CE696-7218-4585-882C-3DA34500DBED",
+    "expanders": [
+        {
+            "identifier": "",
+            "name": "for",
+            "pattern": "for ${var_name:word} ${max:number}",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "for ($${var_name} = 0; $${var_name} < ${max}; $${var_name}++) {\n\t#\n}",
+            "id": "0E4201D4-6E3E-4B43-9F60-53CD8337593D",
+            "description": "Creates a *for* loop with the given variable name and maximum number of iteration. \n\nAll the iteration are counted from 0.\n\n> for i 100"
+        },
+        {
+            "identifier": "",
+            "name": "Function",
+            "pattern": "|${scope:exp(scope)}|f ${name:word}|(${params:text})|",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "|${scope}|function ${name}(|${params}|)\n{\n\t#\n}",
+            "id": "678792B5-F6D2-4C04-945D-FE802EA1617E",
+            "description": "Creates a function (method) with the given scope and name.\n\n> +f run\n> +f run($param1, $param2)"
+        },
+        {
+            "identifier": "",
+            "name": "Property",
+            "pattern": "|${scope:exp(scope)}|v ${name:word}|: ${type:identifier}|",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "|/*\n * @var ${type}\n */\n||${scope}|$${name};",
+            "id": "DB72E116-8D58-4CDC-8ABD-10FAB30EB997",
+            "description": "Creates a property with the given name. If `type` is given, doc comment is generated as well.\n\n> +v name: String"
+        },
+        {
+            "identifier": "",
+            "name": "Getter",
+            "pattern": "|${scope:exp(scope)}|g ${variableName:word}|: ${type:identifier}|",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function get${variableName.ucfirst}()\n{\n\treturn $this->${variableName};\n}",
+            "id": "F55541A2-4CE7-4CB9-91AD-E372C642FB2B",
+            "description": "Creates a *getter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +g name: String"
+        },
+        {
+            "identifier": "",
+            "name": "Setter",
+            "pattern": "|${scope:exp(scope)}|s ${variableName:word}|: ${type:identifier}|",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function set${variableName.ucfirst}($new${variableName.ucfirst})\n{\n\treturn $this->${variableName} = $new${variableName.ucfirst};\n}",
+            "id": "548CFD16-F573-4437-AC40-5CF140DA1FD5",
+            "description": "Creates a *setter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +s firstName: String"
+        },
+        {
+            "identifier": "",
+            "name": "Exception",
+            "pattern": "exc ${name:word}",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "class ${name.ucfirst}Exception extends Exception\n{\n    public function __construct()\n    {\n        parent::__construct($message = \"#\", $code = 0, $previous = null);\n    }\n}",
+            "id": "178A2307-B8FA-42E8-BA3F-3BEAE4A68BD1",
+            "description": "Creates an exception class for the given exception name. \n**Note**: exception name does not need *Exception* suffix. It\u2019s added automatically.\n\n> exc VeryBadThing"
+        },
+        {
+            "identifier": "",
+            "name": "Class",
+            "pattern": "|${scope:exp(scope)}|c ${name:word}|: ${extends:word}|",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "|${scope}|class ${name.ucfirst}| extends ${extends}|\n{\n    public function __construct()\n    {\n        #\n    }\n}",
+            "id": "BB12CA88-BB20-49C0-81A9-B7C2CD6CC9AB",
+            "description": "Creates a class with a constructor. It\u2019s possible to add inheriting classes after `:` character\n\n> +c ArticleController: BaseController"
+        },
+        {
+            "identifier": "",
+            "name": "$this->variable",
+            "pattern": "t ${name:identifier}",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "$this->${name}",
+            "id": "0620BA55-4488-4CFD-B291-30802CA94948",
+            "description": "Helps to type expressions with `$this`.\n\n> t propertyName"
+        },
+        {
+            "identifier": "",
+            "name": "Map",
+            "pattern": "map ${name:identifier}",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "\"${name}\" => $this->${name}",
+            "id": "A0AE6117-7C9B-45F1-A189-062DA5F90788",
+            "description": "Simplifies defining array mapping to the class properties.\n\n> map name"
+        },
+        {
+            "identifier": "",
+            "name": "for in",
+            "pattern": "for ${item:identifier} in ${items:identifier}",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "foreach (${items} as ${item}) {\n\t#\n}",
+            "id": "3A4FCF2F-0B05-443B-B209-ED09BB3C3686",
+            "description": "Creates a *foreach* loop with the given variable names. It\u2019s similar to other languages like *Swift* or *Java*, so it provides syntax like:\n\n> for var in vars"
+        },
+        {
+            "identifier": "",
+            "name": "Getter and Setter",
+            "pattern": "|${scope:exp(scope)}|gs ${variableName:word}|: ${type:identifier}|",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function get${variableName.ucfirst}()\n{\n\treturn $this->${variableName};\n}\n\n|/*\n * @var ${type}\n */\n||${scope}|function set${variableName.ucfirst}($new${variableName.ucfirst})\n{\n\treturn $this->${variableName} = $new${variableName.ucfirst};\n}",
+            "id": "1210AAAC-3D11-4751-A80E-256D8C816A61",
+            "description": "Creates a *setter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +gs firstName: String"
+        },
+        {
+            "identifier": "",
+            "name": "Function with doc",
+            "pattern": "|${scope:exp(scope)}|fd ${name:word}|(${params:text})|",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "/**\n * # \n * \n * @return \n */\n|${scope}|function ${name}(|${params}|)\n{\n}",
+            "id": "ACA7650D-F021-46AD-933E-02E6BF33A67F",
+            "description": "Creates a function with a doc template.\n\n> +fd run"
+        },
+        {
+            "identifier": "",
+            "name": "PHP Tag",
+            "pattern": "php",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "<?php\n\n#\n\n?>",
+            "id": "665A13D9-9A64-4311-91FA-32969C8A6B64",
+            "description": "Creates a `php` tag\n\n> php"
+        },
+        {
+            "identifier": "scope",
+            "name": "Scope",
+            "pattern": "${scope:switch(+:public,-:private,#:protected)}",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "${scope} ",
+            "id": "67EB299E-A1DE-4FD4-9347-522C4D9E9BA2",
+            "description": "Expands a scope. Mostly used by other expanders."
+        },
+        {
+            "identifier": "",
+            "name": "Empty constructor",
+            "pattern": "con",
+            "supported_languages": [
+                "php"
+            ],
+            "is_enabled": true,
+            "output_template": "function __construct()\n{\n    #\n}",
+            "id": "4C6BAD55-EEE8-4BBA-8E33-4A9F0C70729F",
+            "description": "Empty class constructor.\n\n> con"
+        }
+    ],
+    "description": "Basic PHP expanders.\n\nMade by [twitter] @Apptorium",
+    "supported_languages": [
+        "any",
+        "php"
+    ],
+    "is_enabled": false
+}
