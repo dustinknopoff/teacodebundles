@@ -4,7 +4,9 @@
 
 Made by [@dustinknopoff](https://dustinknopoff.me)
 
-[Regex](###Regex)
+<!--ts-->
+ [Regex](#Regex)
+<!--te-->
 
 ### Function
 
