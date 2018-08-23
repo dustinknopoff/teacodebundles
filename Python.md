@@ -20,7 +20,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - import
 - Lambda
 - String Slice
-- Join
+- [Join](#join)
 
 ### Function
 
