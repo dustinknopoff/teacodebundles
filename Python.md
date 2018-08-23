@@ -345,3 +345,33 @@ Languages: ['python']
 
 
 
+### String Slice
+
+Description:
+
+> Can't remember where the `-` goes if the number goes before or after the `:`? 
+
+> Have TeaCode do it for you!
+
+` -s s b lines 3`
+
+will render:
+
+
+```python
+ lines[:3]
+```
+
+` -s e a lines 3`
+
+will render:
+
+
+```python
+ lines[-3:]
+```
+
+Languages: ['python']
+
+
+

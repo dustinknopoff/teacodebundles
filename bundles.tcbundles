@@ -159,6 +159,18 @@
                     "output_template": "lambda ${var}: ${expr}",
                     "id": "DB03F40C-90E3-41EA-9A94-05C1B6A3758B",
                     "description": "> -l x x*x"
+                },
+                {
+                    "identifier": "",
+                    "name": "String Slice",
+                    "pattern": "-s ${se:switch(s:start,e:end)} ${ba:switch(b:before,a:after)} ${name:word} ${slice:word}",
+                    "supported_languages": [
+                        "python"
+                    ],
+                    "is_enabled": true,
+                    "output_template": "${python(\"if \\\"${se}\\\" is \\\"start\\\":\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[${slice}:]\\\")\nelse:\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:-${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[-${slice}:]\\\")\")}",
+                    "id": "C8915A90-9A0B-40C9-B573-5A175621ADD5",
+                    "description": "Can't remember where the `-` goes if the number goes before or after the `:`? \nHave TeaCode do it for you!\n\n> -s s b lines 3\n\n> -s e a lines 3"
                 }
             ],
             "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
