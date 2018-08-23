@@ -349,7 +349,9 @@ Languages: ['python']
 
 Description:
 
-> Can't remember where the `-` goes if the number goes before or after the `:`? 
+> Can't remember where the `-` goes?
+
+> If the number goes before or after the `:`? 
 
 > Have TeaCode do it for you!
 
