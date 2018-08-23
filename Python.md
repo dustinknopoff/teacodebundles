@@ -4,9 +4,22 @@
 
 Made by [@dustinknopoff](https://dustinknopoff.me)
 
-<!--ts-->
- [Regex](#Regex)
-<!--te-->
+### Included Expanders
+
+- Function
+- Request
+- Regex
+- Beautiful Soup
+- Class
+- In Tuple
+- Open
+- Shell in Python
+- Main
+- List Strings -> List Ints
+- Global
+- import
+- Lambda
+- String Slice
 
 ### Function
 
@@ -251,7 +264,7 @@ will render:
 
 ```python
  if __name__ == "__main__":
-     Story().read()
+     Story().read() 
 ```
 
 Languages: ['python']

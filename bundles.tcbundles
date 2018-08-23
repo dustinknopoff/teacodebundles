@@ -108,7 +108,7 @@
                         "python"
                     ],
                     "is_enabled": true,
-                    "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#",
+                    "output_template": "if __name__ == \"__main__\":\n\t|${foo} |#",
                     "id": "9B4E652B-2653-43B7-85C8-C313BA995968",
                     "description": "> main\n\n> main Story().read()"
                 },
