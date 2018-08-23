@@ -20,6 +20,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - import
 - Lambda
 - String Slice
+- Join
 
 ### Function
 
@@ -264,7 +265,7 @@ will render:
 
 ```python
  if __name__ == "__main__":
-     Story().read() 
+     Story().read()
 ```
 
 Languages: ['python']
@@ -399,6 +400,25 @@ will render:
 > * Am I intending to get everything before or after that index? 
 
 > Use *b* for from *before*, and *a* for from *after*.
+
+Languages: ['python']
+
+
+
+### Join
+
+Description:
+
+> Join a list into a string
+
+` -j lines , `
+
+will render:
+
+
+```python
+ ', '.join(lines)
+```
 
 Languages: ['python']
 

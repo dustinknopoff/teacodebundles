@@ -108,7 +108,7 @@
                         "python"
                     ],
                     "is_enabled": true,
-                    "output_template": "if __name__ == \"__main__\":\n\t|${foo} |#",
+                    "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#",
                     "id": "9B4E652B-2653-43B7-85C8-C313BA995968",
                     "description": "> main\n\n> main Story().read()"
                 },
@@ -171,6 +171,18 @@
                     "output_template": "${python(\"if \\\"${se}\\\" is \\\"start\\\":\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[${slice}:]\\\")\nelse:\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:-${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[-${slice}:]\\\")\")}",
                     "id": "C8915A90-9A0B-40C9-B573-5A175621ADD5",
                     "description": "Can't remember where the `-` goes?\nIf the number goes before or after the `:`? \nHave TeaCode do it for you!\n\n> -s s b lines 3\n\n> -s e a lines 3\n\nAsk yourself these questions:\n* Am I intending to slice this string from the start of end? \nUse *s* for at the *start*, and *e* for at the *end*.\n\n* Am I intending to get everything before or after that index? \nUse *b* for from *before*, and *a* for from *after*.\n"
+                },
+                {
+                    "identifier": "",
+                    "name": "Join",
+                    "pattern": "-j ${var:word} ${delim:text?}",
+                    "supported_languages": [
+                        "python"
+                    ],
+                    "is_enabled": true,
+                    "output_template": "'${delim}'.join(${var})",
+                    "id": "22FEED68-A6A4-4D18-9546-E58B07E9CA95",
+                    "description": "Join a list into a string\n> -j lines , "
                 }
             ],
             "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
