@@ -28,7 +28,7 @@ will render:
 
 
 ```rust
- def divide(divisor: i32, dividend: i32):
+ def divide(divisor: i32,  dividend: i32):
      
 ```
 

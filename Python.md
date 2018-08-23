@@ -10,13 +10,13 @@ Description:
 
 > Creates default function statement.
 
-` -f do arr`
+` -f do arr,index`
 
 will render:
 
 
 ```python
- def do(arr):
+ def do(arr, index):
      
 ```
 
@@ -155,10 +155,12 @@ will render:
 ```python
  @dataclass
  class Story:
-    title:str
-    details:List[str]
+    title: str
+    details: List[str]
  
 ```
+
+> **NOTE: 'd' requires Python 3.7 and importing `dataclass`**
 
 Languages: ['python']
 

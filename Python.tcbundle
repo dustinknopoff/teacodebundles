@@ -10,9 +10,9 @@
                 "python"
             ],
             "is_enabled": true,
-            "output_template": "def ${name.snakecase}(|${params.snakecase}|):\n\t#",
+            "output_template": "def ${name.snakecase}(|${python(\"print(\\\"${params.snakecase}\\\".replace(\\\",\\\", \\\", \\\"))\")}|):\n\t#",
             "id": "7741C787-8E9E-45E3-91F7-ECF9DCF9D24D",
-            "description": "Creates default function statement.\n> -f do arr\n\n\n> -f do"
+            "description": "Creates default function statement.\n> -f do arr,index\n\n\n> -f do"
         },
         {
             "identifier": "req",
@@ -58,9 +58,9 @@
                 "python"
             ],
             "is_enabled": true,
-            "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"   \\\" + arg)|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"    def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"        self.{} = {}\\\".format(arg,arg))|\")}\n#",
+            "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"   \\\" + arg.replace(\\\":\\\", \\\": \\\"))|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"    def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"        self.{} = {}\\\".format(arg,arg))|\")}\n#",
             "id": "37261157-F800-48A1-B0A2-C1D23F765A26",
-            "description": "Creates a default class.\n> class n Story\n\n> class n Story title,details\n\n> class d Story\n\n> class d Story title:str,details:List[str]"
+            "description": "Creates a default class.\n> class n Story\n\n> class n Story title,details\n\n> class d Story\n\n> class d Story title:str,details:List[str]\n\n**NOTE: 'd' requires Python 3.7 and importing `dataclass`**\n"
         },
         {
             "identifier": "ifany",
