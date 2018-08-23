@@ -1,96 +1,96 @@
 {
-    "is_enabled": true,
+    "name": "Swift + XCTests",
+    "id": "5D13E59E-B4F4-4084-8D13-14E8A705A110",
+    "expanders": [
+        {
+            "identifier": "",
+            "name": "Test class",
+            "pattern": "tc ${name:identifier}| @${module:identifier}|",
+            "supported_languages": [
+                "swift"
+            ],
+            "is_enabled": true,
+            "output_template": "import XCTest|\n@testable import ${module}|\n\nclass ${name.ucfirst}Tests: XCTestCase {\n\t\n\t#\n}",
+            "id": "198B3FF8-BA9E-40E6-A9CC-B9AE1FB0B803",
+            "description": "Creates a test class\n\n> tc UpdateController @MyApp"
+        },
+        {
+            "identifier": "",
+            "name": "Test function",
+            "pattern": "tf ${name:text}",
+            "supported_languages": [
+                "swift"
+            ],
+            "is_enabled": true,
+            "output_template": "func test${name.ucfirst}() {\n\t#\n}",
+            "id": "8657DA8E-4C88-4715-8430-F38427BEC406",
+            "description": "> tf update"
+        },
+        {
+            "identifier": "",
+            "name": "Assert Equal",
+            "pattern": "ase ${expr1:text}",
+            "supported_languages": [
+                "swift"
+            ],
+            "is_enabled": true,
+            "output_template": "XCTAssertEqual(#, ${expr1})",
+            "id": "83B4C60D-488F-424D-B649-542117EE39F3",
+            "description": "> ase value"
+        },
+        {
+            "identifier": "",
+            "name": "Assert True",
+            "pattern": "ast ${expr:text}",
+            "supported_languages": [
+                "swift"
+            ],
+            "is_enabled": true,
+            "output_template": "XCTAssertTrue(${expr})",
+            "id": "F8E90FBA-FDA1-455B-9279-0E29CAC0A48E",
+            "description": "> ast value"
+        },
+        {
+            "identifier": "",
+            "name": "Assert False",
+            "pattern": "asf ${expr:text}",
+            "supported_languages": [
+                "swift"
+            ],
+            "is_enabled": true,
+            "output_template": "XCTAssertFalse(${expr})",
+            "id": "5ADEB762-0EF7-455F-B672-383F1742B83C",
+            "description": "> asf value"
+        },
+        {
+            "identifier": "",
+            "name": "Assert Nil",
+            "pattern": "asn ${expr:text}",
+            "supported_languages": [
+                "swift"
+            ],
+            "is_enabled": true,
+            "output_template": "XCTAssertNil(${expr})",
+            "id": "C516CBA9-A861-4C25-919D-54908983E19C",
+            "description": "> asn value"
+        },
+        {
+            "identifier": "",
+            "name": "Assert",
+            "pattern": "as ${expr:text}",
+            "supported_languages": [
+                "swift"
+            ],
+            "is_enabled": true,
+            "output_template": "XCTAssert(${expr})",
+            "id": "776AA762-AD7B-462F-9AD2-132A67CECCF2",
+            "description": "> as value == \"something\""
+        }
+    ],
+    "description": "Write unit tests more efficently.\n\nStart with a class:\n\n> tc UpdateController @MyApp\n\nWrite test function:\n\n> tf update\n\nAnd make some tests:\n\n> ast isStarted\n> ase progress\n\nMade by [twitter] @Apptorium",
     "supported_languages": [
         "any",
         "swift"
     ],
-    "name": "Swift + XCTests",
-    "expanders": [
-        {
-            "name": "Test class",
-            "pattern": "tc ${name:identifier}| @${module:identifier}|",
-            "id": "198B3FF8-BA9E-40E6-A9CC-B9AE1FB0B803",
-            "output_template": "import XCTest|\n@testable import ${module}|\n\nclass ${name.ucfirst}Tests: XCTestCase {\n\t\n\t#\n}",
-            "is_enabled": true,
-            "supported_languages": [
-                "swift"
-            ],
-            "description": "Creates a test class\n\n> tc UpdateController @MyApp",
-            "identifier": ""
-        },
-        {
-            "name": "Test function",
-            "pattern": "tf ${name:text}",
-            "id": "8657DA8E-4C88-4715-8430-F38427BEC406",
-            "output_template": "func test${name.ucfirst}() {\n\t#\n}",
-            "is_enabled": true,
-            "supported_languages": [
-                "swift"
-            ],
-            "description": "> tf update",
-            "identifier": ""
-        },
-        {
-            "name": "Assert Equal",
-            "pattern": "ase ${expr1:text}",
-            "id": "83B4C60D-488F-424D-B649-542117EE39F3",
-            "output_template": "XCTAssertEqual(#, ${expr1})",
-            "is_enabled": true,
-            "supported_languages": [
-                "swift"
-            ],
-            "description": "> ase value",
-            "identifier": ""
-        },
-        {
-            "name": "Assert True",
-            "pattern": "ast ${expr:text}",
-            "id": "F8E90FBA-FDA1-455B-9279-0E29CAC0A48E",
-            "output_template": "XCTAssertTrue(${expr})",
-            "is_enabled": true,
-            "supported_languages": [
-                "swift"
-            ],
-            "description": "> ast value",
-            "identifier": ""
-        },
-        {
-            "name": "Assert False",
-            "pattern": "asf ${expr:text}",
-            "id": "5ADEB762-0EF7-455F-B672-383F1742B83C",
-            "output_template": "XCTAssertFalse(${expr})",
-            "is_enabled": true,
-            "supported_languages": [
-                "swift"
-            ],
-            "description": "> asf value",
-            "identifier": ""
-        },
-        {
-            "name": "Assert Nil",
-            "pattern": "asn ${expr:text}",
-            "id": "C516CBA9-A861-4C25-919D-54908983E19C",
-            "output_template": "XCTAssertNil(${expr})",
-            "is_enabled": true,
-            "supported_languages": [
-                "swift"
-            ],
-            "description": "> asn value",
-            "identifier": ""
-        },
-        {
-            "name": "Assert",
-            "pattern": "as ${expr:text}",
-            "id": "776AA762-AD7B-462F-9AD2-132A67CECCF2",
-            "output_template": "XCTAssert(${expr})",
-            "is_enabled": true,
-            "supported_languages": [
-                "swift"
-            ],
-            "description": "> as value == \"something\"",
-            "identifier": ""
-        }
-    ],
-    "id": "5D13E59E-B4F4-4084-8D13-14E8A705A110",
-    "description": "Write unit tests more efficently.\n\nStart with a class:\n\n> tc UpdateController @MyApp\n\nWrite test function:\n\n> tf update\n\nAnd make some tests:\n\n> ast isStarted\n> ase progress\n\nMade by [twitter] @Apptorium"
+    "is_enabled": true
 }

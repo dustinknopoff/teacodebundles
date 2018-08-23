@@ -12,26 +12,27 @@ Description:
 
 > Creates Rust default function template.
 
-` fn main`
+` -f main`
 
 will render:
 
 
-```
- fn if __name__ == "__main__":
+```rust
+ def main():
      
 ```
 
-` fn divide divisor: i32, dividend: i32`
+` -f divide divisor: i32, dividend: i32`
 
 will render:
 
 
-```
- fn divide divisor: i32, dividend: i32() {
+```rust
+ def divide(divisor: i32, dividend: i32):
      
- }
 ```
+
+Languages: ['rust']
 
 
 
@@ -41,16 +42,18 @@ Description:
 
 > Default statement for extending a struct.
 
-` impl rectangle`
+` -i rectangle`
 
 will render:
 
 
-```
- impl rectangle() {
+```rust
+ impl Rectangle {
      
  }
 ```
+
+Languages: ['rust']
 
 
 
@@ -58,25 +61,27 @@ will render:
 
 Description:
 
-` struct Rectangle`
+` -s Rectangle`
 
 will render:
 
 
-```
- struct Rectangle() {
+```rust
+ struct Rectangle {
      
  }
 ```
 
-` struct Room String`
+` -s Room String`
 
 will render:
 
 
+```rust
+ -<s>Room String</s>
 ```
- struct Roo// MARK: - String
-```
+
+Languages: ['rust']
 
 
 
@@ -84,14 +89,18 @@ will render:
 
 Description:
 
-` enum Coins`
+` -e Coins`
 
 will render:
 
 
+```rust
+ enum Coins {
+     
+ }
 ```
- enu// MARK: - Coins
-```
+
+Languages: ['rust']
 
 
 
@@ -99,23 +108,27 @@ will render:
 
 Description:
 
-` var integer 36`
+` -v integer 36`
 
 will render:
 
 
-```
- <var>integer 36</var>
+```rust
+ private final integer 36;
+ 
 ```
 
-` var integer 36 usize m`
+` -v integer 36 usize m`
 
 will render:
 
 
+```rust
+ private final integer 36 usize m;
+ 
 ```
- <var>integer 36 usize m</var>
-```
+
+Languages: ['rust']
 
 
 
@@ -128,9 +141,11 @@ Description:
 will render:
 
 
-```
+```rust
  integer as f32
 ```
+
+Languages: ['rust']
 
 
 
@@ -143,10 +158,12 @@ Description:
 will render:
 
 
-```
+```rust
  if __name__ == "__main__":
      
 ```
+
+Languages: ['rust']
 
 
 
@@ -159,7 +176,7 @@ Description:
 will render:
 
 
-```
+```rust
  match number {
      
  }
@@ -170,13 +187,15 @@ will render:
 will render:
 
 
-```
+```rust
  match number {
      3 => ,
      7 => ,
      22 => ,
  }
 ```
+
+Languages: ['rust']
 
 
 

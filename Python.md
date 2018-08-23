@@ -50,13 +50,13 @@ will render:
  
 ```
 
-` req https://www.apple.com `
+` req https://www.apple.com`
 
 will render:
 
 
 ```python
- r = requests.get("https://www.apple.com ")
+ r = requests.get("https://www.apple.com")
  
 ```
 
@@ -113,15 +113,51 @@ Description:
 
 > Creates a default class.
 
-` class Story`
+` class n Story`
 
 will render:
 
 
 ```python
  class Story:
-     def __init__(self):
-         
+ 
+```
+
+` class n Story title,details`
+
+will render:
+
+
+```python
+ class Story:
+ def __init__(title,details):
+ 	self.title = title
+ 	self.details = details
+ 
+```
+
+` class d Story`
+
+will render:
+
+
+```python
+ @dataclass
+ class Story:
+ 
+```
+
+` class d Story title:str,details:List[str]`
+
+will render:
+
+
+```python
+ @dataclass
+ class Story:
+ 	title:str
+ 	details:List[str]
+ 
 ```
 
 Languages: ['python']
@@ -275,6 +311,15 @@ will render:
 
 ```python
  from bs4 import BeautifulSoup
+```
+
+` @Dict,List typings`
+
+will render:
+
+
+```python
+ from typings import Dict,List
 ```
 
 Languages: ['python']
