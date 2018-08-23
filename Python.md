@@ -4,6 +4,8 @@
 
 Made by [@dustinknopoff](https://dustinknopoff.me)
 
+[Regex](#Regex)
+
 ### Function
 
 Description:
