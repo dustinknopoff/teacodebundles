@@ -373,6 +373,16 @@ will render:
  lines[-3:]
 ```
 
+> Ask yourself these questions:
+
+> * Am I intending to slice this string from the start of end? 
+
+> Use *s* for at the *start*, and *e* for at the *end*.
+
+> * Am I intending to get everything before or after that index? 
+
+> Use *b* for from *before*, and *a* for from *after*.
+
 Languages: ['python']
 
 
