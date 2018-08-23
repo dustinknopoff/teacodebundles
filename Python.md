@@ -6,6 +6,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 
 ### Included Expanders
 
+<<<<<<< HEAD
 - [Function](#function)
 - [Request](#request)
 - [Regex](#regex)
@@ -20,6 +21,22 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [import](#import)
 - [Lambda](#lambda)
 - [String Slice](#string slice)
+=======
+- Function
+- Request
+- Regex
+- Beautiful Soup
+- Class
+- In Tuple
+- Open
+- Shell in Python
+- Main
+- List Strings -> List Ints
+- Global
+- import
+- Lambda
+- String Slice
+>>>>>>> 99128f7f282bb996a301c1733e0b586875ff63ec
 - [Join](#join)
 
 ### Function
