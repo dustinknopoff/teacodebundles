@@ -122,17 +122,25 @@ if __name__ == '__main__':
         path = os.path.expanduser('~/Library/Application Support/com.apptorium.TeaCode-setapp/bundles.tcbundles')
     with open(path, 'r') as f:
         stuff = json.load(f)
-        with open('./bundles.tcbundles', 'r') as tcall:
-            saved = json.load(tcall)
-            for index, bund in enumerate(stuff['bundles']):
-                if bund != saved['bundles'][index]:
-                    bundle = Bundle(bund)
-                    with open(f'./{bund["name"]}.tcbundles', 'w+') as tcout:
-                        json.dump(bund, tcout, indent=4)
-                    with open(f'./{bund["name"]}.md', 'w+') as mdout:
-                        mdout.write(bundle.to_md())
-                else:
-                    print(f'No changes to {bund["name"]}')
+        try:
+            with open('./bundles.tcbundles', 'r') as tcall:
+                saved = json.load(tcall)
+                for index, bund in enumerate(stuff['bundles']):
+                    if bund != saved['bundles'][index]:
+                        bundle = Bundle(bund)
+                        with open(f'./{bund["name"]}.tcbundles', 'w+') as tcout:
+                            json.dump(bund, tcout, indent=4)
+                        with open(f'./{bund["name"]}.md', 'w+') as mdout:
+                            mdout.write(bundle.to_md())
+                    else:
+                        print(f'No changes to {bund["name"]}')
+        except FileNotFoundError:
+            for bund in enumerate(stuff['bundles']):
+                bundle = Bundle(bund)
+                with open(f'./{bund["name"]}.tcbundles', 'w+') as tcout:
+                    json.dump(bund, tcout, indent=4)
+                with open(f'./{bund["name"]}.md', 'w+') as mdout:
+                    mdout.write(bundle.to_md())
         with open('./bundles.tcbundles', 'w+') as tcall:
             json.dump(stuff, tcall, indent=4)
     print("Success!")
