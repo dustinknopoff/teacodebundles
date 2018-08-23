@@ -156,7 +156,7 @@
                         "python"
                     ],
                     "is_enabled": true,
-                    "output_template": "lambda ${var}: ${expr}",
+                    "output_template": "lambda ${var}: ${expr};",
                     "id": "DB03F40C-90E3-41EA-9A94-05C1B6A3758B",
                     "description": "> -l x x*x"
                 },

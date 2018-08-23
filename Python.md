@@ -6,21 +6,21 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 
 ### Included Expanders
 
-- Function
-- Request
-- Regex
-- Beautiful Soup
-- Class
-- In Tuple
-- Open
-- Shell in Python
-- Main
-- List Strings -> List Ints
-- Global
-- import
-- Lambda
-- String Slice
-- Join
+- [Function](#function)
+- [Request](#request)
+- [Regex](#regex)
+- [Beautiful Soup](#beautiful soup)
+- [Class](#class)
+- [In Tuple](#in tuple)
+- [Open](#open)
+- [Shell in Python](#shell in python)
+- [Main](#main)
+- [List Strings -> List Ints](#list strings -> list ints)
+- [Global](#global)
+- [import](#import)
+- [Lambda](#lambda)
+- [String Slice](#string slice)
+- [Join](#join)
 
 ### Function
 
@@ -356,7 +356,7 @@ will render:
 
 
 ```python
- lambda x: x*x
+ lambda x: x*x;
 ```
 
 Languages: ['python']
