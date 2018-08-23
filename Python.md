@@ -4,7 +4,7 @@
 
 Made by [@dustinknopoff](https://dustinknopoff.me)
 
-[Regex](#Regex)
+[Regex](###Regex)
 
 ### Function
 
