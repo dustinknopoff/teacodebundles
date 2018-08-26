@@ -120,9 +120,11 @@ class Expander:
 
 
 if __name__ == '__main__':
+    # Get bundles saved from TeaCode
     try:
         path = os.path.expanduser('~/Library/Application Support/com.apptorium.TeaCode-dm/bundles.tcbundles')
     except FileNotFoundError:
+        # If part of SetApp
         path = os.path.expanduser('~/Library/Application Support/com.apptorium.TeaCode-setapp/bundles.tcbundles')
     with open(path, 'r') as f:
         stuff = json.load(f)
@@ -130,15 +132,20 @@ if __name__ == '__main__':
             with open('./bundles.tcbundles', 'r') as tcall:
                 saved = json.load(tcall)
                 for index, bund in enumerate(stuff['bundles']):
+                    # Check for changes between TeaCode and this repo's
                     if bund != saved['bundles'][index]:
                         bundle = Bundle(bund)
+                        # If different dump into a file
                         with open(f'./{bund["name"]}.tcbundles', 'w+') as tcout:
                             json.dump(bund, tcout, indent=4)
+                        # Generate markdown preview
                         with open(f'./{bund["name"]}.md', 'w+') as mdout:
                             mdout.write(bundle.to_md())
                     else:
+                        # Otherwise state no changes
                         print(f'No changes to {bund["name"]}')
         except FileNotFoundError:
+            # If this is an empty directory, do them all
             for bund in enumerate(stuff['bundles']):
                 bundle = Bundle(bund)
                 with open(f'./{bund["name"]}.tcbundles', 'w+') as tcout:
