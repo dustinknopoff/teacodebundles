@@ -5,6 +5,13 @@
 Made by [@dustinknopoff](https://dustinknopoff.me)
 
 
+### Included Expanders
+
+- [setState](#setstate)
+- [bound Arrow Function](#bound-arrow-function)
+- [Class](#class)
+- [Import React](#import-react)
+
 ### setState
 
 Description:
@@ -85,8 +92,17 @@ will render:
 
 
 ```js
- import React, {Component} from 'react';
+ import React from "react";
  
+```
+
+` @Helmet react-helmet`
+
+will render:
+
+
+```js
+ import Helmet from "react-helmet";
  
 ```
 

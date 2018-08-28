@@ -4,6 +4,11 @@
 
 Made by [@dustinknopoff](https://dustinknopoff.me)
 
+### Included Expanders
+
+- [Full Screen Background](#full-screen-background)
+- [Media Query](#media-query)
+
 ### Full Screen Background
 
 Description:
@@ -24,7 +29,6 @@ will render:
      background-size: cover;
      width: 100%;
      height: 100%;
- 
  }
  
  
