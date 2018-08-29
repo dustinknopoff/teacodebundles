@@ -4,6 +4,34 @@
 
 Made by [twitter] @Apptorium
 
+### Included Expanders
+
+- [Variable](#variable)
+- [Let](#let)
+- [Function](#function)
+- [Class](#class)
+- [guard](#guard)
+- [guard let](#guard-let)
+- [if let](#if-let)
+- [do-try-catch](#do-try-catch)
+- [Variable with get and set](#variable-with-get-and-set)
+- [Getter](#getter)
+- [Boolean Getter: is / did / has / should](#boolean-getter:-is-/-did-/-has-/-should)
+- [Protocol Var Getter / Setter](#protocol-var-getter-/-setter)
+- [Operator](#operator)
+- [Lazy var with block](#lazy-var-with-block)
+- [Lazy var with constructor](#lazy-var-with-constructor)
+- [Special Comment](#special-comment)
+- [Import](#import)
+- [Scope](#scope)
+- [Protocol](#protocol)
+- [Struct](#struct)
+- [if](#if)
+- [Extension](#extension)
+- [Enum](#enum)
+- [defer](#defer)
+- [Switch](#switch)
+
 ### Variable
 
 Description:

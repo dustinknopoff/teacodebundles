@@ -6,6 +6,17 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 
 
 
+### Included Expanders
+
+- [Fn](#fn)
+- [Impl](#impl)
+- [Struct](#struct)
+- [Enum](#enum)
+- [Variables](#variables)
+- [Type Conversion](#type-conversion)
+- [main](#main)
+- [Match](#match)
+
 ### Fn
 
 Description:
@@ -67,7 +78,7 @@ will render:
 
 
 ```rust
- struct Rectangle {
+ suct Rectangle {
      
  }
 ```
@@ -78,7 +89,7 @@ will render:
 
 
 ```rust
- struct Room<String> {
+ suct Room<String> {
      
  }
 ```

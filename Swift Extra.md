@@ -4,6 +4,15 @@
 
 Made by [twitter] @Apptorium
 
+### Included Expanders
+
+- [Set](#set)
+- [New class instance](#new-class-instance)
+- [Set self as delegate](#set-self-as-delegate)
+- [Singleton](#singleton)
+- [Delegate Protocol](#delegate-protocol)
+- [Command Class](#command-class)
+
 ### Set
 
 Description:

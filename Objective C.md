@@ -4,6 +4,17 @@
 
 Made by [twitter] @Apptorium
 
+### Included Expanders
+
+- [Short, void method](#short,-void-method)
+- [Dispatch](#dispatch)
+- [Import](#import)
+- [if](#if)
+- [Protocol](#protocol)
+- [Action](#action)
+- [Outlet](#outlet)
+- [Localized String](#localized-string)
+
 ### Short, void method
 
 Description:

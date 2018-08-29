@@ -4,6 +4,17 @@
 
 Made by [twitter] @Apptorium
 
+### Included Expanders
+
+- [1. Simplest Expander](#1.-simplest-expander)
+- [2. Variable](#2.-variable)
+- [3. Variable with filter](#3.-variable-with-filter)
+- [4. Optional Variable](#4.-optional-variable)
+- [5. Hash](#5.-hash)
+- [6. Exp](#6.-exp)
+- [7. Enum](#7.-enum)
+- [8. Switch](#8.-switch)
+
 ### 1. Simplest Expander
 
 Description:

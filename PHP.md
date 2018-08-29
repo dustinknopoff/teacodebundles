@@ -4,6 +4,24 @@
 
 Made by [twitter] @Apptorium
 
+### Included Expanders
+
+- [for](#for)
+- [Function](#function)
+- [Property](#property)
+- [Getter](#getter)
+- [Setter](#setter)
+- [Exception](#exception)
+- [Class](#class)
+- [$this->variable](#$this-variable)
+- [Map](#map)
+- [for in](#for-in)
+- [Getter and Setter](#getter-and-setter)
+- [Function with doc](#function-with-doc)
+- [PHP Tag](#php-tag)
+- [Scope](#scope)
+- [Empty constructor](#empty-constructor)
+
 ### for
 
 Description:

@@ -4,6 +4,13 @@
 
 Made by [twitter] @Apptorium.
 
+### Included Expanders
+
+- [UIView subclass](#uiview-subclass)
+- [viewDidLoad](#viewdidload)
+- [viewDidAppear](#viewdidappear)
+- [viewWillAppear](#viewwillappear)
+
 ### UIView subclass
 
 Description:

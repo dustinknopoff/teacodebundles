@@ -4,6 +4,15 @@
 
 Made by [twitter] @Apptorium
 
+### Included Expanders
+
+- [viewDidLoad](#viewdidload)
+- [viewDidAppear](#viewdidappear)
+- [viewWillAppear](#viewwillappear)
+- [View Controller](#view-controller)
+- [Window Controller](#window-controller)
+- [Binding](#binding)
+
 ### viewDidLoad
 
 Description:

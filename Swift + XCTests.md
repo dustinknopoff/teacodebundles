@@ -17,6 +17,16 @@ And make some tests:
 
 Made by [twitter] @Apptorium
 
+### Included Expanders
+
+- [Test class](#test-class)
+- [Test function](#test-function)
+- [Assert Equal](#assert-equal)
+- [Assert True](#assert-true)
+- [Assert False](#assert-false)
+- [Assert Nil](#assert-nil)
+- [Assert](#assert)
+
 ### Test class
 
 Description:

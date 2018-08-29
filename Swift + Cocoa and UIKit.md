@@ -4,6 +4,15 @@
 
 Made by [twitter] @Apptorium.
 
+### Included Expanders
+
+- [Outlet](#outlet)
+- [Action](#action)
+- [Localized String](#localized-string)
+- [if let segue destination](#if-let-segue-destination)
+- [guard let segue destination](#guard-let-segue-destination)
+- [Dispatch](#dispatch)
+
 ### Outlet
 
 Description:
