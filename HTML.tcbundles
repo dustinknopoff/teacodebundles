@@ -1,0 +1,72 @@
+{
+    "expanders": [
+        {
+            "output_template": "<${tag}| class=\"${class}\"|| id=\"${id}\"|>|${text}|#</${tag}>",
+            "id": "976D269E-19A2-43FD-9E83-54A941BDC697",
+            "description": "Expands a tag.\n> div.hello#world\n> p hello world",
+            "is_enabled": true,
+            "pattern": "${tag:exp(htmltag)}|.${class:identifier}||#${id:identifier}|| ${text:text}|",
+            "supported_languages": [
+                "html"
+            ],
+            "name": "Tag",
+            "identifier": ""
+        },
+        {
+            "output_template": "<a href=\"${link}\">#</a>",
+            "id": "24C243D2-3E13-4C62-A9B0-97C8C3848D89",
+            "description": "Creates a link.\n\n> a http://www.apptorium.com",
+            "is_enabled": true,
+            "pattern": "a ${link:text}",
+            "supported_languages": [
+                "html"
+            ],
+            "name": "a href",
+            "identifier": ""
+        },
+        {
+            "output_template": "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title></title>\n\t</head>\n\t<body>\n\t\t#\n\t</body>\n</html>",
+            "id": "8CA102E4-6ADF-484D-9110-7BD89F24FCA0",
+            "description": "Basic HTML 5 template\n\n> html",
+            "is_enabled": true,
+            "pattern": "html",
+            "supported_languages": [
+                "html"
+            ],
+            "name": "Template",
+            "identifier": ""
+        },
+        {
+            "output_template": "<${tag} />",
+            "id": "69C77D77-FAAB-4CF5-AAD8-5DEE6B7C6573",
+            "description": "> br",
+            "is_enabled": true,
+            "pattern": "${tag:enum(br,hr,wbr)}",
+            "supported_languages": [
+                "html"
+            ],
+            "name": "Empty Tag",
+            "identifier": ""
+        },
+        {
+            "output_template": "${tag}",
+            "id": "346B08E0-247E-4246-BF6C-C1F4F5C9D0C6",
+            "description": "List of tags. Created to be used within `Tag` expander.",
+            "is_enabled": true,
+            "pattern": "${tag:enum(a,abbr,acronym,address,applet,article,aside,audio,b,basefont,bdi,bdo,big,blockquote,body,button,canvas,caption,center,cite,code,colgroup,datalist,dd,del,details,dfn,dialog,dir,div,dl,dt,em,fieldset,figcaption,figure,font,footer,form,frame,frameset,h1,head,header,i,iframe,ins,kbd,label,legend,li,main,map,mark,menu,menuitem,meter,nav,noframes,noscript,object,ol,optgroup,option,output,p,picture,pre,progress,q,rp,rt,ruby,s,samp,script,section,select,small,span,strike,strong,style,sub,summary,sup,table,tbody,td,textarea,tfoot,th,thead,time,title,tr,tt,u,ul,var,video)}",
+            "supported_languages": [
+                "html"
+            ],
+            "name": "Tag Name",
+            "identifier": "htmltag"
+        }
+    ],
+    "name": "HTML",
+    "description": "Improves the HTML coding.\n\nMade by [twitter] @Apptorium",
+    "supported_languages": [
+        "any",
+        "html"
+    ],
+    "id": "B58E86B7-095B-4CFC-924C-449FAD1AD2B3",
+    "is_enabled": true
+}

@@ -145,8 +145,9 @@ if __name__ == '__main__':
                         # Otherwise state no changes
                         print(f'No changes to {bund["name"]}')
         except FileNotFoundError:
+            print("File not found. Rendering all bundles.")
             # If this is an empty directory, do them all
-            for bund in enumerate(stuff['bundles']):
+            for bund in stuff['bundles']:
                 bundle = Bundle(bund)
                 with open(f'./{bund["name"]}.tcbundles', 'w+') as tcout:
                     json.dump(bund, tcout, indent=4)
