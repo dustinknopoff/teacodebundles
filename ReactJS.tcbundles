@@ -51,7 +51,7 @@
         {
             "output_template": "export class ${name.capitalize.remove_spaces} extends React.Component<|${props}|, {}> {\n\tconstructor(props: |${props}|, context: any) {\n\t\tsuper(props, context)\n\t}\n\t#\n\tpublic render() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}",
             "id": "25BF768F-6D93-450C-9D7A-B305A3F8E044",
-            "description": "Default Class creation.\n> class Header",
+            "description": "Default Class creation for React in Typescript.\n> class Header",
             "is_enabled": true,
             "pattern": "class ${name:word}| ${props:word}|",
             "supported_languages": [
@@ -63,7 +63,7 @@
         {
             "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import * as React from \\\"react\\\";')\nelse:\n\tprint('import * as ${fn} from \\\"|${package}|\\\";')\")}\n#",
             "id": "A91FF14C-42F9-4313-BD48-8BD8794C7BB2",
-            "description": "> @import\n\n> @Helmet react-helmet",
+            "description": "Import statements for React in Typescript\n> @import\n\n> @Helmet react-helmet",
             "is_enabled": true,
             "pattern": "@${fn:text?}| ${package:text?}|",
             "supported_languages": [
@@ -75,7 +75,7 @@
         {
             "output_template": "const ${name} = (|${args}|) => {\n\t#\n};",
             "id": "906CD1BD-3418-4EE2-BCCF-8BF62AE029EA",
-            "description": "Creates React bound arrow function statement.\n\n> arrow setLimit max",
+            "description": "Creates React bound arrow function statement in Typescript\n\n> arrow setLimit max",
             "is_enabled": true,
             "pattern": "arrow ${name:word}| ${args:text?}|",
             "supported_languages": [

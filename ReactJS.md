@@ -117,7 +117,7 @@ Languages: ['js']
 
 Description:
 
-> Default Class creation.
+> Default Class creation for React in Typescript.
 
 ` class Header`
 
@@ -145,6 +145,8 @@ Languages: ['typescript']
 
 Description:
 
+> Import statements for React in Typescript
+
 ` @import`
 
 will render:
@@ -171,7 +173,7 @@ Languages: ['typescript']
 
 Description:
 
-> Creates React bound arrow function statement.
+> Creates React bound arrow function statement in Typescript
 
 ` arrow setLimit max`
 
