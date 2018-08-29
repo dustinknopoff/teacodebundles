@@ -58,12 +58,12 @@
                 "typescript"
             ],
             "name": "Class.ts",
-            "identifier": "class"
+            "identifier": ""
         },
         {
             "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import * as React from \\\"react\\\";')\nelse:\n\tprint('import * as ${fn} from \\\"|${package}|\\\";')\")}\n#",
             "id": "A91FF14C-42F9-4313-BD48-8BD8794C7BB2",
-            "description": "Import statements for React in Typescript\n> @import\n\n> @Helmet react-helmet",
+            "description": "Import statements for React in Typescript\n\n> @import\n\n> @Helmet react-helmet",
             "is_enabled": true,
             "pattern": "@${fn:text?}| ${package:text?}|",
             "supported_languages": [
@@ -82,7 +82,7 @@
                 "typescript"
             ],
             "name": "bound Arrow Function.ts",
-            "identifier": "arrow"
+            "identifier": ""
         }
     ],
     "name": "ReactJS",
