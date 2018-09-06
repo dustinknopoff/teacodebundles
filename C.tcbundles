@@ -1,0 +1,35 @@
+{
+    "expanders": [
+        {
+            "id": "22CDAE78-49FD-4695-A71A-85A3E019D793",
+            "name": "Include",
+            "is_enabled": true,
+            "identifier": "c.include",
+            "description": "> #\n\n> #math.h",
+            "output_template": "\\#include <${header}>\n#",
+            "pattern": "#${header:text?=stdio.h}",
+            "supported_languages": [
+                "c"
+            ]
+        },
+        {
+            "id": "3E54F6A8-5341-4537-93A4-B145AE7F8D80",
+            "name": "main",
+            "is_enabled": true,
+            "identifier": "c.main",
+            "description": "> main",
+            "output_template": "int main(int argv, char *argv[]) {\n\t#\n\treturn 0;\n}",
+            "pattern": "main",
+            "supported_languages": [
+                "c"
+            ]
+        }
+    ],
+    "is_enabled": true,
+    "name": "C",
+    "supported_languages": [
+        "c"
+    ],
+    "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
+    "id": "95B67DCB-F254-4537-83BF-913679BF617A"
+}

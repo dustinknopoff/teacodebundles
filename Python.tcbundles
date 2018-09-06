@@ -1,204 +1,204 @@
 {
     "expanders": [
         {
-            "output_template": "def ${name.snakecase}(|${python(\"print(\\\"${params.snakecase}\\\".replace(\\\",\\\", \\\", \\\"))\")}|):\n\t#",
             "id": "7741C787-8E9E-45E3-91F7-ECF9DCF9D24D",
-            "description": "Creates default function statement.\n> -f do arr,index\n\n\n> -f do",
+            "name": "Function",
             "is_enabled": true,
+            "identifier": "py.fn",
+            "description": "Creates default function statement.\n> -f do arr,index\n\n\n> -f do",
+            "output_template": "def ${name.snakecase}(|${python(\"print(\\\"${params.snakecase}\\\".replace(\\\",\\\", \\\", \\\"))\")}|):\n\t#",
             "pattern": "-f ${name:word}| ${params:text?}|",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Function",
-            "identifier": "fn"
+            ]
         },
         {
-            "output_template": "r = requests.get(\"${url}\")|.${out}|\n#",
             "id": "5C7C5F07-EEE3-47A2-89C7-31994134C3CD",
-            "description": "Creates the default requests statement.\n> req https://www.apple.com j\n> req https://www.apple.com",
+            "name": "Request",
             "is_enabled": true,
+            "identifier": "py.req",
+            "description": "Creates the default requests statement.\n> req https://www.apple.com j\n> req https://www.apple.com",
+            "output_template": "r = requests.get(\"${url}\")|.${out}|\n#",
             "pattern": "req ${url:text?}| ${out:switch(c:content,j:json())}|",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Request",
-            "identifier": "req"
+            ]
         },
         {
-            "output_template": "re.findall(r'${pattern}', ${txt})",
             "id": "DFA12555-C863-46B5-A723-D7B076FD8E66",
-            "description": "Default regex implementation:\n> re \\d+ str\n\n**NOTE: Must import `re`**",
+            "name": "Regex",
             "is_enabled": true,
+            "identifier": "py.re",
+            "description": "Default regex implementation:\n> re \\d+ str\n\n**NOTE: Must import `re`**",
+            "output_template": "re.findall(r'${pattern}', ${txt})",
             "pattern": "re ${pattern:text=\\w+} ${txt:word}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Regex",
-            "identifier": "re"
+            ]
         },
         {
-            "output_template": "soup = BeautifulSoup(${content}, 'html.parser')\n#",
             "id": "746C9DBC-738E-4C86-A861-D85FEE69F78A",
-            "description": "Creates default Beautiful Soup statement\n> bs4 r.content\n\n**NOTE: Must import `bs4`**",
+            "name": "Beautiful Soup",
             "is_enabled": true,
+            "identifier": "py.bs4",
+            "description": "Creates default Beautiful Soup statement\n> bs4 r.content\n\n**NOTE: Must import `bs4`**",
+            "output_template": "soup = BeautifulSoup(${content}, 'html.parser')\n#",
             "pattern": "bs4 ${content:text?=r}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Beautiful Soup",
-            "identifier": "bs4"
+            ]
         },
         {
-            "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"   \\\" + arg.replace(\\\":\\\", \\\": \\\"))|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"    def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"        self.{} = {}\\\".format(arg,arg))|\")}\n#",
             "id": "37261157-F800-48A1-B0A2-C1D23F765A26",
-            "description": "Creates a default class.\n> class n Story\n\n> class n Story title,details\n\n> class d Story\n\n> class d Story title:str,details:List[str]\n\n**NOTE: 'd' requires Python 3.7 and importing `dataclass`**\n",
+            "name": "Class",
             "is_enabled": true,
+            "identifier": "py.class",
+            "description": "Creates a default class.\n> class n Story\n\n> class n Story title,details\n\n> class d Story\n\n> class d Story title:str,details:List[str]\n\n**NOTE: 'd' requires Python 3.7 and importing `dataclass`**\n",
+            "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"   \\\" + arg.replace(\\\":\\\", \\\": \\\"))|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"    def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"        self.{} = {}\\\".format(arg,arg))|\")}\n#",
             "pattern": "class ${type:enum(n,d)=n} ${name:word}| ${vars:text?}|",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Class",
-            "identifier": "class"
+            ]
         },
         {
-            "output_template": "if any(w for w in ${list}):\n\t#",
             "id": "1FA23E9A-CB14-4186-B9A9-C4350C49F073",
-            "description": "Creates an if any statement:\n> ifany (\"Apple\", \"Banana\", \"Croissant\")",
+            "name": "In Tuple",
             "is_enabled": true,
+            "identifier": "py.ifany",
+            "description": "Creates an if any statement:\n> ifany (\"Apple\", \"Banana\", \"Croissant\")",
+            "output_template": "if any(w for w in ${list}):\n\t#",
             "pattern": "ifany ${list:text?}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "In Tuple",
-            "identifier": "ifany"
+            ]
         },
         {
-            "output_template": "with open('${path}') as f:\n\t#",
             "id": "000B2DC8-6E4C-41F5-84DA-E9FEDA59827D",
-            "description": "Creates default open statement.\n> open ~/Downloads/example.txt",
+            "name": "Open",
             "is_enabled": true,
+            "identifier": "py.open",
+            "description": "Creates default open statement.\n> open ~/Downloads/example.txt",
+            "output_template": "with open('${path}') as f:\n\t#",
             "pattern": "open ${path:text}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Open",
-            "identifier": "open"
+            ]
         },
         {
-            "output_template": "script = subprocess.run(\"${run}\".split(), stdout=subprocess.PIPE)\n#",
             "id": "CF066DE9-675D-4050-BC62-C272B7B9A8B2",
-            "description": "Creates default statement for shell scripts running in python.\n> sh brew list\n\n> sh basename 'git rev-parse --show-toplevel'",
+            "name": "Shell in Python",
             "is_enabled": true,
+            "identifier": "py.sh",
+            "description": "Creates default statement for shell scripts running in python.\n> sh brew list\n\n> sh basename 'git rev-parse --show-toplevel'",
+            "output_template": "script = subprocess.run(\"${run}\".split(), stdout=subprocess.PIPE)\n#",
             "pattern": "sh ${run:text?}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Shell in Python",
-            "identifier": "sh"
+            ]
         },
         {
-            "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#",
             "id": "9B4E652B-2653-43B7-85C8-C313BA995968",
-            "description": "> main\n\n> main Story().read()",
+            "name": "Main",
             "is_enabled": true,
+            "identifier": "py.main",
+            "description": "> main\n\n> main Story().read()",
+            "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#",
             "pattern": "main| ${foo:text?}|",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Main",
-            "identifier": ""
+            ]
         },
         {
-            "output_template": "${name} = list(map(int, ${name}))",
             "id": "A5F28216-C032-46EA-BAAB-DAD851990917",
-            "description": "Convert a list of strings into a list of integers\n> [i] results",
+            "name": "List Strings -> List Ints",
             "is_enabled": true,
+            "identifier": "py.listconv",
+            "description": "Convert a list of strings into a list of integers\n> [i] results",
+            "output_template": "${name} = list(map(int, ${name}))",
             "pattern": "[i] ${name:word}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "List Strings -> List Ints",
-            "identifier": ""
+            ]
         },
         {
-            "output_template": "\\#!/usr/bin/env python${version}\n#",
             "id": "5488C00A-A290-4F8F-B45A-A73D66D0B1B4",
-            "description": "Creates the Shebang for global python usage\n> gl 3.6",
+            "name": "Global",
             "is_enabled": true,
+            "identifier": "py.gl",
+            "description": "Creates the Shebang for global python usage\n> gl 3.6",
+            "output_template": "\\#!/usr/bin/env python${version}\n#",
             "pattern": "gl ${version:number=3.6}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Global",
-            "identifier": "pygl"
+            ]
         },
         {
-            "output_template": "|from ${from} |import ${package}",
             "id": "CBFAAA8E-5B60-4597-A136-AEEED8686788",
-            "description": "> @re\n\n> @BeautifulSoup bs4\n\n> @Dict,List typings",
+            "name": "import",
             "is_enabled": true,
+            "identifier": "py.import",
+            "description": "> @re\n\n> @BeautifulSoup bs4\n\n> @Dict,List typings",
+            "output_template": "|from ${from} |import ${package}",
             "pattern": "@${package:text?}| ${from:text?}|",
             "supported_languages": [
                 "python"
-            ],
-            "name": "import",
-            "identifier": ""
+            ]
         },
         {
-            "output_template": "lambda ${var}: ${expr}",
             "id": "DB03F40C-90E3-41EA-9A94-05C1B6A3758B",
-            "description": "> -l x x*x",
+            "name": "Lambda",
             "is_enabled": true,
+            "identifier": "py.lambda",
+            "description": "> -l x x*x",
+            "output_template": "lambda ${var}: ${expr}",
             "pattern": "-l ${var:word} ${expr:text?}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Lambda",
-            "identifier": ""
+            ]
         },
         {
-            "output_template": "${python(\"if \\\"${se}\\\" is \\\"start\\\":\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[${slice}:]\\\")\nelse:\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:-${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[-${slice}:]\\\")\")}",
             "id": "C8915A90-9A0B-40C9-B573-5A175621ADD5",
-            "description": "Can't remember where the `-` goes?\nIf the number goes before or after the `:`? \nHave TeaCode do it for you!\n\n> -s s b lines 3\n\n> -s e a lines 3\n\nAsk yourself these questions:\n* Am I intending to slice this string from the start of end? \nUse *s* for at the *start*, and *e* for at the *end*.\n\n* Am I intending to get everything before or after that index? \nUse *b* for from *before*, and *a* for from *after*.\n",
+            "name": "String Slice",
             "is_enabled": true,
+            "identifier": "py.slice",
+            "description": "Can't remember where the `-` goes?\nIf the number goes before or after the `:`? \nHave TeaCode do it for you!\n\n> -s s b lines 3\n\n> -s e a lines 3\n\nAsk yourself these questions:\n* Am I intending to slice this string from the start of end? \nUse *s* for at the *start*, and *e* for at the *end*.\n\n* Am I intending to get everything before or after that index? \nUse *b* for from *before*, and *a* for from *after*.\n",
+            "output_template": "${python(\"if \\\"${se}\\\" is \\\"start\\\":\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[${slice}:]\\\")\nelse:\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:-${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[-${slice}:]\\\")\")}",
             "pattern": "-s ${se:switch(s:start,e:end)} ${ba:switch(b:before,a:after)} ${name:word} ${slice:word}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "String Slice",
-            "identifier": ""
+            ]
         },
         {
-            "output_template": "'${delim}'.join(${var})",
             "id": "22FEED68-A6A4-4D18-9546-E58B07E9CA95",
-            "description": "Join a list into a string\n> -j lines , ",
+            "name": "Join",
             "is_enabled": true,
+            "identifier": "py.join",
+            "description": "Join a list into a string\n> -j lines , ",
+            "output_template": "'${delim}'.join(${var})",
             "pattern": "-j ${var:word} ${delim:text?}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Join",
-            "identifier": ""
+            ]
         },
         {
-            "output_template": ".replace(\"${from}\",\"${to}\")",
             "id": "08462808-3C31-424B-9D7D-0D244450F235",
-            "description": "String replace method\n> rep \\j j\n\n> rep > <",
+            "name": "Replace",
             "is_enabled": true,
+            "identifier": "py.rep",
+            "description": "String replace method\n> rep \\j j\n\n> rep > <",
+            "output_template": ".replace(\"${from}\",\"${to}\")",
             "pattern": "rep ${from:text?} ${to:text?}",
             "supported_languages": [
                 "python"
-            ],
-            "name": "Replace",
-            "identifier": ""
+            ]
         }
     ],
+    "is_enabled": true,
     "name": "Python",
-    "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "supported_languages": [
         "any",
         "python"
     ],
-    "id": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028",
-    "is_enabled": true
+    "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
+    "id": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028"
 }
