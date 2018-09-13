@@ -19,6 +19,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [Implements](#implements)
 - [Function](#function)
 - [Scope](#scope)
+- [Print](#print)
 
 ### Constant Variable
 
@@ -57,7 +58,7 @@ will render:
  }
 ```
 
-Languages: ['java', 'js']
+Languages: ['java', 'js', 'c']
 
 
 
@@ -99,7 +100,7 @@ will render:
  }
 ```
 
-Languages: ['java', 'js']
+Languages: ['java', 'js', 'c']
 
 
 
@@ -355,6 +356,24 @@ will render:
 
 ```java
  protected
+```
+
+Languages: ['java']
+
+
+
+### Print
+
+Description:
+
+` print array.length()`
+
+will render:
+
+
+```java
+ System.out.println(array.length());
+ 
 ```
 
 Languages: ['java']

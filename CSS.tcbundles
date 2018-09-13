@@ -1,36 +1,36 @@
 {
-    "expanders": [
-        {
-            "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
-            "name": "Full Screen Background",
-            "is_enabled": true,
-            "identifier": "fullbg",
-            "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg",
-            "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    width: 100%;\n    height: 100%;\n}\n\n#",
-            "pattern": "fullbg ${src:text?}",
-            "supported_languages": [
-                "css"
-            ]
-        },
-        {
-            "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
-            "name": "Media Query",
-            "is_enabled": true,
-            "identifier": "mq",
-            "description": "Creates media query.\n> mq 768",
-            "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
-            "pattern": "mq ${size:number}",
-            "supported_languages": [
-                "css"
-            ]
-        }
-    ],
+    "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "is_enabled": true,
+    "id": "026E11C1-A218-4083-9817-47F70E501864",
     "name": "CSS",
     "supported_languages": [
         "any",
         "css"
     ],
-    "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
-    "id": "026E11C1-A218-4083-9817-47F70E501864"
+    "expanders": [
+        {
+            "name": "Full Screen Background",
+            "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg",
+            "is_enabled": true,
+            "pattern": "fullbg ${src:text?}",
+            "supported_languages": [
+                "css"
+            ],
+            "identifier": "fullbg",
+            "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    width: 100%;\n    height: 100%;\n}\n\n#",
+            "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2"
+        },
+        {
+            "name": "Media Query",
+            "description": "Creates media query.\n> mq 768",
+            "is_enabled": true,
+            "pattern": "mq ${size:number}",
+            "supported_languages": [
+                "css"
+            ],
+            "identifier": "mq",
+            "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
+            "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804"
+        }
+    ]
 }

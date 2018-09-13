@@ -1,35 +1,193 @@
 {
-    "expanders": [
-        {
-            "id": "22CDAE78-49FD-4695-A71A-85A3E019D793",
-            "name": "Include",
-            "is_enabled": true,
-            "identifier": "c.include",
-            "description": "> #\n\n> #math.h",
-            "output_template": "\\#include <${header}>\n#",
-            "pattern": "#${header:text?=stdio.h}",
-            "supported_languages": [
-                "c"
-            ]
-        },
-        {
-            "id": "3E54F6A8-5341-4537-93A4-B145AE7F8D80",
-            "name": "main",
-            "is_enabled": true,
-            "identifier": "c.main",
-            "description": "> main",
-            "output_template": "int main(int argv, char *argv[]) {\n\t#\n\treturn 0;\n}",
-            "pattern": "main",
-            "supported_languages": [
-                "c"
-            ]
-        }
-    ],
+    "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "is_enabled": true,
+    "id": "95B67DCB-F254-4537-83BF-913679BF617A",
     "name": "C",
     "supported_languages": [
         "c"
     ],
-    "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
-    "id": "95B67DCB-F254-4537-83BF-913679BF617A"
+    "expanders": [
+        {
+            "name": "Include",
+            "description": "> # s\n\n> #math.h s\n\n> #foo.h u",
+            "is_enabled": true,
+            "pattern": "#${header:text?=stdio.h} ${type:enum(s,u)}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.include",
+            "output_template": "${python(\"if \\\"${type}\\\" is \\\"u\\\":\n\tprint('\\#include \\\"${header}\\\"')\nelif \\\"${header}\\\" is \\\"\\\":\n\tprint('\\#include <stdio.h>') \nelse:\n\tprint('\\#include <${header}>') \")}\n#",
+            "id": "22CDAE78-49FD-4695-A71A-85A3E019D793"
+        },
+        {
+            "name": "main",
+            "description": "> main",
+            "is_enabled": true,
+            "pattern": "main",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.main",
+            "output_template": "int main(int argv, char *argv[]) {\n\t#\n\treturn 0;\n}",
+            "id": "3E54F6A8-5341-4537-93A4-B145AE7F8D80"
+        },
+        {
+            "name": "typedef",
+            "description": "> td struct fraction Fraction",
+            "is_enabled": true,
+            "pattern": "td ${type:word} ${value:text?}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.typedef",
+            "output_template": "typedef ${type} ${value};\n#",
+            "id": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078"
+        },
+        {
+            "name": "define",
+            "description": "> -d BOOL char",
+            "is_enabled": true,
+            "pattern": "-d ${name:word} ${value:text?}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.define",
+            "output_template": "\\#define ${name.uppercase} ${value}\n#",
+            "id": "0DF85C30-585C-4821-8DC0-DCA468189EDE"
+        },
+        {
+            "name": "while",
+            "description": "> w i - 10",
+            "is_enabled": true,
+            "pattern": "w ${logic:text?}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.while",
+            "output_template": "while (${logic}) {\n\t#\n}",
+            "id": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9"
+        },
+        {
+            "name": "switch",
+            "description": "> switch stringtype",
+            "is_enabled": true,
+            "pattern": "switch ${expression:text?}",
+            "supported_languages": [
+                "c",
+                "java",
+                "js"
+            ],
+            "identifier": "c.switch",
+            "output_template": "switch (${expression}) {\n\tcase #:\n\t\t\n\t\tbreak;\n\tdefault:\n\t\t\n\t\tbreak;\n}\n",
+            "id": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60"
+        },
+        {
+            "name": "Struct",
+            "description": "> struct Store",
+            "is_enabled": true,
+            "pattern": "struct ${name:word}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "",
+            "output_template": "struct ${name} {\n\t#\n}",
+            "id": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6"
+        },
+        {
+            "name": "String copy",
+            "description": "> len usrInput",
+            "is_enabled": true,
+            "pattern": "len ${string:word}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.strlen",
+            "output_template": "strlen(${string})",
+            "id": "5B8B675A-861F-414A-8415-6541794CA318"
+        },
+        {
+            "name": "function",
+            "description": "> fn + int power int base, int n",
+            "is_enabled": true,
+            "pattern": "fn ${scope:exp(c.scope)} ${type:word} ${name:word} ${params:text?}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.fn",
+            "output_template": "${python(\"import pyperclip\nif \\\"${scope}\\\" is \\\"prototype\\\":\n\tprint(\\\"${type} ${name.camelcase}(${params});\\\")\n\tif \\\"${type}\\\" is \\\"void\\\":\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n\\treturn ;\\n}\\\")\nelse:\n\tprint(\\\"static ${type} ${name.camelcase}(${params}) {\\n \\t\\#\\n}\\\")\")}",
+            "id": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC"
+        },
+        {
+            "name": "Scope",
+            "description": "",
+            "is_enabled": true,
+            "pattern": "${scope:switch(+:prototype,-:static)}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.scope",
+            "output_template": "${scope}",
+            "id": "2303EA95-6AED-4CA2-88EA-B665B2CFF188"
+        },
+        {
+            "name": "assert",
+            "description": "**NOTE: must include #include <assert.h>**\n> assert i > MAX_INTS",
+            "is_enabled": true,
+            "pattern": "assert ${condition:text?}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.assert",
+            "output_template": "assert(${condition});\n#",
+            "id": "D144BA08-20BD-4B57-889C-839814475B7A"
+        },
+        {
+            "name": "print",
+            "description": "",
+            "is_enabled": true,
+            "pattern": "print ${value:word}| ${fillins:text?}|",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.print",
+            "output_template": "printf(${value}|, ${fillins}|);\n#",
+            "id": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C"
+        },
+        {
+            "name": "String equality",
+            "description": "> usrInput == \"Charlie Day\"",
+            "is_enabled": true,
+            "pattern": "${s1:text?} == ${s2:text?}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.seq",
+            "output_template": "strcmp(${s1},${s2})",
+            "id": "F053293B-C6A9-4CB6-AF13-3978FC613C2E"
+        },
+        {
+            "name": "string contains",
+            "description": "> \"Hello World\".contains(\"orld\")",
+            "is_enabled": true,
+            "pattern": "${s1:text?}.contains(${s2:text?})",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.scontain",
+            "output_template": "strstr(${s1},${s2})",
+            "id": "4211E813-7253-4091-A862-927A36B38704"
+        },
+        {
+            "name": "array size",
+            "description": "> size int_array int",
+            "is_enabled": true,
+            "pattern": "size ${var:word} ${type:word}",
+            "supported_languages": [
+                "c"
+            ],
+            "identifier": "c.size",
+            "output_template": "(sizeof(${var}) / sizeof(${type}))",
+            "id": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4"
+        }
+    ]
 }
