@@ -1,7 +1,5 @@
 {
     "description": "Additional expanders for Swift\n\nMade by [twitter] @Apptorium",
-    "is_enabled": true,
-    "id": "FF90FB85-B09B-43F9-8AA5-18252F518315",
     "name": "Swift Extra",
     "supported_languages": [
         "any",
@@ -9,76 +7,78 @@
     ],
     "expanders": [
         {
-            "name": "Set",
-            "description": "Simplifies setting the prperty values as a parameter value.\n> set name",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "set ${var:word}",
+            "output_template": "self.${var} = ${var}",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "self.${var} = ${var}",
+            "name": "Set",
+            "description": "Simplifies setting the prperty values as a parameter value.\n> set name",
             "id": "791764DA-7FD4-49A7-96F9-C4BFE1CB231F"
         },
         {
-            "name": "New class instance",
-            "description": "Creates a class instance (with empty constructor).\n> inst someViewController",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "inst ${name:word}",
+            "output_template": "let ${name.lcfirst} = ${name.ucfirst}()",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "let ${name.lcfirst} = ${name.ucfirst}()",
+            "name": "New class instance",
+            "description": "Creates a class instance (with empty constructor).\n> inst someViewController",
             "id": "20170C4A-6D10-4009-ACA9-069F22A63176"
         },
         {
-            "name": "Set self as delegate",
-            "description": "Sets self as a delegate of the given object name\n\n> sdel tableView",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "sdel ${objectName:identifier}",
+            "output_template": "${objectName}.delegate = self",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "${objectName}.delegate = self",
+            "name": "Set self as delegate",
+            "description": "Sets self as a delegate of the given object name\n\n> sdel tableView",
             "id": "C1C27AB4-A80E-49A1-8134-8F6BD18F47EF"
         },
         {
-            "name": "Singleton",
-            "description": "Creates a singleton class.\n\n> +sing SingletonClass",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "|${scope:exp(scope)}|sing ${name:word}",
+            "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tpublic static let instance = ${name.ucfirst}()\n\n\t#\n}",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tpublic static let instance = ${name.ucfirst}()\n\n\t#\n}",
+            "name": "Singleton",
+            "description": "Creates a singleton class.\n\n> +sing SingletonClass",
             "id": "0A4D5D1D-31C5-4EAA-9C50-5025A36F58FB"
         },
         {
-            "name": "Delegate Protocol",
-            "description": "Creates a Delegate protocol\n\n> +del MyView",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "|${scope:exp(scope)}|del ${name:word}",
+            "output_template": "|${scope}|protocol ${name.ucfirst}Delegate {\n\t#\n}",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "|${scope}|protocol ${name.ucfirst}Delegate {\n\t#\n}",
+            "name": "Delegate Protocol",
+            "description": "Creates a Delegate protocol\n\n> +del MyView",
             "id": "1E737C60-B610-40B6-BB1F-2B80904EBC0E"
         },
         {
-            "name": "Command Class",
-            "description": "Creates a class according to `Command` Design Pattern\n\n> +cmd MyClass",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "|${scope:exp(scope)}|cmd ${name:word}",
+            "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tfunc run() {\n\t\t#\n\t}\n}",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tfunc run() {\n\t\t#\n\t}\n}",
+            "name": "Command Class",
+            "description": "Creates a class according to `Command` Design Pattern\n\n> +cmd MyClass",
             "id": "05BE59A8-A151-48A6-8C80-3D584123A7EC"
         }
-    ]
+    ],
+    "id": "FF90FB85-B09B-43F9-8AA5-18252F518315",
+    "is_enabled": true
 }

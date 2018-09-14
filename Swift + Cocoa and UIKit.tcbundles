@@ -1,7 +1,5 @@
 {
     "description": "`Swift` expanders for `Cocoa` and `UIKIt` frameworks.\n\nMade by [twitter] @Apptorium.",
-    "is_enabled": true,
-    "id": "B42F1F98-9C35-4AF1-93E1-E8A19157CDF9",
     "name": "Swift + Cocoa and UIKit",
     "supported_languages": [
         "any",
@@ -9,74 +7,76 @@
     ],
     "expanders": [
         {
-            "name": "Outlet",
-            "description": "Creates an `IBOutlet`.\n\n> out nameTextField: NSTextField",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "out ${name:word}: ${type:word}",
+            "output_template": "@IBOutlet weak var ${name}: ${type}!",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "@IBOutlet weak var ${name}: ${type}!",
+            "name": "Outlet",
+            "description": "Creates an `IBOutlet`.\n\n> out nameTextField: NSTextField",
             "id": "CD32B81B-EE8A-4F37-806E-127543814CD5"
         },
         {
-            "name": "Action",
-            "description": "Creates an `IBAction`.\n\n> act done",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "act ${name:word}",
+            "output_template": "@IBAction func ${name}(_ sender: Any) {\n    #\n}",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "@IBAction func ${name}(_ sender: Any) {\n    #\n}",
+            "name": "Action",
+            "description": "Creates an `IBAction`.\n\n> act done",
             "id": "3E4B7D95-3839-4D22-A026-F24E6A2B06A0"
         },
         {
-            "name": "Localized String",
-            "description": "Simpifies string localization.\n\n> _Hello World_First message",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "_${string:text?}|_${comment:text}|",
+            "output_template": "NSLocalizedString(\"${string}\", comment: \"|${comment}|\")",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "NSLocalizedString(\"${string}\", comment: \"|${comment}|\")",
+            "name": "Localized String",
+            "description": "Simpifies string localization.\n\n> _Hello World_First message",
             "id": "043087BD-BBB6-4AAC-A6BC-7B5F53AC7091"
         },
         {
-            "name": "if let segue destination",
-            "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> ils controller: UITableViewController",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "ils ${name:word}: ${type:word}",
+            "output_template": "if let ${name} = segue.destinationViewController as? ${type} {\n\t#\n}",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "if let ${name} = segue.destinationViewController as? ${type} {\n\t#\n}",
+            "name": "if let segue destination",
+            "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> ils controller: UITableViewController",
             "id": "84EE95A0-0EDF-43F1-9C7D-16078431123E"
         },
         {
-            "name": "guard let segue destination",
-            "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> gls controller: UITableViewController",
             "is_enabled": true,
+            "identifier": "",
             "pattern": "gls ${name:word}: ${type:word}",
+            "output_template": "guard let ${name} = segue.destinationViewController as? ${type} else {\n\treturn\n}",
             "supported_languages": [
                 "swift"
             ],
-            "identifier": "",
-            "output_template": "guard let ${name} = segue.destinationViewController as? ${type} else {\n\treturn\n}",
+            "name": "guard let segue destination",
+            "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> gls controller: UITableViewController",
             "id": "3DDA6392-7488-4E70-B5F8-A193567C7573"
         },
         {
+            "is_enabled": true,
+            "identifier": "",
+            "pattern": "d${thread:switch(g:global(),m:main)}${type:switch(a:async,s:sync)}",
+            "output_template": "DispatchQueue.${thread}.${type} { [weak self] in\n\t#\n}",
+            "supported_languages": [],
             "name": "Dispatch",
             "description": "Creates Dispatch-block using combinations of `g` (global thread) and `m` (main thread) as well as `a` (async) and `s` (sync).\n\n> dga\n> dms",
-            "is_enabled": true,
-            "pattern": "d${thread:switch(g:global(),m:main)}${type:switch(a:async,s:sync)}",
-            "supported_languages": [],
-            "identifier": "",
-            "output_template": "DispatchQueue.${thread}.${type} { [weak self] in\n\t#\n}",
             "id": "9D3B2FCB-5444-43D2-80E5-6670E45E8D45"
         }
-    ]
+    ],
+    "id": "B42F1F98-9C35-4AF1-93E1-E8A19157CDF9",
+    "is_enabled": true
 }

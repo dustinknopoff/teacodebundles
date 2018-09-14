@@ -44,7 +44,7 @@ will render:
  //
  //  test.swift
  //
- //  Created by Dustin Knopoff on 13/09/2018.
+ //  Created by Dustin Knopoff on 14/09/2018.
  //  Copyright © 2018 Dustin Knopoff. All rights reserved.
  //
 ```
@@ -63,7 +63,7 @@ will render:
 
 
 ```
- // [2018-09-13 10:43:51] Sample comment
+ // [2018-09-14 10:55:57] Sample comment
 ```
 
 

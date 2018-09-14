@@ -21,6 +21,8 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [String equality](#string-equality)
 - [string contains](#string-contains)
 - [array size](#array-size)
+- [var](#var)
+- [array](#array)
 
 ### Include
 
@@ -170,9 +172,9 @@ will render:
 
 
 ```c
- struct Store {
+ typedef struct Store {
      
- }
+ } Store;
 ```
 
 Languages: ['c']
@@ -213,6 +215,17 @@ will render:
  }
 ```
 
+` fn - int double int number`
+
+will render:
+
+
+```c
+ static int double(int number) {
+  	
+ }
+```
+
 Languages: ['c']
 
 
@@ -248,6 +261,16 @@ Languages: ['c']
 ### print
 
 Description:
+
+` print "x is greater than %d" 35`
+
+will render:
+
+
+```c
+ printf("x, is greater than %d" 35);
+ 
+```
 
 Languages: ['c']
 
@@ -298,6 +321,78 @@ will render:
 
 ```c
  (sizeof(int_array) / sizeof(int))
+```
+
+Languages: ['c']
+
+
+
+### var
+
+Description:
+
+` -v int p x 5`
+
+will render:
+
+
+```c
+ int* x = 5;
+```
+
+` -v int n x 5`
+
+will render:
+
+
+```c
+ int x = 5;
+```
+
+` -v int p x  `
+
+will render:
+
+
+```c
+ int* x = NULL;
+```
+
+` -v int n x  `
+
+will render:
+
+
+```c
+ int x = ;
+```
+
+Languages: ['c']
+
+
+
+### array
+
+Description:
+
+` arr int x 6`
+
+will render:
+
+
+```c
+ int x[6];
+ 
+```
+
+` arr int x 6 1,2,3,4,5`
+
+will render:
+
+
+```c
+ int x[6] = {1,2,3,4,5};
+ 
 ```
 
 Languages: ['c']
