@@ -262,13 +262,13 @@ Languages: ['c']
 
 Description:
 
-` print "x is greater than %d" 35`
+` print "x is greater than %d", 35`
 
 will render:
 
 
 ```c
- printf("x, is greater than %d" 35);
+ printf("x, is greater than %d", 35);
  
 ```
 

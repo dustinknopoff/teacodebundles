@@ -1,217 +1,217 @@
 {
-    "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
-    "name": "C",
     "supported_languages": [
         "c"
     ],
     "expanders": [
         {
-            "is_enabled": true,
-            "identifier": "c.include",
             "pattern": "#${header:text?=stdio.h} ${type:enum(s,u)}",
-            "output_template": "${python(\"if \\\"${type}\\\" is \\\"u\\\":\n\tprint('\\#include \\\"${header}\\\"')\nelif \\\"${header}\\\" is \\\"\\\":\n\tprint('\\#include <stdio.h>') \nelse:\n\tprint('\\#include <${header}>') \")}\n#",
-            "supported_languages": [
-                "c"
-            ],
             "name": "Include",
             "description": "> # s\n\n> #math.h s\n\n> #foo.h u",
-            "id": "22CDAE78-49FD-4695-A71A-85A3E019D793"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.main",
-            "pattern": "main",
-            "output_template": "int main(int argv, char *argv[]) {\n\t#\n\treturn 0;\n}",
+            "identifier": "c.include",
+            "id": "22CDAE78-49FD-4695-A71A-85A3E019D793",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "${python(\"if \\\"${type}\\\" is \\\"u\\\":\n\tprint('\\#include \\\"${header}\\\"')\nelif \\\"${header}\\\" is \\\"\\\":\n\tprint('\\#include <stdio.h>') \nelse:\n\tprint('\\#include <${header}>') \")}\n#",
+            "is_enabled": true
+        },
+        {
+            "pattern": "main",
             "name": "main",
             "description": "> main",
-            "id": "3E54F6A8-5341-4537-93A4-B145AE7F8D80"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.typedef",
-            "pattern": "td ${type:word} ${value:text?}",
-            "output_template": "typedef ${type} ${value};\n#",
+            "identifier": "c.main",
+            "id": "3E54F6A8-5341-4537-93A4-B145AE7F8D80",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "int main(int argv, char *argv[]) {\n\t#\n\treturn 0;\n}",
+            "is_enabled": true
+        },
+        {
+            "pattern": "td ${type:word} ${value:text?}",
             "name": "typedef",
             "description": "> td struct fraction Fraction",
-            "id": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.define",
-            "pattern": "-d ${name:word} ${value:text?}",
-            "output_template": "\\#define ${name.uppercase} ${value}\n#",
+            "identifier": "c.typedef",
+            "id": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "typedef ${type} ${value};\n#",
+            "is_enabled": true
+        },
+        {
+            "pattern": "-d ${name:word} ${value:text?}",
             "name": "define",
             "description": "> -d BOOL char",
-            "id": "0DF85C30-585C-4821-8DC0-DCA468189EDE"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.while",
-            "pattern": "w ${logic:text?}",
-            "output_template": "while (${logic}) {\n\t#\n}",
+            "identifier": "c.define",
+            "id": "0DF85C30-585C-4821-8DC0-DCA468189EDE",
             "supported_languages": [
                 "c"
             ],
-            "name": "while",
-            "description": "> w i - 10",
-            "id": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9"
+            "output_template": "\\#define ${name.uppercase} ${value}\n#",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "c.switch",
+            "pattern": "w ${logic:text?}",
+            "name": "while",
+            "description": "> w i - 10",
+            "identifier": "c.while",
+            "id": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9",
+            "supported_languages": [
+                "c"
+            ],
+            "output_template": "while (${logic}) {\n\t#\n}",
+            "is_enabled": true
+        },
+        {
             "pattern": "switch ${expression:text?}",
-            "output_template": "switch (${expression}) {\n\tcase #:\n\t\t\n\t\tbreak;\n\tdefault:\n\t\t\n\t\tbreak;\n}\n",
+            "name": "switch",
+            "description": "> switch stringtype",
+            "identifier": "c.switch",
+            "id": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60",
             "supported_languages": [
                 "c",
                 "java",
                 "js"
             ],
-            "name": "switch",
-            "description": "> switch stringtype",
-            "id": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60"
+            "output_template": "switch (${expression}) {\n\tcase #:\n\t\t\n\t\tbreak;\n\tdefault:\n\t\t\n\t\tbreak;\n}\n",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "struct ${name:word}",
-            "output_template": "typedef struct ${name.capitalize} {\n\t#\n} ${name.capitalize};",
-            "supported_languages": [
-                "c"
-            ],
             "name": "Struct",
             "description": "> struct Store",
-            "id": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.strlen",
-            "pattern": "len ${string:word}",
-            "output_template": "strlen(${string})",
+            "identifier": "",
+            "id": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "typedef struct ${name.capitalize} {\n\t#\n} ${name.capitalize};",
+            "is_enabled": true
+        },
+        {
+            "pattern": "len ${string:word}",
             "name": "String copy",
             "description": "> len usrInput",
-            "id": "5B8B675A-861F-414A-8415-6541794CA318"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.fn",
-            "pattern": "fn ${scope:exp(c.scope)} ${type:word} ${name:word} ${params:text?}",
-            "output_template": "${python(\"import pyperclip\nif \\\"${scope}\\\" is \\\"prototype\\\":\n\tprint(\\\"${type} ${name.camelcase}(${params});\\\")\n\tif \\\"${type}\\\" is \\\"void\\\":\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n\\treturn ;\\n}\\\")\nelse:\n\tprint(\\\"static ${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\")}",
+            "identifier": "c.strlen",
+            "id": "5B8B675A-861F-414A-8415-6541794CA318",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "strlen(${string})",
+            "is_enabled": true
+        },
+        {
+            "pattern": "fn ${scope:exp(c.scope)} ${type:word} ${name:word} ${params:text?}",
             "name": "function",
             "description": "> fn + int power int base, int n\n\n> fn - int double int number",
-            "id": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.scope",
-            "pattern": "${scope:switch(+:prototype,-:static)}",
-            "output_template": "${scope}",
+            "identifier": "c.fn",
+            "id": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "${python(\"import pyperclip\nif \\\"${scope}\\\" is \\\"prototype\\\":\n\tprint(\\\"${type} ${name.camelcase}(${params});\\\")\n\tif \\\"${type}\\\" is \\\"void\\\":\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n\\treturn ;\\n}\\\")\nelse:\n\tprint(\\\"static ${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\")}",
+            "is_enabled": true
+        },
+        {
+            "pattern": "${scope:switch(+:prototype,-:static)}",
             "name": "Scope",
             "description": "",
-            "id": "2303EA95-6AED-4CA2-88EA-B665B2CFF188"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.assert",
-            "pattern": "assert ${condition:text?}",
-            "output_template": "assert(${condition});\n#",
+            "identifier": "c.scope",
+            "id": "2303EA95-6AED-4CA2-88EA-B665B2CFF188",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "${scope}",
+            "is_enabled": true
+        },
+        {
+            "pattern": "assert ${condition:text?}",
             "name": "assert",
             "description": "**NOTE: must include #include <assert.h>**\n> assert i > MAX_INTS",
-            "id": "D144BA08-20BD-4B57-889C-839814475B7A"
+            "identifier": "c.assert",
+            "id": "D144BA08-20BD-4B57-889C-839814475B7A",
+            "supported_languages": [
+                "c"
+            ],
+            "output_template": "assert(${condition});\n#",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "c.print",
             "pattern": "print ${value:text?}| ${fillins:text?}|",
-            "output_template": "printf(${value}|, ${fillins}|);\n#",
+            "name": "print",
+            "description": "> print \"x is greater than %d\", 35",
+            "identifier": "c.print",
+            "id": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C",
             "supported_languages": [
                 "c"
             ],
-            "name": "print",
-            "description": "> print \"x is greater than %d\" 35",
-            "id": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C"
+            "output_template": "printf(${value}|, ${fillins}|);\n#",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "c.seq",
             "pattern": "${s1:text?} == ${s2:text?}",
-            "output_template": "strcmp(${s1},${s2})",
-            "supported_languages": [
-                "c"
-            ],
             "name": "String equality",
             "description": "> usrInput == \"Charlie Day\"",
-            "id": "F053293B-C6A9-4CB6-AF13-3978FC613C2E"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.scontain",
-            "pattern": "${s1:text?}.contains(${s2:text?})",
-            "output_template": "strstr(${s1},${s2})",
+            "identifier": "c.seq",
+            "id": "F053293B-C6A9-4CB6-AF13-3978FC613C2E",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "strcmp(${s1},${s2})",
+            "is_enabled": true
+        },
+        {
+            "pattern": "${s1:text?}.contains(${s2:text?})",
             "name": "string contains",
             "description": "> \"Hello World\".contains(\"orld\")",
-            "id": "4211E813-7253-4091-A862-927A36B38704"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.size",
-            "pattern": "size ${var:word} ${type:word}",
-            "output_template": "(sizeof(${var}) / sizeof(${type}))",
+            "identifier": "c.scontain",
+            "id": "4211E813-7253-4091-A862-927A36B38704",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "strstr(${s1},${s2})",
+            "is_enabled": true
+        },
+        {
+            "pattern": "size ${var:word} ${type:word}",
             "name": "array size",
             "description": "> size int_array int",
-            "id": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "c.var",
-            "pattern": "-v ${type:word} ${point:enum(p,n)=n} ${name:word} ${value:text?=NULL}",
-            "output_template": "${python(\"if \\\"${point}\\\" is \\\"p\\\":\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type}* ${name.camelcase} = NULL;\\\")\n\telse:\n\t\tprint(\\\"${type}* ${name.camelcase} = ${value};\\\")\nelse:\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type} ${name.camelcase} = #;\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase} = ${value};\\\")\")}",
+            "identifier": "c.size",
+            "id": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "(sizeof(${var}) / sizeof(${type}))",
+            "is_enabled": true
+        },
+        {
+            "pattern": "-v ${type:word} ${point:enum(p,n)=n} ${name:word} ${value:text?=NULL}",
             "name": "var",
             "description": "> -v int p x 5\n\n> -v int n x 5\n\n> -v int p x  \n\n> -v int n x  ",
-            "id": "3B44B83F-AAAC-4E47-BF57-9C5B683E211B"
-        },
-        {
-            "is_enabled": true,
-            "identifier": "",
-            "pattern": "arr ${type:word} ${name:word} ${size:number}| ${values:text?}|",
-            "output_template": "${type} ${name.camelcase}[${size}]| = {${values}}|;\n#",
+            "identifier": "c.var",
+            "id": "3B44B83F-AAAC-4E47-BF57-9C5B683E211B",
             "supported_languages": [
                 "c"
             ],
+            "output_template": "${python(\"if \\\"${point}\\\" is \\\"p\\\":\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type}* ${name.camelcase} = NULL;\\\")\n\telse:\n\t\tprint(\\\"${type}* ${name.camelcase} = ${value};\\\")\nelse:\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type} ${name.camelcase} = #;\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase} = ${value};\\\")\")}",
+            "is_enabled": true
+        },
+        {
+            "pattern": "arr ${type:word} ${name:word} ${size:number}| ${values:text?}|",
             "name": "array",
             "description": "> arr int x 6\n\n> arr int x 6 1,2,3,4,5",
-            "id": "23B0AE35-CACA-4F28-A887-AEE978A7ACF8"
+            "identifier": "",
+            "id": "23B0AE35-CACA-4F28-A887-AEE978A7ACF8",
+            "supported_languages": [
+                "c"
+            ],
+            "output_template": "${type} ${name.camelcase}[${size}]| = {${values}}|;\n#",
+            "is_enabled": true
         }
     ],
+    "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "id": "95B67DCB-F254-4537-83BF-913679BF617A",
+    "name": "C",
     "is_enabled": true
 }

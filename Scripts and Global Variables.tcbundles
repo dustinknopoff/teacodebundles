@@ -1,81 +1,81 @@
 {
-    "description": "",
-    "name": "Scripts and Global Variables",
     "supported_languages": [],
     "expanders": [
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "uuid",
-            "output_template": "${script(\"uuidgen\")}",
-            "supported_languages": [],
             "name": "UUID",
             "description": "> uuid",
-            "id": "65B938EC-2810-4060-9A72-7F9151473F8E"
+            "identifier": "",
+            "id": "65B938EC-2810-4060-9A72-7F9151473F8E",
+            "supported_languages": [],
+            "output_template": "${script(\"uuidgen\")}",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "head ${file:text}",
-            "output_template": "//\n//  ${file}\n//\n//  Created by ${script(\"id -F\")} on ${datetime(\"dd/MM/yyyy\")}.\n//  Copyright \u00a9 ${datetime(\"yyyy\")} ${@name}. All rights reserved.\n//",
+            "name": "Header",
+            "description": "Header available within any editor\n\n> head test.swift",
+            "identifier": "",
+            "id": "43A6710C-79A1-4A43-829D-42A91D924E4E",
             "supported_languages": [
                 "swift"
             ],
-            "name": "Header",
-            "description": "Header available within any editor\n\n> head test.swift",
-            "id": "43A6710C-79A1-4A43-829D-42A91D924E4E"
+            "output_template": "//\n//  ${file}\n//\n//  Created by ${script(\"id -F\")} on ${datetime(\"dd/MM/yyyy\")}.\n//  Copyright \u00a9 ${datetime(\"yyyy\")} ${@name}. All rights reserved.\n//",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "dc ${comment:text}",
-            "output_template": "// [${datetime()}] ${comment}",
-            "supported_languages": [],
             "name": "Comment with date",
             "description": "> dc Sample comment",
-            "id": "28720420-A405-4C32-9AA7-CBDE0E41E1EA"
+            "identifier": "",
+            "id": "28720420-A405-4C32-9AA7-CBDE0E41E1EA",
+            "supported_languages": [],
+            "output_template": "// [${datetime()}] ${comment}",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "ls ${path:text}",
-            "output_template": "${script(\"ls ${path}\")}",
-            "supported_languages": [],
             "name": "File list",
             "description": "",
-            "id": "EBE1CE27-A3F9-49C1-8EBA-E462ED6FD0ED"
+            "identifier": "",
+            "id": "EBE1CE27-A3F9-49C1-8EBA-E462ED6FD0ED",
+            "supported_languages": [],
+            "output_template": "${script(\"ls ${path}\")}",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "ip",
-            "output_template": "${script(\"curl ipecho.net/plain ; echo\")}",
-            "supported_languages": [],
             "name": "IP",
             "description": "> ip",
-            "id": "993DCC58-1907-4CA6-A15A-14472095BBE9"
+            "identifier": "",
+            "id": "993DCC58-1907-4CA6-A15A-14472095BBE9",
+            "supported_languages": [],
+            "output_template": "${script(\"curl ipecho.net/plain ; echo\")}",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "en ${name:word} ${cases:text}",
-            "output_template": "enum ${name} {\n\t${swift(\"let output = \\\"${cases}\\\"\n\t.split(separator: \\\",\\\")\n\t.map { \\\"    case \\($0)\\\"  }\n\t.joined(separator: \\\"\\n\\\")\nprint(output)\")}\n}",
-            "supported_languages": [],
             "name": "Switch case",
             "description": "> en hello aa,bb,cc",
-            "id": "AE5559CE-00BF-4FE8-8565-A0B6FE05BB7B"
+            "identifier": "",
+            "id": "AE5559CE-00BF-4FE8-8565-A0B6FE05BB7B",
+            "supported_languages": [],
+            "output_template": "enum ${name} {\n\t${swift(\"let output = \\\"${cases}\\\"\n\t.split(separator: \\\",\\\")\n\t.map { \\\"    case \\($0)\\\"  }\n\t.joined(separator: \\\"\\n\\\")\nprint(output)\")}\n}",
+            "is_enabled": true
         },
         {
-            "is_enabled": true,
-            "identifier": "",
             "pattern": "rp ${start:word} ${end:number} ${txt:text?}",
-            "output_template": "${python(\"for i in range(${start}, ${end}+1):\n\tprint \\\"${txt}\\\".format(i)\")}",
-            "supported_languages": [],
             "name": "Repeater",
             "description": "> rp 1 7 you are on card {} of 27",
-            "id": "C68BA827-A8D8-4C5D-901A-61B10838C8C5"
+            "identifier": "",
+            "id": "C68BA827-A8D8-4C5D-901A-61B10838C8C5",
+            "supported_languages": [],
+            "output_template": "${python(\"for i in range(${start}, ${end}+1):\n\tprint \\\"${txt}\\\".format(i)\")}",
+            "is_enabled": true
         }
     ],
+    "description": "",
     "id": "3C190DCB-1775-4772-9D52-0E0DC3D99570",
+    "name": "Scripts and Global Variables",
     "is_enabled": true
 }
