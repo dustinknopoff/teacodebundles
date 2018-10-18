@@ -14,6 +14,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [fetch](#fetch)
 - [Express](#express)
 - [Log](#log)
+- [const](#const)
 
 ### Element Id
 
@@ -177,6 +178,32 @@ will render:
 ```js
  console.log(chicken.little());
  
+```
+
+Languages: ['js']
+
+
+
+### const
+
+Description:
+
+` -v const flow`
+
+will render:
+
+
+```js
+ const flow = ;
+```
+
+` -v let flow`
+
+will render:
+
+
+```js
+ let flow = ;
 ```
 
 Languages: ['js']

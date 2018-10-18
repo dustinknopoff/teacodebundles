@@ -1,36 +1,39 @@
 {
+    "name": "CSS",
+    "id": "026E11C1-A218-4083-9817-47F70E501864",
+    "is_enabled": true,
+    "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
+    "expanders": [
+        {
+            "name": "Full Screen Background",
+            "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
+            "is_enabled": true,
+            "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg",
+            "identifier": "fullbg",
+            "pattern": "fullbg ${src:text?}",
+            "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    width: 100%;\n    height: 100%;\n}\n\n#",
+            "supported_languages": [
+                "css"
+            ],
+            "baseID": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2"
+        },
+        {
+            "name": "Media Query",
+            "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
+            "is_enabled": true,
+            "description": "Creates media query.\n> mq 768",
+            "identifier": "mq",
+            "pattern": "mq ${size:number}",
+            "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
+            "supported_languages": [
+                "css"
+            ],
+            "baseID": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804"
+        }
+    ],
     "supported_languages": [
         "any",
         "css"
     ],
-    "expanders": [
-        {
-            "pattern": "fullbg ${src:text?}",
-            "name": "Full Screen Background",
-            "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg",
-            "identifier": "fullbg",
-            "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
-            "supported_languages": [
-                "css"
-            ],
-            "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    width: 100%;\n    height: 100%;\n}\n\n#",
-            "is_enabled": true
-        },
-        {
-            "pattern": "mq ${size:number}",
-            "name": "Media Query",
-            "description": "Creates media query.\n> mq 768",
-            "identifier": "mq",
-            "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
-            "supported_languages": [
-                "css"
-            ],
-            "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
-            "is_enabled": true
-        }
-    ],
-    "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
-    "id": "026E11C1-A218-4083-9817-47F70E501864",
-    "name": "CSS",
-    "is_enabled": true
+    "baseID": "026E11C1-A218-4083-9817-47F70E501864"
 }

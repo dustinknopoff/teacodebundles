@@ -23,7 +23,7 @@ Description:
 
 > Creates Rust default function template.
 
-` -f main`
+` fn main`
 
 will render:
 
@@ -33,7 +33,7 @@ will render:
      
 ```
 
-` -f divide divisor: i32, dividend: i32`
+` fn divide divisor: i32, dividend: i32`
 
 will render:
 
@@ -53,7 +53,7 @@ Description:
 
 > Default statement for extending a struct.
 
-` -i rectangle`
+` impl rectangle`
 
 will render:
 
@@ -72,24 +72,24 @@ Languages: ['rust']
 
 Description:
 
-` -s Rectangle`
+` struct Rectangle`
 
 will render:
 
 
 ```rust
- suct Rectangle {
+ struct Rectangle {
      
  }
 ```
 
-` -s Room String`
+` struct Room String`
 
 will render:
 
 
 ```rust
- suct Room<String> {
+ struct Room<String> {
      
  }
 ```
@@ -102,13 +102,29 @@ Languages: ['rust']
 
 Description:
 
-` -e Coins`
+` enum Coins`
 
 will render:
 
 
 ```rust
  enum Coins {
+     
+     
+ }
+```
+
+` enum Coins Penny,Nickel,Quarter,Dime`
+
+will render:
+
+
+```rust
+ enum Coins {
+     Penny,
+ Nickel,
+ Quarter,
+ Dime
      
  }
 ```
@@ -121,24 +137,22 @@ Languages: ['rust']
 
 Description:
 
-` -v integer 36`
+` var integer 36`
 
 will render:
 
 
 ```rust
- private final integer 36;
- 
+ <var>integer 36</var>
 ```
 
-` -v integer 36 usize m`
+` var integer 36 usize m`
 
 will render:
 
 
 ```rust
- private final integer 36 usize m;
- 
+ <var>integer 36 usize m</var>
 ```
 
 Languages: ['rust']
@@ -202,9 +216,9 @@ will render:
 
 ```rust
  match number {
-     3 => ,
-     7 => ,
-     22 => ,
+     3=> ,
+ 	7=> ,
+ 	22=> ,
  }
 ```
 

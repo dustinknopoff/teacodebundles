@@ -14,6 +14,8 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [Class.ts](#class.ts)
 - [Import.ts](#import.ts)
 - [bound Arrow Function.ts](#bound-arrow-function.ts)
+- [setState short](#setstate-short)
+- [const state](#const-state)
 
 ### setState
 
@@ -187,6 +189,40 @@ will render:
 ```
 
 Languages: ['typescript']
+
+
+
+### setState short
+
+Description:
+
+` set flow`
+
+will render:
+
+
+```js
+ this.setState({ flow });
+```
+
+Languages: ['js']
+
+
+
+### const state
+
+Description:
+
+` cstate flow`
+
+will render:
+
+
+```js
+ const flow = this.state.flow;
+```
+
+Languages: ['js']
 
 
 

@@ -22,6 +22,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [String Slice](#string-slice)
 - [Join](#join)
 - [Replace](#replace)
+- [Test](#test)
 
 ### Function
 
@@ -29,7 +30,7 @@ Description:
 
 > Creates default function statement.
 
-` -f do arr,index`
+` fn do arr,index`
 
 will render:
 
@@ -39,7 +40,7 @@ will render:
      
 ```
 
-` -f do`
+` fn do`
 
 will render:
 
@@ -374,7 +375,7 @@ Description:
 
 > Have TeaCode do it for you!
 
-` -s s b lines 3`
+` slice s b lines 3`
 
 will render:
 
@@ -383,7 +384,7 @@ will render:
  lines[:3]
 ```
 
-` -s e a lines 3`
+` slice e a lines 3`
 
 will render:
 
@@ -412,7 +413,7 @@ Description:
 
 > Join a list into a string
 
-` -j lines , `
+` join lines , `
 
 will render:
 
@@ -447,6 +448,25 @@ will render:
 
 ```python
  .replace(">","<")
+```
+
+Languages: ['python']
+
+
+
+### Test
+
+Description:
+
+` test`
+
+will render:
+
+
+```python
+ test() {
+     
+ }
 ```
 
 Languages: ['python']
