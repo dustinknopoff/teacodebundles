@@ -1,84 +1,91 @@
 {
+    "baseID": "BA485D71-51B4-449E-B1F5-6EB0621CE309",
+    "id": "BA485D71-51B4-449E-B1F5-6EB0621CE309",
+    "expanders": [
+        {
+            "baseID": "3480C637-A046-4EEC-9DE3-BE8F0F7A5AD3",
+            "id": "3480C637-A046-4EEC-9DE3-BE8F0F7A5AD3",
+            "pattern": "vdl",
+            "identifier": "",
+            "output_template": "override func viewDidLoad() {\n\tsuper.viewDidLoad()\n\t\n\t#\n}",
+            "supported_languages": [
+                "swift"
+            ],
+            "name": "viewDidLoad",
+            "is_enabled": true,
+            "description": "Creates `viewDidLoad` method.\n\n> vdl"
+        },
+        {
+            "baseID": "A2FD45ED-1251-4574-A9EE-1695638849A5",
+            "id": "A2FD45ED-1251-4574-A9EE-1695638849A5",
+            "pattern": "vda",
+            "identifier": "",
+            "output_template": "override func viewDidAppear() {\n\tsuper.viewDidAppear()\n\t\n\t#\n}",
+            "supported_languages": [
+                "swift"
+            ],
+            "name": "viewDidAppear",
+            "is_enabled": true,
+            "description": "Creates `viewDidAppear` method.\n\n> vda"
+        },
+        {
+            "baseID": "DBB10F16-AA74-4564-BDD9-CCC224F5BD57",
+            "id": "DBB10F16-AA74-4564-BDD9-CCC224F5BD57",
+            "pattern": "vwa",
+            "identifier": "",
+            "output_template": "override func viewWillAppear() {\n\tsuper.viewWillAppear()\n\t\n\t#\n}",
+            "supported_languages": [
+                "swift"
+            ],
+            "name": "viewWillAppear",
+            "is_enabled": true,
+            "description": "Creates `viewWillAppear` method.\n\n> vwa"
+        },
+        {
+            "baseID": "F461F0E6-8783-41C0-AA8E-EF6DADC70A28",
+            "id": "F461F0E6-8783-41C0-AA8E-EF6DADC70A28",
+            "pattern": "vc ${name:word}",
+            "identifier": "",
+            "output_template": "class ${name.ucfirst}ViewController: NSViewController {\n\n\toverride func viewDidLoad() {\n        super.viewDidLoad()\n        \n        #\n    }\n}",
+            "supported_languages": [
+                "swift"
+            ],
+            "name": "View Controller",
+            "is_enabled": true,
+            "description": "Creates a class that inherits from `NSViewController`\n\n> vc main"
+        },
+        {
+            "baseID": "9D7CF02A-CD6F-4AB0-B76D-A3718AED57CD",
+            "id": "9D7CF02A-CD6F-4AB0-B76D-A3718AED57CD",
+            "pattern": "wc ${name:word}",
+            "identifier": "",
+            "output_template": "class ${name.ucfirst}WindowController: NSWindowController {\n\n\toverride func windowDidLoad() {\n        super.windowDidLoad()\n        \n        #\n    }\n}",
+            "supported_languages": [
+                "swift"
+            ],
+            "name": "Window Controller",
+            "is_enabled": true,
+            "description": "Creates a class that inherits from `NSWindowController`\n\n> wc main"
+        },
+        {
+            "baseID": "D1A219E9-7B69-49B9-A1A4-D8DC2E3F37BB",
+            "id": "D1A219E9-7B69-49B9-A1A4-D8DC2E3F37BB",
+            "pattern": "bind |${var:text}:|${var_path:text} to ${object:text}:${object_path:text}",
+            "identifier": "",
+            "output_template": "|${var}.|bind(NSBindingName(\"${var_path}\"), to: ${object}, withKeyPath: \"${object_path}\", options: nil)",
+            "supported_languages": [
+                "swift"
+            ],
+            "name": "Binding",
+            "is_enabled": true,
+            "description": "Creates a binding.\n\n> bind sourceObject:variable to destinationObject:path"
+        }
+    ],
     "supported_languages": [
         "any",
         "swift"
     ],
-    "expanders": [
-        {
-            "pattern": "vdl",
-            "name": "viewDidLoad",
-            "description": "Creates `viewDidLoad` method.\n\n> vdl",
-            "identifier": "",
-            "id": "3480C637-A046-4EEC-9DE3-BE8F0F7A5AD3",
-            "supported_languages": [
-                "swift"
-            ],
-            "output_template": "override func viewDidLoad() {\n\tsuper.viewDidLoad()\n\t\n\t#\n}",
-            "is_enabled": true
-        },
-        {
-            "pattern": "vda",
-            "name": "viewDidAppear",
-            "description": "Creates `viewDidAppear` method.\n\n> vda",
-            "identifier": "",
-            "id": "A2FD45ED-1251-4574-A9EE-1695638849A5",
-            "supported_languages": [
-                "swift"
-            ],
-            "output_template": "override func viewDidAppear() {\n\tsuper.viewDidAppear()\n\t\n\t#\n}",
-            "is_enabled": true
-        },
-        {
-            "pattern": "vwa",
-            "name": "viewWillAppear",
-            "description": "Creates `viewWillAppear` method.\n\n> vwa",
-            "identifier": "",
-            "id": "DBB10F16-AA74-4564-BDD9-CCC224F5BD57",
-            "supported_languages": [
-                "swift"
-            ],
-            "output_template": "override func viewWillAppear() {\n\tsuper.viewWillAppear()\n\t\n\t#\n}",
-            "is_enabled": true
-        },
-        {
-            "pattern": "vc ${name:word}",
-            "name": "View Controller",
-            "description": "Creates a class that inherits from `NSViewController`\n\n> vc main",
-            "identifier": "",
-            "id": "F461F0E6-8783-41C0-AA8E-EF6DADC70A28",
-            "supported_languages": [
-                "swift"
-            ],
-            "output_template": "class ${name.ucfirst}ViewController: NSViewController {\n\n\toverride func viewDidLoad() {\n        super.viewDidLoad()\n        \n        #\n    }\n}",
-            "is_enabled": true
-        },
-        {
-            "pattern": "wc ${name:word}",
-            "name": "Window Controller",
-            "description": "Creates a class that inherits from `NSWindowController`\n\n> wc main",
-            "identifier": "",
-            "id": "9D7CF02A-CD6F-4AB0-B76D-A3718AED57CD",
-            "supported_languages": [
-                "swift"
-            ],
-            "output_template": "class ${name.ucfirst}WindowController: NSWindowController {\n\n\toverride func windowDidLoad() {\n        super.windowDidLoad()\n        \n        #\n    }\n}",
-            "is_enabled": true
-        },
-        {
-            "pattern": "bind |${var:text}:|${var_path:text} to ${object:text}:${object_path:text}",
-            "name": "Binding",
-            "description": "Creates a binding.\n\n> bind sourceObject:variable to destinationObject:path",
-            "identifier": "",
-            "id": "D1A219E9-7B69-49B9-A1A4-D8DC2E3F37BB",
-            "supported_languages": [
-                "swift"
-            ],
-            "output_template": "|${var}.|bind(NSBindingName(\"${var_path}\"), to: ${object}, withKeyPath: \"${object_path}\", options: nil)",
-            "is_enabled": true
-        }
-    ],
-    "description": "`Swift` expanders for `Cocoa` framework.\n\nMade by [twitter] @Apptorium",
-    "id": "BA485D71-51B4-449E-B1F5-6EB0621CE309",
     "name": "Swift + Cocoa",
-    "is_enabled": true
+    "is_enabled": false,
+    "description": "`Swift` expanders for `Cocoa` framework.\n\nMade by [twitter] @Apptorium"
 }

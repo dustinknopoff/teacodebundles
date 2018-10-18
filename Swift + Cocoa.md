@@ -25,9 +25,7 @@ will render:
 
 
 ```swift
- override func viewDidLoad() {
-     super.viewDidLoad()
-     
+ vdl() {
      
  }
 ```
@@ -48,9 +46,7 @@ will render:
 
 
 ```swift
- override func viewDidAppear() {
-     super.viewDidAppear()
-     
+ vda() {
      
  }
 ```
@@ -71,9 +67,7 @@ will render:
 
 
 ```swift
- override func viewWillAppear() {
-     super.viewWillAppear()
-     
+ vwa() {
      
  }
 ```
@@ -94,13 +88,8 @@ will render:
 
 
 ```swift
- class MainViewController: NSViewController {
- 
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         
-         
-     }
+ vclass Main {
+     
  }
 ```
 
@@ -120,13 +109,8 @@ will render:
 
 
 ```swift
- class MainWindowController: NSWindowController {
- 
-     override func windowDidLoad() {
-         super.windowDidLoad()
-         
-         
-     }
+ wclass Main {
+     
  }
 ```
 
@@ -146,7 +130,9 @@ will render:
 
 
 ```swift
- sourceObject.bind(NSBindingName("variable"), to: destinationObject, withKeyPath: "path", options: nil)
+ bind sourceObject:variable to destinationObject:path() {
+     
+ }
 ```
 
 Languages: ['swift']

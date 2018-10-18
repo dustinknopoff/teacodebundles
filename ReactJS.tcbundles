@@ -1,130 +1,130 @@
 {
-    "name": "ReactJS",
+    "baseID": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A",
     "id": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A",
-    "is_enabled": true,
-    "description": "Commonly used React Expansions.\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n",
     "expanders": [
         {
-            "name": "setState",
+            "baseID": "6DA61A4F-2E60-4CBD-8085-49A0A6B8F401",
             "id": "6DA61A4F-2E60-4CBD-8085-49A0A6B8F401",
-            "is_enabled": true,
-            "description": "React setState where name of variable and element in props/state have same name.\n> sets page props",
-            "identifier": "sets",
             "pattern": "sets ${var:word} ${type:enum(props,state)}",
+            "identifier": "sets",
             "output_template": "const ${var.camelcase} = this.${type}.${var};\n#\nthis.setState({ ${var} });",
             "supported_languages": [
                 "js"
             ],
-            "baseID": "6DA61A4F-2E60-4CBD-8085-49A0A6B8F401"
+            "name": "setState",
+            "is_enabled": true,
+            "description": "React setState where name of variable and element in props/state have same name.\n> sets page props"
         },
         {
-            "name": "bound Arrow Function",
+            "baseID": "9077B37B-DB27-454E-9E5B-3CD903D7EAF8",
             "id": "9077B37B-DB27-454E-9E5B-3CD903D7EAF8",
-            "is_enabled": true,
-            "description": "Creates React bound arrow function statement.\n\n> arrow setLimit max",
-            "identifier": "arrow",
             "pattern": "arrow ${name:word}| ${args:text?}|",
+            "identifier": "arrow",
             "output_template": "${name} = (|${args}|) => {\n\t#\n};",
             "supported_languages": [
                 "js"
             ],
-            "baseID": "9077B37B-DB27-454E-9E5B-3CD903D7EAF8"
+            "name": "bound Arrow Function",
+            "is_enabled": true,
+            "description": "Creates React bound arrow function statement.\n\n> arrow setLimit max"
         },
         {
-            "name": "Class",
+            "baseID": "17295AAB-3AE5-4555-8720-F56281161B02",
             "id": "17295AAB-3AE5-4555-8720-F56281161B02",
-            "is_enabled": true,
-            "description": "Default Class creation.\n> class Header",
-            "identifier": "class",
             "pattern": "class ${name:word}",
+            "identifier": "class",
             "output_template": "class ${name.capitalize.remove_spaces} extends Component {\n\t#\n\trender() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}\n\nexport default ${name};",
             "supported_languages": [
                 "js"
             ],
-            "baseID": "17295AAB-3AE5-4555-8720-F56281161B02"
+            "name": "Class",
+            "is_enabled": true,
+            "description": "Default Class creation.\n> class Header"
         },
         {
-            "name": "Import",
+            "baseID": "27161837-FFD7-4851-B6A9-D4D4C0D3E559",
             "id": "27161837-FFD7-4851-B6A9-D4D4C0D3E559",
-            "is_enabled": true,
-            "description": "> @import\n\n> @Helmet react-helmet",
-            "identifier": "",
             "pattern": "@${fn:text?}| ${package:text?}|",
+            "identifier": "",
             "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import React from \\\"react\\\";')\nelse:\n\tprint('import ${fn} from \\\"|${package}|\\\";')\")}\n#",
             "supported_languages": [
                 "js"
             ],
-            "baseID": "27161837-FFD7-4851-B6A9-D4D4C0D3E559"
+            "name": "Import",
+            "is_enabled": true,
+            "description": "> @import\n\n> @Helmet react-helmet"
         },
         {
-            "name": "Class.ts",
+            "baseID": "25BF768F-6D93-450C-9D7A-B305A3F8E044",
             "id": "25BF768F-6D93-450C-9D7A-B305A3F8E044",
-            "is_enabled": true,
-            "description": "Default Class creation for React in Typescript.\n> class Header",
-            "identifier": "",
             "pattern": "class ${name:word}| ${props:word}|",
+            "identifier": "",
             "output_template": "export class ${name.capitalize.remove_spaces} extends React.Component<|${props}|, {}> {\n\tconstructor(props: |${props}|, context: any) {\n\t\tsuper(props, context)\n\t}\n\t#\n\tpublic render() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}",
             "supported_languages": [
                 "typescript"
             ],
-            "baseID": "25BF768F-6D93-450C-9D7A-B305A3F8E044"
+            "name": "Class.ts",
+            "is_enabled": true,
+            "description": "Default Class creation for React in Typescript.\n> class Header"
         },
         {
-            "name": "Import.ts",
+            "baseID": "A91FF14C-42F9-4313-BD48-8BD8794C7BB2",
             "id": "A91FF14C-42F9-4313-BD48-8BD8794C7BB2",
-            "is_enabled": true,
-            "description": "Import statements for React in Typescript\n\n> @import\n\n> @Helmet react-helmet",
-            "identifier": "",
             "pattern": "@${fn:text?}| ${package:text?}|",
+            "identifier": "",
             "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import * as React from \\\"react\\\";')\nelse:\n\tprint('import * as ${fn} from \\\"|${package}|\\\";')\")}\n#",
             "supported_languages": [
                 "typescript"
             ],
-            "baseID": "A91FF14C-42F9-4313-BD48-8BD8794C7BB2"
+            "name": "Import.ts",
+            "is_enabled": true,
+            "description": "Import statements for React in Typescript\n\n> @import\n\n> @Helmet react-helmet"
         },
         {
-            "name": "bound Arrow Function.ts",
+            "baseID": "906CD1BD-3418-4EE2-BCCF-8BF62AE029EA",
             "id": "906CD1BD-3418-4EE2-BCCF-8BF62AE029EA",
-            "is_enabled": true,
-            "description": "Creates React bound arrow function statement in Typescript\n\n> arrow setLimit max",
-            "identifier": "",
             "pattern": "arrow ${name:word}| ${args:text?}|",
+            "identifier": "",
             "output_template": "const ${name} = (|${args}|) => {\n\t#\n};",
             "supported_languages": [
                 "typescript"
             ],
-            "baseID": "906CD1BD-3418-4EE2-BCCF-8BF62AE029EA"
+            "name": "bound Arrow Function.ts",
+            "is_enabled": true,
+            "description": "Creates React bound arrow function statement in Typescript\n\n> arrow setLimit max"
         },
         {
-            "name": "setState short",
+            "baseID": "02889BA1-1EB3-4638-AE48-839FF57C739E",
             "id": "02889BA1-1EB3-4638-AE48-839FF57C739E",
-            "is_enabled": true,
-            "description": "> set flow",
-            "identifier": "",
             "pattern": "set ${var:text?}",
+            "identifier": "",
             "output_template": "this.setState({ ${var} });",
             "supported_languages": [
                 "js"
             ],
-            "baseID": "02889BA1-1EB3-4638-AE48-839FF57C739E"
+            "name": "setState short",
+            "is_enabled": true,
+            "description": "> set flow"
         },
         {
-            "name": "const state",
+            "baseID": "7CDFDBC6-D2E4-4A78-81EC-4A38B4D0ECE9",
             "id": "7CDFDBC6-D2E4-4A78-81EC-4A38B4D0ECE9",
-            "is_enabled": true,
-            "description": "> cstate flow",
-            "identifier": "",
             "pattern": "cstate ${var:word}",
+            "identifier": "",
             "output_template": "const ${var} = this.state.${var};",
             "supported_languages": [
                 "js"
             ],
-            "baseID": "7CDFDBC6-D2E4-4A78-81EC-4A38B4D0ECE9"
+            "name": "const state",
+            "is_enabled": true,
+            "description": "> cstate flow"
         }
     ],
     "supported_languages": [
         "any",
         "js"
     ],
-    "baseID": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A"
+    "name": "ReactJS",
+    "is_enabled": true,
+    "description": "Commonly used React Expansions.\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n"
 }

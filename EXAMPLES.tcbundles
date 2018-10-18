@@ -1,91 +1,100 @@
 {
+    "baseID": "0D5FB579-E5B1-4533-97BA-185DA252FF91",
+    "id": "0D5FB579-E5B1-4533-97BA-185DA252FF91",
     "expanders": [
         {
-            "output_template": "hello world",
+            "baseID": "35E369C9-5BB2-4A84-A1B1-764676E32519",
             "id": "35E369C9-5BB2-4A84-A1B1-764676E32519",
-            "description": "Simplest example. Expands a short text.\n\n> hw",
-            "is_enabled": true,
             "pattern": "hw",
+            "identifier": "",
+            "output_template": "hello world",
             "supported_languages": [],
             "name": "1. Simplest Expander",
-            "identifier": ""
+            "is_enabled": true,
+            "description": "Simplest example. Expands a short text.\n\n> hw"
         },
         {
-            "output_template": "Hello ${name}",
+            "baseID": "B12270F0-5280-4256-90F1-34EAF6394725",
             "id": "B12270F0-5280-4256-90F1-34EAF6394725",
-            "description": "Uses a variable (`name`) to say `Hello` to the given person.\n\n> h John",
-            "is_enabled": true,
             "pattern": "h ${name:text}",
+            "identifier": "h",
+            "output_template": "Hello ${name}",
             "supported_languages": [],
             "name": "2. Variable",
-            "identifier": "h"
+            "is_enabled": true,
+            "description": "Uses a variable (`name`) to say `Hello` to the given person.\n\n> h John"
         },
         {
-            "output_template": "SHA1: ${password.sha1}\nMD5: ${password.md5}",
+            "baseID": "3A7C284D-82D0-4E43-BFF6-075019059B92",
             "id": "3A7C284D-82D0-4E43-BFF6-075019059B92",
-            "description": "Uses a variable (`password`) as well as `sha1` and `md5` filters.\n\n> pass sha1 samplepassword123",
-            "is_enabled": true,
             "pattern": "pass sha1 ${password:text}",
+            "identifier": "",
+            "output_template": "SHA1: ${password.sha1}\nMD5: ${password.md5}",
             "supported_languages": [],
             "name": "3. Variable with filter",
-            "identifier": ""
+            "is_enabled": true,
+            "description": "Uses a variable (`password`) as well as `sha1` and `md5` filters.\n\n> pass sha1 samplepassword123"
         },
         {
-            "output_template": "v1 is ${v1}| and v2 is ${v2}|",
+            "baseID": "195DAB76-FC3D-4C80-A0FB-EA1AD0AC67BF",
             "id": "195DAB76-FC3D-4C80-A0FB-EA1AD0AC67BF",
-            "description": "Optional variables is very simple concept of having variables that does not have to be set.\n\n> opt test\n> opt test 123",
-            "is_enabled": true,
             "pattern": "opt ${v1:word}| ${v2:number}|",
+            "identifier": "",
+            "output_template": "v1 is ${v1}| and v2 is ${v2}|",
             "supported_languages": [],
             "name": "4. Optional Variable",
-            "identifier": ""
+            "is_enabled": true,
+            "description": "Optional variables is very simple concept of having variables that does not have to be set.\n\n> opt test\n> opt test 123"
         },
         {
-            "output_template": "{\n\t#\n}",
+            "baseID": "952F42E2-D5BD-4943-8FE0-7A48B961949E",
             "id": "952F42E2-D5BD-4943-8FE0-7A48B961949E",
-            "description": "By default cursor goes at the end of the expanded expression. However it is possible to point that place using hash (`#`).\n\n> block",
-            "is_enabled": true,
             "pattern": "block",
+            "identifier": "",
+            "output_template": "{\n\t#\n}",
             "supported_languages": [],
             "name": "5. Hash",
-            "identifier": ""
+            "is_enabled": true,
+            "description": "By default cursor goes at the end of the expanded expression. However it is possible to point that place using hash (`#`).\n\n> block"
         },
         {
-            "output_template": "external exapnder: ${external}",
+            "baseID": "49CFE74B-9652-45A2-AC72-3FD471B79FB2",
             "id": "49CFE74B-9652-45A2-AC72-3FD471B79FB2",
-            "description": "TeaCode allows to use existing expanders using `exp` variable type.\n\n> exp h Joe",
-            "is_enabled": true,
             "pattern": "exp ${external:exp(h)}",
+            "identifier": "",
+            "output_template": "external exapnder: ${external}",
             "supported_languages": [],
             "name": "6. Exp",
-            "identifier": ""
+            "is_enabled": true,
+            "description": "TeaCode allows to use existing expanders using `exp` variable type.\n\n> exp h Joe"
         },
         {
-            "output_template": "expanded ${e} with ${t}",
+            "baseID": "C173D632-8A58-492B-ABA9-BA252AFEBF22",
             "id": "C173D632-8A58-492B-ABA9-BA252AFEBF22",
-            "description": "Enums are helpful when pattern requires one of certain texts.\n\n> enum a hello world\n> enum b hello world",
-            "is_enabled": true,
             "pattern": "enum ${e:enum(a,b,c)} ${t:text}",
+            "identifier": "",
+            "output_template": "expanded ${e} with ${t}",
             "supported_languages": [],
             "name": "7. Enum",
-            "identifier": ""
+            "is_enabled": true,
+            "description": "Enums are helpful when pattern requires one of certain texts.\n\n> enum a hello world\n> enum b hello world"
         },
         {
-            "output_template": "expanded ${s}",
+            "baseID": "F617DD35-991B-41C8-8945-205BCCC413E8",
             "id": "F617DD35-991B-41C8-8945-205BCCC413E8",
-            "description": "Switch changes value of variable to the given one.\n\n> switch a\n> switch other",
-            "is_enabled": true,
             "pattern": "switch ${s:switch(a:1,b:2,c:3,*:0)}",
+            "identifier": "",
+            "output_template": "expanded ${s}",
             "supported_languages": [],
             "name": "8. Switch",
-            "identifier": ""
+            "is_enabled": true,
+            "description": "Switch changes value of variable to the given one.\n\n> switch a\n> switch other"
         }
     ],
-    "name": "EXAMPLES",
-    "description": "Sample expanders to learn the TeaCode Language.\n\nMade by [twitter] @Apptorium",
     "supported_languages": [
         "any"
     ],
-    "id": "0D5FB579-E5B1-4533-97BA-185DA252FF91",
-    "is_enabled": false
+    "name": "EXAMPLES",
+    "is_enabled": false,
+    "description": "Sample expanders to learn the TeaCode Language.\n\nMade by [twitter] @Apptorium"
 }

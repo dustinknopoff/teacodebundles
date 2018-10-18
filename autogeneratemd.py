@@ -149,10 +149,10 @@ if __name__ == '__main__':
             # If this is an empty directory, do them all
             for bund in stuff['bundles']:
                 bundle = Bundle(bund)
-                with open(f'./{bund["name"]}.tcbundles', 'w+') as tcout:
+                with open(f'./{bund["name"]}.tcbundles', 'w') as tcout:
                     json.dump(bund, tcout, indent=4)
-                with open(f'./{bund["name"]}.md', 'w+') as mdout:
+                with open(f'./{bund["name"]}.md', 'w') as mdout:
                     mdout.write(bundle.to_md())
-        with open('./bundles.tcbundles', 'w+') as tcall:
+        with open('./bundles.tcbundles', 'w') as tcall:
             json.dump(stuff, tcall, indent=4)
     print("Success!")

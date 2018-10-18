@@ -25,7 +25,7 @@ will render:
 
 
 ```swift
- self.name = name
+ this.setState({ name });
 ```
 
 Languages: ['swift']
@@ -44,7 +44,9 @@ will render:
 
 
 ```swift
- let someViewController = SomeViewController()
+ inst someViewController() {
+     
+ }
 ```
 
 Languages: ['swift']
@@ -63,7 +65,7 @@ will render:
 
 
 ```swift
- tableView.delegate = self
+ s<del>tableView</del>
 ```
 
 Languages: ['swift']
@@ -82,12 +84,10 @@ will render:
 
 
 ```swift
- public class SingletonClass {
- 
-     public static let instance = SingletonClass()
- 
-     
+ +singuard SingletonClass else {
+     return
  }
+ 
 ```
 
 Languages: ['swift']
@@ -106,9 +106,7 @@ will render:
 
 
 ```swift
- public protocol MyViewDelegate {
-     
- }
+ +<del>MyView</del>
 ```
 
 Languages: ['swift']
@@ -127,11 +125,8 @@ will render:
 
 
 ```swift
- public class MyClass {
- 
-     func run() {
-         
-     }
+ +cmd MyClass() {
+     
  }
 ```
 

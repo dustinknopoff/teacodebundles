@@ -135,7 +135,7 @@ will render:
 
 
 ```objc
- @IBAction func done(_ sender: Any) {
+ act done() {
      
  }
 ```
@@ -156,7 +156,9 @@ will render:
 
 
 ```objc
- @IBOutlet weak var button: NSButton!
+ out button: NSButton() {
+     
+ }
 ```
 
 Languages: ['objc']
@@ -175,7 +177,9 @@ will render:
 
 
 ```objc
- NSLocalizedString("Hello World", comment: "First message")
+ _Hello World_First message() {
+     
+ }
 ```
 
 Languages: ['objc']

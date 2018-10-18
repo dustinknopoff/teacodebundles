@@ -1,117 +1,117 @@
 {
-    "name": "Rust",
+    "baseID": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
     "id": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
-    "is_enabled": true,
-    "description": "Common Rust Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n\n",
     "expanders": [
         {
-            "name": "Fn",
+            "baseID": "A88CD49F-D947-4932-9236-C244959ACA6A",
             "id": "A88CD49F-D947-4932-9236-C244959ACA6A",
-            "is_enabled": true,
-            "description": "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32",
-            "identifier": "rfn",
             "pattern": "fn ${name:word}| ${args:text?}|",
+            "identifier": "rfn",
             "output_template": "fn ${name.snakecase}(|${args}|) {\n\t#\n}",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "A88CD49F-D947-4932-9236-C244959ACA6A"
+            "name": "Fn",
+            "is_enabled": true,
+            "description": "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32"
         },
         {
-            "name": "Impl",
+            "baseID": "F86B44C5-855F-408F-BC0A-890FA2AB4F27",
             "id": "F86B44C5-855F-408F-BC0A-890FA2AB4F27",
-            "is_enabled": true,
-            "description": "Default statement for extending a struct.\n> impl rectangle",
-            "identifier": "rimpl",
             "pattern": "impl ${name:word}",
+            "identifier": "rimpl",
             "output_template": "impl ${name.capitalize} {\n\t#\n}",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "F86B44C5-855F-408F-BC0A-890FA2AB4F27"
+            "name": "Impl",
+            "is_enabled": true,
+            "description": "Default statement for extending a struct.\n> impl rectangle"
         },
         {
-            "name": "Struct",
+            "baseID": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E",
             "id": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E",
-            "is_enabled": true,
-            "description": "> struct Rectangle\n\n> struct Room String",
-            "identifier": "rstruct",
             "pattern": "struct ${name:word}| ${type:text?}|",
+            "identifier": "rstruct",
             "output_template": "struct ${name.capitalize}|<${type}>| {\n\t#\n}",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E"
+            "name": "Struct",
+            "is_enabled": true,
+            "description": "> struct Rectangle\n\n> struct Room String"
         },
         {
-            "name": "Enum",
+            "baseID": "DAA6F157-386D-4E39-86DC-0350B6A80E0D",
             "id": "DAA6F157-386D-4E39-86DC-0350B6A80E0D",
-            "is_enabled": true,
-            "description": "> enum Coins\n\n> enum Coins Penny,Nickel,Quarter,Dime",
-            "identifier": "renum",
             "pattern": "enum ${Name:word}| ${params:text?}|",
+            "identifier": "renum",
             "output_template": "enum ${Name.capitalize} {\n\t|${python(\"string = \\\"${params}\\\".split(\\\",\\\")\nstring = ',\\n'.join(string)\nprint string\", autoIndent: true, enableSandbox: true)}|\n\t#\n}",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "DAA6F157-386D-4E39-86DC-0350B6A80E0D"
+            "name": "Enum",
+            "is_enabled": true,
+            "description": "> enum Coins\n\n> enum Coins Penny,Nickel,Quarter,Dime"
         },
         {
-            "name": "Variables",
+            "baseID": "0BD29A62-AFF4-4359-A7E3-FD363121720A",
             "id": "0BD29A62-AFF4-4359-A7E3-FD363121720A",
-            "is_enabled": true,
-            "description": "> var integer 36\n\n> var integer 36 usize m",
-            "identifier": "rvar",
             "pattern": "var ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|",
+            "identifier": "rvar",
             "output_template": "let |${mut}| ${name.camelcase}|: ${type}| = ${value};",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "0BD29A62-AFF4-4359-A7E3-FD363121720A"
+            "name": "Variables",
+            "is_enabled": true,
+            "description": "> var integer 36\n\n> var integer 36 usize m"
         },
         {
-            "name": "Type Conversion",
+            "baseID": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97",
             "id": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97",
-            "is_enabled": true,
-            "description": "> conv integer f32",
-            "identifier": "rconv",
             "pattern": "conv ${var:word} ${type:word}",
+            "identifier": "rconv",
             "output_template": "${var} as ${type}#",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97"
+            "name": "Type Conversion",
+            "is_enabled": true,
+            "description": "> conv integer f32"
         },
         {
-            "name": "main",
+            "baseID": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A",
             "id": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A",
-            "is_enabled": true,
-            "description": "> main",
-            "identifier": "rmain",
             "pattern": "main",
+            "identifier": "rmain",
             "output_template": "fn main() {\n\t#\n}",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A"
+            "name": "main",
+            "is_enabled": true,
+            "description": "> main"
         },
         {
-            "name": "Match",
+            "baseID": "E9CA8616-8829-4F97-B74B-DE0C4DB69085",
             "id": "E9CA8616-8829-4F97-B74B-DE0C4DB69085",
-            "is_enabled": true,
-            "description": "> match number\n\n> match number 3,7,22",
-            "identifier": "rmatch",
             "pattern": "match ${var:word}| ${options:text?}|",
+            "identifier": "rmatch",
             "output_template": "match ${var} {\n\t|${python(\"string = \\\"${options}\\\".split(\\\",\\\")\nfor i in range(0, len(string)):\n  string[i] = \\\"\\t\\\"+ string[i] +\\\"=> ,\\\"\nprint('\\n'.join(string))\", autoIndent: true, enableSandbox: true)}|\n}",
             "supported_languages": [
                 "rust"
             ],
-            "baseID": "E9CA8616-8829-4F97-B74B-DE0C4DB69085"
+            "name": "Match",
+            "is_enabled": true,
+            "description": "> match number\n\n> match number 3,7,22"
         }
     ],
     "supported_languages": [
         "any",
         "rust"
     ],
-    "baseID": "17BC925B-5A09-4D21-A946-1AAEADBDE010"
+    "name": "Rust",
+    "is_enabled": true,
+    "description": "Common Rust Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n\n"
 }

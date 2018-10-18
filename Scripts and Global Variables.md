@@ -7,7 +7,6 @@
 - [UUID](#uuid)
 - [Header](#header)
 - [Comment with date](#comment-with-date)
-- [File list](#file-list)
 - [IP](#ip)
 - [Switch case](#switch-case)
 - [Repeater](#repeater)
@@ -44,8 +43,8 @@ will render:
  //
  //  test.swift
  //
- //  Created by Dustin Knopoff on 25/09/2018.
- //  Copyright © 2018 Dustin Knopoff. All rights reserved.
+ //  Created by Dustin Knopoff on 18/10/2018.
+ //  Copyright © 2018 Undefined Variable. All rights reserved.
  //
 ```
 
@@ -63,14 +62,8 @@ will render:
 
 
 ```
- // [2018-09-25 08:28:46] Sample comment
+ // [2018-10-18 09:34:22] Sample comment
 ```
-
-
-
-### File list
-
-Description:
 
 
 

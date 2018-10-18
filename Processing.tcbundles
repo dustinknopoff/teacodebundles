@@ -1,0 +1,38 @@
+{
+    "baseID": "14D33812-4045-40CE-901A-A570C4770D62",
+    "id": "14D33812-4045-40CE-901A-A570C4770D62",
+    "expanders": [
+        {
+            "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
+            "id": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
+            "pattern": "set ${width:number} ${height:number}",
+            "identifier": "",
+            "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
+            "supported_languages": [
+                "java"
+            ],
+            "name": "Setup",
+            "is_enabled": true,
+            "description": "> set 640 840"
+        },
+        {
+            "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
+            "id": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
+            "pattern": "draw",
+            "identifier": "",
+            "output_template": "void draw() {\n\t#\n}",
+            "supported_languages": [
+                "java"
+            ],
+            "name": "Draw",
+            "is_enabled": true,
+            "description": "> draw"
+        }
+    ],
+    "supported_languages": [
+        "java"
+    ],
+    "name": "Processing",
+    "is_enabled": true,
+    "description": "Commonly Used Processing Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
+}

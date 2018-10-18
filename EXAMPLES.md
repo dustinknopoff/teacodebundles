@@ -148,7 +148,10 @@ will render:
 
 
 ```
- enu// MARK: - a hello world
+ enum A {
+     hello world
+     
+ }
 ```
 
 ` enum b hello world`
@@ -157,7 +160,10 @@ will render:
 
 
 ```
- enu// MARK: - b hello world
+ enum B {
+     hello world
+     
+ }
 ```
 
 
@@ -174,9 +180,15 @@ will render:
 
 
 ```
- switch a() {
-     
+ switch (a) {
+     case :
+         
+         break;
+     default:
+         
+         break;
  }
+ 
 ```
 
 ` switch other`
@@ -185,9 +197,15 @@ will render:
 
 
 ```
- switch other() {
-     
+ switch (other) {
+     case :
+         
+         break;
+     default:
+         
+         break;
  }
+ 
 ```
 
 

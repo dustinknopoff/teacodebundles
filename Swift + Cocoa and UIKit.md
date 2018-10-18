@@ -25,7 +25,9 @@ will render:
 
 
 ```swift
- @IBOutlet weak var nameTextField: NSTextField!
+ out nameTextField: NSTextField() {
+     
+ }
 ```
 
 Languages: ['swift']
@@ -44,7 +46,7 @@ will render:
 
 
 ```swift
- @IBAction func done(_ sender: Any) {
+ act done() {
      
  }
 ```
@@ -65,7 +67,9 @@ will render:
 
 
 ```swift
- NSLocalizedString("Hello World", comment: "First message")
+ _Hello World_First message() {
+     
+ }
 ```
 
 Languages: ['swift']
@@ -84,7 +88,7 @@ will render:
 
 
 ```swift
- if let controller = segue.destinationViewController as? UITableViewController {
+ ilstruct Controller: UITableViewController {
      
  }
 ```
@@ -105,8 +109,8 @@ will render:
 
 
 ```swift
- guard let controller = segue.destinationViewController as? UITableViewController else {
-     return
+ glstruct Controller: UITableViewController {
+     
  }
 ```
 

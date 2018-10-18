@@ -1,1986 +1,2483 @@
 {
     "bundles": [
         {
+            "baseID": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028",
+            "id": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028",
             "expanders": [
                 {
-                    "output_template": "def ${name.snakecase}(|${python(\"print(\\\"${params.snakecase}\\\".replace(\\\",\\\", \\\", \\\"))\")}|):\n\t#",
+                    "baseID": "7741C787-8E9E-45E3-91F7-ECF9DCF9D24D",
                     "id": "7741C787-8E9E-45E3-91F7-ECF9DCF9D24D",
-                    "description": "Creates default function statement.\n> -f do arr,index\n\n\n> -f do",
-                    "is_enabled": true,
-                    "pattern": "-f ${name:word}| ${params:text?}|",
+                    "pattern": "fn ${name:word}| ${params:text?}|",
+                    "identifier": "py.fn",
+                    "output_template": "def ${name.snakecase}(|${python(\"print(\\\"${params.snakecase}\\\".replace(\\\",\\\", \\\", \\\"))\")}|):\n\t#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Function",
-                    "identifier": "fn"
+                    "is_enabled": true,
+                    "description": "Creates default function statement.\n> fn do arr,index\n\n\n> fn do"
                 },
                 {
-                    "output_template": "r = requests.get(\"${url}\")|.${out}|\n#",
+                    "baseID": "5C7C5F07-EEE3-47A2-89C7-31994134C3CD",
                     "id": "5C7C5F07-EEE3-47A2-89C7-31994134C3CD",
-                    "description": "Creates the default requests statement.\n> req https://www.apple.com j\n> req https://www.apple.com",
-                    "is_enabled": true,
                     "pattern": "req ${url:text?}| ${out:switch(c:content,j:json())}|",
+                    "identifier": "py.req",
+                    "output_template": "r = requests.get(\"${url}\")|.${out}|\n#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Request",
-                    "identifier": "req"
+                    "is_enabled": true,
+                    "description": "Creates the default requests statement.\n> req https://www.apple.com j\n> req https://www.apple.com"
                 },
                 {
-                    "output_template": "re.findall(r'${pattern}', ${txt})",
+                    "baseID": "DFA12555-C863-46B5-A723-D7B076FD8E66",
                     "id": "DFA12555-C863-46B5-A723-D7B076FD8E66",
-                    "description": "Default regex implementation:\n> re \\d+ str\n\n**NOTE: Must import `re`**",
-                    "is_enabled": true,
                     "pattern": "re ${pattern:text=\\w+} ${txt:word}",
+                    "identifier": "py.re",
+                    "output_template": "re.findall(r'${pattern}', ${txt})",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Regex",
-                    "identifier": "re"
+                    "is_enabled": true,
+                    "description": "Default regex implementation:\n> re \\d+ str\n\n**NOTE: Must import `re`**"
                 },
                 {
-                    "output_template": "soup = BeautifulSoup(${content}, 'html.parser')\n#",
+                    "baseID": "746C9DBC-738E-4C86-A861-D85FEE69F78A",
                     "id": "746C9DBC-738E-4C86-A861-D85FEE69F78A",
-                    "description": "Creates default Beautiful Soup statement\n> bs4 r.content\n\n**NOTE: Must import `bs4`**",
-                    "is_enabled": true,
                     "pattern": "bs4 ${content:text?=r}",
+                    "identifier": "py.bs4",
+                    "output_template": "soup = BeautifulSoup(${content}, 'html.parser')\n#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Beautiful Soup",
-                    "identifier": "bs4"
+                    "is_enabled": true,
+                    "description": "Creates default Beautiful Soup statement\n> bs4 r.content\n\n**NOTE: Must import `bs4`**"
                 },
                 {
-                    "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"   \\\" + arg.replace(\\\":\\\", \\\": \\\"))|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"    def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"        self.{} = {}\\\".format(arg,arg))|\")}\n#",
+                    "baseID": "37261157-F800-48A1-B0A2-C1D23F765A26",
                     "id": "37261157-F800-48A1-B0A2-C1D23F765A26",
-                    "description": "Creates a default class.\n> class n Story\n\n> class n Story title,details\n\n> class d Story\n\n> class d Story title:str,details:List[str]\n\n**NOTE: 'd' requires Python 3.7 and importing `dataclass`**\n",
-                    "is_enabled": true,
                     "pattern": "class ${type:enum(n,d)=n} ${name:word}| ${vars:text?}|",
+                    "identifier": "py.class",
+                    "output_template": "${python(\"if \\\"${type}\\\" is \\\"d\\\":\n\tprint(\\\"@dataclass\\\")\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"   \\\" + arg.replace(\\\":\\\", \\\": \\\"))|\nelse:\n\tprint(\\\"class ${name.capitalize}:\\\")\n\t|vars = \\\"${vars.camelcase}\\\"\n\tprint(\\\"    def __init__(${vars.camelcase}):\\\")\n\tfor arg in vars.split(\\\",\\\"):\n  \t\tprint(\\\"        self.{} = {}\\\".format(arg,arg))|\")}\n#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Class",
-                    "identifier": "class"
+                    "is_enabled": true,
+                    "description": "Creates a default class.\n> class n Story\n\n> class n Story title,details\n\n> class d Story\n\n> class d Story title:str,details:List[str]\n\n**NOTE: 'd' requires Python 3.7 and importing `dataclass`**\n"
                 },
                 {
-                    "output_template": "if any(w for w in ${list}):\n\t#",
+                    "baseID": "1FA23E9A-CB14-4186-B9A9-C4350C49F073",
                     "id": "1FA23E9A-CB14-4186-B9A9-C4350C49F073",
-                    "description": "Creates an if any statement:\n> ifany (\"Apple\", \"Banana\", \"Croissant\")",
-                    "is_enabled": true,
                     "pattern": "ifany ${list:text?}",
+                    "identifier": "py.ifany",
+                    "output_template": "if any(w for w in ${list}):\n\t#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "In Tuple",
-                    "identifier": "ifany"
+                    "is_enabled": true,
+                    "description": "Creates an if any statement:\n> ifany (\"Apple\", \"Banana\", \"Croissant\")"
                 },
                 {
-                    "output_template": "with open('${path}') as f:\n\t#",
+                    "baseID": "000B2DC8-6E4C-41F5-84DA-E9FEDA59827D",
                     "id": "000B2DC8-6E4C-41F5-84DA-E9FEDA59827D",
-                    "description": "Creates default open statement.\n> open ~/Downloads/example.txt",
-                    "is_enabled": true,
                     "pattern": "open ${path:text}",
+                    "identifier": "py.open",
+                    "output_template": "with open('${path}') as f:\n\t#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Open",
-                    "identifier": "open"
+                    "is_enabled": true,
+                    "description": "Creates default open statement.\n> open ~/Downloads/example.txt"
                 },
                 {
-                    "output_template": "script = subprocess.run(\"${run}\".split(), stdout=subprocess.PIPE)\n#",
+                    "baseID": "CF066DE9-675D-4050-BC62-C272B7B9A8B2",
                     "id": "CF066DE9-675D-4050-BC62-C272B7B9A8B2",
-                    "description": "Creates default statement for shell scripts running in python.\n> sh brew list\n\n> sh basename 'git rev-parse --show-toplevel'",
-                    "is_enabled": true,
                     "pattern": "sh ${run:text?}",
+                    "identifier": "py.sh",
+                    "output_template": "script = subprocess.run(\"${run}\".split(), stdout=subprocess.PIPE)\n#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Shell in Python",
-                    "identifier": "sh"
+                    "is_enabled": true,
+                    "description": "Creates default statement for shell scripts running in python.\n> sh brew list\n\n> sh basename 'git rev-parse --show-toplevel'"
                 },
                 {
-                    "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#",
+                    "baseID": "9B4E652B-2653-43B7-85C8-C313BA995968",
                     "id": "9B4E652B-2653-43B7-85C8-C313BA995968",
-                    "description": "> main\n\n> main Story().read()",
-                    "is_enabled": true,
                     "pattern": "main| ${foo:text?}|",
+                    "identifier": "py.main",
+                    "output_template": "if __name__ == \"__main__\":\n\t|${foo}|#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Main",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> main\n\n> main Story().read()"
                 },
                 {
-                    "output_template": "${name} = list(map(int, ${name}))",
+                    "baseID": "A5F28216-C032-46EA-BAAB-DAD851990917",
                     "id": "A5F28216-C032-46EA-BAAB-DAD851990917",
-                    "description": "Convert a list of strings into a list of integers\n> [i] results",
-                    "is_enabled": true,
                     "pattern": "[i] ${name:word}",
+                    "identifier": "py.listconv",
+                    "output_template": "${name} = list(map(int, ${name}))",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "List Strings -> List Ints",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Convert a list of strings into a list of integers\n> [i] results"
                 },
                 {
-                    "output_template": "\\#!/usr/bin/env python${version}\n#",
+                    "baseID": "5488C00A-A290-4F8F-B45A-A73D66D0B1B4",
                     "id": "5488C00A-A290-4F8F-B45A-A73D66D0B1B4",
-                    "description": "Creates the Shebang for global python usage\n> gl 3.6",
-                    "is_enabled": true,
                     "pattern": "gl ${version:number=3.6}",
+                    "identifier": "py.gl",
+                    "output_template": "\\#!/usr/bin/env python${version}\n#",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Global",
-                    "identifier": "pygl"
+                    "is_enabled": true,
+                    "description": "Creates the Shebang for global python usage\n> gl 3.6"
                 },
                 {
-                    "output_template": "|from ${from} |import ${package}",
+                    "baseID": "CBFAAA8E-5B60-4597-A136-AEEED8686788",
                     "id": "CBFAAA8E-5B60-4597-A136-AEEED8686788",
-                    "description": "> @re\n\n> @BeautifulSoup bs4\n\n> @Dict,List typings",
-                    "is_enabled": true,
                     "pattern": "@${package:text?}| ${from:text?}|",
+                    "identifier": "py.import",
+                    "output_template": "|from ${from} |import ${package}",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "import",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> @re\n\n> @BeautifulSoup bs4\n\n> @Dict,List typings"
                 },
                 {
-                    "output_template": "lambda ${var}: ${expr}",
+                    "baseID": "DB03F40C-90E3-41EA-9A94-05C1B6A3758B",
                     "id": "DB03F40C-90E3-41EA-9A94-05C1B6A3758B",
-                    "description": "> -l x x*x",
-                    "is_enabled": true,
                     "pattern": "-l ${var:word} ${expr:text?}",
+                    "identifier": "py.lambda",
+                    "output_template": "lambda ${var}: ${expr}",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Lambda",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> -l x x*x"
                 },
                 {
-                    "output_template": "${python(\"if \\\"${se}\\\" is \\\"start\\\":\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[${slice}:]\\\")\nelse:\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:-${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[-${slice}:]\\\")\")}",
+                    "baseID": "C8915A90-9A0B-40C9-B573-5A175621ADD5",
                     "id": "C8915A90-9A0B-40C9-B573-5A175621ADD5",
-                    "description": "Can't remember where the `-` goes?\nIf the number goes before or after the `:`? \nHave TeaCode do it for you!\n\n> -s s b lines 3\n\n> -s e a lines 3\n\nAsk yourself these questions:\n* Am I intending to slice this string from the start of end? \nUse *s* for at the *start*, and *e* for at the *end*.\n\n* Am I intending to get everything before or after that index? \nUse *b* for from *before*, and *a* for from *after*.\n",
-                    "is_enabled": true,
-                    "pattern": "-s ${se:switch(s:start,e:end)} ${ba:switch(b:before,a:after)} ${name:word} ${slice:word}",
+                    "pattern": "slice ${se:switch(s:start,e:end)} ${ba:switch(b:before,a:after)} ${name:word} ${slice:word}",
+                    "identifier": "py.slice",
+                    "output_template": "${python(\"if \\\"${se}\\\" is \\\"start\\\":\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[${slice}:]\\\")\nelse:\n\tif \\\"${ba}\\\" is \\\"before\\\":\n\t\tprint(\\\"${name}[:-${slice}]\\\")\n\telse:\n\t\tprint(\\\"${name}[-${slice}:]\\\")\")}",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "String Slice",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Can't remember where the `-` goes?\nIf the number goes before or after the `:`? \nHave TeaCode do it for you!\n\n> slice s b lines 3\n\n> slice e a lines 3\n\nAsk yourself these questions:\n* Am I intending to slice this string from the start of end? \nUse *s* for at the *start*, and *e* for at the *end*.\n\n* Am I intending to get everything before or after that index? \nUse *b* for from *before*, and *a* for from *after*.\n"
                 },
                 {
-                    "output_template": "'${delim}'.join(${var})",
+                    "baseID": "22FEED68-A6A4-4D18-9546-E58B07E9CA95",
                     "id": "22FEED68-A6A4-4D18-9546-E58B07E9CA95",
-                    "description": "Join a list into a string\n> -j lines , ",
-                    "is_enabled": true,
-                    "pattern": "-j ${var:word} ${delim:text?}",
+                    "pattern": "join ${var:word} ${delim:text?}",
+                    "identifier": "py.join",
+                    "output_template": "'${delim}'.join(${var})",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Join",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Join a list into a string\n> join lines , "
                 },
                 {
-                    "output_template": ".replace(\"${from}\",\"${to}\")",
+                    "baseID": "08462808-3C31-424B-9D7D-0D244450F235",
                     "id": "08462808-3C31-424B-9D7D-0D244450F235",
-                    "description": "String replace method\n> rep \\j j\n\n> rep > <",
-                    "is_enabled": true,
                     "pattern": "rep ${from:text?} ${to:text?}",
+                    "identifier": "py.rep",
+                    "output_template": ".replace(\"${from}\",\"${to}\")",
                     "supported_languages": [
                         "python"
                     ],
                     "name": "Replace",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "String replace method\n> rep \\j j\n\n> rep > <"
+                },
+                {
+                    "baseID": "B1DAB04E-A98C-4ECE-A2FD-3721DC700E3B",
+                    "id": "B1DAB04E-A98C-4ECE-A2FD-3721DC700E3B",
+                    "pattern": "test",
+                    "identifier": "py.test",
+                    "output_template": "\\# filename: ${#filename}\n\\# code: ${#code}\n\\# expanding line: ${#expandingLine}\n\\# pboard: ${#pboard}\n\n${python(\"print \\\"Go team!\\\"\", autoIndent: true, enableSandbox: true)}",
+                    "supported_languages": [
+                        "python"
+                    ],
+                    "name": "Test",
+                    "is_enabled": false,
+                    "description": "> test"
                 }
             ],
-            "name": "Python",
-            "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
             "supported_languages": [
                 "any",
                 "python"
             ],
-            "id": "D2BEEF4B-C9FA-48E1-B2D2-0D1EF8096028",
-            "is_enabled": true
+            "name": "Python",
+            "is_enabled": true,
+            "description": "Commonly Used Python Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
         },
         {
+            "baseID": "8AD81FEE-76EE-4564-9795-5ADFCD71FB32",
+            "id": "8AD81FEE-76EE-4564-9795-5ADFCD71FB32",
             "expanders": [
                 {
-                    "output_template": "private static final ${type} ${name.uppercase} = ${value};\n#",
+                    "baseID": "A8A614B4-6A01-4927-A68E-1C38C8C6CD6B",
                     "id": "A8A614B4-6A01-4927-A68E-1C38C8C6CD6B",
-                    "description": "Creates constant variable.\n> const int size 300",
-                    "is_enabled": true,
                     "pattern": "const ${type:word} ${name:word} ${value:word}",
+                    "identifier": "java.const",
+                    "output_template": "private static final ${type} ${name.uppercase} = ${value};\n#",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Constant Variable",
-                    "identifier": "const"
+                    "is_enabled": true,
+                    "description": "Creates constant variable.\n> const int size 300"
                 },
                 {
-                    "output_template": "if (${condition}) {\n\t#\n}",
+                    "baseID": "8AD4118B-F79F-4365-A4D5-894B4AD47CA3",
                     "id": "8AD4118B-F79F-4365-A4D5-894B4AD47CA3",
-                    "description": "Creates if statement.\n> if x > 300",
-                    "is_enabled": true,
                     "pattern": "if ${condition:text?}",
+                    "identifier": "java.if",
+                    "output_template": "if (${condition}) {\n\t#\n}",
                     "supported_languages": [
                         "java",
-                        "js"
+                        "js",
+                        "c"
                     ],
                     "name": "If",
-                    "identifier": "if"
+                    "is_enabled": true,
+                    "description": "Creates if statement.\n> if x > 300"
                 },
                 {
-                    "output_template": "for (${type1} i : ${type2} ${iterator}) {\n\t#\n}",
+                    "baseID": "F6D98F31-6602-4999-B455-E595FDBF76C8",
                     "id": "F6D98F31-6602-4999-B455-E595FDBF76C8",
-                    "description": "Creates for loop.\n> for int ArrayList arr",
-                    "is_enabled": true,
                     "pattern": "for ${type1:word} ${type2:word} ${iterator:word}",
+                    "identifier": "java.for",
+                    "output_template": "for (${type1} i : ${type2} ${iterator}) {\n\t#\n}",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "For",
-                    "identifier": "for"
+                    "is_enabled": true,
+                    "description": "Creates for loop.\n> for int ArrayList arr"
                 },
                 {
-                    "output_template": "for (int i = 0; i ${comparator} ${max}; i++) {\n\t#\n}",
+                    "baseID": "C1BC6D11-E6DE-4759-99F3-3EF9948B753A",
                     "id": "C1BC6D11-E6DE-4759-99F3-3EF9948B753A",
-                    "description": "Creates iterative for loop.\n> fori <= arr.length()",
-                    "is_enabled": true,
                     "pattern": "fori ${comparator:text?=<} ${max:text?=100}",
+                    "identifier": "java.fori",
+                    "output_template": "for (int i = 0; i ${comparator} ${max}; i++) {\n\t#\n}",
                     "supported_languages": [
                         "java",
-                        "js"
+                        "js",
+                        "c"
                     ],
                     "name": "For(i)",
-                    "identifier": "fori"
+                    "is_enabled": true,
+                    "description": "Creates iterative for loop.\n> fori <= arr.length()"
                 },
                 {
-                    "output_template": "private final ${type} ${name};\n#",
+                    "baseID": "F3CFF65F-AE61-4B6C-B23F-101F2B3CAB76",
                     "id": "F3CFF65F-AE61-4B6C-B23F-101F2B3CAB76",
-                    "description": "Default variable declaration. (Private and final)\n> -v List<Shape> shapes\n> -v int maxHeight",
-                    "is_enabled": true,
                     "pattern": "-v ${type:text} ${name:word}",
+                    "identifier": "java.var",
+                    "output_template": "private final ${type} ${name};\n#",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Variable",
-                    "identifier": "var"
+                    "is_enabled": true,
+                    "description": "Default variable declaration. (Private and final)\n> -v List<Shape> shapes\n> -v int maxHeight"
                 },
                 {
-                    "output_template": "private final ${type} ${name.camelcase}(|${args}|) {\n\t#\n}",
+                    "baseID": "4627B0C3-1F40-4DB1-9BE4-2DEE8C1898D1",
                     "id": "4627B0C3-1F40-4DB1-9BE4-2DEE8C1898D1",
-                    "description": "Creates default method syntax. (Private and final)\n> fn void AnimatorModel\n> fn boolean addShape Shape shape",
-                    "is_enabled": true,
                     "pattern": "-f ${type:word} ${name:word}| ${args:text?}|",
+                    "identifier": "java.fn",
+                    "output_template": "private final ${type} ${name.camelcase}(|${args}|) {\n\t#\n}",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Method",
-                    "identifier": "fn"
+                    "is_enabled": true,
+                    "description": "Creates default method syntax. (Private and final)\n> fn void AnimatorModel\n> fn boolean addShape Shape shape"
                 },
                 {
-                    "output_template": "throw new ${type}(\"${txt}\");\n#",
+                    "baseID": "9352E369-E168-44C9-86BC-3FE8E6D1716E",
                     "id": "9352E369-E168-44C9-86BC-3FE8E6D1716E",
-                    "description": "Creates exception statement.\n> throw u Cannot do this in non-Hybrid View",
-                    "is_enabled": true,
                     "pattern": "throw ${type:switch(u:UnsupportedOperationException,i:IllegalArgumentException)} ${txt:text}",
+                    "identifier": "java.throw",
+                    "output_template": "throw new ${type}(\"${txt}\");\n#",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Error",
-                    "identifier": "throw"
+                    "is_enabled": true,
+                    "description": "Creates exception statement.\n> throw u Cannot do this in non-Hybrid View"
                 },
                 {
-                    "output_template": "${type} ${new} = (${type}) ${var};\n#",
+                    "baseID": "6A70D9D4-3F26-4D14-AB70-F1759C64AC5A",
                     "id": "6A70D9D4-3F26-4D14-AB70-F1759C64AC5A",
-                    "description": "Creates default cast expression.\n> cast Oval o s",
-                    "is_enabled": true,
                     "pattern": "cast ${type:text} ${new:word} ${var:word}",
+                    "identifier": "java.cast",
+                    "output_template": "${type} ${new} = (${type}) ${var};\n#",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Cast",
-                    "identifier": "cast"
+                    "is_enabled": true,
+                    "description": "Creates default cast expression.\n> cast Oval o s"
                 },
                 {
-                    "output_template": "|${scope}|class ${name.ucfirst}| extends ${inherit.ucfirst}| {\n\t#\n}",
+                    "baseID": "DCC1340A-AFC1-4A1B-B4BD-12A2857A1988",
                     "id": "DCC1340A-AFC1-4A1B-B4BD-12A2857A1988",
-                    "description": "Creates a class with a constructor. It\u2019s possible to add inheriting classes after `:` character\n\n> +c nombre: Familia",
-                    "is_enabled": true,
                     "pattern": "|${scope:switch(+:public ,-:private ,#:protected )}|c ${name:word}|: ${inherit:word}|",
+                    "identifier": "java.class",
+                    "output_template": "|${scope}|class ${name.ucfirst}| extends ${inherit.ucfirst}| {\n\t#\n}",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Class",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a class with a constructor. It\u2019s possible to add inheriting classes after `:` character\n\n> +c nombre: Familia"
                 },
                 {
-                    "output_template": "interface ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
+                    "baseID": "218EBA06-A9B2-44C4-9CA0-8C9113BA2B2C",
                     "id": "218EBA06-A9B2-44C4-9CA0-8C9113BA2B2C",
-                    "description": "Creates an interface in Java.\n\n> i Car im base\n> i Car e base\n\nCreated by @Gata",
-                    "is_enabled": true,
                     "pattern": "i ${name:word}| ${inheritance:switch(im:implements,e:extends)} ${base:word}|",
+                    "identifier": "java.inter",
+                    "output_template": "interface ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Interface",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates an interface in Java.\n\n> i Car im base\n> i Car e base\n\nCreated by @Gata"
                 },
                 {
-                    "output_template": "class ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
+                    "baseID": "7D89CC4C-5D86-498C-AC03-A45379CE4CAD",
                     "id": "7D89CC4C-5D86-498C-AC03-A45379CE4CAD",
-                    "description": "Creates a Java Interface.\n\n> c Car im base\n> c Car e base\n\nMade by @Gata",
-                    "is_enabled": true,
                     "pattern": "c ${name:word}| ${inheritance:switch(im:implements,e:extends)} ${base:word}|",
+                    "identifier": "java.impl",
+                    "output_template": "class ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Implements",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a Java Interface.\n\n> c Car im base\n> c Car e base\n\nMade by @Gata"
                 },
                 {
-                    "output_template": "|${access}${return}|${name}(|${type} ${params}|) {\n\t#\n}",
+                    "baseID": "D6DD8541-02E3-44DA-BA50-F6278A91350B",
                     "id": "D6DD8541-02E3-44DA-BA50-F6278A91350B",
-                    "description": "Creates a function (method) with the given scope and name.\n\n> +String run\n> +int run(String param1, int param2)",
-                    "is_enabled": true,
                     "pattern": "|${access:switch(+:public,-:private,#:protected)}${return:word}|${name:word}|(${type:word} ${params:text})|",
+                    "identifier": "java.fn",
+                    "output_template": "|${access}${return}|${name}(|${type} ${params}|) {\n\t#\n}",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Function",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a function (method) with the given scope and name.\n\n> +String run\n> +int run(String param1, int param2)"
                 },
                 {
-                    "output_template": "${scope}",
+                    "baseID": "7DD54975-720D-45CA-94F2-AB01B1E5AD8B",
                     "id": "7DD54975-720D-45CA-94F2-AB01B1E5AD8B",
-                    "description": "> +\n\n> -\n\n> #",
-                    "is_enabled": true,
                     "pattern": "${scope:switch(+:public,-:private,#:protected)=-}",
+                    "identifier": "java.scope",
+                    "output_template": "${scope}",
                     "supported_languages": [
                         "java"
                     ],
                     "name": "Scope",
-                    "identifier": "scope"
+                    "is_enabled": true,
+                    "description": "> +\n\n> -\n\n> #"
+                },
+                {
+                    "baseID": "BC869ECC-8193-4DEB-AFB7-4243F8973A1E",
+                    "id": "BC869ECC-8193-4DEB-AFB7-4243F8973A1E",
+                    "pattern": "print ${content:text?}",
+                    "identifier": "java.print",
+                    "output_template": "System.out.println(${content});\n#",
+                    "supported_languages": [
+                        "java"
+                    ],
+                    "name": "Print",
+                    "is_enabled": true,
+                    "description": "> print array.length()"
                 }
             ],
-            "name": "Java",
-            "description": "Commonly Used Java Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
             "supported_languages": [
                 "any",
                 "java"
             ],
-            "id": "8AD81FEE-76EE-4564-9795-5ADFCD71FB32",
-            "is_enabled": true
+            "name": "Java",
+            "is_enabled": true,
+            "description": "Commonly Used Java Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
         },
         {
+            "baseID": "B58E86B7-095B-4CFC-924C-449FAD1AD2B3",
+            "id": "B58E86B7-095B-4CFC-924C-449FAD1AD2B3",
             "expanders": [
                 {
-                    "output_template": "<${tag}| class=\"${class}\"|| id=\"${id}\"|>|${text}|#</${tag}>",
+                    "baseID": "976D269E-19A2-43FD-9E83-54A941BDC697",
                     "id": "976D269E-19A2-43FD-9E83-54A941BDC697",
-                    "description": "Expands a tag.\n> div.hello#world\n> p hello world",
-                    "is_enabled": true,
                     "pattern": "${tag:exp(htmltag)}|.${class:identifier}||#${id:identifier}|| ${text:text}|",
+                    "identifier": "html.tag",
+                    "output_template": "<${tag}| class=\"${class}\"|| id=\"${id}\"|>|${text}|#</${tag}>",
                     "supported_languages": [
                         "html"
                     ],
                     "name": "Tag",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Expands a tag.\n> div.hello#world\n> p hello world"
                 },
                 {
-                    "output_template": "<a href=\"${link}\">#</a>",
+                    "baseID": "24C243D2-3E13-4C62-A9B0-97C8C3848D89",
                     "id": "24C243D2-3E13-4C62-A9B0-97C8C3848D89",
-                    "description": "Creates a link.\n\n> a http://www.apptorium.com",
-                    "is_enabled": true,
                     "pattern": "a ${link:text}",
+                    "identifier": "html.a",
+                    "output_template": "<a href=\"${link}\">#</a>",
                     "supported_languages": [
                         "html"
                     ],
                     "name": "a href",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a link.\n\n> a http://www.apptorium.com"
                 },
                 {
-                    "output_template": "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title></title>\n\t</head>\n\t<body>\n\t\t#\n\t</body>\n</html>",
+                    "baseID": "8CA102E4-6ADF-484D-9110-7BD89F24FCA0",
                     "id": "8CA102E4-6ADF-484D-9110-7BD89F24FCA0",
-                    "description": "Basic HTML 5 template\n\n> html",
-                    "is_enabled": true,
                     "pattern": "html",
+                    "identifier": "html.temp",
+                    "output_template": "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title></title>\n\t</head>\n\t<body>\n\t\t#\n\t</body>\n</html>",
                     "supported_languages": [
                         "html"
                     ],
                     "name": "Template",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Basic HTML 5 template\n\n> html"
                 },
                 {
-                    "output_template": "<${tag} />",
+                    "baseID": "69C77D77-FAAB-4CF5-AAD8-5DEE6B7C6573",
                     "id": "69C77D77-FAAB-4CF5-AAD8-5DEE6B7C6573",
-                    "description": "> br",
-                    "is_enabled": true,
                     "pattern": "${tag:enum(br,hr,wbr)}",
+                    "identifier": "html.empt",
+                    "output_template": "<${tag} />",
                     "supported_languages": [
                         "html"
                     ],
                     "name": "Empty Tag",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> br"
                 },
                 {
-                    "output_template": "${tag}",
+                    "baseID": "346B08E0-247E-4246-BF6C-C1F4F5C9D0C6",
                     "id": "346B08E0-247E-4246-BF6C-C1F4F5C9D0C6",
-                    "description": "List of tags. Created to be used within `Tag` expander.",
-                    "is_enabled": true,
                     "pattern": "${tag:enum(a,abbr,acronym,address,applet,article,aside,audio,b,basefont,bdi,bdo,big,blockquote,body,button,canvas,caption,center,cite,code,colgroup,datalist,dd,del,details,dfn,dialog,dir,div,dl,dt,em,fieldset,figcaption,figure,font,footer,form,frame,frameset,h1,head,header,i,iframe,ins,kbd,label,legend,li,main,map,mark,menu,menuitem,meter,nav,noframes,noscript,object,ol,optgroup,option,output,p,picture,pre,progress,q,rp,rt,ruby,s,samp,script,section,select,small,span,strike,strong,style,sub,summary,sup,table,tbody,td,textarea,tfoot,th,thead,time,title,tr,tt,u,ul,var,video)}",
+                    "identifier": "htmltag",
+                    "output_template": "${tag}",
                     "supported_languages": [
                         "html"
                     ],
                     "name": "Tag Name",
-                    "identifier": "htmltag"
+                    "is_enabled": true,
+                    "description": "List of tags. Created to be used within `Tag` expander."
                 }
             ],
-            "name": "HTML",
-            "description": "Improves the HTML coding.\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any",
                 "html"
             ],
-            "id": "B58E86B7-095B-4CFC-924C-449FAD1AD2B3",
-            "is_enabled": true
+            "name": "HTML",
+            "is_enabled": true,
+            "description": "Improves the HTML coding.\n\nMade by [twitter] @Apptorium"
         },
         {
+            "baseID": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A",
+            "id": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A",
             "expanders": [
                 {
-                    "output_template": "const ${var.camelcase} = this.${type}.${var};\n#\nthis.setState({ ${var} });",
+                    "baseID": "6DA61A4F-2E60-4CBD-8085-49A0A6B8F401",
                     "id": "6DA61A4F-2E60-4CBD-8085-49A0A6B8F401",
-                    "description": "React setState where name of variable and element in props/state have same name.\n> sets page props",
-                    "is_enabled": true,
                     "pattern": "sets ${var:word} ${type:enum(props,state)}",
+                    "identifier": "sets",
+                    "output_template": "const ${var.camelcase} = this.${type}.${var};\n#\nthis.setState({ ${var} });",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "setState",
-                    "identifier": "sets"
+                    "is_enabled": true,
+                    "description": "React setState where name of variable and element in props/state have same name.\n> sets page props"
                 },
                 {
-                    "output_template": "${name} = (|${args}|) => {\n\t#\n};",
+                    "baseID": "9077B37B-DB27-454E-9E5B-3CD903D7EAF8",
                     "id": "9077B37B-DB27-454E-9E5B-3CD903D7EAF8",
-                    "description": "Creates React bound arrow function statement.\n\n> arrow setLimit max",
-                    "is_enabled": true,
                     "pattern": "arrow ${name:word}| ${args:text?}|",
+                    "identifier": "arrow",
+                    "output_template": "${name} = (|${args}|) => {\n\t#\n};",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "bound Arrow Function",
-                    "identifier": "arrow"
+                    "is_enabled": true,
+                    "description": "Creates React bound arrow function statement.\n\n> arrow setLimit max"
                 },
                 {
-                    "output_template": "class ${name.capitalize.remove_spaces} extends Component {\n\t#\n\trender() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}\n\nexport default ${name};",
+                    "baseID": "17295AAB-3AE5-4555-8720-F56281161B02",
                     "id": "17295AAB-3AE5-4555-8720-F56281161B02",
-                    "description": "Default Class creation.\n> class Header",
-                    "is_enabled": true,
                     "pattern": "class ${name:word}",
+                    "identifier": "class",
+                    "output_template": "class ${name.capitalize.remove_spaces} extends Component {\n\t#\n\trender() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}\n\nexport default ${name};",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Class",
-                    "identifier": "class"
+                    "is_enabled": true,
+                    "description": "Default Class creation.\n> class Header"
                 },
                 {
-                    "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import React from \\\"react\\\";')\nelse:\n\tprint('import ${fn} from \\\"|${package}|\\\";')\")}\n#",
+                    "baseID": "27161837-FFD7-4851-B6A9-D4D4C0D3E559",
                     "id": "27161837-FFD7-4851-B6A9-D4D4C0D3E559",
-                    "description": "> @import\n\n> @Helmet react-helmet",
-                    "is_enabled": true,
                     "pattern": "@${fn:text?}| ${package:text?}|",
+                    "identifier": "",
+                    "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import React from \\\"react\\\";')\nelse:\n\tprint('import ${fn} from \\\"|${package}|\\\";')\")}\n#",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Import",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> @import\n\n> @Helmet react-helmet"
                 },
                 {
-                    "output_template": "export class ${name.capitalize.remove_spaces} extends React.Component<|${props}|, {}> {\n\tconstructor(props: |${props}|, context: any) {\n\t\tsuper(props, context)\n\t}\n\t#\n\tpublic render() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}",
+                    "baseID": "25BF768F-6D93-450C-9D7A-B305A3F8E044",
                     "id": "25BF768F-6D93-450C-9D7A-B305A3F8E044",
-                    "description": "Default Class creation for React in Typescript.\n> class Header",
-                    "is_enabled": true,
                     "pattern": "class ${name:word}| ${props:word}|",
+                    "identifier": "",
+                    "output_template": "export class ${name.capitalize.remove_spaces} extends React.Component<|${props}|, {}> {\n\tconstructor(props: |${props}|, context: any) {\n\t\tsuper(props, context)\n\t}\n\t#\n\tpublic render() {\n\t\treturn(\n\t\t\t\n\t\t);\n\t}\n}",
                     "supported_languages": [
                         "typescript"
                     ],
                     "name": "Class.ts",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Default Class creation for React in Typescript.\n> class Header"
                 },
                 {
-                    "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import * as React from \\\"react\\\";')\nelse:\n\tprint('import * as ${fn} from \\\"|${package}|\\\";')\")}\n#",
+                    "baseID": "A91FF14C-42F9-4313-BD48-8BD8794C7BB2",
                     "id": "A91FF14C-42F9-4313-BD48-8BD8794C7BB2",
-                    "description": "Import statements for React in Typescript\n\n> @import\n\n> @Helmet react-helmet",
-                    "is_enabled": true,
                     "pattern": "@${fn:text?}| ${package:text?}|",
+                    "identifier": "",
+                    "output_template": "${python(\"if \\\"${fn}\\\" is \\\"import\\\":\n\tprint('import * as React from \\\"react\\\";')\nelse:\n\tprint('import * as ${fn} from \\\"|${package}|\\\";')\")}\n#",
                     "supported_languages": [
                         "typescript"
                     ],
                     "name": "Import.ts",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Import statements for React in Typescript\n\n> @import\n\n> @Helmet react-helmet"
                 },
                 {
-                    "output_template": "const ${name} = (|${args}|) => {\n\t#\n};",
+                    "baseID": "906CD1BD-3418-4EE2-BCCF-8BF62AE029EA",
                     "id": "906CD1BD-3418-4EE2-BCCF-8BF62AE029EA",
-                    "description": "Creates React bound arrow function statement in Typescript\n\n> arrow setLimit max",
-                    "is_enabled": true,
                     "pattern": "arrow ${name:word}| ${args:text?}|",
+                    "identifier": "",
+                    "output_template": "const ${name} = (|${args}|) => {\n\t#\n};",
                     "supported_languages": [
                         "typescript"
                     ],
                     "name": "bound Arrow Function.ts",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates React bound arrow function statement in Typescript\n\n> arrow setLimit max"
+                },
+                {
+                    "baseID": "02889BA1-1EB3-4638-AE48-839FF57C739E",
+                    "id": "02889BA1-1EB3-4638-AE48-839FF57C739E",
+                    "pattern": "set ${var:text?}",
+                    "identifier": "",
+                    "output_template": "this.setState({ ${var} });",
+                    "supported_languages": [
+                        "js"
+                    ],
+                    "name": "setState short",
+                    "is_enabled": true,
+                    "description": "> set flow"
+                },
+                {
+                    "baseID": "7CDFDBC6-D2E4-4A78-81EC-4A38B4D0ECE9",
+                    "id": "7CDFDBC6-D2E4-4A78-81EC-4A38B4D0ECE9",
+                    "pattern": "cstate ${var:word}",
+                    "identifier": "",
+                    "output_template": "const ${var} = this.state.${var};",
+                    "supported_languages": [
+                        "js"
+                    ],
+                    "name": "const state",
+                    "is_enabled": true,
+                    "description": "> cstate flow"
                 }
             ],
-            "name": "ReactJS",
-            "description": "Commonly used React Expansions.\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n",
             "supported_languages": [
                 "any",
                 "js"
             ],
-            "id": "93ED4279-F4C1-4442-9C12-5A53F5A3D35A",
-            "is_enabled": true
+            "name": "ReactJS",
+            "is_enabled": true,
+            "description": "Commonly used React Expansions.\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n"
         },
         {
+            "baseID": "07A909A8-43DF-4694-BE0C-7A854185EA97",
+            "id": "07A909A8-43DF-4694-BE0C-7A854185EA97",
             "expanders": [
                 {
-                    "output_template": "var ${var.camelcase} = document.getElementById(\"${id}\");\n#",
+                    "baseID": "4BB849BB-2B46-4F70-8971-B20AED473514",
                     "id": "4BB849BB-2B46-4F70-8971-B20AED473514",
-                    "description": "Creates Element id selector statement.\n> byid btns menu-button",
-                    "is_enabled": true,
                     "pattern": "byid ${var:word} ${id:text?}",
+                    "identifier": "byid",
+                    "output_template": "var ${var.camelcase} = document.getElementById(\"${id}\");\n#",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Element Id",
-                    "identifier": "byid"
+                    "is_enabled": true,
+                    "description": "Creates Element id selector statement.\n> byid btns menu-button"
                 },
                 {
-                    "output_template": "var ${var.camelcase} = document.getElementsByClassName(\"${class}\");\n",
+                    "baseID": "95A52662-EB0B-48AE-8AC4-000158D9F12E",
                     "id": "95A52662-EB0B-48AE-8AC4-000158D9F12E",
-                    "description": "Creates default statement for element selection by class name.\n> byclass btns links",
-                    "is_enabled": true,
                     "pattern": "byclass ${var:word} ${class:text?}",
+                    "identifier": "byclass",
+                    "output_template": "var ${var.camelcase} = document.getElementsByClassName(\"${class}\");\n",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Element Class",
-                    "identifier": "byclass"
+                    "is_enabled": true,
+                    "description": "Creates default statement for element selection by class name.\n> byclass btns links"
                 },
                 {
-                    "output_template": "var ${var.camelcase} = document.getElementsByTagName(\"${tag}\");\n#",
+                    "baseID": "CB399EC6-4087-4854-8DA6-6FF09480F38A",
                     "id": "CB399EC6-4087-4854-8DA6-6FF09480F38A",
-                    "description": "Creates default statement for element selection by tag name.\n> bytag btns button",
-                    "is_enabled": true,
                     "pattern": "bytag ${var:word} ${tag:word}",
+                    "identifier": "bytag",
+                    "output_template": "var ${var.camelcase} = document.getElementsByTagName(\"${tag}\");\n#",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Element Tag",
-                    "identifier": "bytag"
+                    "is_enabled": true,
+                    "description": "Creates default statement for element selection by tag name.\n> bytag btns button"
                 },
                 {
-                    "output_template": "${var}.className += ${class};\n#",
+                    "baseID": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8",
                     "id": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8",
-                    "description": "Creates statement to add to a variable's class name.\n> addc l active",
-                    "is_enabled": true,
                     "pattern": "addc ${var:word} ${class:text?}",
+                    "identifier": "addc",
+                    "output_template": "${var}.className += ${class};\n#",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Add Class",
-                    "identifier": "addc"
+                    "is_enabled": true,
+                    "description": "Creates statement to add to a variable's class name.\n> addc l active"
                 },
                 {
-                    "output_template": "Object.keys(${var})\n\t.forEach((key) => {\n\t\t#\n\t});",
+                    "baseID": "AA8C4B31-A779-4066-976C-FD8A6EE031D0",
                     "id": "AA8C4B31-A779-4066-976C-FD8A6EE031D0",
-                    "description": "Creates forEach arrow function on dictionary/html node.\n> forek query",
-                    "is_enabled": true,
                     "pattern": "forek ${var:word}",
+                    "identifier": "forek",
+                    "output_template": "Object.keys(${var})\n\t.forEach((key) => {\n\t\t#\n\t});",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "forEach Key",
-                    "identifier": "forek"
+                    "is_enabled": true,
+                    "description": "Creates forEach arrow function on dictionary/html node.\n> forek query"
                 },
                 {
-                    "output_template": "fetch(\"${url}\")\n\t.then(res => res.json())\n\t.then(result => {\n\t\t#\n\t}, (error) => {\n\t\tconsole.log(error);\n\t});",
+                    "baseID": "84734CF1-6AB0-4BD4-B955-D886704B261C",
                     "id": "84734CF1-6AB0-4BD4-B955-D886704B261C",
-                    "description": "Creates default fetch statement.\n> fetch https://www.api.github.com",
-                    "is_enabled": true,
                     "pattern": "fetch ${url:text?}",
+                    "identifier": "fetch",
+                    "output_template": "fetch(\"${url}\")\n\t.then(res => res.json())\n\t.then(result => {\n\t\t#\n\t}, (error) => {\n\t\tconsole.log(error);\n\t});",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "fetch",
-                    "identifier": "fetch"
+                    "is_enabled": true,
+                    "description": "Creates default fetch statement.\n> fetch https://www.api.github.com"
                 },
                 {
-                    "output_template": "${var}.${type}('${path}', (req, res) => {\n\t#\n}",
+                    "baseID": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4",
                     "id": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4",
-                    "description": "Express.js syntax for calls.\n> ex app get /api/users",
-                    "is_enabled": true,
                     "pattern": "ex ${var:word=app} ${type:enum(get,post,delete)=get} ${path:text?}",
+                    "identifier": "ex",
+                    "output_template": "${var}.${type}('${path}', (req, res) => {\n\t#\n}",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Express",
-                    "identifier": "ex"
+                    "is_enabled": true,
+                    "description": "Express.js syntax for calls.\n> ex app get /api/users"
                 },
                 {
-                    "output_template": "console.log(${txt});\n#",
+                    "baseID": "660C7AF2-A383-4F9D-A04E-8E6090250D4E",
                     "id": "660C7AF2-A383-4F9D-A04E-8E6090250D4E",
-                    "description": "Creates console.log expression.\n> cl chicken.little()",
-                    "is_enabled": true,
                     "pattern": "cl ${txt:text}",
+                    "identifier": "cl",
+                    "output_template": "console.log(${txt});\n#",
                     "supported_languages": [
                         "js"
                     ],
                     "name": "Log",
-                    "identifier": "cl"
+                    "is_enabled": true,
+                    "description": "Creates console.log expression.\n> cl chicken.little()"
+                },
+                {
+                    "baseID": "EDE6A9BB-FD51-433E-AE32-0D6835E2A192",
+                    "id": "EDE6A9BB-FD51-433E-AE32-0D6835E2A192",
+                    "pattern": "-v ${type:enum(const,let)=const} ${var:word}",
+                    "identifier": "",
+                    "output_template": "${type} ${var} = #;",
+                    "supported_languages": [
+                        "js"
+                    ],
+                    "name": "const",
+                    "is_enabled": true,
+                    "description": "> -v const flow\n\n> -v let flow"
                 }
             ],
-            "name": "Vanilla JavaScript",
-            "description": "Common Vanilla JavaScript Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
             "supported_languages": [
                 "any",
                 "js"
             ],
-            "id": "07A909A8-43DF-4694-BE0C-7A854185EA97",
-            "is_enabled": true
+            "name": "Vanilla JavaScript",
+            "is_enabled": true,
+            "description": "Common Vanilla JavaScript Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
         },
         {
+            "baseID": "026E11C1-A218-4083-9817-47F70E501864",
+            "id": "026E11C1-A218-4083-9817-47F70E501864",
             "expanders": [
                 {
-                    "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    -o-background-size: cover;\n    background-size: cover;\n    width: 100%;\n    height: 100%;\n}\n\n#",
+                    "baseID": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
                     "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
-                    "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg",
-                    "is_enabled": true,
                     "pattern": "fullbg ${src:text?}",
+                    "identifier": "fullbg",
+                    "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    width: 100%;\n    height: 100%;\n}\n\n#",
                     "supported_languages": [
                         "css"
                     ],
                     "name": "Full Screen Background",
-                    "identifier": "fullbg"
+                    "is_enabled": true,
+                    "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg"
                 },
                 {
-                    "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
+                    "baseID": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
                     "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
-                    "description": "Creates media query.\n> mq 768",
-                    "is_enabled": true,
                     "pattern": "mq ${size:number}",
+                    "identifier": "mq",
+                    "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
                     "supported_languages": [
                         "css"
                     ],
                     "name": "Media Query",
-                    "identifier": "mq"
+                    "is_enabled": true,
+                    "description": "Creates media query.\n> mq 768"
                 }
             ],
-            "name": "CSS",
-            "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
             "supported_languages": [
                 "any",
                 "css"
             ],
-            "id": "026E11C1-A218-4083-9817-47F70E501864",
-            "is_enabled": true
+            "name": "CSS",
+            "is_enabled": true,
+            "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
         },
         {
+            "baseID": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
+            "id": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
             "expanders": [
                 {
-                    "output_template": "fn ${name.snakecase}(|${args}|) {\n\t#\n}",
+                    "baseID": "A88CD49F-D947-4932-9236-C244959ACA6A",
                     "id": "A88CD49F-D947-4932-9236-C244959ACA6A",
-                    "description": "Creates Rust default function template.\n> -f main\n> -f divide divisor: i32, dividend: i32",
-                    "is_enabled": true,
-                    "pattern": "-f ${name:word}| ${args:text?}|",
+                    "pattern": "fn ${name:word}| ${args:text?}|",
+                    "identifier": "rfn",
+                    "output_template": "fn ${name.snakecase}(|${args}|) {\n\t#\n}",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "Fn",
-                    "identifier": "rfn"
+                    "is_enabled": true,
+                    "description": "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32"
                 },
                 {
-                    "output_template": "impl ${name.capitalize} {\n\t#\n}",
+                    "baseID": "F86B44C5-855F-408F-BC0A-890FA2AB4F27",
                     "id": "F86B44C5-855F-408F-BC0A-890FA2AB4F27",
-                    "description": "Default statement for extending a struct.\n> -i rectangle",
-                    "is_enabled": true,
-                    "pattern": "-i ${name:word}",
+                    "pattern": "impl ${name:word}",
+                    "identifier": "rimpl",
+                    "output_template": "impl ${name.capitalize} {\n\t#\n}",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "Impl",
-                    "identifier": "rimpl"
+                    "is_enabled": true,
+                    "description": "Default statement for extending a struct.\n> impl rectangle"
                 },
                 {
-                    "output_template": "suct ${name.capitalize}|<${type}>| {\n\t#\n}",
+                    "baseID": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E",
                     "id": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E",
-                    "description": "> -s Rectangle\n\n> -s Room String",
-                    "is_enabled": true,
-                    "pattern": "-s ${name:word}| ${type:text?}|",
+                    "pattern": "struct ${name:word}| ${type:text?}|",
+                    "identifier": "rstruct",
+                    "output_template": "struct ${name.capitalize}|<${type}>| {\n\t#\n}",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "Struct",
-                    "identifier": "rstruct"
+                    "is_enabled": true,
+                    "description": "> struct Rectangle\n\n> struct Room String"
                 },
                 {
-                    "output_template": "enum ${Name.capitalize} {\n\t#\n}",
+                    "baseID": "DAA6F157-386D-4E39-86DC-0350B6A80E0D",
                     "id": "DAA6F157-386D-4E39-86DC-0350B6A80E0D",
-                    "description": "> -e Coins",
-                    "is_enabled": true,
-                    "pattern": "-e ${Name:word}",
+                    "pattern": "enum ${Name:word}| ${params:text?}|",
+                    "identifier": "renum",
+                    "output_template": "enum ${Name.capitalize} {\n\t|${python(\"string = \\\"${params}\\\".split(\\\",\\\")\nstring = ',\\n'.join(string)\nprint string\", autoIndent: true, enableSandbox: true)}|\n\t#\n}",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "Enum",
-                    "identifier": "renum"
+                    "is_enabled": true,
+                    "description": "> enum Coins\n\n> enum Coins Penny,Nickel,Quarter,Dime"
                 },
                 {
-                    "output_template": "let |${mut}| ${name.camelcase}|: ${type}| = ${value};",
+                    "baseID": "0BD29A62-AFF4-4359-A7E3-FD363121720A",
                     "id": "0BD29A62-AFF4-4359-A7E3-FD363121720A",
-                    "description": "> -v integer 36\n\n> -v integer 36 usize m",
-                    "is_enabled": true,
-                    "pattern": "-v ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|",
+                    "pattern": "var ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|",
+                    "identifier": "rvar",
+                    "output_template": "let |${mut}| ${name.camelcase}|: ${type}| = ${value};",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "Variables",
-                    "identifier": "rvar"
+                    "is_enabled": true,
+                    "description": "> var integer 36\n\n> var integer 36 usize m"
                 },
                 {
-                    "output_template": "${var} as ${type}#",
+                    "baseID": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97",
                     "id": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97",
-                    "description": "> conv integer f32",
-                    "is_enabled": true,
                     "pattern": "conv ${var:word} ${type:word}",
+                    "identifier": "rconv",
+                    "output_template": "${var} as ${type}#",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "Type Conversion",
-                    "identifier": "rconv"
+                    "is_enabled": true,
+                    "description": "> conv integer f32"
                 },
                 {
-                    "output_template": "fn main() {\n\t#\n}",
+                    "baseID": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A",
                     "id": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A",
-                    "description": "> main",
-                    "is_enabled": true,
                     "pattern": "main",
+                    "identifier": "rmain",
+                    "output_template": "fn main() {\n\t#\n}",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "main",
-                    "identifier": "rmain"
+                    "is_enabled": true,
+                    "description": "> main"
                 },
                 {
-                    "output_template": "match ${var} {\n\t|${swift(\"let output = \\\"${options}\\\"\n\t.split(separator: \\\",\\\")\n\t.map { \\\"    \\($0) => ,\\\"  }\n\t.joined(separator: \\\"\\n\\\")\nprint(output)\")}|\n}",
+                    "baseID": "E9CA8616-8829-4F97-B74B-DE0C4DB69085",
                     "id": "E9CA8616-8829-4F97-B74B-DE0C4DB69085",
-                    "description": "> match number\n\n> match number 3,7,22",
-                    "is_enabled": true,
                     "pattern": "match ${var:word}| ${options:text?}|",
+                    "identifier": "rmatch",
+                    "output_template": "match ${var} {\n\t|${python(\"string = \\\"${options}\\\".split(\\\",\\\")\nfor i in range(0, len(string)):\n  string[i] = \\\"\\t\\\"+ string[i] +\\\"=> ,\\\"\nprint('\\n'.join(string))\", autoIndent: true, enableSandbox: true)}|\n}",
                     "supported_languages": [
                         "rust"
                     ],
                     "name": "Match",
-                    "identifier": "rmatch"
+                    "is_enabled": true,
+                    "description": "> match number\n\n> match number 3,7,22"
                 }
             ],
-            "name": "Rust",
-            "description": "Common Rust Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n\n",
             "supported_languages": [
                 "any",
                 "rust"
             ],
-            "id": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
-            "is_enabled": true
+            "name": "Rust",
+            "is_enabled": true,
+            "description": "Common Rust Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n\n"
         },
         {
+            "baseID": "95B67DCB-F254-4537-83BF-913679BF617A",
+            "id": "95B67DCB-F254-4537-83BF-913679BF617A",
             "expanders": [
                 {
-                    "output_template": "${script(\"uuidgen\")}",
-                    "id": "65B938EC-2810-4060-9A72-7F9151473F8E",
-                    "description": "> uuid",
+                    "baseID": "22CDAE78-49FD-4695-A71A-85A3E019D793",
+                    "id": "22CDAE78-49FD-4695-A71A-85A3E019D793",
+                    "pattern": "#${header:text?=stdio.h} ${type:enum(s,u)}",
+                    "identifier": "c.include",
+                    "output_template": "${python(\"if \\\"${type}\\\" is \\\"u\\\":\n\tprint('\\#include \\\"${header}\\\"')\nelif \\\"${header}\\\" is \\\"\\\":\n\tprint('\\#include <stdio.h>') \nelse:\n\tprint('\\#include <${header}>') \")}\n#",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "Include",
                     "is_enabled": true,
-                    "pattern": "uuid",
-                    "supported_languages": [],
-                    "name": "UUID",
-                    "identifier": ""
+                    "description": "> # s\n\n> #math.h s\n\n> #foo.h u"
                 },
                 {
-                    "output_template": "//\n//  ${file}\n//\n//  Created by ${script(\"id -F\")} on ${datetime(\"dd/MM/yyyy\")}.\n//  Copyright \u00a9 ${datetime(\"yyyy\")} ${@name}. All rights reserved.\n//",
-                    "id": "43A6710C-79A1-4A43-829D-42A91D924E4E",
-                    "description": "Header available within any editor\n\n> head test.swift",
+                    "baseID": "3E54F6A8-5341-4537-93A4-B145AE7F8D80",
+                    "id": "3E54F6A8-5341-4537-93A4-B145AE7F8D80",
+                    "pattern": "main",
+                    "identifier": "c.main",
+                    "output_template": "int main(int argv, char *argv[]) {\n\t#\n\treturn 0;\n}",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "main",
                     "is_enabled": true,
+                    "description": "> main"
+                },
+                {
+                    "baseID": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078",
+                    "id": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078",
+                    "pattern": "td ${type:word} ${value:text?}",
+                    "identifier": "c.typedef",
+                    "output_template": "typedef ${type} ${value};\n#",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "typedef",
+                    "is_enabled": true,
+                    "description": "> td struct fraction Fraction"
+                },
+                {
+                    "baseID": "0DF85C30-585C-4821-8DC0-DCA468189EDE",
+                    "id": "0DF85C30-585C-4821-8DC0-DCA468189EDE",
+                    "pattern": "-d ${name:word} ${value:text?}",
+                    "identifier": "c.define",
+                    "output_template": "\\#define ${name.uppercase} ${value}\n#",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "define",
+                    "is_enabled": true,
+                    "description": "> -d BOOL char"
+                },
+                {
+                    "baseID": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9",
+                    "id": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9",
+                    "pattern": "w ${logic:text?}",
+                    "identifier": "c.while",
+                    "output_template": "while (${logic}) {\n\t#\n}",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "while",
+                    "is_enabled": true,
+                    "description": "> w i - 10"
+                },
+                {
+                    "baseID": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60",
+                    "id": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60",
+                    "pattern": "switch ${expression:text?}",
+                    "identifier": "c.switch",
+                    "output_template": "switch (${expression}) {\n\tcase #:\n\t\t\n\t\tbreak;\n\tdefault:\n\t\t\n\t\tbreak;\n}\n",
+                    "supported_languages": [
+                        "c",
+                        "java",
+                        "js"
+                    ],
+                    "name": "switch",
+                    "is_enabled": true,
+                    "description": "> switch stringtype"
+                },
+                {
+                    "baseID": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6",
+                    "id": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6",
+                    "pattern": "struct ${name:word}",
+                    "identifier": "",
+                    "output_template": "typedef struct ${name.capitalize} {\n\t#\n} ${name.capitalize};",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "Struct",
+                    "is_enabled": true,
+                    "description": "> struct Store"
+                },
+                {
+                    "baseID": "5B8B675A-861F-414A-8415-6541794CA318",
+                    "id": "5B8B675A-861F-414A-8415-6541794CA318",
+                    "pattern": "len ${string:word}",
+                    "identifier": "c.strlen",
+                    "output_template": "strlen(${string})",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "String copy",
+                    "is_enabled": true,
+                    "description": "Example string length call\n\n> len usrInput"
+                },
+                {
+                    "baseID": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC",
+                    "id": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC",
+                    "pattern": "fn ${scope:exp(c.scope)} ${type:word} ${name:word} ${params:text?}",
+                    "identifier": "c.fn",
+                    "output_template": "${python(\"if \\\"${scope}\\\" is \\\"prototype\\\":\n\tprint(\\\"${type} ${name.camelcase}(${params});\\\")\n\tif \\\"${type}\\\" is \\\"void\\\":\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n\\treturn ;\\n}\\\")\nelse:\n\tprint(\\\"static ${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\", autoIndent: true, enableSandbox: true)}",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "function",
+                    "is_enabled": true,
+                    "description": "> fn + int power int base, int n\n\n> fn - int double int number"
+                },
+                {
+                    "baseID": "2303EA95-6AED-4CA2-88EA-B665B2CFF188",
+                    "id": "2303EA95-6AED-4CA2-88EA-B665B2CFF188",
+                    "pattern": "${scope:switch(+:prototype,-:static)}",
+                    "identifier": "c.scope",
+                    "output_template": "${scope}",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "Scope",
+                    "is_enabled": true,
+                    "description": ""
+                },
+                {
+                    "baseID": "D144BA08-20BD-4B57-889C-839814475B7A",
+                    "id": "D144BA08-20BD-4B57-889C-839814475B7A",
+                    "pattern": "assert ${condition:text?}",
+                    "identifier": "c.assert",
+                    "output_template": "assert(${condition});\n#",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "assert",
+                    "is_enabled": true,
+                    "description": "**NOTE: must include #include <assert.h>**\n> assert i > MAX_INTS"
+                },
+                {
+                    "baseID": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C",
+                    "id": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C",
+                    "pattern": "print ${value:text?}| ${fillins:text?}|",
+                    "identifier": "c.print",
+                    "output_template": "printf(${value}|, ${fillins}|);\n#",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "print",
+                    "is_enabled": true,
+                    "description": "> print \"x is greater than %d\", 35"
+                },
+                {
+                    "baseID": "F053293B-C6A9-4CB6-AF13-3978FC613C2E",
+                    "id": "F053293B-C6A9-4CB6-AF13-3978FC613C2E",
+                    "pattern": "${s1:text?} == ${s2:text?}",
+                    "identifier": "c.seq",
+                    "output_template": "strcmp(${s1},${s2})",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "String equality",
+                    "is_enabled": true,
+                    "description": "> usrInput == \"Charlie Day\""
+                },
+                {
+                    "baseID": "4211E813-7253-4091-A862-927A36B38704",
+                    "id": "4211E813-7253-4091-A862-927A36B38704",
+                    "pattern": "${s1:text?}.contains(${s2:text?})",
+                    "identifier": "c.scontain",
+                    "output_template": "strstr(${s1},${s2})",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "string contains",
+                    "is_enabled": true,
+                    "description": "> \"Hello World\".contains(\"orld\")"
+                },
+                {
+                    "baseID": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4",
+                    "id": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4",
+                    "pattern": "size ${var:word} ${type:word}",
+                    "identifier": "c.size",
+                    "output_template": "(sizeof(${var}) / sizeof(${type}))",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "array size",
+                    "is_enabled": true,
+                    "description": "> size int_array int"
+                },
+                {
+                    "baseID": "3B44B83F-AAAC-4E47-BF57-9C5B683E211B",
+                    "id": "3B44B83F-AAAC-4E47-BF57-9C5B683E211B",
+                    "pattern": "-v ${type:word} ${point:enum(p,n)=n} ${name:word} ${value:text?=NULL}",
+                    "identifier": "c.var",
+                    "output_template": "${python(\"if \\\"${point}\\\" is \\\"p\\\":\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type}* ${name.camelcase} = NULL;\\\")\n\telse:\n\t\tprint(\\\"${type}* ${name.camelcase} = ${value};\\\")\nelse:\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type} ${name.camelcase} = #;\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase} = ${value};\\\")\")}",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "var",
+                    "is_enabled": true,
+                    "description": "> -v int p x 5\n\n> -v int n x 5\n\n> -v int p x  \n\n> -v int n x  "
+                },
+                {
+                    "baseID": "23B0AE35-CACA-4F28-A887-AEE978A7ACF8",
+                    "id": "23B0AE35-CACA-4F28-A887-AEE978A7ACF8",
+                    "pattern": "arr ${type:word} ${name:word} ${size:number}| ${values:text?}|",
+                    "identifier": "",
+                    "output_template": "${type} ${name.camelcase}[${size}]| = {${values}}|;\n#",
+                    "supported_languages": [
+                        "c"
+                    ],
+                    "name": "array",
+                    "is_enabled": true,
+                    "description": "> arr int x 6\n\n> arr int x 6 1,2,3,4,5"
+                }
+            ],
+            "supported_languages": [
+                "c"
+            ],
+            "name": "C",
+            "is_enabled": true,
+            "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
+        },
+        {
+            "baseID": "3C190DCB-1775-4772-9D52-0E0DC3D99570",
+            "id": "3C190DCB-1775-4772-9D52-0E0DC3D99570",
+            "expanders": [
+                {
+                    "baseID": "65B938EC-2810-4060-9A72-7F9151473F8E",
+                    "id": "65B938EC-2810-4060-9A72-7F9151473F8E",
+                    "pattern": "uuid",
+                    "identifier": "",
+                    "output_template": "${script(\"uuidgen\")}",
+                    "supported_languages": [],
+                    "name": "UUID",
+                    "is_enabled": true,
+                    "description": "> uuid"
+                },
+                {
+                    "baseID": "43A6710C-79A1-4A43-829D-42A91D924E4E",
+                    "id": "43A6710C-79A1-4A43-829D-42A91D924E4E",
                     "pattern": "head ${file:text}",
+                    "identifier": "",
+                    "output_template": "//\n//  ${file}\n//\n//  Created by ${script(\"id -F\")} on ${datetime(\"dd/MM/yyyy\")}.\n//  Copyright \u00a9 ${datetime(\"yyyy\")} ${@name}. All rights reserved.\n//",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Header",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Header available within any editor\n\n> head test.swift"
                 },
                 {
-                    "output_template": "// [${datetime()}] ${comment}",
+                    "baseID": "28720420-A405-4C32-9AA7-CBDE0E41E1EA",
                     "id": "28720420-A405-4C32-9AA7-CBDE0E41E1EA",
-                    "description": "> dc Sample comment",
-                    "is_enabled": true,
                     "pattern": "dc ${comment:text}",
+                    "identifier": "",
+                    "output_template": "// [${datetime()}] ${comment}",
                     "supported_languages": [],
                     "name": "Comment with date",
-                    "identifier": ""
-                },
-                {
-                    "output_template": "${script(\"ls ${path}\")}",
-                    "id": "EBE1CE27-A3F9-49C1-8EBA-E462ED6FD0ED",
-                    "description": "",
                     "is_enabled": true,
-                    "pattern": "ls ${path:text}",
-                    "supported_languages": [],
-                    "name": "File list",
-                    "identifier": ""
+                    "description": "> dc Sample comment"
                 },
                 {
-                    "output_template": "${script(\"curl ipecho.net/plain ; echo\")}",
+                    "baseID": "993DCC58-1907-4CA6-A15A-14472095BBE9",
                     "id": "993DCC58-1907-4CA6-A15A-14472095BBE9",
-                    "description": "> ip",
-                    "is_enabled": true,
                     "pattern": "ip",
+                    "identifier": "",
+                    "output_template": "${script(\"curl ipecho.net/plain ; echo\")}",
                     "supported_languages": [],
                     "name": "IP",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> ip"
                 },
                 {
-                    "output_template": "enum ${name} {\n\t${swift(\"let output = \\\"${cases}\\\"\n\t.split(separator: \\\",\\\")\n\t.map { \\\"    case \\($0)\\\"  }\n\t.joined(separator: \\\"\\n\\\")\nprint(output)\")}\n}",
+                    "baseID": "AE5559CE-00BF-4FE8-8565-A0B6FE05BB7B",
                     "id": "AE5559CE-00BF-4FE8-8565-A0B6FE05BB7B",
-                    "description": "> en hello aa,bb,cc",
-                    "is_enabled": true,
                     "pattern": "en ${name:word} ${cases:text}",
+                    "identifier": "",
+                    "output_template": "enum ${name} {\n\t${swift(\"let output = \\\"${cases}\\\"\n\t.split(separator: \\\",\\\")\n\t.map { \\\"    case \\($0)\\\"  }\n\t.joined(separator: \\\"\\n\\\")\nprint(output)\", autoIndent: true, enableSandbox: false)}\n}",
                     "supported_languages": [],
                     "name": "Switch case",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> en hello aa,bb,cc"
                 },
                 {
-                    "output_template": "${python(\"for i in range(${start}, ${end}+1):\n\tprint \\\"${txt}\\\".format(i)\")}",
+                    "baseID": "C68BA827-A8D8-4C5D-901A-61B10838C8C5",
                     "id": "C68BA827-A8D8-4C5D-901A-61B10838C8C5",
-                    "description": "> rp 1 7 you are on card {} of 27",
-                    "is_enabled": true,
                     "pattern": "rp ${start:word} ${end:number} ${txt:text?}",
+                    "identifier": "",
+                    "output_template": "${python(\"for i in range(${start}, ${end}+1):\n\tprint \\\"${txt}\\\".format(i)\")}",
                     "supported_languages": [],
                     "name": "Repeater",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> rp 1 7 you are on card {} of 27"
                 }
             ],
-            "name": "Scripts and Global Variables",
-            "description": "",
             "supported_languages": [],
-            "id": "3C190DCB-1775-4772-9D52-0E0DC3D99570",
-            "is_enabled": true
+            "name": "Scripts and Global Variables",
+            "is_enabled": true,
+            "description": ""
         },
         {
+            "baseID": "FECC8C86-B52A-4C65-A65D-BF6EE2CF0E80",
+            "id": "FECC8C86-B52A-4C65-A65D-BF6EE2CF0E80",
             "expanders": [
                 {
-                    "output_template": "|${scope}|var ${name.lcfirst}: ${type.ucfirst}| = ${value}|",
+                    "baseID": "AD5D97D5-7D50-4117-A653-2A8A80D40B39",
                     "id": "AD5D97D5-7D50-4117-A653-2A8A80D40B39",
-                    "description": "> -v name: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|v ${name:word}: ${type:identifier}| = ${value:text}|",
+                    "identifier": "",
+                    "output_template": "|${scope}|var ${name.lcfirst}: ${type.ucfirst}| = ${value}|",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Variable",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> -v name: String"
                 },
                 {
-                    "output_template": "|${scope}|let ${name}|: ${type}|| = ${value}|",
+                    "baseID": "6784BEAB-06D6-4127-BBEB-8B8C32D52146",
                     "id": "6784BEAB-06D6-4127-BBEB-8B8C32D52146",
-                    "description": "> -l name = \"Joe Doe\"\n> -l name: String = \"Joe Doe\"",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|l ${name:word}|: ${type:word}| = ${value:text}",
+                    "identifier": "",
+                    "output_template": "|${scope}|let ${name}|: ${type}|| = ${value}|",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Let",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> -l name = \"Joe Doe\"\n> -l name: String = \"Joe Doe\""
                 },
                 {
-                    "output_template": "|${scope}|func ${name}(|${params}|)| -> ${return}| {\n\t#\n}",
+                    "baseID": "7CAF5BA9-5D77-4BC0-966D-0BC03F36D31F",
                     "id": "7CAF5BA9-5D77-4BC0-966D-0BC03F36D31F",
-                    "description": "> -f run\n> -f run(hello: String, world: String) -> Bool",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|f ${name:word}|(${params:text})|| -> ${return:text}|",
+                    "identifier": "",
+                    "output_template": "|${scope}|func ${name}(|${params}|)| -> ${return}| {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Function",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> -f run\n> -f run(hello: String, world: String) -> Bool"
                 },
                 {
-                    "output_template": "|${scope}|class ${name.ucfirst}|: ${superclass}| {\n\t#\n}",
+                    "baseID": "928E7B0E-B4D5-47BB-B9F4-17B2AF9DC404",
                     "id": "928E7B0E-B4D5-47BB-B9F4-17B2AF9DC404",
-                    "description": "> +c MainViewController\n> +c MainViewController: NSViewController",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|c ${name:word}|: ${superclass:text}|",
+                    "identifier": "",
+                    "output_template": "|${scope}|class ${name.ucfirst}|: ${superclass}| {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Class",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> +c MainViewController\n> +c MainViewController: NSViewController"
                 },
                 {
-                    "output_template": "guard ${condition} else {\n\treturn\n}\n#",
+                    "baseID": "17CCE5DF-7338-411E-ACF4-CEEEB52001B8",
                     "id": "17CCE5DF-7338-411E-ACF4-CEEEB52001B8",
-                    "description": "> g value == true",
-                    "is_enabled": true,
                     "pattern": "g ${condition:text}",
+                    "identifier": "",
+                    "output_template": "guard ${condition} else {\n\treturn\n}\n#",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "guard",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> g value == true"
                 },
                 {
-                    "output_template": "guard let ${var} = ${var} else {\n\treturn\n}\n#",
+                    "baseID": "C8037096-F059-415D-9FBE-42FE445C1B59",
                     "id": "C8037096-F059-415D-9FBE-42FE445C1B59",
-                    "description": "Simplifies typing the `guard let \u2013 else` expression for one variable. \n> gl variable",
-                    "is_enabled": true,
                     "pattern": "gl ${var:word}",
+                    "identifier": "",
+                    "output_template": "guard let ${var} = ${var} else {\n\treturn\n}\n#",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "guard let",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Simplifies typing the `guard let \u2013 else` expression for one variable. \n> gl variable"
                 },
                 {
-                    "output_template": "if let ${var} = ${var} {\n\t#\n}",
+                    "baseID": "01555B1D-BDBE-49DD-94A5-B5083002BD7D",
                     "id": "01555B1D-BDBE-49DD-94A5-B5083002BD7D",
-                    "description": "> il name",
-                    "is_enabled": true,
                     "pattern": "il ${var:word}",
+                    "identifier": "",
+                    "output_template": "if let ${var} = ${var} {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "if let",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> il name"
                 },
                 {
-                    "output_template": "do {\n\ttry ${operation}\n} catch {\n\t#\n}",
+                    "baseID": "1BC41E6B-3C2D-470D-93F6-F9D8386ACA25",
                     "id": "1BC41E6B-3C2D-470D-93F6-F9D8386ACA25",
-                    "description": "> try run()",
-                    "is_enabled": true,
                     "pattern": "try ${operation:text}",
+                    "identifier": "",
+                    "output_template": "do {\n\ttry ${operation}\n} catch {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "do-try-catch",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> try run()"
                 },
                 {
-                    "output_template": "|${scope}|var ${name}: ${type} {\n\tget {\n\t\t#\n\t}\n\tset {\n\t\t\n\t}\n}",
+                    "baseID": "BFE72269-3133-4248-9EA5-D5807F7AC499",
                     "id": "BFE72269-3133-4248-9EA5-D5807F7AC499",
-                    "description": "> +gs name: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|gs ${name:word}: ${type:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|var ${name}: ${type} {\n\tget {\n\t\t#\n\t}\n\tset {\n\t\t\n\t}\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Variable with get and set",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> +gs name: String"
                 },
                 {
-                    "output_template": "|${scope}|var ${name.lcfirst}: ${type.ucfirst} {\n\treturn #\n}",
+                    "baseID": "2DF5F004-1B1F-41D5-B7A4-1E3F13B8277F",
                     "id": "2DF5F004-1B1F-41D5-B7A4-1E3F13B8277F",
-                    "description": "Generates a variable with getter.\n\n> +getName: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|get${name:word}: ${type:identifier}",
+                    "identifier": "",
+                    "output_template": "|${scope}|var ${name.lcfirst}: ${type.ucfirst} {\n\treturn #\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Getter",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Generates a variable with getter.\n\n> +getName: String"
                 },
                 {
-                    "output_template": "|${scope}|var ${prefix}${name}: Bool {\n    return #\n}",
+                    "baseID": "78C068FC-1E4B-4BA8-9077-EA2AF6FD8405",
                     "id": "78C068FC-1E4B-4BA8-9077-EA2AF6FD8405",
-                    "description": "> isValid\n> didLoad",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|${prefix:enum(is,did,has,should)}${name:identifier}",
+                    "identifier": "",
+                    "output_template": "|${scope}|var ${prefix}${name}: Bool {\n    return #\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Boolean Getter: is / did / has / should",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> isValid\n> didLoad"
                 },
                 {
-                    "output_template": "var ${name}: ${type} { get${setter} }",
+                    "baseID": "960AE775-73C1-4443-9352-1C62BC983F14",
                     "id": "960AE775-73C1-4443-9352-1C62BC983F14",
-                    "description": "> pg name: String\n> pgs name: String",
-                    "is_enabled": true,
                     "pattern": "pg${setter:switch(s: set,*:)} ${name:word}: ${type:identifier}",
+                    "identifier": "",
+                    "output_template": "var ${name}: ${type} { get${setter} }",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Protocol Var Getter / Setter",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> pg name: String\n> pgs name: String"
                 },
                 {
-                    "output_template": "|${scope}|static func ${operator}(lhs: ${type}, rhs: ${type}) -> Bool {\n\treturn #\n}",
+                    "baseID": "BA0A90D7-33BD-4D6B-A52A-FDA90849AEC6",
                     "id": "BA0A90D7-33BD-4D6B-A52A-FDA90849AEC6",
-                    "description": "> +o ==: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|o ${operator:text}: ${type:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|static func ${operator}(lhs: ${type}, rhs: ${type}) -> Bool {\n\treturn #\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Operator",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> +o ==: String"
                 },
                 {
-                    "output_template": "|${scope}|lazy var ${name}: ${type.ucfirst} = {\n    #\n}()",
+                    "baseID": "3C1838CE-AD55-412B-A7DE-BB77EE589CBF",
                     "id": "3C1838CE-AD55-412B-A7DE-BB77EE589CBF",
-                    "description": "Creates a lazy variable.\n> lv variableName: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|lv ${name:word}: ${type:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|lazy var ${name}: ${type.ucfirst} = {\n    #\n}()",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Lazy var with block",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a lazy variable.\n> lv variableName: String"
                 },
                 {
-                    "output_template": "|${scope}|lazy var ${name}: ${type.ucfirst} = {\n    let ${name} = ${type.ucfirst}()\n    ${name}.#\n    return ${name}\n}()",
+                    "baseID": "2431E7A7-3FBC-439B-965F-118CC33624B3",
                     "id": "2431E7A7-3FBC-439B-965F-118CC33624B3",
-                    "description": "Creates a lazy variable with a simple (non parameter) constructor.\n> lvc hello: MyClass",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|lvc ${name:word}: ${type:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|lazy var ${name}: ${type.ucfirst} = {\n    let ${name} = ${type.ucfirst}()\n    ${name}.#\n    return ${name}\n}()",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Lazy var with constructor",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a lazy variable with a simple (non parameter) constructor.\n> lvc hello: MyClass"
                 },
                 {
-                    "output_template": "// ${type} ${comment}",
+                    "baseID": "719312D1-BFB6-4FA4-8692-3EE10D17AB64",
                     "id": "719312D1-BFB6-4FA4-8692-3EE10D17AB64",
-                    "description": "Creates special comments: `MARK`, `TODO`, `FIXME`, `!`, `?`\n\n> td Implement\n> m View Lifecycle",
-                    "is_enabled": true,
                     "pattern": "${type:switch(m:MARK\\: -,td:TODO\\:,fm:FIXME\\:,!:!!!\\:,?:???\\:)} ${comment:text}",
+                    "identifier": "",
+                    "output_template": "// ${type} ${comment}",
                     "supported_languages": [],
                     "name": "Special Comment",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates special comments: `MARK`, `TODO`, `FIXME`, `!`, `?`\n\n> td Implement\n> m View Lifecycle"
                 },
                 {
-                    "output_template": "import ${name}",
+                    "baseID": "B08437A8-F6C9-46F0-ABE1-7B3911C43BDF",
                     "id": "B08437A8-F6C9-46F0-ABE1-7B3911C43BDF",
-                    "description": "Imports a module with the given name.\n> @UIKit",
-                    "is_enabled": true,
                     "pattern": "@${name:text}",
+                    "identifier": "",
+                    "output_template": "import ${name}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Import",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Imports a module with the given name.\n> @UIKit"
                 },
                 {
-                    "output_template": "${scope} ",
+                    "baseID": "AE3F467C-8C38-4D29-B765-18CF17B4F004",
                     "id": "AE3F467C-8C38-4D29-B765-18CF17B4F004",
-                    "description": "Swift scope. Used by other expanders.",
-                    "is_enabled": true,
                     "pattern": "${scope:switch(+:public,-:private,f:fileprivate,o:open)}",
+                    "identifier": "scope",
+                    "output_template": "${scope} ",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Scope",
-                    "identifier": "scope"
+                    "is_enabled": true,
+                    "description": "Swift scope. Used by other expanders."
                 },
                 {
-                    "output_template": "|${scope}|protocol ${name.ucfirst} {\n\t#\n}",
+                    "baseID": "12F23041-1D39-4B49-91EC-5E1F1E3498D3",
                     "id": "12F23041-1D39-4B49-91EC-5E1F1E3498D3",
-                    "description": "> +p MyProtocol",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|p ${name:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|protocol ${name.ucfirst} {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Protocol",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> +p MyProtocol"
                 },
                 {
-                    "output_template": "|${scope}|struct ${name.ucfirst}|: ${inheritence}| {\n\t#\n}",
+                    "baseID": "50A4113F-0E75-47BD-9E03-86A5A3196879",
                     "id": "50A4113F-0E75-47BD-9E03-86A5A3196879",
-                    "description": "",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|s ${name:word}|: ${inheritence:text}|",
+                    "identifier": "",
+                    "output_template": "|${scope}|struct ${name.ucfirst}|: ${inheritence}| {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Struct",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": ""
                 },
                 {
-                    "output_template": "if ${condition} {\n\t#\n}",
+                    "baseID": "86894956-611B-42AF-BD01-577A5DE838E2",
                     "id": "86894956-611B-42AF-BD01-577A5DE838E2",
-                    "description": "Generates simple `if` statement.\n\n> if condition",
-                    "is_enabled": true,
                     "pattern": "if ${condition:text}",
+                    "identifier": "",
+                    "output_template": "if ${condition} {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "if",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Generates simple `if` statement.\n\n> if condition"
                 },
                 {
-                    "output_template": "|${scope}|extension ${name.ucfirst} {\n\t#\n}",
+                    "baseID": "B7F24930-169D-4555-8450-6A39D72557FE",
                     "id": "B7F24930-169D-4555-8450-6A39D72557FE",
-                    "description": "",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|ex ${name:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|extension ${name.ucfirst} {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Extension",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": ""
                 },
                 {
-                    "output_template": "|${scope}|enum ${name.ucfirst} {\n\tcase #\n}",
+                    "baseID": "ABCF7D1C-EE56-42EC-8250-63D76E0149F0",
                     "id": "ABCF7D1C-EE56-42EC-8250-63D76E0149F0",
-                    "description": "",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|en ${name:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|enum ${name.ucfirst} {\n\tcase #\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Enum",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": ""
                 },
                 {
-                    "output_template": "defer {\n\t#\n}",
+                    "baseID": "47ED1FFA-ABCA-4929-8FF6-C1CDC92C4452",
                     "id": "47ED1FFA-ABCA-4929-8FF6-C1CDC92C4452",
-                    "description": "",
-                    "is_enabled": true,
                     "pattern": "def",
+                    "identifier": "",
+                    "output_template": "defer {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "defer",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": ""
                 },
                 {
-                    "output_template": "switch ${expression} {\ncase #\n}",
+                    "baseID": "38035EF5-D851-407E-A4C5-DB26A39EAB39",
                     "id": "38035EF5-D851-407E-A4C5-DB26A39EAB39",
-                    "description": "",
-                    "is_enabled": true,
                     "pattern": "sw ${expression:text}",
+                    "identifier": "",
+                    "output_template": "switch ${expression} {\ncase #\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Switch",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": ""
                 }
             ],
-            "name": "Swift Basic",
-            "description": "Basic Swift language expanders\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any",
                 "swift"
             ],
-            "id": "FECC8C86-B52A-4C65-A65D-BF6EE2CF0E80",
-            "is_enabled": true
+            "name": "Swift Basic",
+            "is_enabled": true,
+            "description": "Basic Swift language expanders\n\nMade by [twitter] @Apptorium"
         },
         {
+            "baseID": "FF90FB85-B09B-43F9-8AA5-18252F518315",
+            "id": "FF90FB85-B09B-43F9-8AA5-18252F518315",
             "expanders": [
                 {
-                    "output_template": "self.${var} = ${var}",
+                    "baseID": "791764DA-7FD4-49A7-96F9-C4BFE1CB231F",
                     "id": "791764DA-7FD4-49A7-96F9-C4BFE1CB231F",
-                    "description": "Simplifies setting the prperty values as a parameter value.\n> set name",
-                    "is_enabled": true,
                     "pattern": "set ${var:word}",
+                    "identifier": "",
+                    "output_template": "self.${var} = ${var}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Set",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Simplifies setting the prperty values as a parameter value.\n> set name"
                 },
                 {
-                    "output_template": "let ${name.lcfirst} = ${name.ucfirst}()",
+                    "baseID": "20170C4A-6D10-4009-ACA9-069F22A63176",
                     "id": "20170C4A-6D10-4009-ACA9-069F22A63176",
-                    "description": "Creates a class instance (with empty constructor).\n> inst someViewController",
-                    "is_enabled": true,
                     "pattern": "inst ${name:word}",
+                    "identifier": "",
+                    "output_template": "let ${name.lcfirst} = ${name.ucfirst}()",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "New class instance",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a class instance (with empty constructor).\n> inst someViewController"
                 },
                 {
-                    "output_template": "${objectName}.delegate = self",
+                    "baseID": "C1C27AB4-A80E-49A1-8134-8F6BD18F47EF",
                     "id": "C1C27AB4-A80E-49A1-8134-8F6BD18F47EF",
-                    "description": "Sets self as a delegate of the given object name\n\n> sdel tableView",
-                    "is_enabled": true,
                     "pattern": "sdel ${objectName:identifier}",
+                    "identifier": "",
+                    "output_template": "${objectName}.delegate = self",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Set self as delegate",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Sets self as a delegate of the given object name\n\n> sdel tableView"
                 },
                 {
-                    "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tpublic static let instance = ${name.ucfirst}()\n\n\t#\n}",
+                    "baseID": "0A4D5D1D-31C5-4EAA-9C50-5025A36F58FB",
                     "id": "0A4D5D1D-31C5-4EAA-9C50-5025A36F58FB",
-                    "description": "Creates a singleton class.\n\n> +sing SingletonClass",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|sing ${name:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tpublic static let instance = ${name.ucfirst}()\n\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Singleton",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a singleton class.\n\n> +sing SingletonClass"
                 },
                 {
-                    "output_template": "|${scope}|protocol ${name.ucfirst}Delegate {\n\t#\n}",
+                    "baseID": "1E737C60-B610-40B6-BB1F-2B80904EBC0E",
                     "id": "1E737C60-B610-40B6-BB1F-2B80904EBC0E",
-                    "description": "Creates a Delegate protocol\n\n> +del MyView",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|del ${name:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|protocol ${name.ucfirst}Delegate {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Delegate Protocol",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a Delegate protocol\n\n> +del MyView"
                 },
                 {
-                    "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tfunc run() {\n\t\t#\n\t}\n}",
+                    "baseID": "05BE59A8-A151-48A6-8C80-3D584123A7EC",
                     "id": "05BE59A8-A151-48A6-8C80-3D584123A7EC",
-                    "description": "Creates a class according to `Command` Design Pattern\n\n> +cmd MyClass",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|cmd ${name:word}",
+                    "identifier": "",
+                    "output_template": "|${scope}|class ${name.ucfirst} {\n\n\tfunc run() {\n\t\t#\n\t}\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Command Class",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a class according to `Command` Design Pattern\n\n> +cmd MyClass"
                 }
             ],
-            "name": "Swift Extra",
-            "description": "Additional expanders for Swift\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any",
                 "swift"
             ],
-            "id": "FF90FB85-B09B-43F9-8AA5-18252F518315",
-            "is_enabled": true
+            "name": "Swift Extra",
+            "is_enabled": false,
+            "description": "Additional expanders for Swift\n\nMade by [twitter] @Apptorium"
         },
         {
+            "baseID": "B42F1F98-9C35-4AF1-93E1-E8A19157CDF9",
+            "id": "B42F1F98-9C35-4AF1-93E1-E8A19157CDF9",
             "expanders": [
                 {
-                    "output_template": "@IBOutlet weak var ${name}: ${type}!",
+                    "baseID": "CD32B81B-EE8A-4F37-806E-127543814CD5",
                     "id": "CD32B81B-EE8A-4F37-806E-127543814CD5",
-                    "description": "Creates an `IBOutlet`.\n\n> out nameTextField: NSTextField",
-                    "is_enabled": true,
                     "pattern": "out ${name:word}: ${type:word}",
+                    "identifier": "",
+                    "output_template": "@IBOutlet weak var ${name}: ${type}!",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Outlet",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates an `IBOutlet`.\n\n> out nameTextField: NSTextField"
                 },
                 {
-                    "output_template": "@IBAction func ${name}(_ sender: Any) {\n    #\n}",
+                    "baseID": "3E4B7D95-3839-4D22-A026-F24E6A2B06A0",
                     "id": "3E4B7D95-3839-4D22-A026-F24E6A2B06A0",
-                    "description": "Creates an `IBAction`.\n\n> act done",
-                    "is_enabled": true,
                     "pattern": "act ${name:word}",
+                    "identifier": "",
+                    "output_template": "@IBAction func ${name}(_ sender: Any) {\n    #\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Action",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates an `IBAction`.\n\n> act done"
                 },
                 {
-                    "output_template": "NSLocalizedString(\"${string}\", comment: \"|${comment}|\")",
+                    "baseID": "043087BD-BBB6-4AAC-A6BC-7B5F53AC7091",
                     "id": "043087BD-BBB6-4AAC-A6BC-7B5F53AC7091",
-                    "description": "Simpifies string localization.\n\n> _Hello World_First message",
-                    "is_enabled": true,
                     "pattern": "_${string:text?}|_${comment:text}|",
+                    "identifier": "",
+                    "output_template": "NSLocalizedString(\"${string}\", comment: \"|${comment}|\")",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Localized String",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Simpifies string localization.\n\n> _Hello World_First message"
                 },
                 {
-                    "output_template": "if let ${name} = segue.destinationViewController as? ${type} {\n\t#\n}",
+                    "baseID": "84EE95A0-0EDF-43F1-9C7D-16078431123E",
                     "id": "84EE95A0-0EDF-43F1-9C7D-16078431123E",
-                    "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> ils controller: UITableViewController",
-                    "is_enabled": true,
                     "pattern": "ils ${name:word}: ${type:word}",
+                    "identifier": "",
+                    "output_template": "if let ${name} = segue.destinationViewController as? ${type} {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "if let segue destination",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> ils controller: UITableViewController"
                 },
                 {
-                    "output_template": "guard let ${name} = segue.destinationViewController as? ${type} else {\n\treturn\n}",
+                    "baseID": "3DDA6392-7488-4E70-B5F8-A193567C7573",
                     "id": "3DDA6392-7488-4E70-B5F8-A193567C7573",
-                    "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> gls controller: UITableViewController",
-                    "is_enabled": true,
                     "pattern": "gls ${name:word}: ${type:word}",
+                    "identifier": "",
+                    "output_template": "guard let ${name} = segue.destinationViewController as? ${type} else {\n\treturn\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "guard let segue destination",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Generates code for `guard-let` the `destinationViewcontroller` in a segue.\n\n> gls controller: UITableViewController"
                 },
                 {
-                    "output_template": "DispatchQueue.${thread}.${type} { [weak self] in\n\t#\n}",
+                    "baseID": "9D3B2FCB-5444-43D2-80E5-6670E45E8D45",
                     "id": "9D3B2FCB-5444-43D2-80E5-6670E45E8D45",
-                    "description": "Creates Dispatch-block using combinations of `g` (global thread) and `m` (main thread) as well as `a` (async) and `s` (sync).\n\n> dga\n> dms",
-                    "is_enabled": true,
                     "pattern": "d${thread:switch(g:global(),m:main)}${type:switch(a:async,s:sync)}",
+                    "identifier": "",
+                    "output_template": "DispatchQueue.${thread}.${type} { [weak self] in\n\t#\n}",
                     "supported_languages": [],
                     "name": "Dispatch",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates Dispatch-block using combinations of `g` (global thread) and `m` (main thread) as well as `a` (async) and `s` (sync).\n\n> dga\n> dms"
                 }
             ],
-            "name": "Swift + Cocoa and UIKit",
-            "description": "`Swift` expanders for `Cocoa` and `UIKIt` frameworks.\n\nMade by [twitter] @Apptorium.",
             "supported_languages": [
                 "any",
                 "swift"
             ],
-            "id": "B42F1F98-9C35-4AF1-93E1-E8A19157CDF9",
-            "is_enabled": true
+            "name": "Swift + Cocoa and UIKit",
+            "is_enabled": false,
+            "description": "`Swift` expanders for `Cocoa` and `UIKIt` frameworks.\n\nMade by [twitter] @Apptorium."
         },
         {
+            "baseID": "BA485D71-51B4-449E-B1F5-6EB0621CE309",
+            "id": "BA485D71-51B4-449E-B1F5-6EB0621CE309",
             "expanders": [
                 {
-                    "output_template": "override func viewDidLoad() {\n\tsuper.viewDidLoad()\n\t\n\t#\n}",
+                    "baseID": "3480C637-A046-4EEC-9DE3-BE8F0F7A5AD3",
                     "id": "3480C637-A046-4EEC-9DE3-BE8F0F7A5AD3",
-                    "description": "Creates `viewDidLoad` method.\n\n> vdl",
-                    "is_enabled": true,
                     "pattern": "vdl",
+                    "identifier": "",
+                    "output_template": "override func viewDidLoad() {\n\tsuper.viewDidLoad()\n\t\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "viewDidLoad",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates `viewDidLoad` method.\n\n> vdl"
                 },
                 {
-                    "output_template": "override func viewDidAppear() {\n\tsuper.viewDidAppear()\n\t\n\t#\n}",
+                    "baseID": "A2FD45ED-1251-4574-A9EE-1695638849A5",
                     "id": "A2FD45ED-1251-4574-A9EE-1695638849A5",
-                    "description": "Creates `viewDidAppear` method.\n\n> vda",
-                    "is_enabled": true,
                     "pattern": "vda",
+                    "identifier": "",
+                    "output_template": "override func viewDidAppear() {\n\tsuper.viewDidAppear()\n\t\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "viewDidAppear",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates `viewDidAppear` method.\n\n> vda"
                 },
                 {
-                    "output_template": "override func viewWillAppear() {\n\tsuper.viewWillAppear()\n\t\n\t#\n}",
+                    "baseID": "DBB10F16-AA74-4564-BDD9-CCC224F5BD57",
                     "id": "DBB10F16-AA74-4564-BDD9-CCC224F5BD57",
-                    "description": "Creates `viewWillAppear` method.\n\n> vwa",
-                    "is_enabled": true,
                     "pattern": "vwa",
+                    "identifier": "",
+                    "output_template": "override func viewWillAppear() {\n\tsuper.viewWillAppear()\n\t\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "viewWillAppear",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates `viewWillAppear` method.\n\n> vwa"
                 },
                 {
-                    "output_template": "class ${name.ucfirst}ViewController: NSViewController {\n\n\toverride func viewDidLoad() {\n        super.viewDidLoad()\n        \n        #\n    }\n}",
+                    "baseID": "F461F0E6-8783-41C0-AA8E-EF6DADC70A28",
                     "id": "F461F0E6-8783-41C0-AA8E-EF6DADC70A28",
-                    "description": "Creates a class that inherits from `NSViewController`\n\n> vc main",
-                    "is_enabled": true,
                     "pattern": "vc ${name:word}",
+                    "identifier": "",
+                    "output_template": "class ${name.ucfirst}ViewController: NSViewController {\n\n\toverride func viewDidLoad() {\n        super.viewDidLoad()\n        \n        #\n    }\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "View Controller",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a class that inherits from `NSViewController`\n\n> vc main"
                 },
                 {
-                    "output_template": "class ${name.ucfirst}WindowController: NSWindowController {\n\n\toverride func windowDidLoad() {\n        super.windowDidLoad()\n        \n        #\n    }\n}",
+                    "baseID": "9D7CF02A-CD6F-4AB0-B76D-A3718AED57CD",
                     "id": "9D7CF02A-CD6F-4AB0-B76D-A3718AED57CD",
-                    "description": "Creates a class that inherits from `NSWindowController`\n\n> wc main",
-                    "is_enabled": true,
                     "pattern": "wc ${name:word}",
+                    "identifier": "",
+                    "output_template": "class ${name.ucfirst}WindowController: NSWindowController {\n\n\toverride func windowDidLoad() {\n        super.windowDidLoad()\n        \n        #\n    }\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Window Controller",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a class that inherits from `NSWindowController`\n\n> wc main"
                 },
                 {
-                    "output_template": "|${var}.|bind(NSBindingName(\"${var_path}\"), to: ${object}, withKeyPath: \"${object_path}\", options: nil)",
+                    "baseID": "D1A219E9-7B69-49B9-A1A4-D8DC2E3F37BB",
                     "id": "D1A219E9-7B69-49B9-A1A4-D8DC2E3F37BB",
-                    "description": "Creates a binding.\n\n> bind sourceObject:variable to destinationObject:path",
-                    "is_enabled": true,
                     "pattern": "bind |${var:text}:|${var_path:text} to ${object:text}:${object_path:text}",
+                    "identifier": "",
+                    "output_template": "|${var}.|bind(NSBindingName(\"${var_path}\"), to: ${object}, withKeyPath: \"${object_path}\", options: nil)",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Binding",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a binding.\n\n> bind sourceObject:variable to destinationObject:path"
                 }
             ],
-            "name": "Swift + Cocoa",
-            "description": "`Swift` expanders for `Cocoa` framework.\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any",
                 "swift"
             ],
-            "id": "BA485D71-51B4-449E-B1F5-6EB0621CE309",
-            "is_enabled": true
+            "name": "Swift + Cocoa",
+            "is_enabled": false,
+            "description": "`Swift` expanders for `Cocoa` framework.\n\nMade by [twitter] @Apptorium"
         },
         {
+            "baseID": "B4D2EBB0-6E72-46F2-8ECB-08FF3E910024",
+            "id": "B4D2EBB0-6E72-46F2-8ECB-08FF3E910024",
             "expanders": [
                 {
-                    "output_template": "@IBDesignable |${scope}|class ${name}: UIView {\n\t\n\toverride init(frame: CGRect) {\n        super.init(frame: frame)\n        self.configure()\n    }\n    \n    required init?(coder aDecoder: NSCoder) {\n        super.init(coder: aDecoder)\n        self.configure()\n    }\n    \n    private func configure() {\n    \t#\n    }\n    \n    override func layoutSubviews() {\n        super.layoutSubviews()\n    }\n}",
+                    "baseID": "F7EB5342-59CA-4EE9-B03F-5C0235CB2749",
                     "id": "F7EB5342-59CA-4EE9-B03F-5C0235CB2749",
-                    "description": "Generates a subclass of a UIView class.\n\n> sub MyView: UIView",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|sub ${name:word}: UIView",
+                    "identifier": "",
+                    "output_template": "@IBDesignable |${scope}|class ${name}: UIView {\n\t\n\toverride init(frame: CGRect) {\n        super.init(frame: frame)\n        self.configure()\n    }\n    \n    required init?(coder aDecoder: NSCoder) {\n        super.init(coder: aDecoder)\n        self.configure()\n    }\n    \n    private func configure() {\n    \t#\n    }\n    \n    override func layoutSubviews() {\n        super.layoutSubviews()\n    }\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "UIView subclass",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Generates a subclass of a UIView class.\n\n> sub MyView: UIView"
                 },
                 {
-                    "output_template": "override func viewDidLoad(_ animated: Bool) {\n\tsuper.viewDidLoad(animated)\n\t\n\t#\n}",
+                    "baseID": "A80F798D-4100-42DE-AFDF-98389FEE3DA8",
                     "id": "A80F798D-4100-42DE-AFDF-98389FEE3DA8",
-                    "description": "Creates `viewDidLoad` method.\n\n> vdl",
-                    "is_enabled": true,
                     "pattern": "vdl",
+                    "identifier": "",
+                    "output_template": "override func viewDidLoad(_ animated: Bool) {\n\tsuper.viewDidLoad(animated)\n\t\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "viewDidLoad",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates `viewDidLoad` method.\n\n> vdl"
                 },
                 {
-                    "output_template": "override func viewDidAppear(_ animated: Bool) {\n\tsuper.viewDidAppear(animated)\n\t\n\t#\n}",
+                    "baseID": "5CFE8C7B-3201-4AD3-8546-0E5ABB883A81",
                     "id": "5CFE8C7B-3201-4AD3-8546-0E5ABB883A81",
-                    "description": "Creates `viewDidAppear` method.\n\n> vda",
-                    "is_enabled": true,
                     "pattern": "vda",
+                    "identifier": "",
+                    "output_template": "override func viewDidAppear(_ animated: Bool) {\n\tsuper.viewDidAppear(animated)\n\t\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "viewDidAppear",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates `viewDidAppear` method.\n\n> vda"
                 },
                 {
-                    "output_template": "override func viewWillAppear(_ animated: Bool) {\n\tsuper.viewWillAppear(animated)\n\t\n\t#\n}",
+                    "baseID": "91C3E4C5-369B-4274-A65C-1C82F355BB5B",
                     "id": "91C3E4C5-369B-4274-A65C-1C82F355BB5B",
-                    "description": "Creates `viewWillAppear` method.\n\n> vwa",
-                    "is_enabled": true,
                     "pattern": "vwa",
+                    "identifier": "",
+                    "output_template": "override func viewWillAppear(_ animated: Bool) {\n\tsuper.viewWillAppear(animated)\n\t\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "viewWillAppear",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates `viewWillAppear` method.\n\n> vwa"
                 }
             ],
-            "name": "Swift + UIKit",
-            "description": "`Swift` expanders for `UIKIt` framework.\n\nMade by [twitter] @Apptorium.",
             "supported_languages": [
                 "any",
                 "swift"
             ],
-            "id": "B4D2EBB0-6E72-46F2-8ECB-08FF3E910024",
-            "is_enabled": true
+            "name": "Swift + UIKit",
+            "is_enabled": false,
+            "description": "`Swift` expanders for `UIKIt` framework.\n\nMade by [twitter] @Apptorium."
         },
         {
+            "baseID": "5D13E59E-B4F4-4084-8D13-14E8A705A110",
+            "id": "5D13E59E-B4F4-4084-8D13-14E8A705A110",
             "expanders": [
                 {
-                    "output_template": "import XCTest|\n@testable import ${module}|\n\nclass ${name.ucfirst}Tests: XCTestCase {\n\t\n\t#\n}",
+                    "baseID": "198B3FF8-BA9E-40E6-A9CC-B9AE1FB0B803",
                     "id": "198B3FF8-BA9E-40E6-A9CC-B9AE1FB0B803",
-                    "description": "Creates a test class\n\n> tc UpdateController @MyApp",
-                    "is_enabled": true,
                     "pattern": "tc ${name:identifier}| @${module:identifier}|",
+                    "identifier": "",
+                    "output_template": "import XCTest|\n@testable import ${module}|\n\nclass ${name.ucfirst}Tests: XCTestCase {\n\t\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Test class",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a test class\n\n> tc UpdateController @MyApp"
                 },
                 {
-                    "output_template": "func test${name.ucfirst}() {\n\t#\n}",
+                    "baseID": "8657DA8E-4C88-4715-8430-F38427BEC406",
                     "id": "8657DA8E-4C88-4715-8430-F38427BEC406",
-                    "description": "> tf update",
-                    "is_enabled": true,
                     "pattern": "tf ${name:text}",
+                    "identifier": "",
+                    "output_template": "func test${name.ucfirst}() {\n\t#\n}",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Test function",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> tf update"
                 },
                 {
-                    "output_template": "XCTAssertEqual(#, ${expr1})",
+                    "baseID": "83B4C60D-488F-424D-B649-542117EE39F3",
                     "id": "83B4C60D-488F-424D-B649-542117EE39F3",
-                    "description": "> ase value",
-                    "is_enabled": true,
                     "pattern": "ase ${expr1:text}",
+                    "identifier": "",
+                    "output_template": "XCTAssertEqual(#, ${expr1})",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Assert Equal",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> ase value"
                 },
                 {
-                    "output_template": "XCTAssertTrue(${expr})",
+                    "baseID": "F8E90FBA-FDA1-455B-9279-0E29CAC0A48E",
                     "id": "F8E90FBA-FDA1-455B-9279-0E29CAC0A48E",
-                    "description": "> ast value",
-                    "is_enabled": true,
                     "pattern": "ast ${expr:text}",
+                    "identifier": "",
+                    "output_template": "XCTAssertTrue(${expr})",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Assert True",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> ast value"
                 },
                 {
-                    "output_template": "XCTAssertFalse(${expr})",
+                    "baseID": "5ADEB762-0EF7-455F-B672-383F1742B83C",
                     "id": "5ADEB762-0EF7-455F-B672-383F1742B83C",
-                    "description": "> asf value",
-                    "is_enabled": true,
                     "pattern": "asf ${expr:text}",
+                    "identifier": "",
+                    "output_template": "XCTAssertFalse(${expr})",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Assert False",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> asf value"
                 },
                 {
-                    "output_template": "XCTAssertNil(${expr})",
+                    "baseID": "C516CBA9-A861-4C25-919D-54908983E19C",
                     "id": "C516CBA9-A861-4C25-919D-54908983E19C",
-                    "description": "> asn value",
-                    "is_enabled": true,
                     "pattern": "asn ${expr:text}",
+                    "identifier": "",
+                    "output_template": "XCTAssertNil(${expr})",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Assert Nil",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> asn value"
                 },
                 {
-                    "output_template": "XCTAssert(${expr})",
+                    "baseID": "776AA762-AD7B-462F-9AD2-132A67CECCF2",
                     "id": "776AA762-AD7B-462F-9AD2-132A67CECCF2",
-                    "description": "> as value == \"something\"",
-                    "is_enabled": true,
                     "pattern": "as ${expr:text}",
+                    "identifier": "",
+                    "output_template": "XCTAssert(${expr})",
                     "supported_languages": [
                         "swift"
                     ],
                     "name": "Assert",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> as value == \"something\""
                 }
             ],
-            "name": "Swift + XCTests",
-            "description": "Write unit tests more efficently.\n\nStart with a class:\n\n> tc UpdateController @MyApp\n\nWrite test function:\n\n> tf update\n\nAnd make some tests:\n\n> ast isStarted\n> ase progress\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any",
                 "swift"
             ],
-            "id": "5D13E59E-B4F4-4084-8D13-14E8A705A110",
-            "is_enabled": true
+            "name": "Swift + XCTests",
+            "is_enabled": false,
+            "description": "Write unit tests more efficently.\n\nStart with a class:\n\n> tc UpdateController @MyApp\n\nWrite test function:\n\n> tf update\n\nAnd make some tests:\n\n> ast isStarted\n> ase progress\n\nMade by [twitter] @Apptorium"
         },
         {
+            "baseID": "7EC58ABD-9C4E-40DA-B7C0-F78065B993E7",
+            "id": "7EC58ABD-9C4E-40DA-B7C0-F78065B993E7",
             "expanders": [
                 {
-                    "output_template": "${type} (void)${name} {\n\t#\n}",
+                    "baseID": "A0944F9A-E5BA-4BB4-ACA7-1A73974A9E30",
                     "id": "A0944F9A-E5BA-4BB4-ACA7-1A73974A9E30",
-                    "description": "> -run",
-                    "is_enabled": true,
                     "pattern": "${type:enum(+,-)}${name:text}",
+                    "identifier": "",
+                    "output_template": "${type} (void)${name} {\n\t#\n}",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "Short, void method",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> -run"
                 },
                 {
-                    "output_template": "dispatch_${type}(${thread}, ^(void){\n    #\n});",
+                    "baseID": "44E8A6CA-3D45-4658-B510-B5B73FA71141",
                     "id": "44E8A6CA-3D45-4658-B510-B5B73FA71141",
-                    "description": "Creates Dispatch-block using combinations of `g` (global thread) and `m` (main thread) as well as `a` (async) and `s` (sync).\n\n> dga\n> dms",
-                    "is_enabled": true,
                     "pattern": "d${thread:switch(g:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT\\, 0),m:dispatch_get_main_queue())}${type:switch(a:async,s:sync)}",
+                    "identifier": "",
+                    "output_template": "dispatch_${type}(${thread}, ^(void){\n    #\n});",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "Dispatch",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates Dispatch-block using combinations of `g` (global thread) and `m` (main thread) as well as `a` (async) and `s` (sync).\n\n> dga\n> dms"
                 },
                 {
-                    "output_template": "\\#import \"${name}.h\"",
+                    "baseID": "A1A912F8-4CC5-4DD4-B7B7-010D2B9FDD03",
                     "id": "A1A912F8-4CC5-4DD4-B7B7-010D2B9FDD03",
-                    "description": "Imports a file\n\n> @ViewController",
-                    "is_enabled": true,
                     "pattern": "@${name:text}",
+                    "identifier": "",
+                    "output_template": "\\#import \"${name}.h\"",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "Import",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Imports a file\n\n> @ViewController"
                 },
                 {
-                    "output_template": "if (${condition}) {\n\t#\n}",
+                    "baseID": "601CD5FF-B6B1-45CE-B47F-D5F1FA195AF8",
                     "id": "601CD5FF-B6B1-45CE-B47F-D5F1FA195AF8",
-                    "description": "Generates simple `if` statement.\n\n> if condition",
-                    "is_enabled": true,
                     "pattern": "if ${condition:text}",
+                    "identifier": "",
+                    "output_template": "if (${condition}) {\n\t#\n}",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "if",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Generates simple `if` statement.\n\n> if condition"
                 },
                 {
-                    "output_template": "@protocol ${name.ucfirst}\n#\n@end",
+                    "baseID": "A8430306-4318-4AB5-ADAC-102965CF78E0",
                     "id": "A8430306-4318-4AB5-ADAC-102965CF78E0",
-                    "description": "> p MyProtocol",
-                    "is_enabled": true,
                     "pattern": "p ${name:word}",
+                    "identifier": "",
+                    "output_template": "@protocol ${name.ucfirst}\n#\n@end",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "Protocol",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "> p MyProtocol"
                 },
                 {
-                    "output_template": "- (IBAction)${name}:(id)sender {\n\t#\n}",
+                    "baseID": "20F653A7-AF13-4D24-B6F5-9D07225341AF",
                     "id": "20F653A7-AF13-4D24-B6F5-9D07225341AF",
-                    "description": "Creates an action.\n\n> act done",
-                    "is_enabled": true,
                     "pattern": "act ${name:identifier}",
+                    "identifier": "",
+                    "output_template": "- (IBAction)${name}:(id)sender {\n\t#\n}",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "Action",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates an action.\n\n> act done"
                 },
                 {
-                    "output_template": "@property (weak) IBOutlet ${type} *${name};",
+                    "baseID": "04FFF849-88E6-4705-A731-5452DC160FDD",
                     "id": "04FFF849-88E6-4705-A731-5452DC160FDD",
-                    "description": "Creates an outlet.\n\n> out button: NSButton",
-                    "is_enabled": true,
                     "pattern": "out ${name:identifier}: ${type:identifier}",
+                    "identifier": "",
+                    "output_template": "@property (weak) IBOutlet ${type} *${name};",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "Outlet",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates an outlet.\n\n> out button: NSButton"
                 },
                 {
-                    "output_template": "NSLocalizedString(@\"${string}\", comment: @\"|${comment}|\")",
+                    "baseID": "14157883-99C9-4408-862C-1081F7DB9E1D",
                     "id": "14157883-99C9-4408-862C-1081F7DB9E1D",
-                    "description": "Simpifies string localization.\n\n> _Hello World_First message",
-                    "is_enabled": true,
                     "pattern": "_${string:text?}|_${comment:text}|",
+                    "identifier": "",
+                    "output_template": "NSLocalizedString(@\"${string}\", comment: @\"|${comment}|\")",
                     "supported_languages": [
                         "objc"
                     ],
                     "name": "Localized String",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Simpifies string localization.\n\n> _Hello World_First message"
                 }
             ],
-            "name": "Objective C",
-            "description": "Basic Objective-C language expanders\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any",
                 "objc"
             ],
-            "id": "7EC58ABD-9C4E-40DA-B7C0-F78065B993E7",
-            "is_enabled": false
+            "name": "Objective C",
+            "is_enabled": false,
+            "description": "Basic Objective-C language expanders\n\nMade by [twitter] @Apptorium"
         },
         {
+            "baseID": "244CE696-7218-4585-882C-3DA34500DBED",
+            "id": "244CE696-7218-4585-882C-3DA34500DBED",
             "expanders": [
                 {
-                    "output_template": "for ($${var_name} = 0; $${var_name} < ${max}; $${var_name}++) {\n\t#\n}",
+                    "baseID": "0E4201D4-6E3E-4B43-9F60-53CD8337593D",
                     "id": "0E4201D4-6E3E-4B43-9F60-53CD8337593D",
-                    "description": "Creates a *for* loop with the given variable name and maximum number of iteration. \n\nAll the iteration are counted from 0.\n\n> for i 100",
-                    "is_enabled": true,
                     "pattern": "for ${var_name:word} ${max:number}",
+                    "identifier": "",
+                    "output_template": "for ($${var_name} = 0; $${var_name} < ${max}; $${var_name}++) {\n\t#\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "for",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a *for* loop with the given variable name and maximum number of iteration. \n\nAll the iteration are counted from 0.\n\n> for i 100"
                 },
                 {
-                    "output_template": "|${scope}|function ${name}(|${params}|)\n{\n\t#\n}",
+                    "baseID": "678792B5-F6D2-4C04-945D-FE802EA1617E",
                     "id": "678792B5-F6D2-4C04-945D-FE802EA1617E",
-                    "description": "Creates a function (method) with the given scope and name.\n\n> +f run\n> +f run($param1, $param2)",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|f ${name:word}|(${params:text})|",
+                    "identifier": "",
+                    "output_template": "|${scope}|function ${name}(|${params}|)\n{\n\t#\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Function",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a function (method) with the given scope and name.\n\n> +f run\n> +f run($param1, $param2)"
                 },
                 {
-                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|$${name};",
+                    "baseID": "DB72E116-8D58-4CDC-8ABD-10FAB30EB997",
                     "id": "DB72E116-8D58-4CDC-8ABD-10FAB30EB997",
-                    "description": "Creates a property with the given name. If `type` is given, doc comment is generated as well.\n\n> +v name: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|v ${name:word}|: ${type:identifier}|",
+                    "identifier": "",
+                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|$${name};",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Property",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a property with the given name. If `type` is given, doc comment is generated as well.\n\n> +v name: String"
                 },
                 {
-                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function get${variableName.ucfirst}()\n{\n\treturn $this->${variableName};\n}",
+                    "baseID": "F55541A2-4CE7-4CB9-91AD-E372C642FB2B",
                     "id": "F55541A2-4CE7-4CB9-91AD-E372C642FB2B",
-                    "description": "Creates a *getter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +g name: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|g ${variableName:word}|: ${type:identifier}|",
+                    "identifier": "",
+                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function get${variableName.ucfirst}()\n{\n\treturn $this->${variableName};\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Getter",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a *getter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +g name: String"
                 },
                 {
-                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function set${variableName.ucfirst}($new${variableName.ucfirst})\n{\n\treturn $this->${variableName} = $new${variableName.ucfirst};\n}",
+                    "baseID": "548CFD16-F573-4437-AC40-5CF140DA1FD5",
                     "id": "548CFD16-F573-4437-AC40-5CF140DA1FD5",
-                    "description": "Creates a *setter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +s firstName: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|s ${variableName:word}|: ${type:identifier}|",
+                    "identifier": "",
+                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function set${variableName.ucfirst}($new${variableName.ucfirst})\n{\n\treturn $this->${variableName} = $new${variableName.ucfirst};\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Setter",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a *setter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +s firstName: String"
                 },
                 {
-                    "output_template": "class ${name.ucfirst}Exception extends Exception\n{\n    public function __construct()\n    {\n        parent::__construct($message = \"#\", $code = 0, $previous = null);\n    }\n}",
+                    "baseID": "178A2307-B8FA-42E8-BA3F-3BEAE4A68BD1",
                     "id": "178A2307-B8FA-42E8-BA3F-3BEAE4A68BD1",
-                    "description": "Creates an exception class for the given exception name. \n**Note**: exception name does not need *Exception* suffix. It\u2019s added automatically.\n\n> exc VeryBadThing",
-                    "is_enabled": true,
                     "pattern": "exc ${name:word}",
+                    "identifier": "",
+                    "output_template": "class ${name.ucfirst}Exception extends Exception\n{\n    public function __construct()\n    {\n        parent::__construct($message = \"#\", $code = 0, $previous = null);\n    }\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Exception",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates an exception class for the given exception name. \n**Note**: exception name does not need *Exception* suffix. It\u2019s added automatically.\n\n> exc VeryBadThing"
                 },
                 {
-                    "output_template": "|${scope}|class ${name.ucfirst}| extends ${extends}|\n{\n    public function __construct()\n    {\n        #\n    }\n}",
+                    "baseID": "BB12CA88-BB20-49C0-81A9-B7C2CD6CC9AB",
                     "id": "BB12CA88-BB20-49C0-81A9-B7C2CD6CC9AB",
-                    "description": "Creates a class with a constructor. It\u2019s possible to add inheriting classes after `:` character\n\n> +c ArticleController: BaseController",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|c ${name:word}|: ${extends:word}|",
+                    "identifier": "",
+                    "output_template": "|${scope}|class ${name.ucfirst}| extends ${extends}|\n{\n    public function __construct()\n    {\n        #\n    }\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Class",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a class with a constructor. It\u2019s possible to add inheriting classes after `:` character\n\n> +c ArticleController: BaseController"
                 },
                 {
-                    "output_template": "$this->${name}",
+                    "baseID": "0620BA55-4488-4CFD-B291-30802CA94948",
                     "id": "0620BA55-4488-4CFD-B291-30802CA94948",
-                    "description": "Helps to type expressions with `$this`.\n\n> t propertyName",
-                    "is_enabled": true,
                     "pattern": "t ${name:identifier}",
+                    "identifier": "",
+                    "output_template": "$this->${name}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "$this->variable",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Helps to type expressions with `$this`.\n\n> t propertyName"
                 },
                 {
-                    "output_template": "\"${name}\" => $this->${name}",
+                    "baseID": "A0AE6117-7C9B-45F1-A189-062DA5F90788",
                     "id": "A0AE6117-7C9B-45F1-A189-062DA5F90788",
-                    "description": "Simplifies defining array mapping to the class properties.\n\n> map name",
-                    "is_enabled": true,
                     "pattern": "map ${name:identifier}",
+                    "identifier": "",
+                    "output_template": "\"${name}\" => $this->${name}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Map",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Simplifies defining array mapping to the class properties.\n\n> map name"
                 },
                 {
-                    "output_template": "foreach (${items} as ${item}) {\n\t#\n}",
+                    "baseID": "3A4FCF2F-0B05-443B-B209-ED09BB3C3686",
                     "id": "3A4FCF2F-0B05-443B-B209-ED09BB3C3686",
-                    "description": "Creates a *foreach* loop with the given variable names. It\u2019s similar to other languages like *Swift* or *Java*, so it provides syntax like:\n\n> for var in vars",
-                    "is_enabled": true,
                     "pattern": "for ${item:identifier} in ${items:identifier}",
+                    "identifier": "",
+                    "output_template": "foreach (${items} as ${item}) {\n\t#\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "for in",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a *foreach* loop with the given variable names. It\u2019s similar to other languages like *Swift* or *Java*, so it provides syntax like:\n\n> for var in vars"
                 },
                 {
-                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function get${variableName.ucfirst}()\n{\n\treturn $this->${variableName};\n}\n\n|/*\n * @var ${type}\n */\n||${scope}|function set${variableName.ucfirst}($new${variableName.ucfirst})\n{\n\treturn $this->${variableName} = $new${variableName.ucfirst};\n}",
+                    "baseID": "1210AAAC-3D11-4751-A80E-256D8C816A61",
                     "id": "1210AAAC-3D11-4751-A80E-256D8C816A61",
-                    "description": "Creates a *setter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +gs firstName: String",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|gs ${variableName:word}|: ${type:identifier}|",
+                    "identifier": "",
+                    "output_template": "|/*\n * @var ${type}\n */\n||${scope}|function get${variableName.ucfirst}()\n{\n\treturn $this->${variableName};\n}\n\n|/*\n * @var ${type}\n */\n||${scope}|function set${variableName.ucfirst}($new${variableName.ucfirst})\n{\n\treturn $this->${variableName} = $new${variableName.ucfirst};\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Getter and Setter",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a *setter* function for the given variable. If `type` is given, doc comment is generated as well.\n\n> +gs firstName: String"
                 },
                 {
-                    "output_template": "/**\n * # \n * \n * @return \n */\n|${scope}|function ${name}(|${params}|)\n{\n}",
+                    "baseID": "ACA7650D-F021-46AD-933E-02E6BF33A67F",
                     "id": "ACA7650D-F021-46AD-933E-02E6BF33A67F",
-                    "description": "Creates a function with a doc template.\n\n> +fd run",
-                    "is_enabled": true,
                     "pattern": "|${scope:exp(scope)}|fd ${name:word}|(${params:text})|",
+                    "identifier": "",
+                    "output_template": "/**\n * # \n * \n * @return \n */\n|${scope}|function ${name}(|${params}|)\n{\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Function with doc",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a function with a doc template.\n\n> +fd run"
                 },
                 {
-                    "output_template": "<?php\n\n#\n\n?>",
+                    "baseID": "665A13D9-9A64-4311-91FA-32969C8A6B64",
                     "id": "665A13D9-9A64-4311-91FA-32969C8A6B64",
-                    "description": "Creates a `php` tag\n\n> php",
-                    "is_enabled": true,
                     "pattern": "php",
+                    "identifier": "",
+                    "output_template": "<?php\n\n#\n\n?>",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "PHP Tag",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Creates a `php` tag\n\n> php"
                 },
                 {
-                    "output_template": "${scope} ",
+                    "baseID": "67EB299E-A1DE-4FD4-9347-522C4D9E9BA2",
                     "id": "67EB299E-A1DE-4FD4-9347-522C4D9E9BA2",
-                    "description": "Expands a scope. Mostly used by other expanders.",
-                    "is_enabled": true,
                     "pattern": "${scope:switch(+:public,-:private,#:protected)}",
+                    "identifier": "scope",
+                    "output_template": "${scope} ",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Scope",
-                    "identifier": "scope"
+                    "is_enabled": true,
+                    "description": "Expands a scope. Mostly used by other expanders."
                 },
                 {
-                    "output_template": "function __construct()\n{\n    #\n}",
+                    "baseID": "4C6BAD55-EEE8-4BBA-8E33-4A9F0C70729F",
                     "id": "4C6BAD55-EEE8-4BBA-8E33-4A9F0C70729F",
-                    "description": "Empty class constructor.\n\n> con",
-                    "is_enabled": true,
                     "pattern": "con",
+                    "identifier": "",
+                    "output_template": "function __construct()\n{\n    #\n}",
                     "supported_languages": [
                         "php"
                     ],
                     "name": "Empty constructor",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Empty class constructor.\n\n> con"
                 }
             ],
-            "name": "PHP",
-            "description": "Basic PHP expanders.\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any",
                 "php"
             ],
-            "id": "244CE696-7218-4585-882C-3DA34500DBED",
-            "is_enabled": false
+            "name": "PHP",
+            "is_enabled": false,
+            "description": "Basic PHP expanders.\n\nMade by [twitter] @Apptorium"
         },
         {
+            "baseID": "0D5FB579-E5B1-4533-97BA-185DA252FF91",
+            "id": "0D5FB579-E5B1-4533-97BA-185DA252FF91",
             "expanders": [
                 {
-                    "output_template": "hello world",
+                    "baseID": "35E369C9-5BB2-4A84-A1B1-764676E32519",
                     "id": "35E369C9-5BB2-4A84-A1B1-764676E32519",
-                    "description": "Simplest example. Expands a short text.\n\n> hw",
-                    "is_enabled": true,
                     "pattern": "hw",
+                    "identifier": "",
+                    "output_template": "hello world",
                     "supported_languages": [],
                     "name": "1. Simplest Expander",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Simplest example. Expands a short text.\n\n> hw"
                 },
                 {
-                    "output_template": "Hello ${name}",
+                    "baseID": "B12270F0-5280-4256-90F1-34EAF6394725",
                     "id": "B12270F0-5280-4256-90F1-34EAF6394725",
-                    "description": "Uses a variable (`name`) to say `Hello` to the given person.\n\n> h John",
-                    "is_enabled": true,
                     "pattern": "h ${name:text}",
+                    "identifier": "h",
+                    "output_template": "Hello ${name}",
                     "supported_languages": [],
                     "name": "2. Variable",
-                    "identifier": "h"
+                    "is_enabled": true,
+                    "description": "Uses a variable (`name`) to say `Hello` to the given person.\n\n> h John"
                 },
                 {
-                    "output_template": "SHA1: ${password.sha1}\nMD5: ${password.md5}",
+                    "baseID": "3A7C284D-82D0-4E43-BFF6-075019059B92",
                     "id": "3A7C284D-82D0-4E43-BFF6-075019059B92",
-                    "description": "Uses a variable (`password`) as well as `sha1` and `md5` filters.\n\n> pass sha1 samplepassword123",
-                    "is_enabled": true,
                     "pattern": "pass sha1 ${password:text}",
+                    "identifier": "",
+                    "output_template": "SHA1: ${password.sha1}\nMD5: ${password.md5}",
                     "supported_languages": [],
                     "name": "3. Variable with filter",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Uses a variable (`password`) as well as `sha1` and `md5` filters.\n\n> pass sha1 samplepassword123"
                 },
                 {
-                    "output_template": "v1 is ${v1}| and v2 is ${v2}|",
+                    "baseID": "195DAB76-FC3D-4C80-A0FB-EA1AD0AC67BF",
                     "id": "195DAB76-FC3D-4C80-A0FB-EA1AD0AC67BF",
-                    "description": "Optional variables is very simple concept of having variables that does not have to be set.\n\n> opt test\n> opt test 123",
-                    "is_enabled": true,
                     "pattern": "opt ${v1:word}| ${v2:number}|",
+                    "identifier": "",
+                    "output_template": "v1 is ${v1}| and v2 is ${v2}|",
                     "supported_languages": [],
                     "name": "4. Optional Variable",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Optional variables is very simple concept of having variables that does not have to be set.\n\n> opt test\n> opt test 123"
                 },
                 {
-                    "output_template": "{\n\t#\n}",
+                    "baseID": "952F42E2-D5BD-4943-8FE0-7A48B961949E",
                     "id": "952F42E2-D5BD-4943-8FE0-7A48B961949E",
-                    "description": "By default cursor goes at the end of the expanded expression. However it is possible to point that place using hash (`#`).\n\n> block",
-                    "is_enabled": true,
                     "pattern": "block",
+                    "identifier": "",
+                    "output_template": "{\n\t#\n}",
                     "supported_languages": [],
                     "name": "5. Hash",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "By default cursor goes at the end of the expanded expression. However it is possible to point that place using hash (`#`).\n\n> block"
                 },
                 {
-                    "output_template": "external exapnder: ${external}",
+                    "baseID": "49CFE74B-9652-45A2-AC72-3FD471B79FB2",
                     "id": "49CFE74B-9652-45A2-AC72-3FD471B79FB2",
-                    "description": "TeaCode allows to use existing expanders using `exp` variable type.\n\n> exp h Joe",
-                    "is_enabled": true,
                     "pattern": "exp ${external:exp(h)}",
+                    "identifier": "",
+                    "output_template": "external exapnder: ${external}",
                     "supported_languages": [],
                     "name": "6. Exp",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "TeaCode allows to use existing expanders using `exp` variable type.\n\n> exp h Joe"
                 },
                 {
-                    "output_template": "expanded ${e} with ${t}",
+                    "baseID": "C173D632-8A58-492B-ABA9-BA252AFEBF22",
                     "id": "C173D632-8A58-492B-ABA9-BA252AFEBF22",
-                    "description": "Enums are helpful when pattern requires one of certain texts.\n\n> enum a hello world\n> enum b hello world",
-                    "is_enabled": true,
                     "pattern": "enum ${e:enum(a,b,c)} ${t:text}",
+                    "identifier": "",
+                    "output_template": "expanded ${e} with ${t}",
                     "supported_languages": [],
                     "name": "7. Enum",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Enums are helpful when pattern requires one of certain texts.\n\n> enum a hello world\n> enum b hello world"
                 },
                 {
-                    "output_template": "expanded ${s}",
+                    "baseID": "F617DD35-991B-41C8-8945-205BCCC413E8",
                     "id": "F617DD35-991B-41C8-8945-205BCCC413E8",
-                    "description": "Switch changes value of variable to the given one.\n\n> switch a\n> switch other",
-                    "is_enabled": true,
                     "pattern": "switch ${s:switch(a:1,b:2,c:3,*:0)}",
+                    "identifier": "",
+                    "output_template": "expanded ${s}",
                     "supported_languages": [],
                     "name": "8. Switch",
-                    "identifier": ""
+                    "is_enabled": true,
+                    "description": "Switch changes value of variable to the given one.\n\n> switch a\n> switch other"
                 }
             ],
-            "name": "EXAMPLES",
-            "description": "Sample expanders to learn the TeaCode Language.\n\nMade by [twitter] @Apptorium",
             "supported_languages": [
                 "any"
             ],
-            "id": "0D5FB579-E5B1-4533-97BA-185DA252FF91",
-            "is_enabled": false
+            "name": "EXAMPLES",
+            "is_enabled": false,
+            "description": "Sample expanders to learn the TeaCode Language.\n\nMade by [twitter] @Apptorium"
+        },
+        {
+            "baseID": "14D33812-4045-40CE-901A-A570C4770D62",
+            "id": "14D33812-4045-40CE-901A-A570C4770D62",
+            "expanders": [
+                {
+                    "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
+                    "id": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
+                    "pattern": "set ${width:number} ${height:number}",
+                    "identifier": "",
+                    "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
+                    "supported_languages": [
+                        "java"
+                    ],
+                    "name": "Setup",
+                    "is_enabled": true,
+                    "description": "> set 640 840"
+                },
+                {
+                    "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
+                    "id": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
+                    "pattern": "draw",
+                    "identifier": "",
+                    "output_template": "void draw() {\n\t#\n}",
+                    "supported_languages": [
+                        "java"
+                    ],
+                    "name": "Draw",
+                    "is_enabled": true,
+                    "description": "> draw"
+                }
+            ],
+            "supported_languages": [
+                "java"
+            ],
+            "name": "Processing",
+            "is_enabled": true,
+            "description": "Commonly Used Processing Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
         }
     ]
 }

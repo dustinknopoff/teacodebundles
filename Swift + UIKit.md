@@ -23,26 +23,7 @@ will render:
 
 
 ```swift
- @IBDesignable class MyView: UIView {
-     
-     override init(frame: CGRect) {
-         super.init(frame: frame)
-         self.configure()
-     }
-     
-     required init?(coder aDecoder: NSCoder) {
-         super.init(coder: aDecoder)
-         self.configure()
-     }
-     
-     private func configure() {
-         
-     }
-     
-     override func layoutSubviews() {
-         super.layoutSubviews()
-     }
- }
+ <sub>MyView: UIView</sub>
 ```
 
 Languages: ['swift']
@@ -61,9 +42,7 @@ will render:
 
 
 ```swift
- override func viewDidLoad() {
-     super.viewDidLoad()
-     
+ vdl() {
      
  }
 ```
@@ -84,9 +63,7 @@ will render:
 
 
 ```swift
- override func viewDidAppear() {
-     super.viewDidAppear()
-     
+ vda() {
      
  }
 ```
@@ -107,9 +84,7 @@ will render:
 
 
 ```swift
- override func viewWillAppear() {
-     super.viewWillAppear()
-     
+ vwa() {
      
  }
 ```

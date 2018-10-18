@@ -1,199 +1,199 @@
 {
-    "name": "Java",
+    "baseID": "8AD81FEE-76EE-4564-9795-5ADFCD71FB32",
     "id": "8AD81FEE-76EE-4564-9795-5ADFCD71FB32",
-    "is_enabled": true,
-    "description": "Commonly Used Java Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "expanders": [
         {
-            "name": "Constant Variable",
+            "baseID": "A8A614B4-6A01-4927-A68E-1C38C8C6CD6B",
             "id": "A8A614B4-6A01-4927-A68E-1C38C8C6CD6B",
-            "is_enabled": true,
-            "description": "Creates constant variable.\n> const int size 300",
-            "identifier": "java.const",
             "pattern": "const ${type:word} ${name:word} ${value:word}",
+            "identifier": "java.const",
             "output_template": "private static final ${type} ${name.uppercase} = ${value};\n#",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "A8A614B4-6A01-4927-A68E-1C38C8C6CD6B"
+            "name": "Constant Variable",
+            "is_enabled": true,
+            "description": "Creates constant variable.\n> const int size 300"
         },
         {
-            "name": "If",
+            "baseID": "8AD4118B-F79F-4365-A4D5-894B4AD47CA3",
             "id": "8AD4118B-F79F-4365-A4D5-894B4AD47CA3",
-            "is_enabled": true,
-            "description": "Creates if statement.\n> if x > 300",
-            "identifier": "java.if",
             "pattern": "if ${condition:text?}",
+            "identifier": "java.if",
             "output_template": "if (${condition}) {\n\t#\n}",
             "supported_languages": [
                 "java",
                 "js",
                 "c"
             ],
-            "baseID": "8AD4118B-F79F-4365-A4D5-894B4AD47CA3"
+            "name": "If",
+            "is_enabled": true,
+            "description": "Creates if statement.\n> if x > 300"
         },
         {
-            "name": "For",
+            "baseID": "F6D98F31-6602-4999-B455-E595FDBF76C8",
             "id": "F6D98F31-6602-4999-B455-E595FDBF76C8",
-            "is_enabled": true,
-            "description": "Creates for loop.\n> for int ArrayList arr",
-            "identifier": "java.for",
             "pattern": "for ${type1:word} ${type2:word} ${iterator:word}",
+            "identifier": "java.for",
             "output_template": "for (${type1} i : ${type2} ${iterator}) {\n\t#\n}",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "F6D98F31-6602-4999-B455-E595FDBF76C8"
+            "name": "For",
+            "is_enabled": true,
+            "description": "Creates for loop.\n> for int ArrayList arr"
         },
         {
-            "name": "For(i)",
+            "baseID": "C1BC6D11-E6DE-4759-99F3-3EF9948B753A",
             "id": "C1BC6D11-E6DE-4759-99F3-3EF9948B753A",
-            "is_enabled": true,
-            "description": "Creates iterative for loop.\n> fori <= arr.length()",
-            "identifier": "java.fori",
             "pattern": "fori ${comparator:text?=<} ${max:text?=100}",
+            "identifier": "java.fori",
             "output_template": "for (int i = 0; i ${comparator} ${max}; i++) {\n\t#\n}",
             "supported_languages": [
                 "java",
                 "js",
                 "c"
             ],
-            "baseID": "C1BC6D11-E6DE-4759-99F3-3EF9948B753A"
+            "name": "For(i)",
+            "is_enabled": true,
+            "description": "Creates iterative for loop.\n> fori <= arr.length()"
         },
         {
-            "name": "Variable",
+            "baseID": "F3CFF65F-AE61-4B6C-B23F-101F2B3CAB76",
             "id": "F3CFF65F-AE61-4B6C-B23F-101F2B3CAB76",
-            "is_enabled": true,
-            "description": "Default variable declaration. (Private and final)\n> -v List<Shape> shapes\n> -v int maxHeight",
-            "identifier": "java.var",
             "pattern": "-v ${type:text} ${name:word}",
+            "identifier": "java.var",
             "output_template": "private final ${type} ${name};\n#",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "F3CFF65F-AE61-4B6C-B23F-101F2B3CAB76"
+            "name": "Variable",
+            "is_enabled": true,
+            "description": "Default variable declaration. (Private and final)\n> -v List<Shape> shapes\n> -v int maxHeight"
         },
         {
-            "name": "Method",
+            "baseID": "4627B0C3-1F40-4DB1-9BE4-2DEE8C1898D1",
             "id": "4627B0C3-1F40-4DB1-9BE4-2DEE8C1898D1",
-            "is_enabled": true,
-            "description": "Creates default method syntax. (Private and final)\n> fn void AnimatorModel\n> fn boolean addShape Shape shape",
-            "identifier": "java.fn",
             "pattern": "-f ${type:word} ${name:word}| ${args:text?}|",
+            "identifier": "java.fn",
             "output_template": "private final ${type} ${name.camelcase}(|${args}|) {\n\t#\n}",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "4627B0C3-1F40-4DB1-9BE4-2DEE8C1898D1"
+            "name": "Method",
+            "is_enabled": true,
+            "description": "Creates default method syntax. (Private and final)\n> fn void AnimatorModel\n> fn boolean addShape Shape shape"
         },
         {
-            "name": "Error",
+            "baseID": "9352E369-E168-44C9-86BC-3FE8E6D1716E",
             "id": "9352E369-E168-44C9-86BC-3FE8E6D1716E",
-            "is_enabled": true,
-            "description": "Creates exception statement.\n> throw u Cannot do this in non-Hybrid View",
-            "identifier": "java.throw",
             "pattern": "throw ${type:switch(u:UnsupportedOperationException,i:IllegalArgumentException)} ${txt:text}",
+            "identifier": "java.throw",
             "output_template": "throw new ${type}(\"${txt}\");\n#",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "9352E369-E168-44C9-86BC-3FE8E6D1716E"
+            "name": "Error",
+            "is_enabled": true,
+            "description": "Creates exception statement.\n> throw u Cannot do this in non-Hybrid View"
         },
         {
-            "name": "Cast",
+            "baseID": "6A70D9D4-3F26-4D14-AB70-F1759C64AC5A",
             "id": "6A70D9D4-3F26-4D14-AB70-F1759C64AC5A",
-            "is_enabled": true,
-            "description": "Creates default cast expression.\n> cast Oval o s",
-            "identifier": "java.cast",
             "pattern": "cast ${type:text} ${new:word} ${var:word}",
+            "identifier": "java.cast",
             "output_template": "${type} ${new} = (${type}) ${var};\n#",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "6A70D9D4-3F26-4D14-AB70-F1759C64AC5A"
+            "name": "Cast",
+            "is_enabled": true,
+            "description": "Creates default cast expression.\n> cast Oval o s"
         },
         {
-            "name": "Class",
+            "baseID": "DCC1340A-AFC1-4A1B-B4BD-12A2857A1988",
             "id": "DCC1340A-AFC1-4A1B-B4BD-12A2857A1988",
-            "is_enabled": true,
-            "description": "Creates a class with a constructor. It\u2019s possible to add inheriting classes after `:` character\n\n> +c nombre: Familia",
-            "identifier": "java.class",
             "pattern": "|${scope:switch(+:public ,-:private ,#:protected )}|c ${name:word}|: ${inherit:word}|",
+            "identifier": "java.class",
             "output_template": "|${scope}|class ${name.ucfirst}| extends ${inherit.ucfirst}| {\n\t#\n}",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "DCC1340A-AFC1-4A1B-B4BD-12A2857A1988"
+            "name": "Class",
+            "is_enabled": true,
+            "description": "Creates a class with a constructor. It\u2019s possible to add inheriting classes after `:` character\n\n> +c nombre: Familia"
         },
         {
-            "name": "Interface",
+            "baseID": "218EBA06-A9B2-44C4-9CA0-8C9113BA2B2C",
             "id": "218EBA06-A9B2-44C4-9CA0-8C9113BA2B2C",
-            "is_enabled": true,
-            "description": "Creates an interface in Java.\n\n> i Car im base\n> i Car e base\n\nCreated by @Gata",
-            "identifier": "java.inter",
             "pattern": "i ${name:word}| ${inheritance:switch(im:implements,e:extends)} ${base:word}|",
+            "identifier": "java.inter",
             "output_template": "interface ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "218EBA06-A9B2-44C4-9CA0-8C9113BA2B2C"
+            "name": "Interface",
+            "is_enabled": true,
+            "description": "Creates an interface in Java.\n\n> i Car im base\n> i Car e base\n\nCreated by @Gata"
         },
         {
-            "name": "Implements",
+            "baseID": "7D89CC4C-5D86-498C-AC03-A45379CE4CAD",
             "id": "7D89CC4C-5D86-498C-AC03-A45379CE4CAD",
-            "is_enabled": true,
-            "description": "Creates a Java Interface.\n\n> c Car im base\n> c Car e base\n\nMade by @Gata",
-            "identifier": "java.impl",
             "pattern": "c ${name:word}| ${inheritance:switch(im:implements,e:extends)} ${base:word}|",
+            "identifier": "java.impl",
             "output_template": "class ${name.ucfirst}| ${inheritance} ${base.ucfirst}| {\n\t#\n}",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "7D89CC4C-5D86-498C-AC03-A45379CE4CAD"
+            "name": "Implements",
+            "is_enabled": true,
+            "description": "Creates a Java Interface.\n\n> c Car im base\n> c Car e base\n\nMade by @Gata"
         },
         {
-            "name": "Function",
+            "baseID": "D6DD8541-02E3-44DA-BA50-F6278A91350B",
             "id": "D6DD8541-02E3-44DA-BA50-F6278A91350B",
-            "is_enabled": true,
-            "description": "Creates a function (method) with the given scope and name.\n\n> +String run\n> +int run(String param1, int param2)",
-            "identifier": "java.fn",
             "pattern": "|${access:switch(+:public,-:private,#:protected)}${return:word}|${name:word}|(${type:word} ${params:text})|",
+            "identifier": "java.fn",
             "output_template": "|${access}${return}|${name}(|${type} ${params}|) {\n\t#\n}",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "D6DD8541-02E3-44DA-BA50-F6278A91350B"
+            "name": "Function",
+            "is_enabled": true,
+            "description": "Creates a function (method) with the given scope and name.\n\n> +String run\n> +int run(String param1, int param2)"
         },
         {
-            "name": "Scope",
+            "baseID": "7DD54975-720D-45CA-94F2-AB01B1E5AD8B",
             "id": "7DD54975-720D-45CA-94F2-AB01B1E5AD8B",
-            "is_enabled": true,
-            "description": "> +\n\n> -\n\n> #",
-            "identifier": "java.scope",
             "pattern": "${scope:switch(+:public,-:private,#:protected)=-}",
+            "identifier": "java.scope",
             "output_template": "${scope}",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "7DD54975-720D-45CA-94F2-AB01B1E5AD8B"
+            "name": "Scope",
+            "is_enabled": true,
+            "description": "> +\n\n> -\n\n> #"
         },
         {
-            "name": "Print",
+            "baseID": "BC869ECC-8193-4DEB-AFB7-4243F8973A1E",
             "id": "BC869ECC-8193-4DEB-AFB7-4243F8973A1E",
-            "is_enabled": true,
-            "description": "> print array.length()",
-            "identifier": "java.print",
             "pattern": "print ${content:text?}",
+            "identifier": "java.print",
             "output_template": "System.out.println(${content});\n#",
             "supported_languages": [
                 "java"
             ],
-            "baseID": "BC869ECC-8193-4DEB-AFB7-4243F8973A1E"
+            "name": "Print",
+            "is_enabled": true,
+            "description": "> print array.length()"
         }
     ],
     "supported_languages": [
         "any",
         "java"
     ],
-    "baseID": "8AD81FEE-76EE-4564-9795-5ADFCD71FB32"
+    "name": "Java",
+    "is_enabled": true,
+    "description": "Commonly Used Java Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
 }

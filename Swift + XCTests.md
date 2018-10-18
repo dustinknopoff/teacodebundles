@@ -39,13 +39,7 @@ will render:
 
 
 ```swift
- import XCTest
- @testable import MyApp
- 
- class UpdateControllerTests: XCTestCase {
-     
-     
- }
+ tc UpdateController import MyApp
 ```
 
 Languages: ['swift']
@@ -62,7 +56,7 @@ will render:
 
 
 ```swift
- func testUpdate() {
+ tfunc update() {
      
  }
 ```
@@ -81,7 +75,9 @@ will render:
 
 
 ```swift
- XCTAssertEqual(, value)
+ ase value() {
+     
+ }
 ```
 
 Languages: ['swift']
@@ -98,7 +94,9 @@ will render:
 
 
 ```swift
- XCTAssertTrue(value)
+ ast value() {
+     
+ }
 ```
 
 Languages: ['swift']
@@ -115,7 +113,9 @@ will render:
 
 
 ```swift
- XCTAssertFalse(value)
+ asfunc value() {
+     
+ }
 ```
 
 Languages: ['swift']
@@ -132,7 +132,9 @@ will render:
 
 
 ```swift
- XCTAssertNil(value)
+ asn value() {
+     
+ }
 ```
 
 Languages: ['swift']
@@ -149,7 +151,7 @@ will render:
 
 
 ```swift
- XCTAssert(value == "something")
+strcmp( as value,"something")
 ```
 
 Languages: ['swift']

@@ -1,235 +1,235 @@
 {
-    "name": "C",
+    "baseID": "95B67DCB-F254-4537-83BF-913679BF617A",
     "id": "95B67DCB-F254-4537-83BF-913679BF617A",
-    "is_enabled": true,
-    "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "expanders": [
         {
-            "name": "Include",
+            "baseID": "22CDAE78-49FD-4695-A71A-85A3E019D793",
             "id": "22CDAE78-49FD-4695-A71A-85A3E019D793",
-            "is_enabled": true,
-            "description": "> # s\n\n> #math.h s\n\n> #foo.h u",
-            "identifier": "c.include",
             "pattern": "#${header:text?=stdio.h} ${type:enum(s,u)}",
+            "identifier": "c.include",
             "output_template": "${python(\"if \\\"${type}\\\" is \\\"u\\\":\n\tprint('\\#include \\\"${header}\\\"')\nelif \\\"${header}\\\" is \\\"\\\":\n\tprint('\\#include <stdio.h>') \nelse:\n\tprint('\\#include <${header}>') \")}\n#",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "22CDAE78-49FD-4695-A71A-85A3E019D793"
+            "name": "Include",
+            "is_enabled": true,
+            "description": "> # s\n\n> #math.h s\n\n> #foo.h u"
         },
         {
-            "name": "main",
+            "baseID": "3E54F6A8-5341-4537-93A4-B145AE7F8D80",
             "id": "3E54F6A8-5341-4537-93A4-B145AE7F8D80",
-            "is_enabled": true,
-            "description": "> main",
-            "identifier": "c.main",
             "pattern": "main",
+            "identifier": "c.main",
             "output_template": "int main(int argv, char *argv[]) {\n\t#\n\treturn 0;\n}",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "3E54F6A8-5341-4537-93A4-B145AE7F8D80"
+            "name": "main",
+            "is_enabled": true,
+            "description": "> main"
         },
         {
-            "name": "typedef",
+            "baseID": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078",
             "id": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078",
-            "is_enabled": true,
-            "description": "> td struct fraction Fraction",
-            "identifier": "c.typedef",
             "pattern": "td ${type:word} ${value:text?}",
+            "identifier": "c.typedef",
             "output_template": "typedef ${type} ${value};\n#",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "512BFBDC-EAC8-4CE2-A06F-21B6C2848078"
+            "name": "typedef",
+            "is_enabled": true,
+            "description": "> td struct fraction Fraction"
         },
         {
-            "name": "define",
+            "baseID": "0DF85C30-585C-4821-8DC0-DCA468189EDE",
             "id": "0DF85C30-585C-4821-8DC0-DCA468189EDE",
-            "is_enabled": true,
-            "description": "> -d BOOL char",
-            "identifier": "c.define",
             "pattern": "-d ${name:word} ${value:text?}",
+            "identifier": "c.define",
             "output_template": "\\#define ${name.uppercase} ${value}\n#",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "0DF85C30-585C-4821-8DC0-DCA468189EDE"
+            "name": "define",
+            "is_enabled": true,
+            "description": "> -d BOOL char"
         },
         {
-            "name": "while",
+            "baseID": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9",
             "id": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9",
-            "is_enabled": true,
-            "description": "> w i - 10",
-            "identifier": "c.while",
             "pattern": "w ${logic:text?}",
+            "identifier": "c.while",
             "output_template": "while (${logic}) {\n\t#\n}",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "3568CB8D-406D-4D0B-9CBF-9C004DACCCB9"
+            "name": "while",
+            "is_enabled": true,
+            "description": "> w i - 10"
         },
         {
-            "name": "switch",
+            "baseID": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60",
             "id": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60",
-            "is_enabled": true,
-            "description": "> switch stringtype",
-            "identifier": "c.switch",
             "pattern": "switch ${expression:text?}",
+            "identifier": "c.switch",
             "output_template": "switch (${expression}) {\n\tcase #:\n\t\t\n\t\tbreak;\n\tdefault:\n\t\t\n\t\tbreak;\n}\n",
             "supported_languages": [
                 "c",
                 "java",
                 "js"
             ],
-            "baseID": "6B270E0B-2E02-4AAF-97C9-D55EAACAEE60"
+            "name": "switch",
+            "is_enabled": true,
+            "description": "> switch stringtype"
         },
         {
-            "name": "Struct",
+            "baseID": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6",
             "id": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6",
-            "is_enabled": true,
-            "description": "> struct Store",
-            "identifier": "",
             "pattern": "struct ${name:word}",
+            "identifier": "",
             "output_template": "typedef struct ${name.capitalize} {\n\t#\n} ${name.capitalize};",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "59CD06B7-3B06-4B3C-B669-F2974E3C96D6"
+            "name": "Struct",
+            "is_enabled": true,
+            "description": "> struct Store"
         },
         {
-            "name": "String copy",
+            "baseID": "5B8B675A-861F-414A-8415-6541794CA318",
             "id": "5B8B675A-861F-414A-8415-6541794CA318",
-            "is_enabled": true,
-            "description": "> len usrInput",
-            "identifier": "c.strlen",
             "pattern": "len ${string:word}",
+            "identifier": "c.strlen",
             "output_template": "strlen(${string})",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "5B8B675A-861F-414A-8415-6541794CA318"
+            "name": "String copy",
+            "is_enabled": true,
+            "description": "Example string length call\n\n> len usrInput"
         },
         {
-            "name": "function",
+            "baseID": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC",
             "id": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC",
-            "is_enabled": true,
-            "description": "> fn + int power int base, int n\n\n> fn - int double int number",
-            "identifier": "c.fn",
             "pattern": "fn ${scope:exp(c.scope)} ${type:word} ${name:word} ${params:text?}",
-            "output_template": "${python(\"import pyperclip\nif \\\"${scope}\\\" is \\\"prototype\\\":\n\tprint(\\\"${type} ${name.camelcase}(${params});\\\")\n\tif \\\"${type}\\\" is \\\"void\\\":\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n\\treturn ;\\n}\\\")\nelse:\n\tprint(\\\"static ${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\")}",
+            "identifier": "c.fn",
+            "output_template": "${python(\"if \\\"${scope}\\\" is \\\"prototype\\\":\n\tprint(\\\"${type} ${name.camelcase}(${params});\\\")\n\tif \\\"${type}\\\" is \\\"void\\\":\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase}(${params}) {\\n \\t#\\n\\treturn ;\\n}\\\")\nelse:\n\tprint(\\\"static ${type} ${name.camelcase}(${params}) {\\n \\t#\\n}\\\")\", autoIndent: true, enableSandbox: true)}",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "1A9F96A5-0004-48E8-B3FB-7D780C47DCFC"
+            "name": "function",
+            "is_enabled": true,
+            "description": "> fn + int power int base, int n\n\n> fn - int double int number"
         },
         {
-            "name": "Scope",
+            "baseID": "2303EA95-6AED-4CA2-88EA-B665B2CFF188",
             "id": "2303EA95-6AED-4CA2-88EA-B665B2CFF188",
-            "is_enabled": true,
-            "description": "",
-            "identifier": "c.scope",
             "pattern": "${scope:switch(+:prototype,-:static)}",
+            "identifier": "c.scope",
             "output_template": "${scope}",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "2303EA95-6AED-4CA2-88EA-B665B2CFF188"
+            "name": "Scope",
+            "is_enabled": true,
+            "description": ""
         },
         {
-            "name": "assert",
+            "baseID": "D144BA08-20BD-4B57-889C-839814475B7A",
             "id": "D144BA08-20BD-4B57-889C-839814475B7A",
-            "is_enabled": true,
-            "description": "**NOTE: must include #include <assert.h>**\n> assert i > MAX_INTS",
-            "identifier": "c.assert",
             "pattern": "assert ${condition:text?}",
+            "identifier": "c.assert",
             "output_template": "assert(${condition});\n#",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "D144BA08-20BD-4B57-889C-839814475B7A"
+            "name": "assert",
+            "is_enabled": true,
+            "description": "**NOTE: must include #include <assert.h>**\n> assert i > MAX_INTS"
         },
         {
-            "name": "print",
+            "baseID": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C",
             "id": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C",
-            "is_enabled": true,
-            "description": "> print \"x is greater than %d\", 35",
-            "identifier": "c.print",
             "pattern": "print ${value:text?}| ${fillins:text?}|",
+            "identifier": "c.print",
             "output_template": "printf(${value}|, ${fillins}|);\n#",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "EEC7CB8D-A894-4CC6-9CE1-A75DE973CA0C"
+            "name": "print",
+            "is_enabled": true,
+            "description": "> print \"x is greater than %d\", 35"
         },
         {
-            "name": "String equality",
+            "baseID": "F053293B-C6A9-4CB6-AF13-3978FC613C2E",
             "id": "F053293B-C6A9-4CB6-AF13-3978FC613C2E",
-            "is_enabled": true,
-            "description": "> usrInput == \"Charlie Day\"",
-            "identifier": "c.seq",
             "pattern": "${s1:text?} == ${s2:text?}",
+            "identifier": "c.seq",
             "output_template": "strcmp(${s1},${s2})",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "F053293B-C6A9-4CB6-AF13-3978FC613C2E"
+            "name": "String equality",
+            "is_enabled": true,
+            "description": "> usrInput == \"Charlie Day\""
         },
         {
-            "name": "string contains",
+            "baseID": "4211E813-7253-4091-A862-927A36B38704",
             "id": "4211E813-7253-4091-A862-927A36B38704",
-            "is_enabled": true,
-            "description": "> \"Hello World\".contains(\"orld\")",
-            "identifier": "c.scontain",
             "pattern": "${s1:text?}.contains(${s2:text?})",
+            "identifier": "c.scontain",
             "output_template": "strstr(${s1},${s2})",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "4211E813-7253-4091-A862-927A36B38704"
+            "name": "string contains",
+            "is_enabled": true,
+            "description": "> \"Hello World\".contains(\"orld\")"
         },
         {
-            "name": "array size",
+            "baseID": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4",
             "id": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4",
-            "is_enabled": true,
-            "description": "> size int_array int",
-            "identifier": "c.size",
             "pattern": "size ${var:word} ${type:word}",
+            "identifier": "c.size",
             "output_template": "(sizeof(${var}) / sizeof(${type}))",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "5EC379C8-5E9D-4B23-B4D5-AF896F0149E4"
+            "name": "array size",
+            "is_enabled": true,
+            "description": "> size int_array int"
         },
         {
-            "name": "var",
+            "baseID": "3B44B83F-AAAC-4E47-BF57-9C5B683E211B",
             "id": "3B44B83F-AAAC-4E47-BF57-9C5B683E211B",
-            "is_enabled": true,
-            "description": "> -v int p x 5\n\n> -v int n x 5\n\n> -v int p x  \n\n> -v int n x  ",
-            "identifier": "c.var",
             "pattern": "-v ${type:word} ${point:enum(p,n)=n} ${name:word} ${value:text?=NULL}",
+            "identifier": "c.var",
             "output_template": "${python(\"if \\\"${point}\\\" is \\\"p\\\":\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type}* ${name.camelcase} = NULL;\\\")\n\telse:\n\t\tprint(\\\"${type}* ${name.camelcase} = ${value};\\\")\nelse:\n\tif \\\"${value}\\\" is \\\" \\\":\n\t\tprint(\\\"${type} ${name.camelcase} = #;\\\")\n\telse:\n\t\tprint(\\\"${type} ${name.camelcase} = ${value};\\\")\")}",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "3B44B83F-AAAC-4E47-BF57-9C5B683E211B"
+            "name": "var",
+            "is_enabled": true,
+            "description": "> -v int p x 5\n\n> -v int n x 5\n\n> -v int p x  \n\n> -v int n x  "
         },
         {
-            "name": "array",
+            "baseID": "23B0AE35-CACA-4F28-A887-AEE978A7ACF8",
             "id": "23B0AE35-CACA-4F28-A887-AEE978A7ACF8",
-            "is_enabled": true,
-            "description": "> arr int x 6\n\n> arr int x 6 1,2,3,4,5",
-            "identifier": "",
             "pattern": "arr ${type:word} ${name:word} ${size:number}| ${values:text?}|",
+            "identifier": "",
             "output_template": "${type} ${name.camelcase}[${size}]| = {${values}}|;\n#",
             "supported_languages": [
                 "c"
             ],
-            "baseID": "23B0AE35-CACA-4F28-A887-AEE978A7ACF8"
+            "name": "array",
+            "is_enabled": true,
+            "description": "> arr int x 6\n\n> arr int x 6 1,2,3,4,5"
         }
     ],
     "supported_languages": [
         "c"
     ],
-    "baseID": "95B67DCB-F254-4537-83BF-913679BF617A"
+    "name": "C",
+    "is_enabled": true,
+    "description": "Common C Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
 }
