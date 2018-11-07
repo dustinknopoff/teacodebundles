@@ -16,6 +16,13 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [Type Conversion](#type-conversion)
 - [main](#main)
 - [Match](#match)
+- [Attr](#attr)
+- [Mod](#mod)
+- [Print](#print)
+- [Par Iter](#par-iter)
+- [to JSON](#to-json)
+- [to String](#to-string)
+- [Open](#open)
 
 ### Fn
 
@@ -60,6 +67,17 @@ will render:
 
 ```rust
  impl Rectangle {
+     
+ }
+```
+
+` impl rectangle Iterator`
+
+will render:
+
+
+```rust
+ impl Rectangle Iterator {
      
  }
 ```
@@ -146,13 +164,13 @@ will render:
  <var>integer 36</var>
 ```
 
-` var integer 36 usize m`
+` var totalSize 36 usize m`
 
 will render:
 
 
 ```rust
- <var>integer 36 usize m</var>
+ <var>totalSize 36 usize m</var>
 ```
 
 Languages: ['rust']
@@ -220,6 +238,152 @@ will render:
  	7=> ,
  	22=> ,
  }
+```
+
+Languages: ['rust']
+
+
+
+### Attr
+
+Description:
+
+` attr -d Debug`
+
+will render:
+
+
+```rust
+ #[derive(Debug)]
+ 
+```
+
+` attr -c tests`
+
+will render:
+
+
+```rust
+ #[cfg(Tests)]
+ 
+```
+
+Languages: ['rust']
+
+
+
+### Mod
+
+Description:
+
+` mod Docs`
+
+will render:
+
+
+```rust
+ mod Docs {
+     
+ }
+```
+
+Languages: ['rust']
+
+
+
+### Print
+
+Description:
+
+` print "{}", x`
+
+will render:
+
+
+```rust
+ System.out.println("{}", x);
+ 
+```
+
+Languages: ['rust']
+
+
+
+### Par Iter
+
+Description:
+
+` parit array_of_strings`
+
+will render:
+
+
+```rust
+ array_of_strings.par_iter().map(x {
+     
+ });
+```
+
+Languages: ['rust']
+
+
+
+### to JSON
+
+Description:
+
+` 2json result`
+
+will render:
+
+
+```rust
+ serde_json::to_string_pretty(&result)
+```
+
+Languages: ['rust']
+
+
+
+### to String
+
+Description:
+
+` toS "Hi"`
+
+will render:
+
+
+```rust
+ "Hi".to_string()
+```
+
+Languages: ['rust']
+
+
+
+### Open
+
+Description:
+
+` open p`
+
+will render:
+
+
+```rust
+ with open('p') as f:
+     
+```
+
+` open ~/Documents/Gits/test.py`
+
+will render:
+
+
+```rust
+ with open('~/Documents/Gits/test.py') as f:
+     
 ```
 
 Languages: ['rust']
