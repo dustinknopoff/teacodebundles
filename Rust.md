@@ -23,6 +23,9 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [to JSON](#to-json)
 - [to String](#to-string)
 - [Open](#open)
+- [Let If](#let-if)
+- [to_String](#to_string)
+- [Par Iter](#par-iter)
 
 ### Fn
 
@@ -384,6 +387,65 @@ will render:
 ```rust
  with open('~/Documents/Gits/test.py') as f:
      
+```
+
+Languages: ['rust']
+
+
+
+### Let If
+
+Description:
+
+` lif all_em matches.is_present("directory")`
+
+will render:
+
+
+```rust
+ let all_em = if matches.is_present("directory") {
+     
+ } else {
+ 
+ };
+```
+
+Languages: ['rust']
+
+
+
+### to_String
+
+Description:
+
+` ts`
+
+will render:
+
+
+```rust
+ ts() {
+     
+ }
+```
+
+Languages: ['rust']
+
+
+
+### Par Iter
+
+Description:
+
+` par all_docs files`
+
+will render:
+
+
+```rust
+ let all_docs:  = files.par_iter().map(|x| {
+ 
+ }).collect();
 ```
 
 Languages: ['rust']
