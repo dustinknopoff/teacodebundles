@@ -19,12 +19,10 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [Attr](#attr)
 - [Mod](#mod)
 - [Print](#print)
-- [Par Iter](#par-iter)
 - [to JSON](#to-json)
 - [to String](#to-string)
 - [Open](#open)
 - [Let If](#let-if)
-- [to_String](#to_string)
 - [Par Iter](#par-iter)
 
 ### Fn
@@ -312,25 +310,6 @@ Languages: ['rust']
 
 
 
-### Par Iter
-
-Description:
-
-` parit array_of_strings`
-
-will render:
-
-
-```rust
- array_of_strings.par_iter().map(x {
-     
- });
-```
-
-Languages: ['rust']
-
-
-
 ### to JSON
 
 Description:
@@ -408,25 +387,6 @@ will render:
  } else {
  
  };
-```
-
-Languages: ['rust']
-
-
-
-### to_String
-
-Description:
-
-` ts`
-
-will render:
-
-
-```rust
- ts() {
-     
- }
 ```
 
 Languages: ['rust']

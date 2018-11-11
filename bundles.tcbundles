@@ -965,19 +965,6 @@
                         "rust"
                     ],
                     "identifier": "",
-                    "baseID": "A3D46BAF-F951-4ECD-AF0F-8D4E840AE499",
-                    "is_enabled": true,
-                    "pattern": "parit ${var:text?}",
-                    "description": "> parit array_of_strings",
-                    "id": "A3D46BAF-F951-4ECD-AF0F-8D4E840AE499",
-                    "name": "Par Iter",
-                    "output_template": "${var}.par_iter().map(|x| {\n\t#\n});"
-                },
-                {
-                    "supported_languages": [
-                        "rust"
-                    ],
-                    "identifier": "",
                     "baseID": "CCF2634C-546D-4891-A947-F55C3CED165D",
                     "is_enabled": true,
                     "pattern": "2json ${var:word}",
@@ -1024,19 +1011,6 @@
                     "id": "C9D902CC-0837-4BCF-B9E6-208B394FD73E",
                     "name": "Let If",
                     "output_template": "let ${var} = if ${condition} {\n\t#\n} else {\n\n};"
-                },
-                {
-                    "supported_languages": [
-                        "rust"
-                    ],
-                    "identifier": "",
-                    "baseID": "3F931447-C0A2-4947-A40E-0F3897E3C8DC",
-                    "is_enabled": true,
-                    "pattern": "ts",
-                    "description": "> ts",
-                    "id": "3F931447-C0A2-4947-A40E-0F3897E3C8DC",
-                    "name": "to_String",
-                    "output_template": "to_string()#"
                 },
                 {
                     "supported_languages": [
