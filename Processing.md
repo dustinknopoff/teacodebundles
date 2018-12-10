@@ -19,8 +19,7 @@ will render:
 
 
 ```java
- void setup() {
-     size(640, 840);
+ set 640 840() {
      
  }
 ```

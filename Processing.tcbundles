@@ -1,38 +1,38 @@
 {
+    "baseID": "14D33812-4045-40CE-901A-A570C4770D62",
     "expanders": [
         {
-            "identifier": "",
-            "pattern": "set ${width:number} ${height:number}",
-            "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
-            "description": "> set 640 840",
-            "is_enabled": true,
+            "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
             "supported_languages": [
                 "java"
             ],
-            "id": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
             "name": "Setup",
-            "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A"
+            "description": "> set 640 840",
+            "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
+            "id": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
+            "pattern": "set ${width:number} ${height:number}",
+            "identifier": "",
+            "is_enabled": true
         },
         {
-            "identifier": "",
-            "pattern": "draw",
-            "output_template": "void draw() {\n\t#\n}",
-            "description": "> draw",
-            "is_enabled": true,
+            "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
             "supported_languages": [
                 "java"
             ],
-            "id": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
             "name": "Draw",
-            "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1"
+            "description": "> draw",
+            "output_template": "void draw() {\n\t#\n}",
+            "id": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
+            "pattern": "draw",
+            "identifier": "",
+            "is_enabled": true
         }
     ],
-    "description": "Commonly Used Processing Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
-    "is_enabled": true,
     "supported_languages": [
         "processing"
     ],
-    "id": "14D33812-4045-40CE-901A-A570C4770D62",
     "name": "Processing",
-    "baseID": "14D33812-4045-40CE-901A-A570C4770D62"
+    "description": "Commonly Used Processing Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
+    "id": "14D33812-4045-40CE-901A-A570C4770D62",
+    "is_enabled": false
 }
