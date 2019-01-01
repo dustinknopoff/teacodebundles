@@ -102,17 +102,6 @@ will render:
  }
 ```
 
-` struct Room String`
-
-will render:
-
-
-```rust
- struct Room<String> {
-     
- }
-```
-
 Languages: ['rust']
 
 
@@ -128,9 +117,9 @@ will render:
 
 ```rust
  enum Coins {
-     
-     
+ 
  }
+ 
 ```
 
 ` enum Coins Penny,Nickel,Quarter,Dime`
@@ -140,12 +129,12 @@ will render:
 
 ```rust
  enum Coins {
-     Penny,
+ Penny,
  Nickel,
  Quarter,
  Dime
-     
  }
+ 
 ```
 
 Languages: ['rust']

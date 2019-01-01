@@ -1,38 +1,38 @@
 {
-    "baseID": "14D33812-4045-40CE-901A-A570C4770D62",
-    "expanders": [
-        {
-            "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
-            "supported_languages": [
-                "java"
-            ],
-            "name": "Setup",
-            "description": "> set 640 840",
-            "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
-            "id": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
-            "pattern": "set ${width:number} ${height:number}",
-            "identifier": "",
-            "is_enabled": true
-        },
-        {
-            "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
-            "supported_languages": [
-                "java"
-            ],
-            "name": "Draw",
-            "description": "> draw",
-            "output_template": "void draw() {\n\t#\n}",
-            "id": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
-            "pattern": "draw",
-            "identifier": "",
-            "is_enabled": true
-        }
-    ],
     "supported_languages": [
         "processing"
     ],
     "name": "Processing",
-    "description": "Commonly Used Processing Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "id": "14D33812-4045-40CE-901A-A570C4770D62",
+    "expanders": [
+        {
+            "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
+            "supported_languages": [
+                "java"
+            ],
+            "name": "Setup",
+            "pattern": "set ${width:number} ${height:number}",
+            "id": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
+            "identifier": "",
+            "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
+            "description": "> set 640 840",
+            "is_enabled": true
+        },
+        {
+            "output_template": "void draw() {\n\t#\n}",
+            "supported_languages": [
+                "java"
+            ],
+            "name": "Draw",
+            "pattern": "draw",
+            "id": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
+            "identifier": "",
+            "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
+            "description": "> draw",
+            "is_enabled": true
+        }
+    ],
+    "baseID": "14D33812-4045-40CE-901A-A570C4770D62",
+    "description": "Commonly Used Processing Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "is_enabled": false
 }
