@@ -1,130 +1,130 @@
 {
     "baseID": "07A909A8-43DF-4694-BE0C-7A854185EA97",
     "id": "07A909A8-43DF-4694-BE0C-7A854185EA97",
-    "expanders": [
-        {
-            "baseID": "4BB849BB-2B46-4F70-8971-B20AED473514",
-            "id": "4BB849BB-2B46-4F70-8971-B20AED473514",
-            "pattern": "byid ${var:word} ${id:text?}",
-            "identifier": "byid",
-            "output_template": "var ${var.camelcase} = document.getElementById(\"${id}\");\n#",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "Element Id",
-            "is_enabled": true,
-            "description": "Creates Element id selector statement.\n> byid btns menu-button"
-        },
-        {
-            "baseID": "95A52662-EB0B-48AE-8AC4-000158D9F12E",
-            "id": "95A52662-EB0B-48AE-8AC4-000158D9F12E",
-            "pattern": "byclass ${var:word} ${class:text?}",
-            "identifier": "byclass",
-            "output_template": "var ${var.camelcase} = document.getElementsByClassName(\"${class}\");\n",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "Element Class",
-            "is_enabled": true,
-            "description": "Creates default statement for element selection by class name.\n> byclass btns links"
-        },
-        {
-            "baseID": "CB399EC6-4087-4854-8DA6-6FF09480F38A",
-            "id": "CB399EC6-4087-4854-8DA6-6FF09480F38A",
-            "pattern": "bytag ${var:word} ${tag:word}",
-            "identifier": "bytag",
-            "output_template": "var ${var.camelcase} = document.getElementsByTagName(\"${tag}\");\n#",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "Element Tag",
-            "is_enabled": true,
-            "description": "Creates default statement for element selection by tag name.\n> bytag btns button"
-        },
-        {
-            "baseID": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8",
-            "id": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8",
-            "pattern": "addc ${var:word} ${class:text?}",
-            "identifier": "addc",
-            "output_template": "${var}.className += ${class};\n#",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "Add Class",
-            "is_enabled": true,
-            "description": "Creates statement to add to a variable's class name.\n> addc l active"
-        },
-        {
-            "baseID": "AA8C4B31-A779-4066-976C-FD8A6EE031D0",
-            "id": "AA8C4B31-A779-4066-976C-FD8A6EE031D0",
-            "pattern": "forek ${var:word}",
-            "identifier": "forek",
-            "output_template": "Object.keys(${var})\n\t.forEach((key) => {\n\t\t#\n\t});",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "forEach Key",
-            "is_enabled": true,
-            "description": "Creates forEach arrow function on dictionary/html node.\n> forek query"
-        },
-        {
-            "baseID": "84734CF1-6AB0-4BD4-B955-D886704B261C",
-            "id": "84734CF1-6AB0-4BD4-B955-D886704B261C",
-            "pattern": "fetch ${url:text?}",
-            "identifier": "fetch",
-            "output_template": "fetch(\"${url}\")\n\t.then(res => res.json())\n\t.then(result => {\n\t\t#\n\t}, (error) => {\n\t\tconsole.log(error);\n\t});",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "fetch",
-            "is_enabled": true,
-            "description": "Creates default fetch statement.\n> fetch https://www.api.github.com"
-        },
-        {
-            "baseID": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4",
-            "id": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4",
-            "pattern": "ex ${var:word=app} ${type:enum(get,post,delete)=get} ${path:text?}",
-            "identifier": "ex",
-            "output_template": "${var}.${type}('${path}', (req, res) => {\n\t#\n}",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "Express",
-            "is_enabled": true,
-            "description": "Express.js syntax for calls.\n> ex app get /api/users"
-        },
-        {
-            "baseID": "660C7AF2-A383-4F9D-A04E-8E6090250D4E",
-            "id": "660C7AF2-A383-4F9D-A04E-8E6090250D4E",
-            "pattern": "cl ${txt:text}",
-            "identifier": "cl",
-            "output_template": "console.log(${txt});\n#",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "Log",
-            "is_enabled": true,
-            "description": "Creates console.log expression.\n> cl chicken.little()"
-        },
-        {
-            "baseID": "EDE6A9BB-FD51-433E-AE32-0D6835E2A192",
-            "id": "EDE6A9BB-FD51-433E-AE32-0D6835E2A192",
-            "pattern": "-v ${type:enum(const,let)=const} ${var:word}",
-            "identifier": "",
-            "output_template": "${type} ${var} = #;",
-            "supported_languages": [
-                "js"
-            ],
-            "name": "const",
-            "is_enabled": true,
-            "description": "> -v const flow\n\n> -v let flow"
-        }
-    ],
+    "name": "Vanilla JavaScript",
+    "is_enabled": true,
     "supported_languages": [
         "any",
         "js"
     ],
-    "name": "Vanilla JavaScript",
-    "is_enabled": true,
-    "description": "Common Vanilla JavaScript Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)"
+    "description": "Common Vanilla JavaScript Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
+    "expanders": [
+        {
+            "identifier": "byid",
+            "baseID": "4BB849BB-2B46-4F70-8971-B20AED473514",
+            "pattern": "byid ${var:word} ${id:text?}",
+            "id": "4BB849BB-2B46-4F70-8971-B20AED473514",
+            "name": "Element Id",
+            "is_enabled": true,
+            "output_template": "var ${var.camelcase} = document.getElementById(\"${id}\");\n#",
+            "description": "Creates Element id selector statement.\n> byid btns menu-button",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "byclass",
+            "baseID": "95A52662-EB0B-48AE-8AC4-000158D9F12E",
+            "pattern": "byclass ${var:word} ${class:text?}",
+            "id": "95A52662-EB0B-48AE-8AC4-000158D9F12E",
+            "name": "Element Class",
+            "is_enabled": true,
+            "output_template": "var ${var.camelcase} = document.getElementsByClassName(\"${class}\");\n",
+            "description": "Creates default statement for element selection by class name.\n> byclass btns links",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "bytag",
+            "baseID": "CB399EC6-4087-4854-8DA6-6FF09480F38A",
+            "pattern": "bytag ${var:word} ${tag:word}",
+            "id": "CB399EC6-4087-4854-8DA6-6FF09480F38A",
+            "name": "Element Tag",
+            "is_enabled": true,
+            "output_template": "var ${var.camelcase} = document.getElementsByTagName(\"${tag}\");\n#",
+            "description": "Creates default statement for element selection by tag name.\n> bytag btns button",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "addc",
+            "baseID": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8",
+            "pattern": "addc ${var:word} ${class:text?}",
+            "id": "E63F7474-25E0-4D42-8CEA-A1F0CB0B32E8",
+            "name": "Add Class",
+            "is_enabled": true,
+            "output_template": "${var}.className += ${class};\n#",
+            "description": "Creates statement to add to a variable's class name.\n> addc l active",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "forek",
+            "baseID": "AA8C4B31-A779-4066-976C-FD8A6EE031D0",
+            "pattern": "forek ${var:word}",
+            "id": "AA8C4B31-A779-4066-976C-FD8A6EE031D0",
+            "name": "forEach Key",
+            "is_enabled": true,
+            "output_template": "Object.keys(${var})\n\t.forEach((key) => {\n\t\t#\n\t});",
+            "description": "Creates forEach arrow function on dictionary/html node.\n> forek query",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "fetch",
+            "baseID": "84734CF1-6AB0-4BD4-B955-D886704B261C",
+            "pattern": "fetch ${url:text?}",
+            "id": "84734CF1-6AB0-4BD4-B955-D886704B261C",
+            "name": "fetch",
+            "is_enabled": true,
+            "output_template": "fetch(\"${url}\")\n\t.then(res => res.json())\n\t.then(result => {\n\t\t#\n\t}, (error) => {\n\t\tconsole.log(error);\n\t});",
+            "description": "Creates default fetch statement.\n> fetch https://www.api.github.com",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "ex",
+            "baseID": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4",
+            "pattern": "ex ${var:word=app} ${type:enum(get,post,delete)=get} ${path:text?}",
+            "id": "AE8BEB93-5AE6-4B2A-8842-229C993A7FC4",
+            "name": "Express",
+            "is_enabled": true,
+            "output_template": "${var}.${type}('${path}', (req, res) => {\n\t#\n}",
+            "description": "Express.js syntax for calls.\n> ex app get /api/users",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "cl",
+            "baseID": "660C7AF2-A383-4F9D-A04E-8E6090250D4E",
+            "pattern": "cl ${txt:text}",
+            "id": "660C7AF2-A383-4F9D-A04E-8E6090250D4E",
+            "name": "Log",
+            "is_enabled": true,
+            "output_template": "console.log(${txt});\n#",
+            "description": "Creates console.log expression.\n> cl chicken.little()",
+            "supported_languages": [
+                "js"
+            ]
+        },
+        {
+            "identifier": "",
+            "baseID": "EDE6A9BB-FD51-433E-AE32-0D6835E2A192",
+            "pattern": "-v ${type:enum(const,let)=const} ${var:word}",
+            "id": "EDE6A9BB-FD51-433E-AE32-0D6835E2A192",
+            "name": "const",
+            "is_enabled": true,
+            "output_template": "${type} ${var} = #;",
+            "description": "> -v const flow\n\n> -v let flow",
+            "supported_languages": [
+                "js"
+            ]
+        }
+    ]
 }

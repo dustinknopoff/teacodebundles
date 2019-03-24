@@ -24,6 +24,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [Open](#open)
 - [Let If](#let-if)
 - [Par Iter](#par-iter)
+- [Impl Trait](#impl-trait)
 
 ### Fn
 
@@ -51,7 +52,7 @@ will render:
      
 ```
 
-Languages: ['rust']
+Languages: ['rust', 'rs']
 
 
 
@@ -72,18 +73,7 @@ will render:
  }
 ```
 
-` impl rectangle Iterator`
-
-will render:
-
-
-```rust
- impl Rectangle Iterator {
-     
- }
-```
-
-Languages: ['rust']
+Languages: ['rust', 'rs']
 
 
 
@@ -151,7 +141,7 @@ will render:
 
 
 ```rust
- <var>integer 36</var>
+ let mut integer = 36;
 ```
 
 ` var totalSize 36 usize m`
@@ -160,7 +150,7 @@ will render:
 
 
 ```rust
- <var>totalSize 36 usize m</var>
+ let mut total_size: usize = 36;
 ```
 
 Languages: ['rust']
@@ -273,6 +263,7 @@ will render:
 
 ```rust
  mod Docs {
+     use super::*;
      
  }
 ```
@@ -291,8 +282,7 @@ will render:
 
 
 ```rust
- System.out.println("{}", x);
- 
+ println!("{}", x);
 ```
 
 Languages: ['rust']
@@ -395,6 +385,25 @@ will render:
  let all_docs:  = files.par_iter().map(|x| {
  
  }).collect();
+```
+
+Languages: ['rust']
+
+
+
+### Impl Trait
+
+Description:
+
+` impl Default for Rectangle`
+
+will render:
+
+
+```rust
+ impl Default For Rectangle {
+     
+ }
 ```
 
 Languages: ['rust']

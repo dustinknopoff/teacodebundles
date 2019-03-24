@@ -8,6 +8,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 
 - [Full Screen Background](#full-screen-background)
 - [Media Query](#media-query)
+- [var](#var)
 
 ### Full Screen Background
 
@@ -49,6 +50,23 @@ will render:
  @media only screen and (max-width: 768px) {
      
  }
+```
+
+Languages: ['css']
+
+
+
+### var
+
+Description:
+
+` var text-color-default #efefef`
+
+will render:
+
+
+```css
+ --text-color-default: #efefef;
 ```
 
 Languages: ['css']
