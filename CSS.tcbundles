@@ -1,52 +1,65 @@
 {
-    "baseID": "026E11C1-A218-4083-9817-47F70E501864",
+    "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
+    "expanders": [
+        {
+            "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg",
+            "is_enabled": true,
+            "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
+            "name": "Full Screen Background",
+            "supported_languages": [
+                "css"
+            ],
+            "identifier": "fullbg",
+            "pattern": "fullbg ${src:text?}",
+            "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    width: 100%;\n    height: 100%;\n}\n\n#",
+            "baseID": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2"
+        },
+        {
+            "description": "Creates media query.\n> mq 768",
+            "is_enabled": true,
+            "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
+            "name": "Media Query",
+            "supported_languages": [
+                "css"
+            ],
+            "identifier": "mq",
+            "pattern": "mq ${size:number}",
+            "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
+            "baseID": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804"
+        },
+        {
+            "description": "> var text-color-default #efefef",
+            "is_enabled": true,
+            "id": "7B2BAA1E-1312-4095-A858-99F5580328A1",
+            "name": "var",
+            "supported_languages": [
+                "css"
+            ],
+            "identifier": "css.var",
+            "pattern": "var ${name:text?} ${value:text?}",
+            "output_template": "--${name}: ${value};",
+            "baseID": "7B2BAA1E-1312-4095-A858-99F5580328A1"
+        },
+        {
+            "description": "> dark",
+            "is_enabled": true,
+            "id": "AC78271D-76DE-4713-8782-0E53ACDBCC77",
+            "name": "Dark query",
+            "supported_languages": [
+                "css"
+            ],
+            "identifier": "css.dark",
+            "pattern": "dark",
+            "output_template": "@media (prefers-color-scheme: dark) {\n\t#\n}",
+            "baseID": "AC78271D-76DE-4713-8782-0E53ACDBCC77"
+        }
+    ],
+    "is_enabled": true,
     "id": "026E11C1-A218-4083-9817-47F70E501864",
     "name": "CSS",
-    "is_enabled": true,
     "supported_languages": [
         "any",
         "css"
     ],
-    "description": "Common CSS Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
-    "expanders": [
-        {
-            "identifier": "fullbg",
-            "baseID": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
-            "pattern": "fullbg ${src:text?}",
-            "id": "5D2B2005-F844-4521-AC4D-CC9E9B6E95D2",
-            "name": "Full Screen Background",
-            "is_enabled": true,
-            "output_template": "html {\n    background: url(\"${src}\") no-repeat center center fixed;\n    width: 100%;\n    height: 100%;\n}\n\n#",
-            "description": "Creates a full screen background.\n> fullbg ../assets/bg.jpg",
-            "supported_languages": [
-                "css"
-            ]
-        },
-        {
-            "identifier": "mq",
-            "baseID": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
-            "pattern": "mq ${size:number}",
-            "id": "6A6B1926-4BF2-4A01-B43B-6851DF6D0804",
-            "name": "Media Query",
-            "is_enabled": true,
-            "output_template": "@media only screen and (max-width: ${size}px) {\n\t#\n}",
-            "description": "Creates media query.\n> mq 768",
-            "supported_languages": [
-                "css"
-            ]
-        },
-        {
-            "identifier": "css.var",
-            "baseID": "7B2BAA1E-1312-4095-A858-99F5580328A1",
-            "pattern": "var ${name:text?} ${value:text?}",
-            "id": "7B2BAA1E-1312-4095-A858-99F5580328A1",
-            "name": "var",
-            "is_enabled": true,
-            "output_template": "--${name}: ${value};",
-            "description": "> var text-color-default #efefef",
-            "supported_languages": [
-                "css"
-            ]
-        }
-    ]
+    "baseID": "026E11C1-A218-4083-9817-47F70E501864"
 }

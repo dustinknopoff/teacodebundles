@@ -1,237 +1,237 @@
 {
-    "baseID": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
+    "description": "Common Rust Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n\n",
+    "expanders": [
+        {
+            "description": "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32",
+            "is_enabled": true,
+            "id": "A88CD49F-D947-4932-9236-C244959ACA6A",
+            "name": "Fn",
+            "supported_languages": [
+                "rust",
+                "rs"
+            ],
+            "identifier": "rfn",
+            "pattern": "fn ${name:word}| ${args:text?}|",
+            "output_template": "fn ${name.snakecase}(|${args}|) {\n\t#\n}",
+            "baseID": "A88CD49F-D947-4932-9236-C244959ACA6A"
+        },
+        {
+            "description": "Default statement for extending a struct.\n> impl rectangle",
+            "is_enabled": true,
+            "id": "F86B44C5-855F-408F-BC0A-890FA2AB4F27",
+            "name": "Impl",
+            "supported_languages": [
+                "rust",
+                "rs"
+            ],
+            "identifier": "rimpl",
+            "pattern": "impl ${name:text?}",
+            "output_template": "impl ${name.capitalize} {\n\t#\n}",
+            "baseID": "F86B44C5-855F-408F-BC0A-890FA2AB4F27"
+        },
+        {
+            "description": "> struct Rectangle\n\n> struct Room 'a",
+            "is_enabled": true,
+            "id": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E",
+            "name": "Struct",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "rstruct",
+            "pattern": "struct ${name:word}| ${type:text?}|",
+            "output_template": "struct ${name.capitalize}|<${type}>| {\n\t#\n}",
+            "baseID": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E"
+        },
+        {
+            "description": "> enum Coins\n\n> enum Coins Penny,Nickel,Quarter,Dime",
+            "is_enabled": true,
+            "id": "DAA6F157-386D-4E39-86DC-0350B6A80E0D",
+            "name": "Enum",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "renum",
+            "pattern": "enum ${Name:word}| ${params:text?}|",
+            "output_template": "enum ${Name.capitalize} {\n|${python(\"string = \\\"${params}\\\".split(\\\",\\\")\nstring = ',\\n'.join(string)\nprint string\", autoIndent: true, enableSandbox: true)}|\n}\n#",
+            "baseID": "DAA6F157-386D-4E39-86DC-0350B6A80E0D"
+        },
+        {
+            "description": "> var integer 36\n\n> var totalSize 36 usize m",
+            "is_enabled": true,
+            "id": "0BD29A62-AFF4-4359-A7E3-FD363121720A",
+            "name": "Variables",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "rvar",
+            "pattern": "var ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|",
+            "output_template": "let |${mut}| ${name.snakecase}|: ${type}| = ${value};",
+            "baseID": "0BD29A62-AFF4-4359-A7E3-FD363121720A"
+        },
+        {
+            "description": "> conv integer f32",
+            "is_enabled": true,
+            "id": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97",
+            "name": "Type Conversion",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "rconv",
+            "pattern": "conv ${var:word} ${type:word}",
+            "output_template": "${var} as ${type}#",
+            "baseID": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97"
+        },
+        {
+            "description": "> main",
+            "is_enabled": true,
+            "id": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A",
+            "name": "main",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "rmain",
+            "pattern": "main",
+            "output_template": "fn main() {\n\t#\n}",
+            "baseID": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A"
+        },
+        {
+            "description": "> match number\n\n> match number 3,7,22",
+            "is_enabled": true,
+            "id": "E9CA8616-8829-4F97-B74B-DE0C4DB69085",
+            "name": "Match",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "rmatch",
+            "pattern": "match ${var:word}| ${options:text?}|",
+            "output_template": "match ${var} {\n\t|${python(\"string = \\\"${options}\\\".split(\\\",\\\")\nfor i in range(0, len(string)):\n  string[i] = \\\"\\t\\\"+ string[i] +\\\"=> ,\\\"\nprint('\\n'.join(string))\", autoIndent: true, enableSandbox: true)}|\n}",
+            "baseID": "E9CA8616-8829-4F97-B74B-DE0C4DB69085"
+        },
+        {
+            "description": "> attr -d Debug\n\n> attr -c tests",
+            "is_enabled": true,
+            "id": "E1216049-B9A6-499A-B01F-0796C75378D0",
+            "name": "Attr",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "attr ${type:switch(-d:derive,-c:cfg)} ${attrs:text?=Debug}",
+            "output_template": "\\#[${type}(${attrs.capitalize})]\n#",
+            "baseID": "E1216049-B9A6-499A-B01F-0796C75378D0"
+        },
+        {
+            "description": "> mod Docs",
+            "is_enabled": true,
+            "id": "DAD31404-A921-4BB3-83CB-578EC2B1C68F",
+            "name": "Mod",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "mod ${name:word}",
+            "output_template": "mod ${name} {\n\tuse super::*;\n\t#\n}",
+            "baseID": "DAD31404-A921-4BB3-83CB-578EC2B1C68F"
+        },
+        {
+            "description": "> print \"{}\", x",
+            "is_enabled": true,
+            "id": "120AEC02-359C-4CD0-A500-D19D5BEB76C8",
+            "name": "Print",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "print ${foo:text?}",
+            "output_template": "println!(${foo});",
+            "baseID": "120AEC02-359C-4CD0-A500-D19D5BEB76C8"
+        },
+        {
+            "description": "> 2json result",
+            "is_enabled": true,
+            "id": "CCF2634C-546D-4891-A947-F55C3CED165D",
+            "name": "to JSON",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "2json ${var:word}",
+            "output_template": "serde_json::to_string_pretty(&${var})#",
+            "baseID": "CCF2634C-546D-4891-A947-F55C3CED165D"
+        },
+        {
+            "description": "> toS \"Hi\"",
+            "is_enabled": true,
+            "id": "785A1B41-FCC1-41ED-8FFA-502A79677653",
+            "name": "to String",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "toS ${str:text?}",
+            "output_template": "${str}.to_string()",
+            "baseID": "785A1B41-FCC1-41ED-8FFA-502A79677653"
+        },
+        {
+            "description": "> open p\n\n> open ~/Documents/Gits/test.py",
+            "is_enabled": true,
+            "id": "ED1FC4D8-38DC-4A0B-BAF8-EA3927D51AE5",
+            "name": "Open",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "open ${path:text?}",
+            "output_template": "let f = File::open(${python(\"if \\\"/\\\" in \\\"${path.escape_double_quote}\\\":\n\tprint(\\\"\\\\\"${path.escape_double_quote}\\\\\"\\\")\nelse:\n\tprint(\\\"&${path}\\\")\", autoIndent: true, enableSandbox: true)}).expect(\"File not found.);\n#",
+            "baseID": "ED1FC4D8-38DC-4A0B-BAF8-EA3927D51AE5"
+        },
+        {
+            "description": "> lif all_em matches.is_present(\"directory\")",
+            "is_enabled": true,
+            "id": "C9D902CC-0837-4BCF-B9E6-208B394FD73E",
+            "name": "Let If",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "lif ${var:word} ${condition:text?}",
+            "output_template": "let ${var} = if ${condition} {\n\t#\n} else {\n\n};",
+            "baseID": "C9D902CC-0837-4BCF-B9E6-208B394FD73E"
+        },
+        {
+            "description": "> par all_docs files",
+            "is_enabled": true,
+            "id": "3118208D-01D8-4B3A-AD5B-AEDB5F226115",
+            "name": "Par Iter",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "par ${saved:word} ${var:word}",
+            "output_template": "let ${saved}: # = ${var}.par_iter().map(\\|x\\| {\n\n}).collect();",
+            "baseID": "3118208D-01D8-4B3A-AD5B-AEDB5F226115"
+        },
+        {
+            "description": "> impl Default for Rectangle",
+            "is_enabled": true,
+            "id": "3ECD7F80-8DD8-4F52-BEF2-243A38A759CE",
+            "name": "Impl Trait",
+            "supported_languages": [
+                "rust"
+            ],
+            "identifier": "",
+            "pattern": "impl ${trait:word} for ${name:word}",
+            "output_template": "impl ${trait} for ${name} {\n\t#\n}",
+            "baseID": "3ECD7F80-8DD8-4F52-BEF2-243A38A759CE"
+        }
+    ],
+    "is_enabled": true,
     "id": "17BC925B-5A09-4D21-A946-1AAEADBDE010",
     "name": "Rust",
-    "is_enabled": true,
     "supported_languages": [
         "any",
         "rust",
         "rs"
     ],
-    "description": "Common Rust Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)\n\n",
-    "expanders": [
-        {
-            "identifier": "rfn",
-            "baseID": "A88CD49F-D947-4932-9236-C244959ACA6A",
-            "pattern": "fn ${name:word}| ${args:text?}|",
-            "id": "A88CD49F-D947-4932-9236-C244959ACA6A",
-            "name": "Fn",
-            "is_enabled": true,
-            "output_template": "fn ${name.snakecase}(|${args}|) {\n\t#\n}",
-            "description": "Creates Rust default function template.\n> fn main\n> fn divide divisor: i32, dividend: i32",
-            "supported_languages": [
-                "rust",
-                "rs"
-            ]
-        },
-        {
-            "identifier": "rimpl",
-            "baseID": "F86B44C5-855F-408F-BC0A-890FA2AB4F27",
-            "pattern": "impl ${name:text?}",
-            "id": "F86B44C5-855F-408F-BC0A-890FA2AB4F27",
-            "name": "Impl",
-            "is_enabled": true,
-            "output_template": "impl ${name.capitalize} {\n\t#\n}",
-            "description": "Default statement for extending a struct.\n> impl rectangle",
-            "supported_languages": [
-                "rust",
-                "rs"
-            ]
-        },
-        {
-            "identifier": "rstruct",
-            "baseID": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E",
-            "pattern": "struct ${name:word}| ${type:text?}|",
-            "id": "06CEF1E8-EC02-4AD7-BF48-A88E53276F9E",
-            "name": "Struct",
-            "is_enabled": true,
-            "output_template": "struct ${name.capitalize}|<${type}>| {\n\t#\n}",
-            "description": "> struct Rectangle\n\n> struct Room 'a",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "renum",
-            "baseID": "DAA6F157-386D-4E39-86DC-0350B6A80E0D",
-            "pattern": "enum ${Name:word}| ${params:text?}|",
-            "id": "DAA6F157-386D-4E39-86DC-0350B6A80E0D",
-            "name": "Enum",
-            "is_enabled": true,
-            "output_template": "enum ${Name.capitalize} {\n|${python(\"string = \\\"${params}\\\".split(\\\",\\\")\nstring = ',\\n'.join(string)\nprint string\", autoIndent: true, enableSandbox: true)}|\n}\n#",
-            "description": "> enum Coins\n\n> enum Coins Penny,Nickel,Quarter,Dime",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "rvar",
-            "baseID": "0BD29A62-AFF4-4359-A7E3-FD363121720A",
-            "pattern": "var ${name:word} ${value:word}| ${type:enum(i8,i16,i32,i64,isize,u8,u16,u32,u64,usize,f32,f64,char,bool,())} ${mut:switch(m:mut)=m}|",
-            "id": "0BD29A62-AFF4-4359-A7E3-FD363121720A",
-            "name": "Variables",
-            "is_enabled": true,
-            "output_template": "let |${mut}| ${name.snakecase}|: ${type}| = ${value};",
-            "description": "> var integer 36\n\n> var totalSize 36 usize m",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "rconv",
-            "baseID": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97",
-            "pattern": "conv ${var:word} ${type:word}",
-            "id": "6E5BEB4E-2213-4ED5-97CD-95F4A9D41E97",
-            "name": "Type Conversion",
-            "is_enabled": true,
-            "output_template": "${var} as ${type}#",
-            "description": "> conv integer f32",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "rmain",
-            "baseID": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A",
-            "pattern": "main",
-            "id": "1E82D7DE-D103-4581-8FB3-9AE087B6E11A",
-            "name": "main",
-            "is_enabled": true,
-            "output_template": "fn main() {\n\t#\n}",
-            "description": "> main",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "rmatch",
-            "baseID": "E9CA8616-8829-4F97-B74B-DE0C4DB69085",
-            "pattern": "match ${var:word}| ${options:text?}|",
-            "id": "E9CA8616-8829-4F97-B74B-DE0C4DB69085",
-            "name": "Match",
-            "is_enabled": true,
-            "output_template": "match ${var} {\n\t|${python(\"string = \\\"${options}\\\".split(\\\",\\\")\nfor i in range(0, len(string)):\n  string[i] = \\\"\\t\\\"+ string[i] +\\\"=> ,\\\"\nprint('\\n'.join(string))\", autoIndent: true, enableSandbox: true)}|\n}",
-            "description": "> match number\n\n> match number 3,7,22",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "E1216049-B9A6-499A-B01F-0796C75378D0",
-            "pattern": "attr ${type:switch(-d:derive,-c:cfg)} ${attrs:text?=Debug}",
-            "id": "E1216049-B9A6-499A-B01F-0796C75378D0",
-            "name": "Attr",
-            "is_enabled": true,
-            "output_template": "\\#[${type}(${attrs.capitalize})]\n#",
-            "description": "> attr -d Debug\n\n> attr -c tests",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "DAD31404-A921-4BB3-83CB-578EC2B1C68F",
-            "pattern": "mod ${name:word}",
-            "id": "DAD31404-A921-4BB3-83CB-578EC2B1C68F",
-            "name": "Mod",
-            "is_enabled": true,
-            "output_template": "mod ${name} {\n\tuse super::*;\n\t#\n}",
-            "description": "> mod Docs",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "120AEC02-359C-4CD0-A500-D19D5BEB76C8",
-            "pattern": "print ${foo:text?}",
-            "id": "120AEC02-359C-4CD0-A500-D19D5BEB76C8",
-            "name": "Print",
-            "is_enabled": true,
-            "output_template": "println!(${foo});",
-            "description": "> print \"{}\", x",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "CCF2634C-546D-4891-A947-F55C3CED165D",
-            "pattern": "2json ${var:word}",
-            "id": "CCF2634C-546D-4891-A947-F55C3CED165D",
-            "name": "to JSON",
-            "is_enabled": true,
-            "output_template": "serde_json::to_string_pretty(&${var})#",
-            "description": "> 2json result",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "785A1B41-FCC1-41ED-8FFA-502A79677653",
-            "pattern": "toS ${str:text?}",
-            "id": "785A1B41-FCC1-41ED-8FFA-502A79677653",
-            "name": "to String",
-            "is_enabled": true,
-            "output_template": "${str}.to_string()",
-            "description": "> toS \"Hi\"",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "ED1FC4D8-38DC-4A0B-BAF8-EA3927D51AE5",
-            "pattern": "open ${path:text?}",
-            "id": "ED1FC4D8-38DC-4A0B-BAF8-EA3927D51AE5",
-            "name": "Open",
-            "is_enabled": true,
-            "output_template": "let f = File::open(${python(\"if \\\"/\\\" in \\\"${path.escape_double_quote}\\\":\n\tprint(\\\"\\\\\"${path.escape_double_quote}\\\\\"\\\")\nelse:\n\tprint(\\\"&${path}\\\")\", autoIndent: true, enableSandbox: true)}).expect(\"File not found.);\n#",
-            "description": "> open p\n\n> open ~/Documents/Gits/test.py",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "C9D902CC-0837-4BCF-B9E6-208B394FD73E",
-            "pattern": "lif ${var:word} ${condition:text?}",
-            "id": "C9D902CC-0837-4BCF-B9E6-208B394FD73E",
-            "name": "Let If",
-            "is_enabled": true,
-            "output_template": "let ${var} = if ${condition} {\n\t#\n} else {\n\n};",
-            "description": "> lif all_em matches.is_present(\"directory\")",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "3118208D-01D8-4B3A-AD5B-AEDB5F226115",
-            "pattern": "par ${saved:word} ${var:word}",
-            "id": "3118208D-01D8-4B3A-AD5B-AEDB5F226115",
-            "name": "Par Iter",
-            "is_enabled": true,
-            "output_template": "let ${saved}: # = ${var}.par_iter().map(\\|x\\| {\n\n}).collect();",
-            "description": "> par all_docs files",
-            "supported_languages": [
-                "rust"
-            ]
-        },
-        {
-            "identifier": "",
-            "baseID": "3ECD7F80-8DD8-4F52-BEF2-243A38A759CE",
-            "pattern": "impl ${trait:word} for ${name:word}",
-            "id": "3ECD7F80-8DD8-4F52-BEF2-243A38A759CE",
-            "name": "Impl Trait",
-            "is_enabled": true,
-            "output_template": "impl ${trait} for ${name} {\n\t#\n}",
-            "description": "> impl Default for Rectangle",
-            "supported_languages": [
-                "rust"
-            ]
-        }
-    ]
+    "baseID": "17BC925B-5A09-4D21-A946-1AAEADBDE010"
 }

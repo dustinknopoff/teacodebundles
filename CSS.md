@@ -9,6 +9,7 @@ Made by [@dustinknopoff](https://dustinknopoff.me)
 - [Full Screen Background](#full-screen-background)
 - [Media Query](#media-query)
 - [var](#var)
+- [Dark query](#dark-query)
 
 ### Full Screen Background
 
@@ -67,6 +68,25 @@ will render:
 
 ```css
  --text-color-default: #efefef;
+```
+
+Languages: ['css']
+
+
+
+### Dark query
+
+Description:
+
+` dark`
+
+will render:
+
+
+```css
+ @media (prefers-color-scheme: dark) {
+     
+ }
 ```
 
 Languages: ['css']

@@ -1,38 +1,38 @@
 {
-    "baseID": "14D33812-4045-40CE-901A-A570C4770D62",
-    "id": "14D33812-4045-40CE-901A-A570C4770D62",
-    "name": "Processing",
-    "is_enabled": false,
-    "supported_languages": [
-        "processing"
-    ],
     "description": "Commonly Used Processing Expansions\n\nMade by [@dustinknopoff](https://dustinknopoff.me)",
     "expanders": [
         {
-            "identifier": "",
-            "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
-            "pattern": "set ${width:number} ${height:number}",
+            "description": "> set 640 840",
+            "is_enabled": true,
             "id": "FC03AD2C-499B-49AE-946D-DB9330DA647A",
             "name": "Setup",
-            "is_enabled": true,
-            "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
-            "description": "> set 640 840",
             "supported_languages": [
                 "java"
-            ]
+            ],
+            "identifier": "",
+            "pattern": "set ${width:number} ${height:number}",
+            "output_template": "void setup() {\n\tsize(${width}, ${height});\n\t#\n}",
+            "baseID": "FC03AD2C-499B-49AE-946D-DB9330DA647A"
         },
         {
-            "identifier": "",
-            "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
-            "pattern": "draw",
+            "description": "> draw",
+            "is_enabled": true,
             "id": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1",
             "name": "Draw",
-            "is_enabled": true,
-            "output_template": "void draw() {\n\t#\n}",
-            "description": "> draw",
             "supported_languages": [
                 "java"
-            ]
+            ],
+            "identifier": "",
+            "pattern": "draw",
+            "output_template": "void draw() {\n\t#\n}",
+            "baseID": "B0BF88FD-CCDB-4B6B-80EB-EFD53F61CFB1"
         }
-    ]
+    ],
+    "is_enabled": false,
+    "id": "14D33812-4045-40CE-901A-A570C4770D62",
+    "name": "Processing",
+    "supported_languages": [
+        "processing"
+    ],
+    "baseID": "14D33812-4045-40CE-901A-A570C4770D62"
 }
